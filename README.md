@@ -10,7 +10,7 @@ Data version : ToxCast_v.4.1
 - RDKit
 - Pattern
 - Layered
-(총 다섯 가지)
+
 
 사용된 알고리즘
 -------------
@@ -19,7 +19,7 @@ Data version : ToxCast_v.4.1
 - Gradient Boost Tree (gbt.py)
 - XGBoost (xgb.py)
 - Random Forest (rf.py)
-(총 다섯 가지)
+
 
 분자지문
 ----------------
