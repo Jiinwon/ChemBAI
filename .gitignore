@@ -1,6 +1,0 @@
-# model/toxcast_pkg 내의 __pycache__ 디렉토리 무시
-model/toxcast_pkg/__pycache__/
-
-# Final_model_save 디렉토리 내 특정 파일 무시
-Final_model_save/check_empty_file.py
-Final_model_save/model_copy_paste.py
