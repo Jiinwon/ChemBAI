@@ -35,33 +35,8 @@ def save_results(result, path):
     with open(path, 'w') as f:
         json.dump(result, f)
 
-def find_best_model(results, metric='f1', metric_agg='mean'):
-    best_model = None
-    best_score = -np.inf
-    best_model_key = None
-    
-    for model_key in results['model'].keys():
-        scores = results[metric][model_key]
-        if metric_agg == 'mean':
-            agg_score = np.mean(scores)
-        elif metric_agg == 'median':
-            agg_score = np.median(scores)
-        else:
-            raise ValueError("metric_agg must be either 'mean' or 'median'")
-        
-        if agg_score > best_score:
-            best_score = agg_score
-            best_model = results['model'][model_key]
-            best_model_key = model_key
-    
-    return best_model_key, best_model, best_score
-
 def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
-    """
-    # 데이터를 로드하고 train/test로 4:1로 분할
-    x, y = load_data(fingerprint_type=fingerprint_type, file_path=file_path)
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True, random_state=42)
-    """
+
     if fingerprint_type == 'MACCS':
         file_path_fp = f'{fp_path}/MACCS.csv'
     if fingerprint_type == 'Layered':
@@ -73,13 +48,29 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
     if fingerprint_type == 'RDKit':
         file_path_fp = f'{fp_path}/RDKit.csv'
    
-    # 데이터를 로드하고 train/test로 4:1로 분할
-    #fingerprint, hitcall값 x, y로 불러오기
+    # fingerprint, hitcall값 x, y로 불러오기
     x = pd.read_csv(file_path_fp)
-    df_drop_idx = pd.read_csv(f'{fp_path}/{fingerprint_type}_dropidx.csv')
-    drop_idx = df_drop_idx[f'{fingerprint_type}'].tolist()
+
+    dropidx_file = f'{fp_path}/{fingerprint_type}_dropidx.csv'
+    if os.path.exists(dropidx_file) and os.path.getsize(dropidx_file) > 0:
+        try:
+            df_drop_idx = pd.read_csv(dropidx_file)
+            drop_idx = df_drop_idx[f'{fingerprint_type}'].tolist() if not df_drop_idx.empty else []
+        except pd.errors.EmptyDataError:
+            drop_idx = []
+    else:
+        drop_idx = []
+
+    # 이후 drop_idx가 빈 리스트일 경우 drop 작업이 수행되지 않습니다.
+    x = pd.read_csv(file_path_fp)
     df = pd.read_excel(file_path)
-    y = df.iloc[:, assay_num+1].drop(drop_idx).reset_index(drop=True)
+    assay_name = df.columns[assay_num+1]
+
+    if drop_idx:
+        y = df.iloc[:, assay_num+1].drop(drop_idx).reset_index(drop=True)
+    else:
+        y = df.iloc[:, assay_num+1].reset_index(drop=True)
+
     na_idx = y[y.isnull()].index
     y = y.drop(index=na_idx).reset_index(drop=True)
     x = x.drop(index=na_idx).reset_index(drop=True)
@@ -163,7 +154,7 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
     logging.info(f"Test AUC: {test_roc_auc}")
 
     # 최적 모델 저장
-    model_filename = f'{model_save_path}/{assay_num}_best_model_{fingerprint_type}_xgb.joblib'
+    model_filename = f'{model_save_path}/{assay_name}_best_model_{fingerprint_type}_xgb.joblib'
     joblib.dump(final_model, model_filename)
     logging.info(f"Best model saved as {model_filename} with F1 score: {test_f1}")
 

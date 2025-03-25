@@ -15,7 +15,6 @@ import numpy as np
 from tqdm import tqdm
 from sklearn.model_selection import StratifiedKFold, train_test_split
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_auc_score
-from toxcast_pkg.read_data import load_data
 from toxcast_pkg.common import ParameterGrid
 from rdkit import RDLogger
 from imblearn.over_sampling import SMOTE
@@ -66,13 +65,28 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
     if fingerprint_type == 'RDKit':
         file_path_fp = f'{fp_path}/RDKit.csv'
    
-    # 데이터를 로드하고 train/test로 4:1로 분할
-    #fingerprint, hitcall값 x, y로 불러오기
+    # fingerprint, hitcall값 x, y로 불러오기
     x = pd.read_csv(file_path_fp)
-    df_drop_idx = pd.read_csv(f'{fp_path}/{fingerprint_type}_dropidx.csv')
-    drop_idx = df_drop_idx[f'{fingerprint_type}'].tolist()
+
+    dropidx_file = f'{fp_path}/{fingerprint_type}_dropidx.csv'
+    if os.path.exists(dropidx_file) and os.path.getsize(dropidx_file) > 0:
+        try:
+            df_drop_idx = pd.read_csv(dropidx_file)
+            drop_idx = df_drop_idx[f'{fingerprint_type}'].tolist() if not df_drop_idx.empty else []
+        except pd.errors.EmptyDataError:
+            drop_idx = []
+    else:
+        drop_idx = []
+
+    # 이후 drop_idx가 빈 리스트일 경우 drop 작업이 수행되지 않습니다.
+    x = pd.read_csv(file_path_fp)
     df = pd.read_excel(file_path)
-    y = df.iloc[:, assay_num+1].drop(drop_idx).reset_index(drop=True)
+    assay_name = df.columns[assay_num+1]
+    if drop_idx:
+        y = df.iloc[:, assay_num+1].drop(drop_idx).reset_index(drop=True)
+    else:
+        y = df.iloc[:, assay_num+1].reset_index(drop=True)
+
     na_idx = y[y.isnull()].index
     y = y.drop(index=na_idx).reset_index(drop=True)
     x = x.drop(index=na_idx).reset_index(drop=True)
@@ -155,7 +169,7 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
     logging.info(f"Test AUC: {test_roc_auc}")
 
     # 최적 모델 저장
-    model_filename = f'{model_save_path}/{assay_num}_best_model_{fingerprint_type}_dt.joblib'
+    model_filename = f'{model_save_path}/{assay_name}_best_model_{fingerprint_type}_dt.joblib'
     joblib.dump(final_model, model_filename)
     logging.info(f"Best model saved as {model_filename} with F1 score: {test_f1}")
 
