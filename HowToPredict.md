@@ -1,44 +1,5 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <meta charset="UTF-8">
-  <title>README 가이드 📝</title>
-  <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f9f9f9;
-      padding: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1, h2, h3 {
-      color: #444;
-    }
-    ul, ol {
-      margin: 10px 0 20px 20px;
-    }
-    code {
-      background-color: #eee;
-      padding: 2px 4px;
-      border-radius: 4px;
-      font-family: 'Courier New', Courier, monospace;
-    }
-    .step {
-      margin: 20px 0;
-      padding: 10px;
-      background-color: #fff;
-      border-left: 4px solid #4CAF50;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
-    }
-  </style>
 </head>
 <body>
-  <h1>README 가이드 📝</h1>
-  
   <h2>⚠️ 주의사항</h2>
   <ul>
     <li>업로드된 코드 파일들은 모두 상대경로로 지정되어 있으므로 <strong>"model"</strong> 디렉토리까지 이동 후 사용해야 합니다.</li>

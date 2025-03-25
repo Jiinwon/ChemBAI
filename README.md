@@ -1,18 +1,3 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-  <title>ChemBAI README 가이드 📝</title>
-  <style>
-    body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 20px; padding: 20px; line-height: 1.6; color: #333; }
-    h1 { color: #2c3e50; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
-    h2 { color: #34495e; margin-top: 20px; }
-    h3 { color: #3c6382; margin-top: 15px; }
-    ul, ol { margin-left: 20px; }
-    code { background-color: #eef; padding: 2px 4px; border-radius: 4px; font-family: Consolas, monospace; }
-    .section { background-color: #fff; padding: 15px; border-left: 4px solid #27ae60; margin-bottom: 20px; }
-    pre { background-color: #f1f1f1; padding: 10px; border-radius: 4px; overflow-x: auto; }
-    hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
-  </style>
 </head>
 <body>
   <h1>ChemBAI 📊</h1>
