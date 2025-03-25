@@ -1,56 +1,17 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
   <title>ChemBAI README 가이드 📝</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      margin: 20px;
-      padding: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1 {
-      color: #2c3e50;
-      border-bottom: 2px solid #ccc;
-      padding-bottom: 10px;
-    }
-    h2 {
-      color: #34495e;
-      margin-top: 20px;
-    }
-    h3 {
-      color: #3c6382;
-      margin-top: 15px;
-    }
-    ul, ol {
-      margin-left: 20px;
-    }
-    code {
-      background-color: #eef;
-      padding: 2px 4px;
-      border-radius: 4px;
-      font-family: Consolas, monospace;
-    }
-    .section {
-      background-color: #fff;
-      padding: 15px;
-      border-left: 4px solid #27ae60;
-      margin-bottom: 20px;
-    }
-    pre {
-      background-color: #f1f1f1;
-      padding: 10px;
-      border-radius: 4px;
-      overflow-x: auto;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
-    }
+    body { font-family: Arial, sans-serif; background-color: #f7f7f7; margin: 20px; padding: 20px; line-height: 1.6; color: #333; }
+    h1 { color: #2c3e50; border-bottom: 2px solid #ccc; padding-bottom: 10px; }
+    h2 { color: #34495e; margin-top: 20px; }
+    h3 { color: #3c6382; margin-top: 15px; }
+    ul, ol { margin-left: 20px; }
+    code { background-color: #eef; padding: 2px 4px; border-radius: 4px; font-family: Consolas, monospace; }
+    .section { background-color: #fff; padding: 15px; border-left: 4px solid #27ae60; margin-bottom: 20px; }
+    pre { background-color: #f1f1f1; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    hr { border: none; border-top: 1px solid #ccc; margin: 20px 0; }
   </style>
 </head>
 <body>
@@ -154,8 +115,8 @@ x = x.drop(index=na_idx).reset_index(drop=True)
     <li>
       <strong>ToxCast_model_training.sh</strong>
       <ul>
-        <li><code>models=('dt')</code> <!-- 예시: 'xgb', 'gbt', 'rf', 'logistic' 등으로 모델 정의 --></li>
-        <li><code>fingerprints=('MACCS')</code> <!-- 예시: 'Morgan', 'RDKit', 'Layered', 'Pattern' 등으로 지문 정의 --></li>
+        <li><code>models=('dt')</code> (예시: 'xgb', 'gbt', 'rf', 'logistic' 등으로 모델 정의)</li>
+        <li><code>fingerprints=('MACCS')</code> (예시: 'Morgan', 'RDKit', 'Layered', 'Pattern' 등으로 지문 정의)</li>
         <li><code>file_path = "./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx"</code> (데이터 경로)</li>
         <li><code>fp_path = "./data/example_data_DBPs/for_train/fingerprint_outputs"</code> (fingerprints 경로)</li>
         <li><code>data_name = "example_DBPs_ER"</code></li>
@@ -175,7 +136,7 @@ x = x.drop(index=na_idx).reset_index(drop=True)
     <li>
       <strong>Predict_data.py</strong>
       <ul>
-        <li><code>input_excel_path = "./prediction/example_prediction_DBPs/example_assay_list_ER.xlsx"</code> <!-- 수정 필요 --></li>
+        <li><code>input_excel_path = "./prediction/example_prediction_DBPs/example_assay_list_ER.xlsx"</code> (수정 필요)</li>
         <li><code>model_path_base = "./results/example_DBPs_ER/2025-03-25/model_save_path"</code></li>
         <li><code>input_fp_path_base = "./data/example_data_DBPs/for_predict/fingerprints"</code></li>
         <li><code>SMILES_path = "./data/example_data_DBPs/for_predict/example_DBPs_for_pred.xlsx"</code></li>
