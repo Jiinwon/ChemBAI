@@ -1,0 +1,12 @@
+2025-03-24 19:54:17,052 - Best Model Parameters: {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-03-24 19:54:17,052 - Validation F1 Score: 0.4454580398634945
+2025-03-24 19:54:17,053 - Validation Precision: 0.387105484593467
+2025-03-24 19:54:17,053 - Validation Recall: 0.5246511627906977
+2025-03-24 19:54:17,053 - Validation Accuracy: 0.780301788106171
+2025-03-24 19:54:17,053 - Validation AUC: 0.6799562325806351
+2025-03-24 19:54:17,173 - Test F1 Score: 0.4789762340036563
+2025-03-24 19:54:17,173 - Test Precision: 0.48698884758364314
+2025-03-24 19:54:17,173 - Test Recall: 0.4712230215827338
+2025-03-24 19:54:17,173 - Test Accuracy: 0.8215403882279274
+2025-03-24 19:54:17,173 - Test AUC: 0.6946141343180194
+2025-03-24 19:54:17,175 - Best model saved as ./results/ToxCast_v.4.1_v.2/2025-03-24/model_save_path/TOX21_TR_LUC_GH3_Antagonist_viability/TOX21_TR_LUC_GH3_Antagonist_viability_MACCS_dt/nan_best_model_MACCS_dt.joblib with F1 score: 0.4789762340036563

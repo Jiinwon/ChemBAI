@@ -1,0 +1,16 @@
+  0%|          | 0/108 [00:00<?, ?it/s]  0%|          | 0/108 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/model/./run/dt.py", line 187, in <module>
+    main(args.fingerprint_type, args.file_path, args.model_save_path, args.assay_num, args.fp_path)
+  File "/gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/model/./run/dt.py", line 122, in main
+    fold_train_x, fold_train_y = sm.fit_resample(fold_train_x, fold_train_y)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/imblearn/base.py", line 208, in fit_resample
+    return super().fit_resample(X, y)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/imblearn/base.py", line 108, in fit_resample
+    self.sampling_strategy_ = check_sampling_strategy(
+                              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/imblearn/utils/_validation.py", line 537, in check_sampling_strategy
+    raise ValueError(
+ValueError: The target 'y' needs to have more than 1 class. Got 1 class instead

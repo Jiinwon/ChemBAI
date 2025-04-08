@@ -1,0 +1,12 @@
+2025-03-24 19:52:23,519 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-03-24 19:52:23,519 - Validation F1 Score: 0.19139011147666857
+2025-03-24 19:52:23,519 - Validation Precision: 0.14137232009572437
+2025-03-24 19:52:23,519 - Validation Recall: 0.29719387755102045
+2025-03-24 19:52:23,519 - Validation Accuracy: 0.9051046380956933
+2025-03-24 19:52:23,519 - Validation AUC: 0.6164975621102158
+2025-03-24 19:52:23,604 - Test F1 Score: 0.1935483870967742
+2025-03-24 19:52:23,604 - Test Precision: 0.2
+2025-03-24 19:52:23,604 - Test Recall: 0.1875
+2025-03-24 19:52:23,604 - Test Accuracy: 0.9373825923606762
+2025-03-24 19:52:23,604 - Test AUC: 0.5825179386823223
+2025-03-24 19:52:23,606 - Best model saved as ./results/ToxCast_v.4.1_v.2/2025-03-24/model_save_path/TOX21_p53_BLA_p1_ch2/TOX21_p53_BLA_p1_ch2_MACCS_dt/nan_best_model_MACCS_dt.joblib with F1 score: 0.1935483870967742

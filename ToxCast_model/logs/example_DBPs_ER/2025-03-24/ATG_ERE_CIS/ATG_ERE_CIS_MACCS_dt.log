@@ -1,0 +1,12 @@
+2025-03-24 18:58:24,091 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 4}
+2025-03-24 18:58:24,091 - Validation F1 Score: 0.5313852813852813
+2025-03-24 18:58:24,092 - Validation Precision: 0.47237484737484736
+2025-03-24 18:58:24,092 - Validation Recall: 0.625
+2025-03-24 18:58:24,092 - Validation Accuracy: 0.7229885057471265
+2025-03-24 18:58:24,092 - Validation AUC: 0.7262987012987013
+2025-03-24 18:58:24,104 - Test F1 Score: 0.46153846153846156
+2025-03-24 18:58:24,105 - Test Precision: 0.42857142857142855
+2025-03-24 18:58:24,105 - Test Recall: 0.5
+2025-03-24 18:58:24,105 - Test Accuracy: 0.8108108108108109
+2025-03-24 18:58:24,105 - Test AUC: 0.6881720430107526
+2025-03-24 18:58:24,107 - Best model saved as ./results/example_DBPs_ER/2025-03-24/model_save_path/ATG_ERE_CIS/ATG_ERE_CIS_MACCS_dt/1_best_model_MACCS_dt.joblib with F1 score: 0.46153846153846156
