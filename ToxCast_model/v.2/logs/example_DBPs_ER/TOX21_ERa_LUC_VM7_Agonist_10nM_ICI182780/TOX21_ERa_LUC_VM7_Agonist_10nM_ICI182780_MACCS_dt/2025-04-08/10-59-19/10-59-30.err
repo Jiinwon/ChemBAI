@@ -1,0 +1,19 @@
+  0%|          | 0/108 [00:00<?, ?it/s]  0%|          | 0/108 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/ToxCast_model/v.2/./run_v.2/dt.py", line 218, in <module>
+    main(args.fingerprint_type, args.file_path, args.model_save_path, args.assay_num, args.fp_path, args.time_now, args.data_name)
+  File "/gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/ToxCast_model/v.2/./run_v.2/dt.py", line 150, in main
+    fold_train_x, fold_train_y = sm.fit_resample(fold_train_x, fold_train_y)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/imblearn/base.py", line 208, in fit_resample
+    return super().fit_resample(X, y)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/imblearn/base.py", line 112, in fit_resample
+    output = self._fit_resample(X, y)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/imblearn/over_sampling/_smote/base.py", line 389, in _fit_resample
+    nns = self.nn_k_.kneighbors(X_class, return_distance=False)[:, 1:]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.12/site-packages/sklearn/neighbors/_base.py", line 834, in kneighbors
+    raise ValueError(
+ValueError: Expected n_neighbors <= n_samples_fit, but n_neighbors = 6, n_samples_fit = 5, n_samples = 5

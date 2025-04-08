@@ -1,0 +1,13 @@
+train_test_split 파일 저장 완료.
+2025-04-08 10:59:49,280 - Best Model Parameters: {'criterion': 'gini', 'max_depth': 4, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-04-08 10:59:49,280 - Validation F1 Score: 0.13714285714285715
+2025-04-08 10:59:49,281 - Validation Precision: 0.10666666666666666
+2025-04-08 10:59:49,281 - Validation Recall: 0.2
+2025-04-08 10:59:49,281 - Validation Accuracy: 0.9241568627450981
+2025-04-08 10:59:49,281 - Validation AUC: 0.6348639455782312
+2025-04-08 10:59:49,293 - Test F1 Score: 0.0
+2025-04-08 10:59:49,293 - Test Precision: 0.0
+2025-04-08 10:59:49,293 - Test Recall: 0.0
+2025-04-08 10:59:49,293 - Test Accuracy: 0.9841269841269841
+2025-04-08 10:59:49,293 - Test AUC: 0.967741935483871
+2025-04-08 10:59:49,295 - Best model saved as ./results/example_DBPs_ER/model_save_path/TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780/TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_MACCS_dt/2025-04-08/10-59-19/10-59-31/TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_best_model_MACCS_dt.joblib with F1 score: 0.0
