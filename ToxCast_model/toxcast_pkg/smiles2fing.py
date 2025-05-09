@@ -45,8 +45,8 @@ def Smiles2Fing(smiles, fingerprint_type='MACCS'):
 
 if __name__ == "__main__":
     # 입력 파일 경로 설정
-    input_excel_path = "./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx"  # 입력 엑셀 파일 경로 : 훈련 or 예측에 사용할 데이터
-    output_dir = "./data/example_data_DBPs/for_train/fingerprints"  # DBPs/for_predict/example_DBPs 디렉토리
+    input_excel_path = "./data/TC_IVB_PA/TC_IVB_PA_for_predict.xlsx"  # 입력 엑셀 파일 경로 : 훈련 or 예측에 사용할 데이터
+    output_dir = "./data/TC_IVB_PA/fingerprints"  # DBPs/for_predict/example_DBPs 디렉토리
 
     # 출력 디렉토리 생성
     os.makedirs(output_dir, exist_ok=True)

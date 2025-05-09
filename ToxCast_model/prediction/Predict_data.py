@@ -4,10 +4,10 @@ import os
 
 if __name__ == "__main__":
     # 입력 엑셀 파일과 시트명
-    input_excel_path = "./prediction/example_prediction_DBPs/example_assay_list_ER.xlsx" #수정
-    model_path_base = "./results/example_DBPs_ER/2025-03-25/model_save_path"
-    input_fp_path_base = "./data/example_data_DBPs/for_predict/fingerprints"
-    SMILES_path = "./data/example_data_DBPs/for_predict/example_DBPs_for_pred.xlsx"
+    input_excel_path = "./prediction/TC_IVB_PA/assay_list_TC_IVB_PA.xlsx" #수정
+    model_path_base = "../Final_model_save/ToxCast_v.4.2_model_total"
+    input_fp_path_base = "./data/TC_IVB_PA/fingerprints"
+    SMILES_path = "./prediction/TC_IVB_PA/predict_TC_IVB_PA.xlsx"
 
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path)
@@ -29,7 +29,7 @@ if __name__ == "__main__":
         mf_type = row["MF"]
         print(assay_name, model_type, mf_type)
 
-        model_path = f"{model_path_base}/{assay_name}/{assay_name}_{mf_type}_{model_type}/{assay_name}_best_model_{mf_type}_{model_type}.joblib"
+        model_path = f"{model_path_base}/{assay_name}_{mf_type}_{model_type}/{assay_name}_best_model_{mf_type}_{model_type}.joblib"
 
         if not os.path.exists(model_path):
             print(f"모델 파일이 존재하지 않습니다: {model_path}")
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     all_results.insert(0, "SMILES", filtered_smiles)
 
     # 최종 결과 저장
-    output_excel_path = "./prediction/example_prediction_DBPs/example_predict_DBPs_ER.xlsx" #수정
+    output_excel_path = SMILES_path
     all_results.to_excel(output_excel_path, index=False)
     print(f"All predictions saved to {output_excel_path}")
 
