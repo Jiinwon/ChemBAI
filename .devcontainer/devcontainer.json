@@ -1,0 +1,45 @@
+{
+  "name": "ChemBAI Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "remoteUser": "hostuser",  // Dockerfile에서 정의한 비-루트 사용자
+
+  // 환경변수 (필요 시 추가/수정)
+  "containerEnv": {
+    "CHEMBAI_INPUT_PATH": "${containerWorkspaceFolder}/data/example_DBPs_ER.xlsx",
+    "CHEMBAI_FP_PATH": "${containerWorkspaceFolder}/data/fingerprints",
+    "CHEMBAI_RESULTS_PATH": "${containerWorkspaceFolder}/results",
+    "ASSAY_NUM": "1",
+    "MODELS": "dt,gbt,rf,xgb,logistic",
+    "FINGERPRINTS": "MACCS,Morgan,RDKit,Pattern,Layered",
+    "OPENAI_API_KEY": "${localEnv:OPENAI_API_KEY}",  
+    "DATA_PATH": "${containerWorkspaceFolder}/data"  // 프로젝트 데이터 기본 경로
+  },
+
+  // 컨테이너 생성 직후 실행할 스크립트
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+
+  // VS Code 설정
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+
+  // 설치할 VS Code 확장
+  "extensions": [
+    "ms-python.python",
+    "ms-python.vscode-pylance"
+  ],
+
+  // Docker run 시 추가 옵션
+  "runArgs": [
+    "--gpus", "all"  // GPU 지원이 필요할 경우
+  ],
+  "ports": [
+    "8888:8888"  // Jupyter Lab 등 포트 포워딩 예시
+  ],
+  "mounts": [
+    "source=${localWorkspaceFolder}/data,target=/home/hostuser/workspace/data,type=bind,consistency=cached"
+  ]
+}
