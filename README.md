@@ -99,6 +99,10 @@ x = x.drop(index=na_idx).reset_index(drop=True)
   <ul>
     <li>예측에 사용할 모델 경로, 분자지문 파일, SMILES 파일 역시 <code>config.py</code>에서 수정합니다.</li>
   </ul>
-  
+
+  <p>훈련과 예측 모두 <code>run_pipeline.sh</code> 스크립트로 실행할 수 있습니다.
+    <code>config.py</code>에서 <code>OBJECT</code> 값을 0(predict) 또는 1(train)으로
+    설정하면 해당 모드로 동작합니다.</p>
+
 </body>
 </html>
