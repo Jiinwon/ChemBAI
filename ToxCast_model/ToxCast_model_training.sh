@@ -1,12 +1,32 @@
 #!/bin/bash
 
 pwd
-# 모델 리스트 정의
-models=('dt') # 'xgb' 'gbt' 'rf' 'logistic') # 모델 정의
-fingerprints=('MACCS') # 'Morgan' 'RDKit' 'Layered' 'Pattern') # 지문 정의
-file_path="./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx" # 데이터 경로
-fp_path="./data/example_data_DBPs/for_train/fingerprint_outputs" # fingerprints 경로
-data_name="example_DBPs_ER"
+# config.py에서 변수 읽기
+models=($(python - <<'EOF'
+import config
+print(' '.join(config.MODELS))
+EOF
+))
+fingerprints=($(python - <<'EOF'
+import config
+print(' '.join(config.FINGERPRINTS))
+EOF
+))
+file_path=$(python - <<'EOF'
+import config
+print(config.TRAIN_FILE_PATH)
+EOF
+)
+fp_path=$(python - <<'EOF'
+import config
+print(config.TRAIN_FP_PATH)
+EOF
+)
+data_name=$(python - <<'EOF'
+import config
+print(config.DATA_NAME)
+EOF
+)
 
 current_date=$(date +%Y-%m-%d)
 
