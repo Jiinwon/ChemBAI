@@ -86,47 +86,18 @@ x = x.drop(index=na_idx).reset_index(drop=True)
   <hr>
   
   <h2>파일 및 코드 수정 안내 🛠</h2>
-  <p><strong>*데이터에 따라 수정하여 사용하는 파이썬 파일과 수정하는 부분*</strong></p>
-  
+  <p>이전 버전에서는 여러 스크립트의 경로와 모델 설정을 각각 수정해야 했습니다. 이제 <code>config.py</code> 하나에서 모든 설정을 관리합니다.</p>
+
   <h3>1. 훈련시</h3>
   <ul>
-    <li>
-      <strong>smiles2fing.py</strong>
-      <ul>
-        <li><code>input_excel_path = "./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx"</code></li>
-        <li><code>output_dir = "./data/example_data_DBPs/for_train/fingerprints"</code></li>
-      </ul>
-    </li>
-    <li>
-      <strong>ToxCast_model_training.sh</strong>
-      <ul>
-        <li><code>models=('dt')</code> (예시: 'xgb', 'gbt', 'rf', 'logistic' 등으로 모델 정의)</li>
-        <li><code>fingerprints=('MACCS')</code> (예시: 'Morgan', 'RDKit', 'Layered', 'Pattern' 등으로 지문 정의)</li>
-        <li><code>file_path = "./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx"</code> (데이터 경로)</li>
-        <li><code>fp_path = "./data/example_data_DBPs/for_train/fingerprint_outputs"</code> (fingerprints 경로)</li>
-        <li><code>data_name = "example_DBPs_ER"</code></li>
-      </ul>
-    </li>
+    <li>SMILES를 분자지문으로 변환할 입력 파일 경로와 출력 디렉토리</li>
+    <li>사용할 모델과 지문 종류</li>
+    <li>훈련 데이터 경로 등은 모두 <code>config.py</code>에 정의됩니다.</li>
   </ul>
-  
+
   <h3>2. 예측시</h3>
   <ul>
-    <li>
-      <strong>smiles2fing.py</strong>
-      <ul>
-        <li><code>input_excel_path = "./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx"</code></li>
-        <li><code>output_dir = "./data/example_data_DBPs/for_train/fingerprints"</code></li>
-      </ul>
-    </li>
-    <li>
-      <strong>Predict_data.py</strong>
-      <ul>
-        <li><code>input_excel_path = "./prediction/example_prediction_DBPs/example_assay_list_ER.xlsx"</code> (수정 필요)</li>
-        <li><code>model_path_base = "./results/example_DBPs_ER/2025-03-25/model_save_path"</code></li>
-        <li><code>input_fp_path_base = "./data/example_data_DBPs/for_predict/fingerprints"</code></li>
-        <li><code>SMILES_path = "./data/example_data_DBPs/for_predict/example_DBPs_for_pred.xlsx"</code></li>
-      </ul>
-    </li>
+    <li>예측에 사용할 모델 경로, 분자지문 파일, SMILES 파일 역시 <code>config.py</code>에서 수정합니다.</li>
   </ul>
   
 </body>
