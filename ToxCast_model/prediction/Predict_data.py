@@ -3,11 +3,21 @@ import joblib
 import os
 
 if __name__ == "__main__":
-    # 입력 엑셀 파일과 시트명
-    input_excel_path = "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/ToxCast_model/prediction/250513/250513_prediction_ToxCast.xlsx" #수정
-    model_path_base = "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/Final_model_save/ToxCast_v.4.2_model_total"
-    input_fp_path_base = "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/ToxCast_model/data/250513/fingerprints"
-    SMILES_path = "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI_ToxCast/ToxCast_model/prediction/250513/prediction.xlsx"
+    # config.py에 정의된 경로 사용
+    try:
+        from config import (
+            PREDICT_LIST_PATH,
+            MODEL_PATH_BASE,
+            PREDICT_FP_PATH,
+            PREDICT_SMILES_PATH,
+        )
+    except ImportError:
+        raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
+
+    input_excel_path = PREDICT_LIST_PATH
+    model_path_base = MODEL_PATH_BASE
+    input_fp_path_base = PREDICT_FP_PATH
+    SMILES_path = PREDICT_SMILES_PATH
 
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path)
