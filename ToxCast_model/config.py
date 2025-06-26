@@ -1,5 +1,12 @@
 # Configuration file for training and prediction
 
+# ----- Execution mode -----
+# Choose between prediction or training.
+# OBJECTS[0] -> "prediction", OBJECTS[1] -> "training"
+OBJECTS = ["prediction", "training"]
+# Set OBJECT to 0 for prediction or 1 for training
+OBJECT = 0
+
 # ----- Fingerprint generation -----
 # Source Excel file containing SMILES for fingerprint generation
 SMILES_INPUT_PATH = "./data/example_data_DBPs/for_train/example_DBPs_ER.xlsx"
@@ -28,9 +35,4 @@ PREDICT_FP_PATH = "./data/example_data_DBPs/for_predict/fingerprints"
 # Excel file with SMILES for the chemicals to predict
 PREDICT_SMILES_PATH = "./data/example_data_DBPs/for_predict/example_DBPs_for_pred.xlsx"
 
-# ----- Execution mode -----
-# Choose between prediction or training.
-# OBJECTS[0] -> "prediction", OBJECTS[1] -> "training"
-OBJECTS = ["prediction", "training"]
-# Set OBJECT to 0 for prediction or 1 for training
-OBJECT = 0
+
