@@ -18,11 +18,19 @@ PY
 
 echo "Running mode: $mode"
 
-if [ "$mode" = "training" ]; then
-    bash ToxCast_model_training.sh
-elif [ "$mode" = "prediction" ]; then
-    python prediction/Predict_data.py
-else
-    echo "Unknown mode: $mode"
-    exit 1
-fi
+case "$mode" in
+    training)
+        bash ToxCast_model_training.sh
+        ;;
+    prediction)
+        python prediction/Predict_data.py
+        ;;
+    both)
+        bash ToxCast_model_training.sh
+        python prediction/Predict_data.py
+        ;;
+    *)
+        echo "Unknown mode: $mode"
+        exit 1
+        ;;
+esac

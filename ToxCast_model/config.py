@@ -3,8 +3,11 @@ from datetime import datetime
 
 """Centralized configuration for training and prediction."""
 
-# execution mode: 0 -> prediction, 1 -> training
-OBJECTS = ["prediction", "training"]
+# execution mode
+# 0 -> only prediction
+# 1 -> only training
+# 2 -> training followed by prediction
+OBJECTS = ["prediction", "training", "both"]
 OBJECT = 0
 
 # ----- Basic experiment info -----
