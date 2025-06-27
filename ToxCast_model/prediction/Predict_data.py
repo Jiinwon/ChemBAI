@@ -3,6 +3,7 @@ import joblib
 import os
 from pathlib import Path
 from datetime import datetime
+import json
 
 if __name__ == "__main__":
     # config.py에 정의된 경로 사용
@@ -40,6 +41,7 @@ if __name__ == "__main__":
 
     # 전체 결과를 저장할 데이터프레임 초기화
     all_results = pd.DataFrame()
+    metadata_records = []
 
     # 반복문으로 각 모델에 대해 처리
     for _, row in data.iterrows():
@@ -80,6 +82,14 @@ if __name__ == "__main__":
         # 예측 결과 삽입
         all_results[assay_name] = predictions
 
+        metadata_records.append({
+            "model": os.path.basename(model_path),
+            "ASSAY": assay_name,
+            "model_type": model_type,
+            "MF": mf_type,
+            "prediction_count": int(len(predictions)),
+        })
+
     # dropidx 파일이 존재하고 크기가 0보다 큰지 확인
     if os.path.exists(input_drop_csv_path) and os.stat(input_drop_csv_path).st_size > 0:
         try:
@@ -106,5 +116,11 @@ if __name__ == "__main__":
     output_excel_path = output_dir / f"{Path(SMILES_path).stem}_prediction.xlsx"
     all_results.to_excel(output_excel_path, index=False)
     print(f"All predictions saved to {output_excel_path}")
+
+    # 메타데이터 저장
+    metadata_path = RESULTS_DIR / "metadata.json"
+    with open(metadata_path, "w", encoding="utf-8") as f:
+        json.dump(metadata_records, f, ensure_ascii=False, indent=2)
+    print(f"Metadata saved to {metadata_path}")
 
     print("모든 예측 작업이 완료되었습니다.")
