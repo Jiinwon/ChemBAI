@@ -128,3 +128,15 @@ def find_single_excel_file(base_dir):
     if len(files) > 1:
         raise RuntimeError(f"{base_dir} 디렉토리에 예측/훈련용 데이터셋을 하나만 남기세요.")
     return os.path.join(base_dir, files[0])
+
+
+def check_required_sheets(excel_path, sheets):
+    """Raise KeyError if any of ``sheets`` is missing in ``excel_path``."""
+    import pandas as pd
+
+    xl = pd.ExcelFile(excel_path)
+    missing = [s for s in sheets if s not in xl.sheet_names]
+    if missing:
+        missing_str = ", ".join(missing)
+        raise KeyError(f"{excel_path} 파일에 필요한 시트({missing_str})가 없습니다.")
+
