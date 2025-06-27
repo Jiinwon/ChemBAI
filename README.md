@@ -104,5 +104,13 @@ x = x.drop(index=na_idx).reset_index(drop=True)
     <code>config.py</code>에서 <code>OBJECT</code> 값을 0(predict) 또는 1(train)으로
     설정하면 해당 모드로 동작합니다.</p>
 
+  <h2>run_pipeline 사용 방법 📚</h2>
+  <ol>
+    <li>훈련 또는 예측에 필요한 엑셀 파일을 <code>data/</code> 하위에 준비합니다.</li>
+    <li><code>config.py</code>에서 파일 경로와 모델 옵션을 원하는 값으로 수정합니다.</li>
+    <li><code>OBJECT</code> 값을 0이면 예측, 1이면 훈련 모드로 설정합니다.</li>
+    <li>프로젝트 루트에서 <code>bash run_pipeline.sh</code> 명령으로 파이프라인을 실행합니다.</li>
+  </ol>
+
 </body>
 </html>
