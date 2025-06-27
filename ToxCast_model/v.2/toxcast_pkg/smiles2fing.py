@@ -46,12 +46,12 @@ def Smiles2Fing(smiles, fingerprint_type='MACCS'):
 if __name__ == "__main__":
     # config.py에 정의된 경로 사용
     try:
-        from config import SMILES_INPUT_PATH, FINGERPRINT_OUTPUT_DIR
+        from config import SMILES_INPUT_PATH, FINGERPRINT_DIR
     except ImportError:
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
 
     input_excel_path = SMILES_INPUT_PATH  # 입력 엑셀 파일 경로 : 훈련 or 예측에 사용할 데이터
-    output_dir = FINGERPRINT_OUTPUT_DIR  # fingerprints를 저장할 디렉토리
+    output_dir = FINGERPRINT_DIR  # fingerprints를 저장할 디렉토리
 
     # 출력 디렉토리 생성
     os.makedirs(output_dir, exist_ok=True)

@@ -20,6 +20,7 @@ PROJECT_NAME = "example"
 BASE_DIR = Path("experiments") / PROJECT_NAME
 
 FINGERPRINT_DIR = BASE_DIR / "fingerprints"
+FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
 RESULTS_DIR = BASE_DIR / "results"
 
 # fingerprint generation
