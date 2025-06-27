@@ -3,9 +3,11 @@ from datetime import datetime
 
 """Centralized configuration for training and prediction."""
 
+
 # execution mode: 0 -> prediction, 1 -> training
 OBJECTS = ["prediction", "training"]
 OBJECT = 0
+
 
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME (and optionally EXPERIMENT_DATE) for each run.
@@ -25,6 +27,7 @@ FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
 # training settings
 MODELS = ["dt"]
 FINGERPRINTS = ["MACCS"]
+
 TRAIN_FILE_PATH = DATA_FILE
 TRAIN_FP_PATH = FINGERPRINT_DIR
 DATA_NAME = PROJECT_NAME
