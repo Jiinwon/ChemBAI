@@ -29,7 +29,7 @@ case "$mode" in
         bash ToxCast_model_training.sh
         ;;
     prediction)
-        python prediction/Predict_data.py
+        PYTHONPATH=. python prediction/Predict_data.py
         ;;
     *)
         echo "Unknown mode: $mode"
