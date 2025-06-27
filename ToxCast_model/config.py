@@ -7,15 +7,14 @@ from datetime import datetime
 # execution mode
 # 0 -> only prediction
 # 1 -> only training
-# 2 -> training followed by prediction
-OBJECTS = ["prediction", "training", "both"]
+OBJECTS = ["prediction", "training"]
 OBJECT = 0
 
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
-PROJECT_NAME = "example_project"
+PROJECT_NAME = "example"
 
 # ----- Derived paths based on the directory layout -----
 BASE_DIR = Path("experiments") / PROJECT_NAME
