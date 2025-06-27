@@ -28,7 +28,8 @@ ToxCast_model/              # Main source code
 3. Place the Excel file from step&nbsp;1 inside this new folder.
 4. Edit `ToxCast_model/config.py` and set `PROJECT_NAME` to the folder name from step&nbsp;2.
 5. Set `OBJECT = 0` in `config.py` for prediction mode.
-6. Run the pipeline from the project root:
+6. Set `MODEL_SELECTION = 0` in `config.py` for best F1 mode
+7. Run the pipeline from the project root:
 
 ```bash
 bash run_pipeline.sh
