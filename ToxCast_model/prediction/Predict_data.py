@@ -18,6 +18,9 @@ if __name__ == "__main__":
     model_path_base = MODEL_PATH_BASE
     input_fp_path_base = PREDICT_FP_PATH
     SMILES_path = PREDICT_SMILES_PATH
+    if os.path.isdir(SMILES_path):
+        from toxcast_pkg.common import find_single_excel_file
+        SMILES_path = find_single_excel_file(SMILES_path)
 
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path)

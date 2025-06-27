@@ -116,3 +116,15 @@ def CV(x, y, model, params, seed):
                                   np.mean(val_accuracy_)]))
     
     return(result)
+
+
+def find_single_excel_file(base_dir):
+    """Return the single Excel file directly inside base_dir.
+    If multiple or none exist, raise an error."""
+    import os
+    files = [f for f in os.listdir(base_dir) if f.lower().endswith((".xlsx", ".xls"))]
+    if len(files) == 0:
+        raise FileNotFoundError(f"{base_dir} 디렉토리에 엑셀 파일이 없습니다.")
+    if len(files) > 1:
+        raise RuntimeError(f"{base_dir} 디렉토리에 예측/훈련용 데이터셋을 하나만 남기세요.")
+    return os.path.join(base_dir, files[0])
