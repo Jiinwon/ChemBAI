@@ -44,6 +44,7 @@ print((config.BASE_DIR / 'logs').as_posix())
 EOF
 )
 
+
 # 동시에 실행할 작업의 최대 수
 max_jobs=45
 current_jobs=0

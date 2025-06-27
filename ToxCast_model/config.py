@@ -1,6 +1,8 @@
 from pathlib import Path
+from datetime import datetime
 
 """Centralized configuration for training and prediction."""
+
 
 # execution mode
 # 0 -> only prediction
@@ -17,22 +19,27 @@ PROJECT_NAME = "example_project"
 
 # ----- Derived paths based on the directory layout -----
 BASE_DIR = Path("experiments") / PROJECT_NAME
+
 FINGERPRINT_DIR = BASE_DIR / "fingerprints"
 RESULTS_DIR = BASE_DIR / "results"
 
 # fingerprint generation
+
 # The Excel file is automatically detected under ``BASE_DIR``.
 SMILES_INPUT_PATH = BASE_DIR
-FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
+
 
 # training settings
 MODELS = ["dt"]
 FINGERPRINTS = ["MACCS"]
+
 TRAIN_FILE_PATH = BASE_DIR
+
 TRAIN_FP_PATH = FINGERPRINT_DIR
 DATA_NAME = PROJECT_NAME
 
 # prediction settings
+
 PREDICT_LIST_PATH = BASE_DIR
 MODEL_PATH_BASE = Path("../Final_model_save/ToxCast_v.4.2_model_total")
 PREDICT_FP_PATH = FINGERPRINT_DIR
@@ -48,5 +55,6 @@ def validate_paths():
     if Path(p).is_dir():
         p = find_single_excel_file(p)
     check_required_sheets(p, ["data", "assay_list"])
+
 
 
