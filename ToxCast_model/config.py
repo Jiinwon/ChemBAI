@@ -41,9 +41,23 @@ DATA_NAME = PROJECT_NAME
 # prediction settings
 
 PREDICT_LIST_PATH = BASE_DIR
-MODEL_PATH_BASE = Path("../Final_model_save/ToxCast_v.4.2_model_total")
+# model selection
+# 0 -> best F1 model (assay_name only)
+# 1 -> user-specified model and fingerprint
+MODEL_SELECTION_OPTIONS = ["best_f1", "model+mf"]
+MODEL_SELECTION = 0
+
+# base directories for each selection mode
+MODEL_PATH_BASE_0 = Path("../Final_model_save/ToxCast_model(F1)")
+MODEL_PATH_BASE_1 = Path("../Final_model_save/ToxCast_v.4.2_model_total")
+
 PREDICT_FP_PATH = FINGERPRINT_DIR
 PREDICT_SMILES_PATH = BASE_DIR
+
+
+def get_model_base():
+    """Return the base directory for prediction models."""
+    return MODEL_PATH_BASE_0 if MODEL_SELECTION == 0 else MODEL_PATH_BASE_1
 
 
 
