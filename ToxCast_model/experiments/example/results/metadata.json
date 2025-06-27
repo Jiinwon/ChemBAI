@@ -1,0 +1,9 @@
+[
+  {
+    "model": "ATG_ERE_CIS_best_model_MACCS_dt.joblib",
+    "ASSAY": "ATG_ERE_CIS",
+    "model_type": "dt",
+    "MF": "MACCS",
+    "prediction_count": 8
+  }
+]
