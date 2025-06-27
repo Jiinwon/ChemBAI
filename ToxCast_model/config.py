@@ -3,12 +3,12 @@ from datetime import datetime
 
 """Centralized configuration for training and prediction."""
 
-# execution mode
-# 0 -> only prediction
-# 1 -> only training
-# 2 -> training followed by prediction
-OBJECTS = ["prediction", "training", "both"]
+
+# execution mode: 0 -> prediction, 1 -> training
+OBJECTS = ["prediction", "training"]
 OBJECT = 0
+
+
 
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME (and optionally EXPERIMENT_DATE) for each run.
@@ -28,6 +28,7 @@ FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
 # training settings
 MODELS = ["dt"]
 FINGERPRINTS = ["MACCS"]
+
 TRAIN_FILE_PATH = DATA_FILE
 TRAIN_FP_PATH = FINGERPRINT_DIR
 DATA_NAME = PROJECT_NAME
@@ -37,6 +38,5 @@ PREDICT_LIST_PATH = BASE_DIR / "assay_list.xlsx"
 MODEL_PATH_BASE = Path("../Final_model_save/ToxCast_v.4.2_model_total")
 PREDICT_FP_PATH = FINGERPRINT_DIR
 PREDICT_SMILES_PATH = DATA_FILE
-
 
 
