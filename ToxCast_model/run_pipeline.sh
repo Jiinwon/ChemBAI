@@ -5,7 +5,7 @@
 cd "$(dirname "$0")"
 
 # generate fingerprints
-python ./toxcast_pkg/smiles2fing.py
+python -m ./toxcast_pkg.smiles2fing
 
 # determine mode
 mode=$(python - <<'PY'
