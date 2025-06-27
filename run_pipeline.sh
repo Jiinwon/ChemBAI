@@ -6,6 +6,12 @@ script_dir="$(cd "$(dirname "$0")" && pwd)"
 model_dir="$script_dir/ToxCast_model"
 cd "$model_dir" || exit 1
 
+# validate experiment setup
+python - <<'PY'
+import config
+config.validate_paths()
+PY
+
 # generate fingerprints
 python -m toxcast_pkg.smiles2fing
 

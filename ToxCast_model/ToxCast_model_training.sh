@@ -44,8 +44,6 @@ print((config.BASE_DIR / 'logs').as_posix())
 EOF
 )
 
-# deprecated but kept for compatibility
-current_date=$(date +%Y-%m-%d)
 
 # 동시에 실행할 작업의 최대 수
 max_jobs=45
@@ -55,7 +53,7 @@ current_jobs=0
 for assay_num in {1..3}; do # 반복 범위 변경 가능
 
     # assay_name 로드
-    assay_name=$(python -c "import pandas as pd; df = pd.read_excel('${file_path}', header=None); print(df.iloc[0, int('${assay_num}') + 1])")
+    assay_name=$(python -c "import pandas as pd; df = pd.read_excel('${file_path}', sheet_name='data', header=None); print(df.iloc[0, int('${assay_num}') + 1])")
 
     # 로그 디렉토리 생성
     mkdir -p "${logs_dir}/${assay_name}"

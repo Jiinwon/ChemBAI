@@ -107,43 +107,19 @@ x = x.drop(index=na_idx).reset_index(drop=True)
   <h2>run_pipeline 사용 방법 📚</h2>
   <ol>
     <li>
-      <code>experiments/년월일/PROJECT_NAME/</code> 폴더를 만들고
-      동일한 이름의 엑셀 파일 <code>{PROJECT_NAME}.xlsx</code>을 그 안에 둡니다.
+
+      <code>experiments/PROJECT_NAME/</code> 폴더를 만들고 통합 엑셀 파일을 그 안에 둡니다.
+      엑셀에는 반드시 <code>data</code> 시트와 <code>assay_list</code> 시트가 있어야 합니다.
+
     </li>
     <li>
       <code>config.py</code>에서 <code>PROJECT_NAME</code>과 <code>OBJECT</code> 값만 수정합니다.
       <code>OBJECT</code>는 0(예측), 1(훈련), 2(훈련 후 예측) 중 하나를 선택합니다.
-      필요하면 <code>EXPERIMENT_DATE</code>를 지정합니다.
     </li>
-    <li>프로젝트 루트에서 <code>bash run_pipeline.sh</code> 명령으로 파이프라인을 실행합니다.</li>
-  </ol>
+    <li>
+      <code>bash run_pipeline.sh</code>를 실행하면 분자지문 생성, 훈련, 예측이 순서대로 진행됩니다.
+    </li>
 
-  <h2>run_pipeline 사용 방법 📚</h2>
-  <ol>
-    <li>
-      <code>experiments/년월일/PROJECT_NAME/</code> 폴더를 만들고
-      동일한 이름의 엑셀 파일 <code>{PROJECT_NAME}.xlsx</code>을 그 안에 둡니다.
-    </li>
-    <li>
-      <code>config.py</code>에서 <code>PROJECT_NAME</code>과 실행 모드 <code>OBJECT</code>
-      (&nbsp;0: 예측, 1: 훈련&nbsp;)만 수정합니다. 필요하면 <code>EXPERIMENT_DATE</code>
-      를 지정합니다.
-    </li>
-    <li>프로젝트 루트에서 <code>bash run_pipeline.sh</code> 명령으로 파이프라인을 실행합니다.</li>
-  </ol>
-
-  <h2>run_pipeline 사용 방법 📚</h2>
-  <ol>
-    <li>
-      <code>experiments/년월일/PROJECT_NAME/</code> 폴더를 만들고
-      동일한 이름의 엑셀 파일 <code>{PROJECT_NAME}.xlsx</code>을 그 안에 둡니다.
-    </li>
-    <li>
-      <code>config.py</code>에서 <code>PROJECT_NAME</code>과 실행 모드 <code>OBJECT</code>
-      (&nbsp;0: 예측, 1: 훈련&nbsp;)만 수정합니다. 필요하면 <code>EXPERIMENT_DATE</code>
-      를 지정합니다.
-    </li>
-    <li>프로젝트 루트에서 <code>bash run_pipeline.sh</code> 명령으로 파이프라인을 실행합니다.</li>
   </ol>
 
 </body>
