@@ -32,6 +32,19 @@ print(config.DATA_NAME)
 EOF
 )
 
+results_dir=$(python - <<'EOF'
+import config
+print(config.RESULTS_DIR)
+EOF
+)
+logs_dir=$(python - <<'EOF'
+import config
+from pathlib import Path
+print((config.BASE_DIR / 'logs').as_posix())
+EOF
+)
+
+# deprecated but kept for compatibility
 current_date=$(date +%Y-%m-%d)
 
 # 동시에 실행할 작업의 최대 수
@@ -45,12 +58,12 @@ for assay_num in {1..3}; do # 반복 범위 변경 가능
     assay_name=$(python -c "import pandas as pd; df = pd.read_excel('${file_path}', header=None); print(df.iloc[0, int('${assay_num}') + 1])")
 
     # 로그 디렉토리 생성
-    mkdir -p "./logs/${data_name}/$current_date/${assay_name}"
+    mkdir -p "${logs_dir}/${assay_name}"
     for model in "${models[@]}"; do
         for fingerprint in "${fingerprints[@]}"; do
             # 결과 저장 디렉토리 생성
-            mkdir -p ./results/${data_name}/$current_date/model_save_path/${assay_name}/${assay_name}_${fingerprint}_${model}
-            model_save_path="./results/${data_name}/$current_date/model_save_path/${assay_name}/${assay_name}_${fingerprint}_${model}"
+            mkdir -p "${results_dir}/model_save_path/${assay_name}/${assay_name}_${fingerprint}_${model}"
+            model_save_path="${results_dir}/model_save_path/${assay_name}/${assay_name}_${fingerprint}_${model}"
 
             echo "[$(date)]   Submitting job for assay_num: $assay_name, model: $model with fingerprint: $fingerprint"
             echo "[$(date)]   Running ${assay_name}/${assay_name}_${fingerprint}_${model}"
@@ -62,8 +75,8 @@ for assay_num in {1..3}; do # 반복 범위 변경 가능
                 --model_save_path ${model_save_path} \
                 --assay_num $((assay_num)) \
                 --fp_path ${fp_path} \
-                > ./logs/${data_name}/$current_date/${assay_name}/${assay_name}_${fingerprint}_${model}.log \
-                2> ./logs/${data_name}/$current_date/${assay_name}/${assay_name}_${fingerprint}_${model}.err &
+                > "${logs_dir}/${assay_name}/${assay_name}_${fingerprint}_${model}.log" \
+                2> "${logs_dir}/${assay_name}/${assay_name}_${fingerprint}_${model}.err" &
 
             # 작업 관리
             ((current_jobs++))

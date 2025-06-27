@@ -100,9 +100,23 @@ x = x.drop(index=na_idx).reset_index(drop=True)
     <li>예측에 사용할 모델 경로, 분자지문 파일, SMILES 파일 역시 <code>config.py</code>에서 수정합니다.</li>
   </ul>
 
-  <p>훈련과 예측 모두 <code>run_pipeline.sh</code> 스크립트로 실행할 수 있습니다.
-    <code>config.py</code>에서 <code>OBJECT</code> 값을 0(predict) 또는 1(train)으로
-    설정하면 해당 모드로 동작합니다.</p>
+    <p>훈련과 예측은 <code>run_pipeline.sh</code> 스크립트 하나로 실행합니다.
+      <code>config.py</code>의 <code>OBJECT</code> 값으로 동작 모드를 선택합니다.
+      0: 예측, 1: 훈련, 2: 훈련 후 바로 예측을 수행합니다.</p>
+
+  <h2>run_pipeline 사용 방법 📚</h2>
+  <ol>
+    <li>
+      <code>experiments/년월일/PROJECT_NAME/</code> 폴더를 만들고
+      동일한 이름의 엑셀 파일 <code>{PROJECT_NAME}.xlsx</code>을 그 안에 둡니다.
+    </li>
+    <li>
+      <code>config.py</code>에서 <code>PROJECT_NAME</code>과 <code>OBJECT</code> 값만 수정합니다.
+      <code>OBJECT</code>는 0(예측), 1(훈련), 2(훈련 후 예측) 중 하나를 선택합니다.
+      필요하면 <code>EXPERIMENT_DATE</code>를 지정합니다.
+    </li>
+    <li>프로젝트 루트에서 <code>bash run_pipeline.sh</code> 명령으로 파이프라인을 실행합니다.</li>
+  </ol>
 
   <h2>run_pipeline 사용 방법 📚</h2>
   <ol>
