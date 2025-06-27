@@ -1,26 +1,12 @@
 #!/bin/bash
-# Run fingerprint generation and either training or prediction based on config.py
+# Simple wrapper to execute the Python pipeline with a dataset argument
 
-# ensure script runs from its directory
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
 
-# generate fingerprints
-python -m toxcast_pkg.smiles2fing
-
-# determine mode
-mode=$(python - <<'PY'
-import config
-print(config.OBJECTS[config.OBJECT])
-PY
-)
-
-echo "Running mode: $mode"
-
-if [ "$mode" = "training" ]; then
-    bash ./ToxCast_model_training.sh
-elif [ "$mode" = "prediction" ]; then
-    PYTHONPATH="$(pwd)" python ./prediction/Predict_data.py
-else
-    echo "Unknown mode: $mode"
+dataset="$1"
+if [ -z "$dataset" ]; then
+    echo "Usage: $0 <dataset>"
     exit 1
 fi
+
+python pipeline.py --dataset "$dataset"
