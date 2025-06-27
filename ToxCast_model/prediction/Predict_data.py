@@ -14,6 +14,7 @@ if __name__ == "__main__":
             MODEL_PATH_BASE_0,
             MODEL_PATH_BASE_1,
             get_model_base,
+
             PREDICT_FP_PATH,
             PREDICT_SMILES_PATH,
             RESULTS_DIR,
@@ -22,6 +23,7 @@ if __name__ == "__main__":
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
 
     input_excel_path = PREDICT_LIST_PATH
+
     model_path_base = get_model_base()
     input_fp_path_base = PREDICT_FP_PATH
     SMILES_path = PREDICT_SMILES_PATH
@@ -61,6 +63,7 @@ if __name__ == "__main__":
                 msg = f"모델 파일을 찾지 못했습니다: {pattern}"
                 print(msg)
                 metadata_records.append({"ASSAY": assay_name, "error": msg})
+
                 continue
             model_path = str(matches[0])
             filename = os.path.basename(model_path)
@@ -72,6 +75,7 @@ if __name__ == "__main__":
                 msg = f"모델 파일 이름에서 MF와 모델 타입을 파싱할 수 없습니다: {filename}"
                 print(msg)
                 metadata_records.append({"ASSAY": assay_name, "error": msg})
+
                 continue
         else:
             model_type = row["Model"]
