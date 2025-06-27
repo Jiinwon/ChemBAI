@@ -1,6 +1,8 @@
 import pandas as pd
 import joblib
 import os
+from pathlib import Path
+from datetime import datetime
 
 if __name__ == "__main__":
     # config.py에 정의된 경로 사용
@@ -10,6 +12,7 @@ if __name__ == "__main__":
             MODEL_PATH_BASE,
             PREDICT_FP_PATH,
             PREDICT_SMILES_PATH,
+            RESULTS_DIR,
         )
     except ImportError:
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
@@ -96,8 +99,11 @@ if __name__ == "__main__":
     # SMILES 열 추가 및 채우기
     all_results.insert(0, "SMILES", filtered_smiles)
 
-    # 최종 결과 저장
-    output_excel_path = SMILES_path
+    # 최종 결과 저장 - create timestamped file under the experiment results dir
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    output_dir = RESULTS_DIR / timestamp
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_excel_path = output_dir / f"{Path(SMILES_path).stem}_prediction.xlsx"
     all_results.to_excel(output_excel_path, index=False)
     print(f"All predictions saved to {output_excel_path}")
 
