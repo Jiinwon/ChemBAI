@@ -104,5 +104,19 @@ x = x.drop(index=na_idx).reset_index(drop=True)
     <code>config.py</code>에서 <code>OBJECT</code> 값을 0(predict) 또는 1(train)으로
     설정하면 해당 모드로 동작합니다.</p>
 
+  <h2>run_pipeline 사용 방법 📚</h2>
+  <ol>
+    <li>
+      <code>experiments/년월일/PROJECT_NAME/</code> 폴더를 만들고
+      동일한 이름의 엑셀 파일 <code>{PROJECT_NAME}.xlsx</code>을 그 안에 둡니다.
+    </li>
+    <li>
+      <code>config.py</code>에서 <code>PROJECT_NAME</code>과 실행 모드 <code>OBJECT</code>
+      (&nbsp;0: 예측, 1: 훈련&nbsp;)만 수정합니다. 필요하면 <code>EXPERIMENT_DATE</code>
+      를 지정합니다.
+    </li>
+    <li>프로젝트 루트에서 <code>bash run_pipeline.sh</code> 명령으로 파이프라인을 실행합니다.</li>
+  </ol>
+
 </body>
 </html>
