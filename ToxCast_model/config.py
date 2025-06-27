@@ -9,7 +9,6 @@ OBJECTS = ["prediction", "training"]
 OBJECT = 0
 
 
-
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME (and optionally EXPERIMENT_DATE) for each run.
 PROJECT_NAME = "example_project"
@@ -38,5 +37,6 @@ PREDICT_LIST_PATH = BASE_DIR / "assay_list.xlsx"
 MODEL_PATH_BASE = Path("../Final_model_save/ToxCast_v.4.2_model_total")
 PREDICT_FP_PATH = FINGERPRINT_DIR
 PREDICT_SMILES_PATH = DATA_FILE
+
 
 
