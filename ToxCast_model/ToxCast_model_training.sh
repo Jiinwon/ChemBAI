@@ -13,8 +13,12 @@ print(' '.join(config.FINGERPRINTS))
 EOF
 ))
 file_path=$(python - <<'EOF'
-import config
-print(config.TRAIN_FILE_PATH)
+import config, os
+from toxcast_pkg.common import find_single_excel_file
+p = config.TRAIN_FILE_PATH
+if os.path.isdir(p):
+    p = find_single_excel_file(p)
+print(p)
 EOF
 )
 fp_path=$(python - <<'EOF'
