@@ -1,4 +1,7 @@
+from pathlib import Path
+
 # Configuration file for training and prediction
+
 
 # ----- Execution mode -----
 # Choose between prediction or training.
@@ -6,6 +9,10 @@
 OBJECTS = ["prediction", "training"]
 # Set OBJECT to 0 for prediction or 1 for training
 OBJECT = 0
+
+INPUT_ROOT = Path("data")
+OUTPUT_ROOT = Path("results")
+
 
 # ----- Fingerprint generation -----
 # Source Excel file containing SMILES for fingerprint generation

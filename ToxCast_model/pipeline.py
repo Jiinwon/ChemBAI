@@ -8,10 +8,11 @@ import os
 import pandas as pd
 import joblib
 from toxcast_pkg.smiles2fing import Smiles2Fing
+import config
 
 # base directories for input data and output results
-input_root = Path("data")
-output_root = Path("results")
+input_root = config.INPUT_ROOT
+output_root = config.OUTPUT_ROOT
 
 
 def resolve_paths(dataset: str):
@@ -19,7 +20,7 @@ def resolve_paths(dataset: str):
     base = input_root / dataset
     smiles_file = base / "smiles.xlsx"
     fingerprint_dir = base / "fingerprints"
-    result_file = output_root / dataset / "predictions.xlsx"
+    result_file = output_root / "predictions.xlsx"
     return smiles_file, fingerprint_dir, result_file
 
 
