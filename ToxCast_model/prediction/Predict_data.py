@@ -13,6 +13,8 @@ if __name__ == "__main__":
             MODEL_SELECTION,
             MODEL_PATH_BASE_0,
             MODEL_PATH_BASE_1,
+            get_model_base,
+
             PREDICT_FP_PATH,
             PREDICT_SMILES_PATH,
             RESULTS_DIR,
@@ -21,7 +23,8 @@ if __name__ == "__main__":
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
 
     input_excel_path = PREDICT_LIST_PATH
-    model_path_base = MODEL_PATH_BASE_0 if MODEL_SELECTION == 0 else MODEL_PATH_BASE_1
+
+    model_path_base = get_model_base()
     input_fp_path_base = PREDICT_FP_PATH
     SMILES_path = PREDICT_SMILES_PATH
     if os.path.isdir(input_excel_path):
@@ -57,7 +60,10 @@ if __name__ == "__main__":
             pattern = f"{model_path_base}/{assay_name}_*/{assay_name}_best_model_*.joblib"
             matches = list(Path(model_path_base).glob(f"{assay_name}_*/{assay_name}_best_model_*.joblib"))
             if len(matches) != 1:
-                print(f"모델 파일을 찾지 못했습니다: {pattern}")
+                msg = f"모델 파일을 찾지 못했습니다: {pattern}"
+                print(msg)
+                metadata_records.append({"ASSAY": assay_name, "error": msg})
+
                 continue
             model_path = str(matches[0])
             filename = os.path.basename(model_path)
@@ -66,7 +72,10 @@ if __name__ == "__main__":
             try:
                 mf_type, model_type = mf_model.split("_", 1)
             except ValueError:
-                print(f"모델 파일 이름에서 MF와 모델 타입을 파싱할 수 없습니다: {filename}")
+                msg = f"모델 파일 이름에서 MF와 모델 타입을 파싱할 수 없습니다: {filename}"
+                print(msg)
+                metadata_records.append({"ASSAY": assay_name, "error": msg})
+
                 continue
         else:
             model_type = row["Model"]
@@ -74,7 +83,9 @@ if __name__ == "__main__":
             model_path = f"{model_path_base}/{assay_name}_{mf_type}_{model_type}/{assay_name}_best_model_{mf_type}_{model_type}.joblib"
         
         if not os.path.exists(model_path):
-            print(f"모델 파일이 존재하지 않습니다: {model_path}")
+            msg = f"모델 파일이 존재하지 않습니다: {model_path}"
+            print(msg)
+            metadata_records.append({"ASSAY": assay_name, "error": msg})
             continue
 
         # 모델 로드
