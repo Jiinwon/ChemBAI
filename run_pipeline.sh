@@ -31,10 +31,6 @@ case "$mode" in
     prediction)
         python prediction/Predict_data.py
         ;;
-    both)
-        bash ToxCast_model_training.sh
-        python prediction/Predict_data.py
-        ;;
     *)
         echo "Unknown mode: $mode"
         exit 1
