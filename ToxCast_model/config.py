@@ -29,7 +29,7 @@ DATA_NAME = "example_DBPs_ER"
 # Excel file specifying models to load for prediction
 PREDICT_LIST_PATH = "./prediction/example_prediction_DBPs/example_assay_list_ER.xlsx"
 # Base directory where trained models are stored
-MODEL_PATH_BASE = "./results/example_DBPs_ER/2025-03-25/model_save_path"
+MODEL_PATH_BASE = "../Final_model_save/ToxCast_v.4.2_model_total"
 # Directory containing fingerprint CSVs for chemicals to predict
 PREDICT_FP_PATH = "./data/example_data_DBPs/for_predict/fingerprints"
 # Excel file with SMILES for the chemicals to predict
