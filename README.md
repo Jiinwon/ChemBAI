@@ -35,7 +35,40 @@ ToxCast_model/              # Main source code
 bash run_pipeline.sh
 ```
 
+### Local usage
+
+If Bash is not available, run the same steps using the Python helper:
+
+```bash
+python run_local.py download-template --out .
+python run_local.py predict
+```
+
+For an interactive option, launch the simple GUI:
+
+```bash
+python run_local_gui.py
+```
+
+Use the buttons to download the template, select your filled Excel file and run
+the prediction pipeline on your local machine.
+
 Fingerprints are generated only once and stored under `experiments/<PROJECT_NAME>/fingerprints/`. Prediction results are saved under `experiments/<PROJECT_NAME>/results/<timestamp>/`, and a cumulative `metadata.json` is written to `experiments/<PROJECT_NAME>/results/`.
+
+### Building standalone binaries
+
+Install `pyinstaller` and run the helper script to create an executable under the
+`Release` directory. Build the executable on each platform you want to support:
+
+```bash
+pip install pyinstaller
+python build_release.py
+```
+
+The resulting binary inside `Release/` can be distributed to macOS or Windows
+users depending on the system you built it on. Launch the executable and follow
+the same steps as the Python GUI: download the template, select your file and
+run predictions locally.
 
 ## Environment setup
 
