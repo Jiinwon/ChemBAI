@@ -49,6 +49,11 @@ if __name__ == "__main__":
     SMILES_df = pd.read_excel(SMILES_path, sheet_name="data")
     SMILES = SMILES_df['SMILES']
 
+    env_assays = os.environ.get("ASSAY_NAMES")
+    if env_assays:
+        selected = [a.strip() for a in env_assays.split(',') if a.strip()]
+        data = data[data['assay_name'].isin(selected)]
+
     # 필요한 열 추출
     if MODEL_SELECTION == 0:
         required_columns = ["assay_name"]

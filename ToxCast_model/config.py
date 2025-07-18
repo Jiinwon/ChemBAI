@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import datetime
+import os
 
 """Centralized configuration for training and prediction."""
 
@@ -18,7 +19,7 @@ MODEL_SELECTION = 0
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
-PROJECT_NAME = "XAI"
+PROJECT_NAME = os.environ.get("PROJECT_NAME", "XAI")
 
 
 
