@@ -1,3 +1,4 @@
+import argparse
 import pandas as pd
 import joblib
 import os
@@ -16,6 +17,11 @@ def _tanimoto_max(test_fp: np.ndarray, train_fps: np.ndarray) -> float:
     return float(sim.max())
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Run prediction step")
+    parser.add_argument("--skip-doa", action="store_true", help="Skip DoA calculation")
+    args = parser.parse_args()
+    skip_doa = args.skip_doa
+
     # config.py에 정의된 경로 사용
     try:
         from config import (
@@ -120,37 +126,42 @@ if __name__ == "__main__":
         print(f"Performing prediction for assay: {assay_name}...")
         predictions = model.predict(input_data)
 
-        # DoA 계산을 위한 학습 fingerprint 로드
-        if mf_type not in train_fp_cache:
-            train_fp_path = train_fp_base / f"{mf_type}.csv"
-            if not train_fp_path.exists():
-                print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
-                train_fp_cache[mf_type] = None
-            else:
-                train_fp_cache[mf_type] = pd.read_csv(train_fp_path).astype(bool).values
+        if not skip_doa:
+            # DoA 계산을 위한 학습 fingerprint 로드
+            if mf_type not in train_fp_cache:
+                train_fp_path = train_fp_base / f"{mf_type}.csv"
+                if not train_fp_path.exists():
+                    print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
+                    train_fp_cache[mf_type] = None
+                else:
+                    train_fp_cache[mf_type] = pd.read_csv(train_fp_path).astype(bool).values
 
-        train_fps = train_fp_cache.get(mf_type)
-        if train_fps is not None:
-            doa_values = [
-                _tanimoto_max(fp.astype(bool), train_fps)
-                for fp in input_data.to_numpy()
-            ]
+            train_fps = train_fp_cache.get(mf_type)
+            if train_fps is not None:
+                doa_values = [
+                    _tanimoto_max(fp.astype(bool), train_fps)
+                    for fp in input_data.to_numpy()
+                ]
+            else:
+                doa_values = [None] * len(input_data)
         else:
-            doa_values = [None] * len(input_data)
+            doa_values = None
 
         # assay_name별 열에 예측 결과 추가
         doa_col = f"{assay_name}_DoA"
         if assay_name not in all_results:
             all_results[assay_name] = predictions
-            insert_idx = all_results.columns.get_loc(assay_name)
-            all_results.insert(insert_idx + 1, doa_col, doa_values)
+            if not skip_doa:
+                insert_idx = all_results.columns.get_loc(assay_name)
+                all_results.insert(insert_idx + 1, doa_col, doa_values)
         else:
             all_results[assay_name] = predictions
-            if doa_col not in all_results:
-                idx = all_results.columns.get_loc(assay_name)
-                all_results.insert(idx + 1, doa_col, doa_values)
-            else:
-                all_results[doa_col] = doa_values
+            if not skip_doa:
+                if doa_col not in all_results:
+                    idx = all_results.columns.get_loc(assay_name)
+                    all_results.insert(idx + 1, doa_col, doa_values)
+                else:
+                    all_results[doa_col] = doa_values
 
         metadata_records.append({
             "model": os.path.basename(model_path),
@@ -175,9 +186,12 @@ if __name__ == "__main__":
 
     # 기존 SMILES 리스트에서 dropidx에 해당하는 인덱스의 항목 제거
     filtered_smiles = [sm for i, sm in enumerate(SMILES) if i not in dropidx]
+    if "DTXSID" in SMILES_df.columns:
+        filtered_dtxsid = [sid for i, sid in enumerate(SMILES_df["DTXSID"]) if i not in dropidx]
+        all_results.insert(0, "DTXSID", filtered_dtxsid)
 
     # SMILES 열 추가 및 채우기
-    all_results.insert(0, "SMILES", filtered_smiles)
+    all_results.insert(1, "SMILES", filtered_smiles)
 
     # 최종 결과 저장 - create timestamped file under the experiment results dir
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
