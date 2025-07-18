@@ -44,6 +44,15 @@ python run_local.py download-template --out .
 python run_local.py predict
 ```
 
+For an interactive option, launch the simple GUI:
+
+```bash
+python run_local_gui.py
+```
+
+Use the buttons to download the template, select your filled Excel file and run
+the prediction pipeline on your local machine.
+
 Fingerprints are generated only once and stored under `experiments/<PROJECT_NAME>/fingerprints/`. Prediction results are saved under `experiments/<PROJECT_NAME>/results/<timestamp>/`, and a cumulative `metadata.json` is written to `experiments/<PROJECT_NAME>/results/`.
 
 ## Environment setup
