@@ -1,0 +1,30 @@
+[
+  {
+    "model": "ATG_PPARa_TRANS_best_model_Morgan_xgb.joblib",
+    "ASSAY": "ATG_PPARa_TRANS",
+    "model_type": "xgb",
+    "MF": "Morgan",
+    "prediction_count": 231
+  },
+  {
+    "model": "NVS_MP_hPBR_best_model_RDKit_gbt.joblib",
+    "ASSAY": "NVS_MP_hPBR",
+    "model_type": "gbt",
+    "MF": "RDKit",
+    "prediction_count": 231
+  },
+  {
+    "model": "NVS_NR_hAR_best_model_Morgan_rf.joblib",
+    "ASSAY": "NVS_NR_hAR",
+    "model_type": "rf",
+    "MF": "Morgan",
+    "prediction_count": 231
+  },
+  {
+    "model": "TOX21_AR_BLA_Antagonist_ratio_best_model_RDKit_dt.joblib",
+    "ASSAY": "TOX21_AR_BLA_Antagonist_ratio",
+    "model_type": "dt",
+    "MF": "RDKit",
+    "prediction_count": 231
+  }
+]
