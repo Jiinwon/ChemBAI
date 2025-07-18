@@ -58,17 +58,26 @@ Fingerprints are generated only once and stored under `experiments/<PROJECT_NAME
 ### Building standalone binaries
 
 Install `pyinstaller` and run the helper script to create an executable under the
-`Release` directory. Build the executable on each platform you want to support:
+
+`Release` directory. The script bundles the `Template` and `ToxCast_model`
+folders so the program can be distributed without the rest of the repository.
+Build the executable on each platform you want to support:
+
 
 ```bash
 pip install pyinstaller
 python build_release.py
 ```
 
-The resulting binary inside `Release/` can be distributed to macOS or Windows
-users depending on the system you built it on. Launch the executable and follow
-the same steps as the Python GUI: download the template, select your file and
-run predictions locally.
+
+On macOS, running `python build_release.py` creates `ChemBAI_Predictor` (or a
+`.app` bundle depending on your PyInstaller version) inside `Release/`. Double
+click this file to launch the GUI. Use it to download the template, select your
+input file and run predictions locally.
+
+You must build the binary on each target platform (macOS or Windows) because the
+executables are platform specific.
+
 
 ## Environment setup
 
