@@ -4,6 +4,16 @@ import os
 from pathlib import Path
 from datetime import datetime
 import json
+import numpy as np
+
+
+def _tanimoto_max(test_fp: np.ndarray, train_fps: np.ndarray) -> float:
+    """Return max Tanimoto similarity of test_fp against train_fps."""
+    inter = np.logical_and(train_fps, test_fp).sum(axis=1)
+    union = np.logical_or(train_fps, test_fp).sum(axis=1)
+    # avoid divide by zero
+    sim = inter / np.where(union == 0, 1, union)
+    return float(sim.max())
 
 if __name__ == "__main__":
     # config.py에 정의된 경로 사용
@@ -50,6 +60,9 @@ if __name__ == "__main__":
     # 전체 결과를 저장할 데이터프레임 초기화
     all_results = pd.DataFrame()
     metadata_records = []
+    # cache training fingerprints for DoA calculation
+    train_fp_base = Path("data/ToxCast_v.4.1_v.2/fingerprints")
+    train_fp_cache = {}
 
     # 반복문으로 각 모델에 대해 처리
     for _, row in data.iterrows():
@@ -107,12 +120,37 @@ if __name__ == "__main__":
         print(f"Performing prediction for assay: {assay_name}...")
         predictions = model.predict(input_data)
 
-        # assay_name별 열에 예측 결과 추가
-        if assay_name not in all_results:
-            all_results[assay_name] = [None] * len(input_data)
+        # DoA 계산을 위한 학습 fingerprint 로드
+        if mf_type not in train_fp_cache:
+            train_fp_path = train_fp_base / f"{mf_type}.csv"
+            if not train_fp_path.exists():
+                print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
+                train_fp_cache[mf_type] = None
+            else:
+                train_fp_cache[mf_type] = pd.read_csv(train_fp_path).astype(bool).values
 
-        # 예측 결과 삽입
-        all_results[assay_name] = predictions
+        train_fps = train_fp_cache.get(mf_type)
+        if train_fps is not None:
+            doa_values = [
+                _tanimoto_max(fp.astype(bool), train_fps)
+                for fp in input_data.to_numpy()
+            ]
+        else:
+            doa_values = [None] * len(input_data)
+
+        # assay_name별 열에 예측 결과 추가
+        doa_col = f"{assay_name}_DoA"
+        if assay_name not in all_results:
+            all_results[assay_name] = predictions
+            insert_idx = all_results.columns.get_loc(assay_name)
+            all_results.insert(insert_idx + 1, doa_col, doa_values)
+        else:
+            all_results[assay_name] = predictions
+            if doa_col not in all_results:
+                idx = all_results.columns.get_loc(assay_name)
+                all_results.insert(idx + 1, doa_col, doa_values)
+            else:
+                all_results[doa_col] = doa_values
 
         metadata_records.append({
             "model": os.path.basename(model_path),
