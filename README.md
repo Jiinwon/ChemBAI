@@ -35,6 +35,15 @@ ToxCast_model/              # Main source code
 bash run_pipeline.sh
 ```
 
+### Local usage
+
+If Bash is not available, run the same steps using the Python helper:
+
+```bash
+python run_local.py download-template --out .
+python run_local.py predict
+```
+
 Fingerprints are generated only once and stored under `experiments/<PROJECT_NAME>/fingerprints/`. Prediction results are saved under `experiments/<PROJECT_NAME>/results/<timestamp>/`, and a cumulative `metadata.json` is written to `experiments/<PROJECT_NAME>/results/`.
 
 ## Environment setup
