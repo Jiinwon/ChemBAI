@@ -15,10 +15,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 if getattr(sys, "frozen", False):  # support PyInstaller
     REPO_DIR = Path(sys.executable).resolve().parent
 else:
     REPO_DIR = Path(__file__).resolve().parent
+
 MODEL_DIR = REPO_DIR / "ToxCast_model"
 TEMPLATE_FILE = (
     REPO_DIR / "Template" / "template_for_predict(PROJECT_NAME)" / "prediction_input_template.xlsx"
