@@ -1,9 +1,17 @@
 #!/bin/bash
 # Run fingerprint generation and either training or prediction based on config.py
 
-# resolve script directory and move into model directory
+# resolve script directory and determine action
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 model_dir="$script_dir/ToxCast_model"
+step="${1:-predict}"
+
+if [ "$step" = "doa" ]; then
+    cd "$model_dir" || exit 1
+    PYTHONPATH=. python prediction/calc_doa.py
+    exit $?
+fi
+
 cd "$model_dir" || exit 1
 
 # validate experiment setup
@@ -29,7 +37,7 @@ case "$mode" in
         bash ToxCast_model_training.sh
         ;;
     prediction)
-        PYTHONPATH=. python prediction/Predict_data.py
+        PYTHONPATH=. python prediction/Predict_data.py --skip-doa
         ;;
     *)
         echo "Unknown mode: $mode"
