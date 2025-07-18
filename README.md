@@ -55,6 +55,21 @@ the prediction pipeline on your local machine.
 
 Fingerprints are generated only once and stored under `experiments/<PROJECT_NAME>/fingerprints/`. Prediction results are saved under `experiments/<PROJECT_NAME>/results/<timestamp>/`, and a cumulative `metadata.json` is written to `experiments/<PROJECT_NAME>/results/`.
 
+### Building standalone binaries
+
+Install `pyinstaller` and run the helper script to create an executable under the
+`Release` directory. Build the executable on each platform you want to support:
+
+```bash
+pip install pyinstaller
+python build_release.py
+```
+
+The resulting binary inside `Release/` can be distributed to macOS or Windows
+users depending on the system you built it on. Launch the executable and follow
+the same steps as the Python GUI: download the template, select your file and
+run predictions locally.
+
 ## Environment setup
 
 Install dependencies with conda using `environment.yml` or via `pip install -r requirements.txt`.
