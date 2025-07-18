@@ -18,7 +18,7 @@ MODEL_SELECTION = 0
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
-PROJECT_NAME = "PFAS"
+PROJECT_NAME = "XAI"
 
 
 
