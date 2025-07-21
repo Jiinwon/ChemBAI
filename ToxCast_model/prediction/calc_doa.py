@@ -14,7 +14,7 @@ from sklearn.model_selection import train_test_split
 from Predict_data import _tanimoto_max
 
 try:
-    from config import RESULTS_DIR, PREDICT_FP_PATH
+    from config import RESULTS_DIR
 except ImportError as exc:
     raise ImportError("Run from within ToxCast_model directory") from exc
 
@@ -32,8 +32,8 @@ def _latest_result() -> Path:
     return files[0]
 
 
-def _load_dropidx(mf: str):
-    path = PREDICT_FP_PATH / f"{mf}_dropidx.csv"
+def _load_dropidx(mf: str, fp_dir: Path):
+    path = fp_dir / f"{mf}_dropidx.csv"
     if path.exists() and path.stat().st_size > 0:
         try:
             return pd.read_csv(path).iloc[:, 0].tolist()
@@ -42,7 +42,7 @@ def _load_dropidx(mf: str):
     return []
 
 
-def _calc_doa_for_mf(mf: str, train_cache: dict, log_file=None):
+def _calc_doa_for_mf(mf: str, fp_dir: Path, train_cache: dict, log_file=None):
     if mf not in train_cache:
         fp_path = TRAIN_FP_BASE / f"{mf}.csv"
         drop_path = TRAIN_FP_BASE / f"{mf}_dropidx.csv"
@@ -58,8 +58,8 @@ def _calc_doa_for_mf(mf: str, train_cache: dict, log_file=None):
         train_cache[mf] = train_df.astype(bool).values
     train_fps = train_cache[mf]
 
-    pred_fp = pd.read_csv(PREDICT_FP_PATH / f"{mf}.csv")
-    drop_idx = _load_dropidx(mf)
+    pred_fp = pd.read_csv(fp_dir / f"{mf}.csv")
+    drop_idx = _load_dropidx(mf, fp_dir)
     if drop_idx:
         pred_fp = pred_fp.drop(index=drop_idx).reset_index(drop=True)
 
@@ -75,6 +75,7 @@ def _calc_doa_for_mf(mf: str, train_cache: dict, log_file=None):
 def main(result_file: Path, metadata_file: Path) -> None:
     df = pd.read_excel(result_file)
     meta = json.loads(metadata_file.read_text())
+    fp_dir = result_file.parents[2] / "fingerprints"
     assay_to_mf = {m["ASSAY"]: m["MF"] for m in meta}
 
     log_path = result_file.parent / "doa_progress.log"
@@ -85,8 +86,10 @@ def main(result_file: Path, metadata_file: Path) -> None:
         with tqdm(total=len(assay_to_mf), desc="assays", file=log_f) as bar:
             for assay, mf in assay_to_mf.items():
                 if mf not in doa_cache:
-                    doa_cache[mf] = _calc_doa_for_mf(mf, train_cache, log_f)
+                    doa_cache[mf] = _calc_doa_for_mf(mf, fp_dir, train_cache, log_f)
                 doa_values = doa_cache[mf]
+                if len(doa_values) != len(df):
+                    doa_values = doa_values[: len(df)]
                 doa_col = f"{assay}_DoA"
                 if doa_col not in df.columns:
                     idx = df.columns.get_loc(assay) if assay in df.columns else len(df.columns)
