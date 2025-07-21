@@ -79,10 +79,6 @@ if __name__ == "__main__":
             # locate model automatically from best F1 directory
             pattern = f"{model_path_base}/{assay_name}_*/{assay_name}_best_model_*.joblib"
             matches = list(Path(model_path_base).glob(f"{assay_name}_*/{assay_name}_best_model_*.joblib"))
-            if not matches:
-                alt_name = assay_name.replace("_", "&")
-                pattern = f"{model_path_base}/{alt_name}_*/{alt_name}_best_model_*.joblib"
-                matches = list(Path(model_path_base).glob(f"{alt_name}_*/{alt_name}_best_model_*.joblib"))
             if len(matches) != 1:
                 msg = f"모델 파일을 찾지 못했습니다: {pattern}"
                 print(msg)

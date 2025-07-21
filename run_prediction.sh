@@ -39,7 +39,7 @@ config.validate_paths()
 PY
 
 # generate fingerprints
-python -m toxcast_pkg.smiles2fing
+#python -m toxcast_pkg.smiles2fing
 
 # determine mode from config
 mode=$(python - <<'PY'
@@ -61,8 +61,8 @@ import config
 print(config.RESULTS_DIR)
 PY
 )
-        latest_dir=$(ls -dt "$results_dir"/* | head -n 1)
-        result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n 1)
+        latest_dir=$(ls -dt "$results_dir"/*/ | head -n1)  
+        result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n1)
         metadata_file="$results_dir/metadata.json"
         bash prediction/run_doa_slurm.sh "$result_file" "$metadata_file"
         ;;

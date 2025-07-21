@@ -259,32 +259,53 @@
     "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuronCount_best_model_MACCS_rf.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuronCount",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuronCount_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuronCount_best_model_*.joblib"
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_CellBodySpotCount_best_model_Layered_xgb.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_CellBodySpotCount",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_CellBodySpotCount_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_CellBodySpotCount_best_model_*.joblib"
+    "model_type": "xgb",
+    "MF": "Layered",
+    "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuron_best_model_Layered_xgb.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuron",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuron_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuron_best_model_*.joblib"
+    "model_type": "xgb",
+    "MF": "Layered",
+    "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteLength_best_model_Pattern_xgb.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteLength",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteLength_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteLength_best_model_*.joblib"
+    "model_type": "xgb",
+    "MF": "Pattern",
+    "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteCount_best_model_RDKit_dt.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteCount",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteCount_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteCount_best_model_*.joblib"
+    "model_type": "dt",
+    "MF": "RDKit",
+    "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_BPCount_best_model_Pattern_dt.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_BPCount",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_BPCount_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_BPCount_best_model_*.joblib"
+    "model_type": "dt",
+    "MF": "Pattern",
+    "prediction_count": 17494
   },
   {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_SynapseCount_best_model_MACCS_logistic.joblib",
     "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_SynapseCount",
-    "error": "모델 파일을 찾지 못했습니다: ../Final_model_save/ToxCast_model(F1)/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_SynapseCount_*/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_SynapseCount_best_model_*.joblib"
+    "model_type": "logistic",
+    "MF": "MACCS",
+    "prediction_count": 17494
   },
   {
     "model": "CCTE_Mundy_HCI_hNP1_Pro_ResponderAvgInten_best_model_Pattern_dt.joblib",
