@@ -3,6 +3,9 @@
 import argparse
 import json
 from pathlib import Path
+from datetime import datetime
+
+from tqdm import tqdm
 
 import pandas as pd
 import numpy as np
@@ -39,7 +42,7 @@ def _load_dropidx(mf: str):
     return []
 
 
-def _calc_doa_for_mf(mf: str, train_cache: dict):
+def _calc_doa_for_mf(mf: str, train_cache: dict, log_file=None):
     if mf not in train_cache:
         fp_path = TRAIN_FP_BASE / f"{mf}.csv"
         drop_path = TRAIN_FP_BASE / f"{mf}_dropidx.csv"
@@ -60,9 +63,12 @@ def _calc_doa_for_mf(mf: str, train_cache: dict):
     if drop_idx:
         pred_fp = pred_fp.drop(index=drop_idx).reset_index(drop=True)
 
+    iterator = pred_fp.to_numpy()
+    if log_file is not None:
+        iterator = tqdm(iterator, desc=f"{mf}", file=log_file)
     return [
         _tanimoto_max(fp.astype(bool), train_fps)
-        for fp in pred_fp.to_numpy()
+        for fp in iterator
     ]
 
 
@@ -71,19 +77,24 @@ def main(result_file: Path, metadata_file: Path) -> None:
     meta = json.loads(metadata_file.read_text())
     assay_to_mf = {m["ASSAY"]: m["MF"] for m in meta}
 
-    train_cache = {}
-    doa_cache = {}
-
-    for assay, mf in assay_to_mf.items():
-        if mf not in doa_cache:
-            doa_cache[mf] = _calc_doa_for_mf(mf, train_cache)
-        doa_values = doa_cache[mf]
-        doa_col = f"{assay}_DoA"
-        if doa_col not in df.columns:
-            idx = df.columns.get_loc(assay) if assay in df.columns else len(df.columns)
-            df.insert(idx + 1, doa_col, doa_values)
-        else:
-            df[doa_col] = doa_values
+    log_path = result_file.parent / "doa_progress.log"
+    with open(log_path, "w") as log_f:
+        log_f.write(f"Start time: {datetime.now().isoformat()}\n")
+        train_cache = {}
+        doa_cache = {}
+        with tqdm(total=len(assay_to_mf), desc="assays", file=log_f) as bar:
+            for assay, mf in assay_to_mf.items():
+                if mf not in doa_cache:
+                    doa_cache[mf] = _calc_doa_for_mf(mf, train_cache, log_f)
+                doa_values = doa_cache[mf]
+                doa_col = f"{assay}_DoA"
+                if doa_col not in df.columns:
+                    idx = df.columns.get_loc(assay) if assay in df.columns else len(df.columns)
+                    df.insert(idx + 1, doa_col, doa_values)
+                else:
+                    df[doa_col] = doa_values
+                log_f.flush()
+                bar.update(1)
 
     df.to_excel(result_file, index=False)
     print(f"DoA results updated in {result_file}")
