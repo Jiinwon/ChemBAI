@@ -10,6 +10,7 @@ This repository contains utilities for training and predicting toxicological act
 - Single entry script `run_pipeline.sh` to generate fingerprints, train models and run predictions
 - Prediction runs save results in timestamped folders and write a `metadata.json` summary in `experiments/<PROJECT_NAME>/results/`
 
+
 ## Project layout
 
 ```
