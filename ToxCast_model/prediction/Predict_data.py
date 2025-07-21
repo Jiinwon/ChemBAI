@@ -35,6 +35,7 @@ if __name__ == "__main__":
             PREDICT_FP_PATH,
             PREDICT_SMILES_PATH,
             RESULTS_DIR,
+            REF_FILE_PATH,
         )
     except ImportError:
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
@@ -205,6 +206,28 @@ if __name__ == "__main__":
 
     # SMILES 열 추가 및 채우기
     all_results.insert(1, "SMILES", filtered_smiles)
+
+    # ----- merge with reference data if available -----
+    assay_names = data["assay_name"].tolist()
+
+    # replace prediction outputs so 0 -> 2, 1 -> 3
+    for col in assay_names:
+        if col in all_results.columns:
+            all_results[col] = all_results[col].replace({0: 2, 1: 3})
+
+    try:
+        ref_df = pd.read_excel(REF_FILE_PATH)
+    except Exception as e:
+        print(f"REF_FILE 읽기 오류: {e}")
+        ref_df = None
+
+    if ref_df is not None and "DTXSID" in ref_df.columns:
+        ref_df = ref_df.set_index("DTXSID")
+        all_results = all_results.set_index("DTXSID")
+        for col in assay_names:
+            if col in ref_df.columns and col in all_results.columns:
+                all_results[col] = ref_df[col].combine_first(all_results[col])
+        all_results.reset_index(inplace=True)
 
     # 최종 결과 저장 - create timestamped file under the experiment results dir
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
