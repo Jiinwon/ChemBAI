@@ -8,7 +8,19 @@ step="${1:-predict}"
 
 if [ "$step" = "doa" ]; then
     cd "$model_dir" || exit 1
-    PYTHONPATH=. python prediction/calc_doa.py
+    result_file="$2"
+    metadata_file="$3"
+    if [ -z "$result_file" ]; then
+        results_dir=$(python - <<'PY'
+import config
+print(config.RESULTS_DIR)
+PY
+)
+        latest_dir=$(ls -dt "$results_dir"/* | head -n 1)
+        result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n 1)
+        metadata_file="$results_dir/metadata.json"
+    fi
+    bash prediction/run_doa_slurm.sh "$result_file" "$metadata_file"
     exit $?
 fi
 
@@ -44,6 +56,15 @@ case "$mode" in
         ;;
     prediction)
         PYTHONPATH=. python prediction/Predict_data.py --skip-doa
+        results_dir=$(python - <<'PY'
+import config
+print(config.RESULTS_DIR)
+PY
+)
+        latest_dir=$(ls -dt "$results_dir"/* | head -n 1)
+        result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n 1)
+        metadata_file="$results_dir/metadata.json"
+        bash prediction/run_doa_slurm.sh "$result_file" "$metadata_file"
         ;;
     *)
         echo "Unknown mode: $mode"
