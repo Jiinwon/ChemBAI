@@ -62,7 +62,7 @@ print(config.RESULTS_DIR)
 PY
 )
         latest_dir=$(ls -dt "$results_dir"/* | head -n 1)
-        result_file=$(ls "$results_dir"/*_prediction.xlsx | head -n 1)
+        result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n 1)
         metadata_file="$results_dir/metadata.json"
         bash prediction/run_doa_slurm.sh "$result_file" "$metadata_file"
         ;;
