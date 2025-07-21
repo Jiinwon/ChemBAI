@@ -91,6 +91,10 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True, random_state=42)
 
+    # Save training fingerprints for DoA calculation
+    train_fp_path = os.path.join(model_save_path, "train_fps.csv")
+    x_train.to_csv(train_fp_path, index=False)
+
     params_dict = {
         'learning_rate': [0.001, 0.005, 0.01, 0.05, 0.1],
         'n_estimators': [5, 10, 50, 100, 130],

@@ -87,6 +87,10 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
         raise ValueError(f"Invalid time format for time_now: {time_now}. Expected format: 'HH-MM-SS'")
     
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True, random_state=random_seed) #04.07 randomstate=42 제거
+
+    # Save training fingerprints for DoA calculation
+    train_fp_path = os.path.join(model_save_path, "train_fps.csv")
+    x_train.to_csv(train_fp_path, index=False)
     
     
     # 저장 디렉토리 설정

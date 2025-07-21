@@ -12,6 +12,8 @@ try:
         RESULTS_DIR,
         PREDICT_FP_PATH,
         PREDICT_SMILES_PATH,
+        PREDICT_LIST_PATH,
+        get_model_base,
     )
 except ImportError:
     raise ImportError("Run from within ToxCast_model directory")
@@ -26,23 +28,35 @@ def load_latest_prediction() -> Path:
 
 def main(pred_file: Path) -> None:
     pred_df = pd.read_excel(pred_file)
-    metadata_path = Path(RESULTS_DIR) / 'metadata.json'
-    if not metadata_path.exists():
-        raise FileNotFoundError(f'Metadata not found: {metadata_path}')
-    with open(metadata_path, 'r', encoding='utf-8') as f:
-        meta = json.load(f)
-    assay_to_mf = {m['ASSAY']: m.get('MF') for m in meta if m.get('MF')}
+
+    excel_path = PREDICT_LIST_PATH
+    if Path(excel_path).is_dir():
+        from toxcast_pkg.common import find_single_excel_file
+        excel_path = find_single_excel_file(excel_path)
+    assay_df = pd.read_excel(excel_path, sheet_name='assay_list')
+    required_cols = {'assay_name', 'MF', 'Model'}
+    if not required_cols.issubset(assay_df.columns):
+        missing = required_cols.difference(assay_df.columns)
+        raise KeyError(f"assay_list sheet missing columns: {', '.join(missing)}")
+    assay_info = {
+        row['assay_name']: {'MF': row['MF'], 'model_type': row['Model']}
+        for _, row in assay_df.iterrows()
+    }
 
     smiles_df = pd.read_excel(PREDICT_SMILES_PATH, sheet_name='data')
     drop_cache = {}
-    train_fp_base = Path('data/ToxCast_v.4.1_v.2/fingerprints')
     train_cache = {}
     test_cache = {}
+    model_base = get_model_base()
 
-    for assay, mf in assay_to_mf.items():
-        if mf not in train_cache:
-            train_fp = pd.read_csv(train_fp_base / f'{mf}.csv').astype(bool).values
-            train_cache[mf] = train_fp
+    for assay, info in assay_info.items():
+        mf = info['MF']
+        model_type = info['model_type']
+        if assay not in train_cache:
+            train_fp_path = Path(model_base) / f'{assay}_{mf}_{model_type}' / 'train_fps.csv'
+            if not train_fp_path.exists():
+                raise FileNotFoundError(f'Training fingerprints not found: {train_fp_path}')
+            train_cache[assay] = pd.read_csv(train_fp_path).astype(bool).values
         if mf not in test_cache:
             test_fp = pd.read_csv(Path(PREDICT_FP_PATH) / f'{mf}.csv').astype(bool).values
             drop_idx_path = Path(PREDICT_FP_PATH) / f'{mf}_dropidx.csv'
@@ -54,7 +68,7 @@ def main(pred_file: Path) -> None:
             if drop_idx:
                 test_fp = np.delete(test_fp, drop_idx, axis=0)
             test_cache[mf] = test_fp
-        train_fp = train_cache[mf]
+        train_fp = train_cache[assay]
         test_fp = test_cache[mf]
         doa_vals = [_tanimoto_max(fp.astype(bool), train_fp) for fp in test_fp]
         pred_df[f'{assay}_DoA'] = doa_vals
@@ -66,7 +80,6 @@ def main(pred_file: Path) -> None:
         if 'DTXSID' not in pred_df.columns:
             pred_df.insert(0, 'DTXSID', dtxsid_filtered)
 
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     out_path = pred_file.with_name(pred_file.stem + '_doa.xlsx')
     pred_df.to_excel(out_path, index=False)
     print(f'DoA results saved to {out_path}')

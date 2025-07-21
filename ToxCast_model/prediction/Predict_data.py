@@ -67,7 +67,6 @@ if __name__ == "__main__":
     all_results = pd.DataFrame()
     metadata_records = []
     # cache training fingerprints for DoA calculation
-    train_fp_base = Path("data/ToxCast_v.4.1_v.2/fingerprints")
     train_fp_cache = {}
 
     # 반복문으로 각 모델에 대해 처리
@@ -127,21 +126,19 @@ if __name__ == "__main__":
         predictions = model.predict(input_data)
 
         if not skip_doa:
-            # DoA 계산을 위한 학습 fingerprint 로드
-            if mf_type not in train_fp_cache:
-                train_fp_path = train_fp_base / f"{mf_type}.csv"
-                if not train_fp_path.exists():
-                    print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
-                    train_fp_cache[mf_type] = None
+            # DoA 계산을 위한 학습 fingerprint 로드 (model specific)
+            train_fp_path = Path(model_path).parent / "train_fps.csv"
+            cache_key = str(train_fp_path)
+            if cache_key not in train_fp_cache:
+                if train_fp_path.exists():
+                    train_fp_cache[cache_key] = pd.read_csv(train_fp_path).astype(bool).values
                 else:
-                    train_fp_cache[mf_type] = pd.read_csv(train_fp_path).astype(bool).values
+                    print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
+                    train_fp_cache[cache_key] = None
 
-            train_fps = train_fp_cache.get(mf_type)
+            train_fps = train_fp_cache.get(cache_key)
             if train_fps is not None:
-                doa_values = [
-                    _tanimoto_max(fp.astype(bool), train_fps)
-                    for fp in input_data.to_numpy()
-                ]
+                doa_values = [_tanimoto_max(fp.astype(bool), train_fps) for fp in input_data.to_numpy()]
             else:
                 doa_values = [None] * len(input_data)
         else:

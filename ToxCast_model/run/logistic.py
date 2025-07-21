@@ -91,6 +91,10 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
 
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True, random_state=42)
 
+    # Save training fingerprints for DoA calculation
+    train_fp_path = os.path.join(model_save_path, "train_fps.csv")
+    x_train.to_csv(train_fp_path, index=False)
+
     params_dict = {
         'C': [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 
               1, 2, 3, 4, 5, 7, 9, 11, 15, 20, 25, 30, 35, 40, 50, 100],
