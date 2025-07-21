@@ -6,6 +6,7 @@ from pathlib import Path
 from datetime import datetime
 import json
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 
 def _tanimoto_max(test_fp: np.ndarray, train_fps: np.ndarray) -> float:
@@ -130,11 +131,23 @@ if __name__ == "__main__":
             # DoA 계산을 위한 학습 fingerprint 로드
             if mf_type not in train_fp_cache:
                 train_fp_path = train_fp_base / f"{mf_type}.csv"
+                dropidx_path = train_fp_base / f"{mf_type}_dropidx.csv"
                 if not train_fp_path.exists():
                     print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
                     train_fp_cache[mf_type] = None
                 else:
-                    train_fp_cache[mf_type] = pd.read_csv(train_fp_path).astype(bool).values
+                    train_df = pd.read_csv(train_fp_path)
+                    if dropidx_path.exists() and dropidx_path.stat().st_size > 0:
+                        try:
+                            drop_idx = pd.read_csv(dropidx_path).iloc[:, 0].tolist()
+                        except pd.errors.EmptyDataError:
+                            drop_idx = []
+                        if drop_idx:
+                            train_df = train_df.drop(index=drop_idx).reset_index(drop=True)
+                    train_df, _ = train_test_split(
+                        train_df, test_size=0.2, shuffle=True, random_state=42
+                    )
+                    train_fp_cache[mf_type] = train_df.astype(bool).values
 
             train_fps = train_fp_cache.get(mf_type)
             if train_fps is not None:

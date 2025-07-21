@@ -6,6 +6,7 @@ from pathlib import Path
 
 import pandas as pd
 import numpy as np
+from sklearn.model_selection import train_test_split
 
 from Predict_data import _tanimoto_max
 
@@ -41,7 +42,17 @@ def _load_dropidx(mf: str):
 def _calc_doa_for_mf(mf: str, train_cache: dict):
     if mf not in train_cache:
         fp_path = TRAIN_FP_BASE / f"{mf}.csv"
-        train_cache[mf] = pd.read_csv(fp_path).astype(bool).values
+        drop_path = TRAIN_FP_BASE / f"{mf}_dropidx.csv"
+        train_df = pd.read_csv(fp_path)
+        if drop_path.exists() and drop_path.stat().st_size > 0:
+            try:
+                drop_idx = pd.read_csv(drop_path).iloc[:, 0].tolist()
+            except pd.errors.EmptyDataError:
+                drop_idx = []
+            if drop_idx:
+                train_df = train_df.drop(index=drop_idx).reset_index(drop=True)
+        train_df, _ = train_test_split(train_df, test_size=0.2, shuffle=True, random_state=42)
+        train_cache[mf] = train_df.astype(bool).values
     train_fps = train_cache[mf]
 
     pred_fp = pd.read_csv(PREDICT_FP_PATH / f"{mf}.csv")
