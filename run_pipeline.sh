@@ -12,6 +12,12 @@ if [ "$step" = "doa" ]; then
     exit $?
 fi
 
+if [ "$step" = "train_doa" ]; then
+    cd "$model_dir" || exit 1
+    PYTHONPATH=. python prediction/calc_train_doa.py "$2"
+    exit $?
+fi
+
 cd "$model_dir" || exit 1
 
 # validate experiment setup
