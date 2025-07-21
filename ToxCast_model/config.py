@@ -19,7 +19,7 @@ MODEL_SELECTION = 0
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
 PROJECT_NAME = "XAI"
-
+REF_FILE_PATH = Path("data") / "ToxCast_v.4.1_v.2" / "ToxCast_v.4.1_hitcall_v.2.xlsx"
 
 
 
