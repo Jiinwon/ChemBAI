@@ -10,7 +10,7 @@
 set -e
 
 PARTITIONS=(gpu6 gpu1 gpu2 gpu3 gpu4 gpu5)
-GRES="gpu:rtx3090:1"
+GRES="gpu"
 CPUS_PER_TASK=8
 MEM_PER_TASK="16G"
 
