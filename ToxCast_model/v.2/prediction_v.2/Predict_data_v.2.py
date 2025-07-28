@@ -13,8 +13,8 @@ if __name__ == "__main__":
     SMILES_path = "./data_v.2/example_data_DBPs/for_predict/example_DBPs_for_pred.xlsx"
 
     # 입력 데이터 읽기
-    data = pd.read_excel(input_excel_path)
-    SMILES_df = pd.read_excel(SMILES_path)
+    data = pd.read_excel(input_excel_path, header=1)
+    SMILES_df = pd.read_excel(SMILES_path, header=1)
     SMILES = SMILES_df['SMILES']
 
     # 필요한 열 추출

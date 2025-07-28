@@ -34,7 +34,7 @@ def load_training_fps(excel_path: Path, fp_base: Path, assay: str, mf: str) -> n
     if drop_idx:
         x = x.drop(index=drop_idx).reset_index(drop=True)
 
-    df = pd.read_excel(excel_path, sheet_name="data")
+    df = pd.read_excel(excel_path, sheet_name="data", header=1)
     y = df[assay]
     if drop_idx:
         y = y.drop(index=drop_idx).reset_index(drop=True)

@@ -57,7 +57,7 @@ if __name__ == "__main__":
     os.makedirs(output_dir, exist_ok=True)
 
     # 엑셀 파일 읽기
-    data = pd.read_excel(input_excel_path)
+    data = pd.read_excel(input_excel_path, header=1)
 
     # SMILES 열 추출
     if 'SMILES' not in data.columns:

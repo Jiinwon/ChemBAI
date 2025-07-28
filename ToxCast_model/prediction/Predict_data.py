@@ -54,7 +54,7 @@ if __name__ == "__main__":
 
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path, sheet_name="assay_list")
-    SMILES_df = pd.read_excel(SMILES_path, sheet_name="data")
+    SMILES_df = pd.read_excel(SMILES_path, sheet_name="data", header=1)
     SMILES = SMILES_df['SMILES']
 
     # 필요한 열 추출
