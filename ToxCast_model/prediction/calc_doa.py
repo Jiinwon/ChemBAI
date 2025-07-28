@@ -21,6 +21,15 @@ except ImportError as exc:
 TRAIN_FP_BASE = Path("data/ToxCast_v.4.1_v.2/fingerprints")
 
 
+def _parse_mf_from_model(model_name: str) -> str:
+    """Return fingerprint type extracted from a model filename."""
+    stem = Path(model_name).stem
+    if "_best_model_" in stem:
+        tail = stem.split("_best_model_", 1)[1]
+        return tail.rsplit("_", 1)[0]
+    return ""
+
+
 def _latest_result() -> Path:
     dirs = [d for d in RESULTS_DIR.iterdir() if d.is_dir()]
     if not dirs:
@@ -76,7 +85,17 @@ def main(result_file: Path, metadata_file: Path) -> None:
     df = pd.read_excel(result_file)
     meta = json.loads(metadata_file.read_text())
     fp_dir = result_file.parents[2] / "fingerprints"
-    assay_to_mf = {m["ASSAY"]: m["MF"] for m in meta}
+
+    assay_to_mf = {}
+    for m in meta:
+        assay = m.get("ASSAY")
+        if not assay:
+            continue
+        mf = m.get("MF")
+        if not mf and "model" in m:
+            mf = _parse_mf_from_model(m["model"])
+        if mf:
+            assay_to_mf[assay] = mf
 
     log_path = result_file.parent / "doa_progress.log"
     with open(log_path, "w") as log_f:
