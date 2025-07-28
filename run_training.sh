@@ -3,6 +3,14 @@
 set -e
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
+model_dir="$script_dir/ToxCast_model"
+default_project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
+import os, config
+from pathlib import Path
+print(Path(os.environ['MODEL_DIR']) / config.BASE_DIR)
+PY
+)
+project_dir="${1:-$default_project_dir}"
 
 # When not launched by a slurm job, submit this script via sbatch similarly to
 # prediction/run_doa_slurm.sh.  This checks GPU partitions in the order
@@ -15,10 +23,8 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     CPUS_PER_TASK=8
     MEM_PER_TASK="16G"
 
-    project_dir="$1"
-    if [ -z "$project_dir" ]; then
-        echo "Usage: $0 <PROJECT_DIR>" >&2
-        exit 1
+    if [ -z "$1" ]; then
+        echo "Using project directory from config: $project_dir"
     fi
 
     for p in "${PARTITIONS[@]}"; do
@@ -44,12 +50,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     exit 0
 fi
 
-model_dir="$script_dir/ToxCast_model"
-project_dir="$1"
-if [ -z "$project_dir" ]; then
-    echo "Usage: $0 <PROJECT_DIR>" >&2
-    exit 1
-fi
+project_dir="${1:-$default_project_dir}"
 
 input_excel="$project_dir/training_input_template.xlsx"
 results_dir="$project_dir/results"
