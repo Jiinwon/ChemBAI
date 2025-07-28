@@ -64,7 +64,7 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
 
     # 이후 drop_idx가 빈 리스트일 경우 drop 작업이 수행되지 않습니다.
     x = pd.read_csv(file_path_fp)
-    df = pd.read_excel(file_path)
+    df = pd.read_excel(file_path, header=1)
     assay_name = df.columns[assay_num+1]
 
     if drop_idx:
