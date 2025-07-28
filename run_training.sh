@@ -3,6 +3,47 @@
 set -e
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
+
+# When not launched by a slurm job, submit this script via sbatch similarly to
+# prediction/run_doa_slurm.sh.  This checks GPU partitions in the order
+# gpu6->gpu1->gpu2->gpu3->gpu4->gpu5 and submits the job to the first partition
+# that is not pending.  If all partitions remain pending, the job is submitted
+# to gpu1 and left pending.
+if [ -z "$SLURM_LAUNCHED" ]; then
+    PARTITIONS=(gpu6 gpu1 gpu2 gpu3 gpu4 gpu5)
+    GRES="gpu"
+    CPUS_PER_TASK=8
+    MEM_PER_TASK="16G"
+
+    project_dir="$1"
+    if [ -z "$project_dir" ]; then
+        echo "Usage: $0 <PROJECT_DIR>" >&2
+        exit 1
+    fi
+
+    for p in "${PARTITIONS[@]}"; do
+        JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
+            --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
+            --wrap="SLURM_LAUNCHED=1 bash \"$script_dir/run_training.sh\" \"$project_dir\"")
+        sleep 2
+        info=$(squeue -j "$JOBID" -h -o '%T %R')
+        state=$(echo "$info" | awk '{print $1}')
+        if [ "$state" != "PD" ]; then
+            echo "Job $JOBID running on $(echo "$info" | awk '{print $2}')"
+            exit 0
+        fi
+        scancel "$JOBID"
+        echo "Partition $p busy, trying next..."
+        sleep 10
+    done
+
+    LAST_PART=${PARTITIONS[$(( ${#PARTITIONS[@]} - 1 ))]}
+    sbatch --partition="$LAST_PART" --gres="$GRES" \
+        --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
+        --wrap="SLURM_LAUNCHED=1 bash \"$script_dir/run_training.sh\" \"$project_dir\""
+    exit 0
+fi
+
 model_dir="$script_dir/ToxCast_model"
 project_dir="$1"
 if [ -z "$project_dir" ]; then
