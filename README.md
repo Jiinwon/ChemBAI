@@ -33,7 +33,7 @@ ToxCast_model/              # Main source code
 7. Run the pipeline from the project root:
 
 ```bash
-bash run_prediction.sh
+bash launcher.sh
 ```
 
 ### Local usage
