@@ -61,7 +61,7 @@ fi
 
 project_dir="${1:-$default_project_dir}"
 
-input_excel="$project_dir/training_input_template.xlsx"
+input_excel=("$project_dir"/*.xlsx)
 results_dir="$project_dir/results"
 logs_dir="$project_dir/logs"
 fp_dir="$project_dir/fingerprints"
@@ -103,7 +103,7 @@ for assay in "${assays[@]}"; do
         for model in "${models[@]}"; do
             save_dir="$results_dir/${assay}_${fp}_${model}"
             mkdir -p "$save_dir"
-            log_file="$logs_dir/${assay}_${fp}_${model}.log"
+            log_file="$logs_dir/${assay}/${assay}_${fp}_${model}.log"
             echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
             set +e

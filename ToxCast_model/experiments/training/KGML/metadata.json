@@ -1,9 +1,359 @@
 [
   {
-    "assay_name": "SMILES",
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
     "MF": "MACCS",
     "Model": "rf",
-    "duration": 55,
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "MACCS",
+    "Model": "logistic",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "MACCS",
+    "Model": "xgb",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "MACCS",
+    "Model": "gbt",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "MACCS",
+    "Model": "dt",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Morgan",
+    "Model": "rf",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Morgan",
+    "Model": "logistic",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Morgan",
+    "Model": "xgb",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Morgan",
+    "Model": "gbt",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Morgan",
+    "Model": "dt",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Layered",
+    "Model": "rf",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Layered",
+    "Model": "logistic",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Layered",
+    "Model": "xgb",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Layered",
+    "Model": "gbt",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Layered",
+    "Model": "dt",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Pattern",
+    "Model": "rf",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Pattern",
+    "Model": "logistic",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Pattern",
+    "Model": "xgb",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Pattern",
+    "Model": "gbt",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "Pattern",
+    "Model": "dt",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "RDKit",
+    "Model": "rf",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "RDKit",
+    "Model": "logistic",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "RDKit",
+    "Model": "xgb",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "RDKit",
+    "Model": "gbt",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1a_proliferation_area_72hr",
+    "MF": "RDKit",
+    "Model": "dt",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "MACCS",
+    "Model": "rf",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "MACCS",
+    "Model": "logistic",
+    "duration": 1,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "MACCS",
+    "Model": "xgb",
+    "duration": 1,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "MACCS",
+    "Model": "gbt",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "MACCS",
+    "Model": "dt",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Morgan",
+    "Model": "rf",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Morgan",
+    "Model": "logistic",
+    "duration": 2,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Morgan",
+    "Model": "xgb",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Morgan",
+    "Model": "gbt",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Morgan",
+    "Model": "dt",
+    "duration": 3,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Layered",
+    "Model": "rf",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Layered",
+    "Model": "logistic",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Layered",
+    "Model": "xgb",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Layered",
+    "Model": "gbt",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Layered",
+    "Model": "dt",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Pattern",
+    "Model": "rf",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Pattern",
+    "Model": "logistic",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Pattern",
+    "Model": "xgb",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Pattern",
+    "Model": "gbt",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "Pattern",
+    "Model": "dt",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "RDKit",
+    "Model": "rf",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "RDKit",
+    "Model": "logistic",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "RDKit",
+    "Model": "xgb",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "RDKit",
+    "Model": "gbt",
+    "duration": 5,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "MF": "RDKit",
+    "Model": "dt",
+    "duration": 4,
+    "Error": "    raise ValueError("
+  },
+  {
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
+    "MF": "MACCS",
+    "Model": "rf",
+    "duration": 52,
     "F1": 0.0,
     "valF1": 0.32666666666666666,
     "AUC": 0.33333333333333337,
@@ -13,14 +363,79 @@
     "Accuracy": 0.0
   },
   {
-    "assay_name": "SMILES",
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
     "MF": "MACCS",
     "Model": "logistic",
-    "duration": 29,
+    "duration": 27,
     "F1": 0.0,
     "valF1": 0.3904761904761904,
     "AUC": 0.7962962962962963,
     "valAUC": 0.6891666666666667,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  },
+  {
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
+    "MF": "MACCS",
+    "Model": "xgb",
+    "duration": 143,
+    "F1": 0.0,
+    "valF1": 0.406031746031746,
+    "AUC": 0.7962962962962963,
+    "valAUC": 0.7424999999999999,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  },
+  {
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
+    "MF": "MACCS",
+    "Model": "gbt",
+    "duration": 50,
+    "F1": 0.0,
+    "valF1": 0.3126984126984127,
+    "AUC": 0.9444444444444444,
+    "valAUC": 0.7241666666666667,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  },
+  {
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
+    "MF": "MACCS",
+    "Model": "dt",
+    "duration": 17,
+    "F1": 0.0,
+    "valF1": 0.3571428571428571,
+    "AUC": 0.9259259259259259,
+    "valAUC": 0.7075,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  },
+  {
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
+    "MF": "Morgan",
+    "Model": "rf",
+    "duration": 99,
+    "F1": 0.0,
+    "valF1": 0.36825396825396817,
+    "AUC": 0.8888888888888888,
+    "valAUC": 0.8116666666666668,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  },
+  {
+    "assay_name": "IUF_NPC1_cytotoxicity_72hr",
+    "MF": "Morgan",
+    "Model": "logistic",
+    "duration": 120,
+    "F1": 0.0,
+    "valF1": 0.42655122655122657,
+    "AUC": 0.7407407407407407,
+    "valAUC": 0.8241666666666667,
     "Precision": 0.0,
     "Recall": 0.0,
     "Accuracy": 0.0
