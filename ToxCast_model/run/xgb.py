@@ -35,6 +35,28 @@ def save_results(result, path):
     with open(path, 'w') as f:
         json.dump(result, f)
 
+def find_best_model(results, metric='f1', metric_agg='mean'):
+    """Return the best model configuration from a cross validation run."""
+    best_model = None
+    best_score = -np.inf
+    best_model_key = None
+
+    for model_key in results['model'].keys():
+        scores = results[metric][model_key]
+        if metric_agg == 'mean':
+            agg_score = np.mean(scores)
+        elif metric_agg == 'median':
+            agg_score = np.median(scores)
+        else:
+            raise ValueError("metric_agg must be either 'mean' or 'median'")
+
+        if agg_score > best_score:
+            best_score = agg_score
+            best_model = results['model'][model_key]
+            best_model_key = model_key
+
+    return best_model_key, best_model, best_score
+
 def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path):
 
     if fingerprint_type == 'MACCS':
