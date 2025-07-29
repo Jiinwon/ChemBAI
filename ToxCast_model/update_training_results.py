@@ -29,7 +29,7 @@ for r in records:
 # compute training stats using pandas
 # first row holds AEID numbers, second row holds assay names
 aeid_row = pd.read_excel(input_excel, sheet_name="data", nrows=1, header=None).iloc[
-    0, 1:
+    0, 2:
 ]
 train_df = pd.read_excel(input_excel, sheet_name="data", header=1)
 aeid_map = dict(zip(train_df.columns, aeid_row))
