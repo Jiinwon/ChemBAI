@@ -3,7 +3,14 @@
 set -e
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-model_dir="$script_dir/ToxCast_model"
+model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+
+current_date=$(date +%Y-%m-%d)
+current_time=$(date +%H-%M-%S)
+default_log_dir="$script_dir/../slurm_logs/$current_date/$current_time"
+slurm_log_dir="${SLURM_LOG_DIR:-$default_log_dir}"
+mkdir -p "$slurm_log_dir"
+slurm_out="$slurm_log_dir/slurm.out"
 default_project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
 import os, config
 from pathlib import Path
@@ -30,7 +37,8 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     for p in "${PARTITIONS[@]}"; do
         JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-            --wrap="SLURM_LAUNCHED=1 bash \"$script_dir/run_training.sh\" \"$project_dir\"")
+            --output="$slurm_out" \
+            --wrap="SLURM_LAUNCHED=1 SLURM_LOG_DIR=\"$slurm_log_dir\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
         sleep 2
         info=$(squeue -j "$JOBID" -h -o '%T %R')
         state=$(echo "$info" | awk '{print $1}')
@@ -46,7 +54,8 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     LAST_PART=${PARTITIONS[$(( ${#PARTITIONS[@]} - 1 ))]}
     sbatch --partition="$LAST_PART" --gres="$GRES" \
         --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-        --wrap="SLURM_LAUNCHED=1 bash \"$script_dir/run_training.sh\" \"$project_dir\""
+        --output="$slurm_out" \
+        --wrap="SLURM_LAUNCHED=1 SLURM_LOG_DIR=\"$slurm_log_dir\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
     exit 0
 fi
 
@@ -95,6 +104,7 @@ for assay in "${assays[@]}"; do
             save_dir="$results_dir/${assay}_${fp}_${model}"
             mkdir -p "$save_dir"
             log_file="$logs_dir/${assay}_${fp}_${model}.log"
+            echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
             PYTHONPATH="$model_dir" python "$model_dir/run/${model}.py" \
                 --fingerprint_type "$fp" \
@@ -105,6 +115,7 @@ for assay in "${assays[@]}"; do
                 >"$log_file" 2>&1
             end_time=$(date +%s)
             duration=$((end_time - start_time))
+            echo "[$(date '+%F %T')] END ${assay}_${fp}_${model}" >> "$slurm_out"
             test_f1=$(grep -o "Test F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             val_f1=$(grep -o "Validation F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             test_auc=$(grep -o "Test AUC: [0-9.e+-]*" "$log_file" | awk '{print $3}' | tail -n1)
@@ -132,3 +143,4 @@ PY
 done
 
 python "$model_dir/update_training_results.py" "$project_dir" "$input_excel" "$metadata_file"
+echo "[$(date '+%F %T')] Training complete" >> "$slurm_out"

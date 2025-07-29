@@ -3,7 +3,21 @@
 
 # resolve script directory and determine action
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-model_dir="$script_dir/ToxCast_model"
+model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+
+if [ -n "$SLURM_LAUNCHED" ]; then
+    run_doa() { bash prediction/run_doa_slurm.sh "$1" "$2"; }
+else
+    run_doa() { PYTHONPATH=. python prediction/calc_doa.py "$1" --metadata-file "$2"; }
+fi
+
+current_date=$(date +%Y-%m-%d)
+current_time=$(date +%H-%M-%S)
+default_log_dir="$script_dir/../slurm_logs/$current_date/$current_time"
+slurm_log_dir="${SLURM_LOG_DIR:-$default_log_dir}"
+mkdir -p "$slurm_log_dir"
+slurm_out="$slurm_log_dir/slurm.out"
+echo "[$(date '+%F %T')] run_prediction start" >> "$slurm_out"
 step="${1:-predict}"
 
 if [ "$step" = "doa" ]; then
@@ -20,7 +34,7 @@ PY
         result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n 1)
         metadata_file="$results_dir/metadata.json"
     fi
-    bash prediction/run_doa_slurm.sh "$result_file" "$metadata_file"
+    run_doa "$result_file" "$metadata_file"
     exit $?
 fi
 
@@ -64,11 +78,13 @@ PY
         latest_dir=$(ls -dt "$results_dir"/*/ | head -n1)  
         result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n1)
         metadata_file="$results_dir/metadata.json"
-        bash prediction/run_doa_slurm.sh "$result_file" "$metadata_file"
+        run_doa "$result_file" "$metadata_file"
         ;;
     *)
         echo "Unknown mode: $mode"
         exit 1
         ;;
 esac
+
+echo "[$(date '+%F %T')] run_prediction end" >> "$slurm_out"
 

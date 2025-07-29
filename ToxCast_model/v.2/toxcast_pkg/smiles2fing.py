@@ -2,10 +2,11 @@ import os
 import pandas as pd
 import numpy as np
 
-try: 
-    from rdkit import Chem
+try:
+    from rdkit import Chem, RDLogger
     from rdkit.Chem import MACCSkeys, AllChem, RDKFingerprint
-except:
+    RDLogger.DisableLog('rdApp.*')
+except Exception:
     import sys
     import subprocess
     subprocess.check_call([sys.executable, "-m", "pip", "install", "rdkit-pypi"])
