@@ -13,7 +13,7 @@ OBJECT = 1
 # 0 -> best F1 model (assay_name only)
 # 1 -> user-specified model and fingerprint
 MODEL_SELECTION_OPTIONS = ["best_f1", "model+mf"]
-MODEL_SELECTION = 0
+MODEL_SELECTION = 1
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain exactly one Excel file with the training and

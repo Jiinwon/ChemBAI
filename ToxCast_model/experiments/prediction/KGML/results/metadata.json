@@ -1,0 +1,426 @@
+[
+  {
+    "model": "CCTE_Mundy_HCI_hN2_NOG_NeuronCount_best_model_Pattern_dt.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hN2_NOG_NeuronCount",
+    "model_type": "dt",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_hN2_NOG_NeuriteLength_best_model_Pattern_dt.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hN2_NOG_NeuriteLength",
+    "model_type": "dt",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "UKN2_HCS_IMR90_cell_viability_best_model_Layered_dt.joblib",
+    "ASSAY": "UKN2_HCS_IMR90_cell_viability",
+    "model_type": "dt",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC2a_radial_glia_migration_72hr_best_model_Morgan_dt.joblib",
+    "ASSAY": "IUF_NPC2a_radial_glia_migration_72hr",
+    "model_type": "dt",
+    "MF": "Morgan",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC3_neuronal_differentiation_120hr_best_model_RDKit_dt.joblib",
+    "ASSAY": "IUF_NPC3_neuronal_differentiation_120hr",
+    "model_type": "dt",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "UKN5_HCS_SBAD2_cell_viability_best_model_MACCS_dt.joblib",
+    "ASSAY": "UKN5_HCS_SBAD2_cell_viability",
+    "model_type": "dt",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "UKN4_HCS_LUHMES_neurite_outgrowth_best_model_Pattern_dt.joblib",
+    "ASSAY": "UKN4_HCS_LUHMES_neurite_outgrowth",
+    "model_type": "dt",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "UKN4_HCS_LUHMES_cell_viability_best_model_RDKit_dt.joblib",
+    "ASSAY": "UKN4_HCS_LUHMES_cell_viability",
+    "model_type": "dt",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteCount_best_model_RDKit_dt.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteCount",
+    "model_type": "dt",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC4_neurite_area_120hr_best_model_MACCS_dt.joblib",
+    "ASSAY": "IUF_NPC4_neurite_area_120hr",
+    "model_type": "dt",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC2-5_cell_number_120hr_best_model_MACCS_dt.joblib",
+    "ASSAY": "IUF_NPC2-5_cell_number_120hr",
+    "model_type": "dt",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_per_burst_spike_percent_best_model_RDKit_dt.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_per_burst_spike_percent",
+    "model_type": "dt",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_iCellGluta_NOG_BPCount_best_model_Layered_gbt.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_iCellGluta_NOG_BPCount",
+    "model_type": "gbt",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuronCount_best_model_RDKit_gbt.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuronCount",
+    "model_type": "gbt",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_hNP1_Casp3_7_best_model_Pattern_gbt.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hNP1_Casp3_7",
+    "model_type": "gbt",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC2a_radial_glia_migration_120hr_best_model_MACCS_gbt.joblib",
+    "ASSAY": "IUF_NPC2a_radial_glia_migration_120hr",
+    "model_type": "gbt",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "UKN5_HCS_SBAD2_neurite_outgrowth_best_model_MACCS_gbt.joblib",
+    "ASSAY": "UKN5_HCS_SBAD2_neurite_outgrowth",
+    "model_type": "gbt",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC5_oligodendrocyte_differentiation_120hr_best_model_Layered_gbt.joblib",
+    "ASSAY": "IUF_NPC5_oligodendrocyte_differentiation_120hr",
+    "model_type": "gbt",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_inter_network_spike_interval_mean_best_model_Pattern_gbt.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_inter_network_spike_interval_mean",
+    "model_type": "gbt",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC1_viability_72hr_best_model_MACCS_logistic.joblib",
+    "ASSAY": "IUF_NPC1_viability_72hr",
+    "model_type": "logistic",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_hN2_NOG_NeuriteCount_best_model_Pattern_logistic.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hN2_NOG_NeuriteCount",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_hNP1_Pro_ResponderAvgInten_best_model_Pattern_logistic.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hNP1_Pro_ResponderAvgInten",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteLength_best_model_Morgan_logistic.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteLength",
+    "model_type": "logistic",
+    "MF": "Morgan",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_NOG_NeuronCount_best_model_RDKit_logistic.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_NOG_NeuronCount",
+    "model_type": "logistic",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_NOG_NeuriteLength_best_model_Pattern_logistic.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_NOG_NeuriteLength",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_BPCount_best_model_Pattern_logistic.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_BPCount",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_firing_rate_mean_best_model_Layered_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_firing_rate_mean",
+    "model_type": "logistic",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_bursting_electrodes_number_best_model_Layered_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_bursting_electrodes_number",
+    "model_type": "logistic",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_burst_duration_mean_best_model_Pattern_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_burst_duration_mean",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_interburst_interval_mean_best_model_RDKit_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_interburst_interval_mean",
+    "model_type": "logistic",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_spike_duration_mean_best_model_Layered_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_spike_duration_mean",
+    "model_type": "logistic",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_per_network_spike_spike_number_mean_best_model_MACCS_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_per_network_spike_spike_number_mean",
+    "model_type": "logistic",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_mutual_information_norm_best_model_Pattern_logistic.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_mutual_information_norm",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC1b_proliferation_BrdU_72hr_best_model_Morgan_rf.joblib",
+    "ASSAY": "IUF_NPC1b_proliferation_BrdU_72hr",
+    "model_type": "rf",
+    "MF": "Morgan",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_hN2_NOG_BPCount_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hN2_NOG_BPCount",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_NOG_BPCount_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_NOG_BPCount",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuronCount_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuronCount",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteLength_best_model_Pattern_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteLength",
+    "model_type": "rf",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_CellBodySpotCount_best_model_Layered_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_CellBodySpotCount",
+    "model_type": "rf",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuron_best_model_Layered_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuron",
+    "model_type": "rf",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_SynapseCount_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_SynapseCount",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC2-5_cytotoxicity_120hr_best_model_MACCS_rf.joblib",
+    "ASSAY": "IUF_NPC2-5_cytotoxicity_120hr",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_per_burst_interspike_interval_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_per_burst_interspike_interval",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_network_spike_duration_std_best_model_Layered_rf.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_network_spike_duration_std",
+    "model_type": "rf",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_per_network_spike_spike_percent_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_per_network_spike_spike_percent",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_LDH_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_LDH",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_AB_best_model_MACCS_rf.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_AB",
+    "model_type": "rf",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_hNP1_CellTiter_best_model_RDKit_xgb.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_hNP1_CellTiter",
+    "model_type": "xgb",
+    "MF": "RDKit",
+    "prediction_count": 146
+  },
+  {
+    "model": "UKN2_HCS_IMR90_neural_migration_best_model_Layered_xgb.joblib",
+    "ASSAY": "UKN2_HCS_IMR90_neural_migration",
+    "model_type": "xgb",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Mundy_HCI_Cortical_NOG_NeuriteCount_best_model_Pattern_xgb.joblib",
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_NOG_NeuriteCount",
+    "model_type": "xgb",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "IUF_NPC4_neurite_length_120hr_best_model_MACCS_xgb.joblib",
+    "ASSAY": "IUF_NPC4_neurite_length_120hr",
+    "model_type": "xgb",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_burst_rate_best_model_Pattern_xgb.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_burst_rate",
+    "model_type": "xgb",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_active_electrodes_number_best_model_Layered_xgb.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_active_electrodes_number",
+    "model_type": "xgb",
+    "MF": "Layered",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_network_spike_number_best_model_Morgan_xgb.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_network_spike_number",
+    "model_type": "xgb",
+    "MF": "Morgan",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_network_spike_peak_best_model_MACCS_xgb.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_network_spike_peak",
+    "model_type": "xgb",
+    "MF": "MACCS",
+    "prediction_count": 146
+  },
+  {
+    "model": "CCTE_Shafer_MEA_dev_correlation_coefficient_mean_best_model_Pattern_xgb.joblib",
+    "ASSAY": "CCTE_Shafer_MEA_dev_correlation_coefficient_mean",
+    "model_type": "xgb",
+    "MF": "Pattern",
+    "prediction_count": 146
+  },
+  {
+    "ASSAY": "IUF_NPC1a_proliferation_area_72hr",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/IUF_NPC1a_proliferation_area_72hr_nan_nan/IUF_NPC1a_proliferation_area_72hr_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount_nan_nan/CCTE_Mundy_HCI_iCellGluta_NOG_NeuriteCount_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "IUF_NPC1_cytotoxicity_72hr",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/IUF_NPC1_cytotoxicity_72hr_nan_nan/IUF_NPC1_cytotoxicity_72hr_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "IUF_NPC2b_neuronal_migration_120hr",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/IUF_NPC2b_neuronal_migration_120hr_nan_nan/IUF_NPC2b_neuronal_migration_120hr_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "IUF_NPC2c_oligodendrocyte_migration_120hr",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/IUF_NPC2c_oligodendrocyte_migration_120hr_nan_nan/IUF_NPC2c_oligodendrocyte_migration_120hr_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuriteLength",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuriteLength_nan_nan/CCTE_Mundy_HCI_Cortical_Synap_Neur_Matur_NeuriteSpotCountPerNeuriteLength_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "IUF_NPC2-5_cytotoxicity_72hr",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/IUF_NPC2-5_cytotoxicity_72hr_nan_nan/IUF_NPC2-5_cytotoxicity_72hr_best_model_nan_nan.joblib"
+  },
+  {
+    "ASSAY": "IUF-NPC2-5_viability_120hr",
+    "error": "모델 파일이 존재하지 않습니다: ../Final_model_save/ToxCast_v.4.2_model_total/IUF-NPC2-5_viability_120hr_nan_nan/IUF-NPC2-5_viability_120hr_best_model_nan_nan.joblib"
+  }
+]

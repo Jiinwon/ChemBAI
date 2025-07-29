@@ -1,0 +1,28 @@
+[
+  {
+    "assay_name": "SMILES",
+    "MF": "MACCS",
+    "Model": "rf",
+    "duration": 55,
+    "F1": 0.0,
+    "valF1": 0.32666666666666666,
+    "AUC": 0.33333333333333337,
+    "valAUC": 0.7483333333333333,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  },
+  {
+    "assay_name": "SMILES",
+    "MF": "MACCS",
+    "Model": "logistic",
+    "duration": 29,
+    "F1": 0.0,
+    "valF1": 0.3904761904761904,
+    "AUC": 0.7962962962962963,
+    "valAUC": 0.6891666666666667,
+    "Precision": 0.0,
+    "Recall": 0.0,
+    "Accuracy": 0.0
+  }
+]

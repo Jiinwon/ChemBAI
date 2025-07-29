@@ -2,14 +2,14 @@
 
 #SBATCH --job-name=GNN_launcher
 #SBATCH --partition=gpu1
-#SBATCH --gres=gpu:rtx3090:1
+#SBATCH --gres=gpu
 #SBATCH --cpus-per-task=1
 #SBATCH --output=/dev/null
 #SBATCH --error=/dev/null
 
 set -e
 
-PARTITIONS=(gpu6 gpu1 gpu2 gpu3 gpu4 gpu5)
+PARTITIONS=(gpu1 gpu6 gpu2 gpu3 gpu4 gpu5)
 GRES="gpu"
 CPUS_PER_TASK=8
 MEM_PER_TASK="16G"
