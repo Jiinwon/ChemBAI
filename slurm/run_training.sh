@@ -90,7 +90,7 @@ for c in row.findall('a:c', ns):
     if c.get('t')=='s':
         val=strings[int(val)]
     vals.append(val)
-print('\n'.join(vals[1:]))
+print('\n'.join(vals[2:]))
 PY
 )
 
@@ -106,6 +106,7 @@ for assay in "${assays[@]}"; do
             log_file="$logs_dir/${assay}_${fp}_${model}.log"
             echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
+            set +e
             PYTHONPATH="$model_dir" python "$model_dir/run/${model}.py" \
                 --fingerprint_type "$fp" \
                 --file_path "$input_excel" \
@@ -113,9 +114,15 @@ for assay in "${assays[@]}"; do
                 --assay_num "$assay_index" \
                 --fp_path "$fp_dir" \
                 >"$log_file" 2>&1
+            exit_code=$?
+            set -e
             end_time=$(date +%s)
             duration=$((end_time - start_time))
             echo "[$(date '+%F %T')] END ${assay}_${fp}_${model}" >> "$slurm_out"
+            error_msg=""
+            if [ $exit_code -ne 0 ]; then
+                error_msg=$(grep -m1 'ValueError' "$log_file" || true)
+            fi
             test_f1=$(grep -o "Test F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             val_f1=$(grep -o "Validation F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             test_auc=$(grep -o "Test AUC: [0-9.e+-]*" "$log_file" | awk '{print $3}' | tail -n1)
@@ -130,10 +137,20 @@ try:
     data=json.load(open(f))
 except Exception:
     data=[]
-rec={"assay_name":"$assay","MF":"$fp","Model":"$model","duration":$duration,
-     "F1":float("${test_f1:-0}"),"valF1":float("${val_f1:-0}"),
-     "AUC":float("${test_auc:-0}"),"valAUC":float("${val_auc:-0}"),
-     "Precision":float("${precision:-0}"),"Recall":float("${recall:-0}"),"Accuracy":float("${accuracy:-0}")}
+rec={"assay_name":"$assay","MF":"$fp","Model":"$model","duration":$duration}
+error="$error_msg"
+if error:
+    rec["Error"] = error
+else:
+    rec.update({
+        "F1":float("${test_f1:-0}"),
+        "valF1":float("${val_f1:-0}"),
+        "AUC":float("${test_auc:-0}"),
+        "valAUC":float("${val_auc:-0}"),
+        "Precision":float("${precision:-0}"),
+        "Recall":float("${recall:-0}"),
+        "Accuracy":float("${accuracy:-0}")
+    })
 data.append(rec)
 json.dump(data,open(f,'w'),indent=2)
 PY
