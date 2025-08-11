@@ -8,7 +8,7 @@ from datetime import datetime
 # 0 -> only prediction
 # 1 -> only training
 OBJECTS = ["prediction", "training"]
-OBJECT = 1
+OBJECT = 0
 # model selection
 # 0 -> best F1 model (assay_name only)
 # 1 -> user-specified model and fingerprint
@@ -18,8 +18,8 @@ MODEL_SELECTION = 1
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
-PROJECT_NAME = "KGML"
-REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/ToxCast_v4.1_hitcall_v.2.xlsx'
+PROJECT_NAME = "NGRA"
+REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints'
 
 
 
