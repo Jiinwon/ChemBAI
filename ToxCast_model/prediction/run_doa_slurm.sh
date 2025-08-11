@@ -16,13 +16,24 @@ MEM_PER_TASK="16G"
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-RESULT_FILE="$1"
-METADATA_FILE="$2"
+EXPERIMENT_EXCEL="$1"
+TRAIN_EXCEL="$2"
+TRAIN_FP_BASE="$3"
+
+CMD="cd \"$SCRIPT_DIR/..\" && PYTHONPATH=. python prediction/calc_train_doa.py"
+if [ -n "$EXPERIMENT_EXCEL" ]; then
+    CMD="$CMD --experiment-excel \"$EXPERIMENT_EXCEL\""
+fi
+if [ -n "$TRAIN_EXCEL" ]; then
+    CMD="$CMD --train-excel \"$TRAIN_EXCEL\""
+fi
+if [ -n "$TRAIN_FP_BASE" ]; then
+    CMD="$CMD --train-fp-base \"$TRAIN_FP_BASE\""
+fi
 
 JOBID=""
 for p in "${PARTITIONS[@]}"; do
-    JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-      --wrap="cd \"$SCRIPT_DIR/..\" && PYTHONPATH=. python prediction/calc_doa.py \"$RESULT_FILE\" --metadata-file \"$METADATA_FILE\"")
+    JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" --wrap="$CMD")
     sleep 2
     info=$(squeue -j "$JOBID" -h -o '%T %R')
     state=$(echo "$info" | awk '{print $1}')
@@ -36,5 +47,4 @@ for p in "${PARTITIONS[@]}"; do
 done
 
 LAST_PART=${PARTITIONS[$(( ${#PARTITIONS[@]} - 1 ))]}
-sbatch --partition="$LAST_PART" --gres="$GRES" --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-  --wrap="cd \"$SCRIPT_DIR/..\" && PYTHONPATH=. python prediction/calc_doa.py \"$RESULT_FILE\" --metadata-file \"$METADATA_FILE\""
+sbatch --partition="$LAST_PART" --gres="$GRES" --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" --wrap="$CMD"
