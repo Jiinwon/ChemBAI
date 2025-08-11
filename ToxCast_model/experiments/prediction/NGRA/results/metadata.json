@@ -1,0 +1,30 @@
+[
+  {
+    "model": "OT_ER_ERaERb_0480_best_model_Pattern_logistic.joblib",
+    "ASSAY": "OT_ER_ERaERb_0480",
+    "model_type": "logistic",
+    "MF": "Pattern",
+    "prediction_count": 106
+  },
+  {
+    "model": "OT_ER_ERbERb_0480_best_model_Pattern_rf.joblib",
+    "ASSAY": "OT_ER_ERbERb_0480",
+    "model_type": "rf",
+    "MF": "Pattern",
+    "prediction_count": 106
+  },
+  {
+    "model": "OT_ER_ERaERb_1440_best_model_Pattern_xgb.joblib",
+    "ASSAY": "OT_ER_ERaERb_1440",
+    "model_type": "xgb",
+    "MF": "Pattern",
+    "prediction_count": 106
+  },
+  {
+    "model": "ATG_ERa_TRANS_best_model_Layered_xgb.joblib",
+    "ASSAY": "ATG_ERa_TRANS",
+    "model_type": "xgb",
+    "MF": "Layered",
+    "prediction_count": 106
+  }
+]
