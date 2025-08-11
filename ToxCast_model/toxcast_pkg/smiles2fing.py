@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import numpy as np
 
+from toxcast_pkg.common import read_data_with_smiles
+
 try:
     from rdkit import Chem, RDLogger
     from rdkit.Chem import MACCSkeys, AllChem, RDKFingerprint
@@ -60,14 +62,11 @@ if __name__ == "__main__":
     # 출력 디렉토리 생성
     os.makedirs(output_dir, exist_ok=True)
 
-    # 엑셀 파일 읽기 - "data" 시트가 반드시 존재해야 함
-    data = pd.read_excel(input_excel_path, sheet_name="data", header=1)
 
-    # SMILES 열 추출 (대소문자나 공백을 허용)
-    smiles_col = next((c for c in data.columns if c.strip().lower() == 'smiles'), None)
-    if smiles_col is None:
-        raise KeyError("엑셀 파일에 'SMILES' 열이 없습니다.")
-    smiles = data[smiles_col]
+    # 엑셀 파일 읽기 - "data" 시트에서 SMILES 자동 탐지
+    df = read_data_with_smiles(input_excel_path, sheet="data")
+    smiles = df["SMILES"].astype(str)
+
 
     # Fingerprint 유형 리스트
     fps = ['MACCS', 'Morgan', 'RDKit', 'Layered', 'Pattern']

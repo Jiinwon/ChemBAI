@@ -15,7 +15,6 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Dict, List, Tuple
-import re
 
 import numpy as np
 import pandas as pd
@@ -34,11 +33,11 @@ try:
 except ImportError as exc:
     raise ImportError("ToxCast_model 디렉토리 내에서 실행하세요.") from exc
 
-# 단일 엑셀 자동 탐색 유틸
+# 단일 엑셀 자동 탐색 유틸 및 공용 함수
 try:
-    from toxcast_pkg.common import find_single_excel_file
+    from toxcast_pkg.common import find_single_excel_file, read_data_with_smiles, _standardize_columns
 except Exception:
-    raise ImportError("toxcast_pkg.common.find_single_excel_file를 import할 수 없습니다. PYTHONPATH를 확인하세요.")
+    raise ImportError("toxcast_pkg.common 관련 함수를 import할 수 없습니다. PYTHONPATH를 확인하세요.")
 
 
 # =========================
@@ -51,73 +50,6 @@ def _load_dropidx(path: Path) -> List[int]:
         except pd.errors.EmptyDataError:
             return []
     return []
-
-
-def _standardize_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """컬럼 공백/대소문자 변형을 흡수하고, 흔한 명칭을 표준화."""
-    cols = df.columns.astype(str).str.strip().str.replace(r"\s+", " ", regex=True)
-    df.columns = cols
-    lower_map = {c.lower(): c for c in df.columns}
-
-    # SMILES 표준화
-    for cand in ("smiles", "smiles ", "canonical smiles", "canonical_smiles",
-                 "mol_smiles", "structure_smiles", "cano_smiles", "smile", "smiles*"):
-        if cand in lower_map:
-            df = df.rename(columns={lower_map[cand]: "SMILES"})
-            break
-
-    # DTXSID 표준화
-    for cand in ("dtxsid", "dtxs_id", "dtxsid "):
-        if cand in lower_map:
-            df = df.rename(columns={lower_map[cand]: "DTXSID"})
-            break
-
-    return df
-
-
-def _detect_header_row(xlsx: Path, sheet: str = "data") -> int:
-    """
-    header 후보(0,1) 중에서 컬럼 후보('DTXSID','SMILES' 또는 assay처럼 보이는 이름)가 많은 쪽 선택.
-    기본값: 1
-    """
-    for h in (0, 1):
-        try:
-            df = pd.read_excel(xlsx, sheet_name=sheet, header=h, nrows=2)
-            cols = [str(c).strip().lower() for c in df.columns]
-            score = 0
-            score += int("dtxsid" in cols) + int("smiles" in cols)
-            score += sum(1 for c in cols if re.search(r"[A-Za-z].*[_ ]", c))
-            if score >= 2:
-                return h
-        except Exception:
-            continue
-    return 1
-
-
-def _read_sheet_auto(xlsx: Path, sheet: str = "data") -> pd.DataFrame:
-    """헤더 자동 감지 후 로드 + 컬럼 표준화."""
-    header = _detect_header_row(xlsx, sheet=sheet)
-    df = pd.read_excel(xlsx, sheet_name=sheet, header=header)
-    return _standardize_columns(df)
-
-
-def _ensure_smiles(data_df: pd.DataFrame) -> pd.DataFrame:
-    """
-    data_df에 'SMILES' 컬럼 보장.
-    1) 이미 있으면 그대로 반환.
-    2) 최후: 'smile' 토큰 포함 컬럼을 찾아 'SMILES'로 rename.
-    실패 시 KeyError.
-    """
-    if "SMILES" in data_df.columns:
-        return data_df
-
-    candidates = [c for c in data_df.columns if re.search(r"smile", str(c), re.IGNORECASE)]
-    if candidates:
-        return data_df.rename(columns={candidates[0]: "SMILES"})
-
-    raise KeyError(
-        f"'SMILES' 컬럼을 찾을 수 없음. 사용 가능한 컬럼: {list(data_df.columns)}"
-    )
 
 
 # =========================
@@ -191,8 +123,8 @@ def calc_doa(
     """
     # 입력 로드
     assay_df = pd.read_excel(experiment_excel, sheet_name="assay_list")
-    data_df = _read_sheet_auto(experiment_excel, sheet="data")
-    data_df = _ensure_smiles(data_df)
+    assay_df = _standardize_columns(assay_df)
+    data_df = read_data_with_smiles(experiment_excel, sheet="data")
 
     # 드랍 인덱스(실험 FP 기준) — 첫 MF 기준으로 추출(필요시 assay별로 별도 적용)
     first_mf = assay_df.iloc[0]["MF"]

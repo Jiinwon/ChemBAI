@@ -6,7 +6,8 @@ from pathlib import Path
 from datetime import datetime
 import json
 import numpy as np
-from sklearn.model_selection import train_test_split
+
+from toxcast_pkg.common import read_data_with_smiles, _standardize_columns
 
 
 def _tanimoto_max(test_fp: np.ndarray, train_fps: np.ndarray) -> float:
@@ -43,22 +44,23 @@ if __name__ == "__main__":
     input_excel_path = PREDICT_LIST_PATH
 
     model_path_base = get_model_base()
-    input_fp_path_base = PREDICT_FP_PATH
-    SMILES_path = PREDICT_SMILES_PATH
+    input_fp_path_base = Path(PREDICT_FP_PATH)
+    SMILES_path = Path(PREDICT_SMILES_PATH)
     if os.path.isdir(input_excel_path):
         from toxcast_pkg.common import find_single_excel_file
         input_excel_path = find_single_excel_file(input_excel_path)
-    if os.path.isdir(SMILES_path):
+    if SMILES_path.is_dir():
         from toxcast_pkg.common import find_single_excel_file
-        SMILES_path = find_single_excel_file(SMILES_path)
+        SMILES_path = Path(find_single_excel_file(SMILES_path))
 
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path, sheet_name="assay_list")
-    SMILES_df = pd.read_excel(SMILES_path, sheet_name="data", header=1)
-    smiles_col = next((c for c in SMILES_df.columns if c.strip().lower() == "smiles"), None)
-    if smiles_col is None:
-        raise KeyError("엑셀 파일에 'SMILES' 열이 없습니다.")
-    SMILES = SMILES_df[smiles_col]
+
+    data = _standardize_columns(data)
+    df_data = read_data_with_smiles(SMILES_path, sheet="data")
+    SMILES = df_data["SMILES"].astype(str)
+    has_dtxsid = "DTXSID" in df_data.columns
+
 
     # 필요한 열 추출
     if MODEL_SELECTION == 0:
@@ -72,8 +74,9 @@ if __name__ == "__main__":
     all_results = pd.DataFrame()
     metadata_records = []
     # cache training fingerprints for DoA calculation
-    train_fp_base = Path("data/ToxCast_v.4.1_v.2/fingerprints")
+    train_fp_base = Path(REF_FILE_PATH)
     train_fp_cache = {}
+    first_mf_type = None
 
     # 반복문으로 각 모델에 대해 처리
     for _, row in data.iterrows():
@@ -116,13 +119,15 @@ if __name__ == "__main__":
         print(f"Loading model from {model_path}...")
         model = joblib.load(model_path)
 
-        # 입력 데이터 경로 설정
-        input_csv_path = f"{input_fp_path_base}/{mf_type}.csv"
-        input_drop_csv_path = f"{input_fp_path_base}/{mf_type}_dropidx.csv"
+        if first_mf_type is None:
+            first_mf_type = mf_type
 
-        if not os.path.exists(input_csv_path):
-            print(f"입력 데이터 파일이 존재하지 않습니다: {input_csv_path}")
-            continue
+        # 입력 데이터 경로 설정
+        input_csv_path = input_fp_path_base / f"{mf_type}.csv"
+        input_drop_csv_path = input_fp_path_base / f"{mf_type}_dropidx.csv"
+
+        if not input_csv_path.exists():
+            raise FileNotFoundError(f"실험 FP 파일이 없습니다: {input_csv_path}")
 
         # 입력 데이터 로드
         input_data = pd.read_csv(input_csv_path)
@@ -137,30 +142,22 @@ if __name__ == "__main__":
                 train_fp_path = train_fp_base / f"{mf_type}.csv"
                 dropidx_path = train_fp_base / f"{mf_type}_dropidx.csv"
                 if not train_fp_path.exists():
-                    print(f"학습 fingerprint 파일이 존재하지 않습니다: {train_fp_path}")
-                    train_fp_cache[mf_type] = None
-                else:
-                    train_df = pd.read_csv(train_fp_path)
-                    if dropidx_path.exists() and dropidx_path.stat().st_size > 0:
-                        try:
-                            drop_idx = pd.read_csv(dropidx_path).iloc[:, 0].tolist()
-                        except pd.errors.EmptyDataError:
-                            drop_idx = []
-                        if drop_idx:
-                            train_df = train_df.drop(index=drop_idx).reset_index(drop=True)
-                    train_df, _ = train_test_split(
-                        train_df, test_size=0.2, shuffle=True, random_state=42
-                    )
-                    train_fp_cache[mf_type] = train_df.astype(bool).values
+                    raise FileNotFoundError(f"훈련 fingerprint 파일이 없습니다: {train_fp_path}")
+                train_df = pd.read_csv(train_fp_path)
+                if dropidx_path.exists() and dropidx_path.stat().st_size > 0:
+                    try:
+                        drop_idx = pd.read_csv(dropidx_path).iloc[:, 0].tolist()
+                    except pd.errors.EmptyDataError:
+                        drop_idx = []
+                    if drop_idx:
+                        train_df = train_df.drop(index=drop_idx).reset_index(drop=True)
+                train_fp_cache[mf_type] = train_df.astype(bool).values
 
-            train_fps = train_fp_cache.get(mf_type)
-            if train_fps is not None:
-                doa_values = [
-                    _tanimoto_max(fp.astype(bool), train_fps)
-                    for fp in input_data.to_numpy()
-                ]
-            else:
-                doa_values = [None] * len(input_data)
+            train_fps = train_fp_cache[mf_type]
+            doa_values = [
+                _tanimoto_max(fp.astype(bool), train_fps)
+                for fp in input_data.to_numpy()
+            ]
         else:
             doa_values = None
 
@@ -188,49 +185,33 @@ if __name__ == "__main__":
             "prediction_count": int(len(predictions)),
         })
 
-    # dropidx 파일이 존재하고 크기가 0보다 큰지 확인
-    if os.path.exists(input_drop_csv_path) and os.stat(input_drop_csv_path).st_size > 0:
-        try:
-            dropidx_df = pd.read_csv(input_drop_csv_path)
-            # 첫 번째 열에 제거할 행 인덱스가 있다고 가정하고 리스트로 변환
-            dropidx = dropidx_df.iloc[:, 0].tolist()
-        except pd.errors.EmptyDataError:
-            print("dropidx 파일이 비어있습니다. 건너뜁니다.")
-            dropidx = []
-    else:
-        print("dropidx 파일이 없거나 비어있습니다. 건너뜁니다.")
+    # dropidx 파일은 첫 번째 MF 기준으로만 적용
+    if first_mf_type is None:
         dropidx = []
+    else:
+        drop_path = input_fp_path_base / f"{first_mf_type}_dropidx.csv"
+        if drop_path.exists() and drop_path.stat().st_size > 0:
+            try:
+                dropidx = pd.read_csv(drop_path).iloc[:, 0].tolist()
+            except pd.errors.EmptyDataError:
+                dropidx = []
+        else:
+            dropidx = []
 
     # 기존 SMILES 리스트에서 dropidx에 해당하는 인덱스의 항목 제거
     filtered_smiles = [sm for i, sm in enumerate(SMILES) if i not in dropidx]
-    if "DTXSID" in SMILES_df.columns:
-        filtered_dtxsid = [sid for i, sid in enumerate(SMILES_df["DTXSID"]) if i not in dropidx]
+    if has_dtxsid:
+        filtered_dtxsid = [sid for i, sid in enumerate(df_data["DTXSID"]) if i not in dropidx]
         all_results.insert(0, "DTXSID", filtered_dtxsid)
 
     # SMILES 열 추가 및 채우기
     all_results.insert(1, "SMILES", filtered_smiles)
 
-    # ----- merge with reference data if available -----
-    assay_names = data["assay_name"].tolist()
-
     # replace prediction outputs so 0 -> 2, 1 -> 3
+    assay_names = data["assay_name"].tolist()
     for col in assay_names:
         if col in all_results.columns:
             all_results[col] = all_results[col].replace({0: 2, 1: 3})
-
-    try:
-        ref_df = pd.read_excel(REF_FILE_PATH)
-    except Exception as e:
-        print(f"REF_FILE 읽기 오류: {e}")
-        ref_df = None
-
-    if ref_df is not None and "DTXSID" in ref_df.columns:
-        ref_df = ref_df.set_index("DTXSID")
-        all_results = all_results.set_index("DTXSID")
-        for col in assay_names:
-            if col in ref_df.columns and col in all_results.columns:
-                all_results[col] = ref_df[col].combine_first(all_results[col])
-        all_results.reset_index(inplace=True)
 
     # 최종 결과 저장 - create timestamped file under the experiment results dir
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
