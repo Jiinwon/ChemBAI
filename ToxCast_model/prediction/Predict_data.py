@@ -55,7 +55,10 @@ if __name__ == "__main__":
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path, sheet_name="assay_list")
     SMILES_df = pd.read_excel(SMILES_path, sheet_name="data", header=1)
-    SMILES = SMILES_df['SMILES']
+    smiles_col = next((c for c in SMILES_df.columns if c.strip().lower() == "smiles"), None)
+    if smiles_col is None:
+        raise KeyError("엑셀 파일에 'SMILES' 열이 없습니다.")
+    SMILES = SMILES_df[smiles_col]
 
     # 필요한 열 추출
     if MODEL_SELECTION == 0:
