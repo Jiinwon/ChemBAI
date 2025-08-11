@@ -55,10 +55,12 @@ if __name__ == "__main__":
 
     # 입력 데이터 읽기
     data = pd.read_excel(input_excel_path, sheet_name="assay_list")
+
     data = _standardize_columns(data)
     df_data = read_data_with_smiles(SMILES_path, sheet="data")
     SMILES = df_data["SMILES"].astype(str)
     has_dtxsid = "DTXSID" in df_data.columns
+
 
     # 필요한 열 추출
     if MODEL_SELECTION == 0:
