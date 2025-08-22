@@ -64,7 +64,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     sbatch --partition=gpu1 --gres=gpu:rtx3090:1 \
         --cpus-per-task=16 --mem=32G --time=03:00:00 \
         --job-name="$job_name" --output="$slurm_out" \
-        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_prediction.sh\"$arg_str"
+        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" sbatch \"$script_dir/run_prediction.sh\"$arg_str"
     exit 0
 fi
 

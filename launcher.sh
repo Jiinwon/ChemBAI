@@ -15,10 +15,10 @@ PY
 
 case "$mode" in
     training)
-        sbatch "$script_dir/slurm/run_training.sh" "$@"
+        bash "$script_dir/slurm/run_training.sh" "$@"
         ;;
     prediction)
-        sbatch "$script_dir/slurm/run_prediction.sh" "$@"
+        bash "$script_dir/slurm/run_prediction.sh" "$@"
         ;;
     *)
         echo "Unknown OBJECT mode: $mode" >&2

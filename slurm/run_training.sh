@@ -63,7 +63,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
         JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
             --job-name="${project_name}_training" --output="$slurm_out" \
-            --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
+            --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" sbatch \"$script_dir/run_training.sh\" \"$project_dir\"")
         sleep 2
         info=$(squeue -j "$JOBID" -h -o '%T %R')
         state=$(echo "$info" | awk '{print $1}')
@@ -80,7 +80,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     sbatch --partition="$LAST_PART" --gres="$GRES" \
         --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
         --job-name="${project_name}_training" --output="$slurm_out" \
-        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
+        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" sbatch \"$script_dir/run_training.sh\" \"$project_dir\""
     exit 0
 fi
 
