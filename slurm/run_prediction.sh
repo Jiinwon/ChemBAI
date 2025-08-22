@@ -5,12 +5,11 @@
 # Load required modules for GPU execution
 module purge
 module load cuda/12.1
-module load python/3.11.2
 
 # resolve script directory and determine action
 # Resolve script directory both when run directly and within a Slurm job
 if [ -n "$SLURM_SUBMIT_DIR" ]; then
-    script_dir="$SLURM_SUBMIT_DIR/slurm"
+    script_dir="$SLURM_SUBMIT_DIR"
 else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
 fi
@@ -64,7 +63,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     sbatch --partition=gpu1 --gres=gpu:rtx3090:1 \
         --cpus-per-task=16 --mem=32G --time=03:00:00 \
         --job-name="$job_name" --output="$slurm_out" \
-        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" sbatch \"$script_dir/run_prediction.sh\"$arg_str"
+        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_prediction.sh\"$arg_str"
     exit 0
 fi
 

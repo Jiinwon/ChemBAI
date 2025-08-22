@@ -6,11 +6,10 @@ set -e
 # Load required modules for GPU execution
 module purge
 module load cuda/12.1
-module load python/3.11.2
 
 # Resolve script directory both when run directly and within a Slurm job
 if [ -n "$SLURM_SUBMIT_DIR" ]; then
-    script_dir="$SLURM_SUBMIT_DIR/slurm"
+    script_dir="$SLURM_SUBMIT_DIR"
 else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
 fi
@@ -63,7 +62,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
         JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
             --job-name="${project_name}_training" --output="$slurm_out" \
-            --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" sbatch \"$script_dir/run_training.sh\" \"$project_dir\"")
+            --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
         sleep 2
         info=$(squeue -j "$JOBID" -h -o '%T %R')
         state=$(echo "$info" | awk '{print $1}')
@@ -80,7 +79,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     sbatch --partition="$LAST_PART" --gres="$GRES" \
         --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
         --job-name="${project_name}_training" --output="$slurm_out" \
-        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" sbatch \"$script_dir/run_training.sh\" \"$project_dir\""
+        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
     exit 0
 fi
 
