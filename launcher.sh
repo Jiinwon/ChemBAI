@@ -1,6 +1,11 @@
 #!/bin/bash
 # Unified launcher for training or prediction
 
+# Load required modules for GPU execution
+module purge
+module load cuda/12.2.1
+module load python/3.11.2
+
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 mode=$(python - <<'PY'
 import config
