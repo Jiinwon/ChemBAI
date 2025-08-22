@@ -2,8 +2,29 @@
 # Convenience script to train models for a project directory
 set -e
 
+# Load required modules for GPU execution
+module purge
+module load cuda/12.2.1
+module load python/3.11.2
+
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+
+# Determine model directory based on config.VERSION
+version=$(python - "$script_dir" <<'PY'
+import sys, pathlib
+script_dir = pathlib.Path(sys.argv[1])
+sys.path.append(str(script_dir.parent / "ToxCast_model"))
+import config
+print(getattr(config, "VERSION", 1))
+PY
+)
+if [ "$version" = "2" ]; then
+    model_dir="$(cd "$script_dir/../ToxCast_model/ToxCast_model_v.2" && pwd)"
+    run_subdir="run_v.2"
+else
+    model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+    run_subdir="run"
+fi
 
 current_date=$(date +%Y-%m-%d)
 current_time=$(date +%H-%M-%S)
@@ -69,6 +90,11 @@ metadata_file="$project_dir/metadata.json"
 mkdir -p "$results_dir" "$logs_dir" "$fp_dir"
 : > "$metadata_file"
 
+# Generate fingerprints only if they do not already exist
+if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
+    PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
+fi
+
 mapfile -t assays < <(python - "$input_excel" <<'PY'
 import sys, zipfile, xml.etree.ElementTree as ET
 xlsx=sys.argv[1]
@@ -107,7 +133,7 @@ for assay in "${assays[@]}"; do
             echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
             set +e
-            PYTHONPATH="$model_dir" python "$model_dir/run/${model}.py" \
+            PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
                 --fingerprint_type "$fp" \
                 --file_path "$input_excel" \
                 --model_save_path "$save_dir" \

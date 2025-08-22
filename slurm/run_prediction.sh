@@ -1,9 +1,32 @@
 #!/bin/bash
 # Run fingerprint generation and either training or prediction based on config.py
 
+# Load required modules for GPU execution
+module purge
+module load cuda/12.2.1
+module load python/3.11.2
+
 # resolve script directory and determine action
 script_dir="$(cd "$(dirname "$0")" && pwd)"
-model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+
+# Determine model directory based on config.VERSION
+version=$(python - "$script_dir" <<'PY'
+import sys, pathlib
+script_dir = pathlib.Path(sys.argv[1])
+sys.path.append(str(script_dir.parent / "ToxCast_model"))
+import config
+print(getattr(config, "VERSION", 1))
+PY
+)
+if [ "$version" = "2" ]; then
+    model_dir="$(cd "$script_dir/../ToxCast_model/ToxCast_model_v.2" && pwd)"
+    training_script="ToxCast_model_training_v.2.sh"
+    prediction_script="prediction_v.2/Predict_data_v.2.py"
+else
+    model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+    training_script="ToxCast_model_training.sh"
+    prediction_script="prediction/Predict_data.py"
+fi
 
 if [ -n "$SLURM_LAUNCHED" ]; then
     run_doa() { bash prediction/run_doa_slurm.sh "$1" "$2"; }
@@ -52,8 +75,15 @@ import config
 config.validate_paths()
 PY
 
-# generate fingerprints
-python -m toxcast_pkg.smiles2fing
+# generate fingerprints only if not already present
+fp_dir=$(python - <<'PY'
+import config
+print(config.FINGERPRINT_OUTPUT_DIR)
+PY
+)
+if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
+    python -m toxcast_pkg.smiles2fing
+fi
 
 # determine mode from config
 mode=$(python - <<'PY'
@@ -66,19 +96,23 @@ echo "Running mode: $mode"
 
 case "$mode" in
     training)
-        bash ToxCast_model_training.sh
+        bash "$training_script"
         ;;
     prediction)
-        PYTHONPATH=. python prediction/Predict_data.py --skip-doa
-        results_dir=$(python - <<'PY'
+        if [ "$version" = "2" ]; then
+            PYTHONPATH=. python "$prediction_script"
+        else
+            PYTHONPATH=. python "$prediction_script" --skip-doa
+            results_dir=$(python - <<'PY'
 import config
 print(config.RESULTS_DIR)
 PY
 )
-        latest_dir=$(ls -dt "$results_dir"/*/ | head -n1)  
-        result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n1)
-        metadata_file="$results_dir/metadata.json"
-        run_doa "$result_file" "$metadata_file"
+            latest_dir=$(ls -dt "$results_dir"/*/ | head -n1)
+            result_file=$(ls "$latest_dir"/*_prediction.xlsx | head -n1)
+            metadata_file="$results_dir/metadata.json"
+            run_doa "$result_file" "$metadata_file"
+        fi
         ;;
     *)
         echo "Unknown mode: $mode"
