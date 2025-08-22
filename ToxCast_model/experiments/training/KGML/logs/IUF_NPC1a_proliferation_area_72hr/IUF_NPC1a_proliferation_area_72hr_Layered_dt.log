@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/dt.py", line 234, in <module>
+    main(
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/dt.py", line 115, in main
+    time_now_obj = datetime.strptime(time_now, "%H-%M-%S")
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not None

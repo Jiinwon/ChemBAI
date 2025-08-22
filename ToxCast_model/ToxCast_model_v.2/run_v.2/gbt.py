@@ -108,7 +108,8 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
 
     # time_now를 datetime 객체로 변환
     try:
-        time_now_obj = datetime.strptime(time_now, "%H-%M-%S")
+        time_now = datetime.now().strftime("%H-%M-%S")
+        time_now_obj = datetime.now()
         random_seed = abs(int(time_now_obj.timestamp()))
     except ValueError:
         raise ValueError(f"Invalid time format for time_now: {time_now}. Expected format: 'HH-MM-SS'")

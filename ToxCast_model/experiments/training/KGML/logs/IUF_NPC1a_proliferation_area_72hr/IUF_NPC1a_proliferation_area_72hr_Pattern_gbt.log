@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/gbt.py", line 229, in <module>
+    main(
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/gbt.py", line 117, in main
+    x_train, x_test, y_train, y_test = train_test_split(
+                                       ^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/sklearn/model_selection/_split.py", line 2806, in train_test_split
+    train, test = next(cv.split(X=arrays[0], y=stratify))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/sklearn/model_selection/_split.py", line 1843, in split
+    for train, test in self._iter_indices(X, y, groups):
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/sklearn/model_selection/_split.py", line 2252, in _iter_indices
+    raise ValueError(
+ValueError: The least populated class in y has only 1 member, which is too few. The minimum number of groups for any class cannot be less than 2.

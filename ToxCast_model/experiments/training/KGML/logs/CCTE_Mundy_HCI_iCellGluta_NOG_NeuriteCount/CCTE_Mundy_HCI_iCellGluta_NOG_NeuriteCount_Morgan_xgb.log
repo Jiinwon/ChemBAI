@@ -1,0 +1,35 @@
+train_test_split 파일 저장 완료.
+  0%|          | 0/120 [00:00<?, ?it/s]  0%|          | 0/120 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/xgb.py", line 260, in <module>
+    main(
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/xgb.py", line 185, in main
+    model.fit(fold_train_x, fold_train_y)
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/xgboost/core.py", line 726, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/xgboost/sklearn.py", line 1531, in fit
+    self._Booster = train(
+                    ^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/xgboost/core.py", line 726, in inner_f
+    return func(**kwargs)
+           ^^^^^^^^^^^^^^
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/xgboost/training.py", line 181, in train
+    bst.update(dtrain, iteration=i, fobj=obj)
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/xgboost/core.py", line 2100, in update
+    _check_call(
+  File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/xgboost/core.py", line 284, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: [15:58:07] /home/conda/feedstock_root/build_artifacts/xgboost-split_1727635009624/work/src/c_api/../common/common.h:174: XGBoost version not compiled with GPU support.
+Stack trace:
+  [bt] (0) /home1/won0316/anaconda3/envs/toxcast_env/lib/libxgboost.so(dmlc::LogMessageFatal::~LogMessageFatal()+0x6e) [0x7f901343160e]
+  [bt] (1) /home1/won0316/anaconda3/envs/toxcast_env/lib/libxgboost.so(xgboost::common::AssertGPUSupport()+0x3b) [0x7f901343185b]
+  [bt] (2) /home1/won0316/anaconda3/envs/toxcast_env/lib/libxgboost.so(xgboost::gbm::GBTree::Configure(std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > const&)+0x1c21) [0x7f90137b9471]
+  [bt] (3) /home1/won0316/anaconda3/envs/toxcast_env/lib/libxgboost.so(xgboost::LearnerConfiguration::Configure()+0x9c2) [0x7f90138014f2]
+  [bt] (4) /home1/won0316/anaconda3/envs/toxcast_env/lib/libxgboost.so(xgboost::LearnerImpl::UpdateOneIter(int, std::shared_ptr<xgboost::DMatrix>)+0x64) [0x7f90138030a4]
+  [bt] (5) /home1/won0316/anaconda3/envs/toxcast_env/lib/libxgboost.so(XGBoosterUpdateOneIter+0x47) [0x7f9013328fd7]
+  [bt] (6) /home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/lib-dynload/../../libffi.so.8(+0x6d8a) [0x7f901b4d6d8a]
+  [bt] (7) /home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/lib-dynload/../../libffi.so.8(+0x61cd) [0x7f901b4d61cd]
+  [bt] (8) /home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/lib-dynload/../../libffi.so.8(ffi_call+0xcd) [0x7f901b4d691d]
+
+
