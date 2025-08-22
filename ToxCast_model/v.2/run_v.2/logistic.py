@@ -29,6 +29,20 @@ def save_results(result, path):
     with open(path, 'w') as f:
         json.dump(result, f)
 
+
+def apply_smote(x, y, random_state):
+    positive_count = np.sum(y == 1)
+    if positive_count > 1:
+        k_neighbors = min(5, positive_count - 1)
+        sm = SMOTE(random_state=random_state, k_neighbors=k_neighbors)
+        try:
+            return sm.fit_resample(x, y)
+        except ValueError as e:
+            logging.error(f"SMOTE failed: {e}")
+            return x, y
+    logging.warning("Not enough positive samples for SMOTE; skipping oversampling.")
+    return x, y
+
 def find_best_model(results, metric='f1', metric_agg='mean'):
     best_model = None
     best_score = -np.inf
@@ -100,7 +114,9 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
     except ValueError:
         raise ValueError(f"Invalid time format for time_now: {time_now}. Expected format: 'HH-MM-SS'")
     
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, shuffle=True, random_state=random_seed) #04.07 randomstate=42 제거
+    x_train, x_test, y_train, y_test = train_test_split(
+        x, y, test_size=0.2, shuffle=True, stratify=y, random_state=random_seed
+    )
     
     
     # 저장 디렉토리 설정
@@ -128,7 +144,7 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
     params = ParameterGrid(params_dict)
 
     result = {'model': {}, 'precision': {}, 'recall': {}, 'f1': {}, 'accuracy': {}, 'roc_auc': {}}
-    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    kf = StratifiedKFold(n_splits=5, shuffle=True, random_state=random_seed)
 
     # 훈련 데이터셋에서 5-fold 교차검증 수행
     for p in tqdm(range(len(params))):
@@ -144,10 +160,9 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
             fold_train_x, fold_val_x = x_train.iloc[train_idx], x_train.iloc[val_idx]
             fold_train_y, fold_val_y = y_train.iloc[train_idx], y_train.iloc[val_idx]
 
-            sm = SMOTE(random_state=42)
-            fold_train_x, fold_train_y = sm.fit_resample(fold_train_x, fold_train_y)
+            fold_train_x, fold_train_y = apply_smote(fold_train_x, fold_train_y, random_seed)
 
-            model = LogisticRegression(random_state=42, **params[p])
+            model = LogisticRegression(random_state=random_seed, **params[p])
             model.fit(fold_train_x, fold_train_y)
             pred_probs = model.predict_proba(fold_val_x)[:, 1]  # 확률 예측값 사용
             pred = model.predict(fold_val_x)
@@ -177,8 +192,9 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
     logging.info(f"Validation AUC: {best_roc_auc}")
 
     # 테스트 데이터에 대해 최적 모델 평가
-    final_model = LogisticRegression(random_state=42, **best_model)
-    final_model.fit(x_train, y_train)
+    final_model = LogisticRegression(random_state=random_seed, **best_model)
+    x_train_res, y_train_res = apply_smote(x_train, y_train, random_seed)
+    final_model.fit(x_train_res, y_train_res)
     final_pred_probs = final_model.predict_proba(x_test)[:, 1]  # 확률 예측값 사용
     final_pred = final_model.predict(x_test)
 
@@ -212,5 +228,13 @@ if __name__ == '__main__':
     parser.add_argument('--time_now', type=str, help='Timestamp for the current run')
     parser.add_argument('--data_name', type=str, help='Data type for training')
     args = parser.parse_args()
-    main(args.fingerprint_type, args.file_path, args.model_save_path, args.assay_num, args.fp_path, args.time_now, args.data_name)
+    main(
+        args.fingerprint_type,
+        args.file_path,
+        args.model_save_path,
+        args.assay_num,
+        args.fp_path,
+        args.time_now,
+        args.data_name,
+    )
 
