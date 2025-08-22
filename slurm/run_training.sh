@@ -15,28 +15,27 @@ else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
 fi
 
+# Base directory containing shared config and experiment folders
+base_model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+
 # Determine model directory based on config.VERSION
-version=$(python - "$script_dir" <<'PY'
-import sys, pathlib
-script_dir = pathlib.Path(sys.argv[1])
-sys.path.append(str(script_dir.parent / "ToxCast_model"))
+version=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(getattr(config, "VERSION", 1))
 PY
 )
 if [ "$version" = "2" ]; then
-    model_dir="$(cd "$script_dir/../ToxCast_model/ToxCast_model_v.2" && pwd)"
+    model_dir="$base_model_dir/ToxCast_model_v.2"
     run_subdir="run_v.2"
 else
-    model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+    model_dir="$base_model_dir"
     run_subdir="run"
 fi
 
 # Determine default project directory and log location
-default_project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
-import os, config
-from pathlib import Path
-print(Path(os.environ['MODEL_DIR']) / config.BASE_DIR)
+default_project_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
+import config
+print(config.BASE_DIR)
 PY
 )
 project_dir="${1:-$default_project_dir}"
@@ -94,7 +93,7 @@ mkdir -p "$results_dir" "$logs_dir" "$fp_dir"
 
 # Generate fingerprints only if they do not already exist
 if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
-    PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
+    PYTHONPATH="$model_dir:$base_model_dir" python -m toxcast_pkg.smiles2fing
 fi
 
 mapfile -t assays < <(python - "$input_excel" <<'PY'
@@ -135,7 +134,7 @@ for assay in "${assays[@]}"; do
             echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
             set +e
-            PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
+            PYTHONPATH="$model_dir:$base_model_dir" python "$model_dir/$run_subdir/${model}.py" \
                 --fingerprint_type "$fp" \
                 --file_path "$input_excel" \
                 --model_save_path "$save_dir" \
@@ -187,5 +186,5 @@ PY
     assay_index=$((assay_index+1))
 done
 
-python "$model_dir/update_training_results.py" "$project_dir" "$input_excel" "$metadata_file"
+PYTHONPATH="$model_dir:$base_model_dir" python "$model_dir/update_training_results.py" "$project_dir" "$input_excel" "$metadata_file"
 echo "[$(date '+%F %T')] Training complete" >> "$slurm_out"

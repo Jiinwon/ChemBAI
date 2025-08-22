@@ -28,7 +28,11 @@ PROJECT_NAME = "KGML"
 
 
 # ----- Derived paths based on the directory layout -----
-BASE_DIR = Path("experiments") / OBJECTS[OBJECT] / PROJECT_NAME
+# Resolve paths relative to this file so experiments live in the top-level
+# ``ToxCast_model/experiments`` regardless of the selected VERSION or the
+# current working directory.
+ROOT_DIR = Path(__file__).resolve().parent
+BASE_DIR = ROOT_DIR / "experiments" / OBJECTS[OBJECT] / PROJECT_NAME
 
 FINGERPRINT_DIR = BASE_DIR / "fingerprints"
 FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
