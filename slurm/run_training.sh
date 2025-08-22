@@ -1,13 +1,4 @@
 #!/bin/bash
-#!/bin/bash
-#SBATCH -J build-gnina
-#SBATCH -o build_gnina.%j.out
-#SBATCH -N 1
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=32G
-#SBATCH --gres=gpu:rtx3090:1
-#SBATCH -p gpu1
-#SBATCH -t 03:00:00
 
 # Convenience script to train models for a project directory
 set -e
@@ -17,7 +8,12 @@ module purge
 module load cuda/12.1
 module load python/3.11.2
 
-script_dir="$(cd "$(dirname "$0")" && pwd)"
+# Resolve script directory both when run directly and within a Slurm job
+if [ -n "$SLURM_SUBMIT_DIR" ]; then
+    script_dir="$SLURM_SUBMIT_DIR/slurm"
+else
+    script_dir="$(cd "$(dirname "$0")" && pwd)"
+fi
 
 # Determine model directory based on config.VERSION
 version=$(python - "$script_dir" <<'PY'
@@ -36,12 +32,7 @@ else
     run_subdir="run"
 fi
 
-current_date=$(date +%Y-%m-%d)
-current_time=$(date +%H-%M-%S)
-default_log_dir="$script_dir/../slurm_logs/$current_date/$current_time"
-slurm_log_dir="${SLURM_LOG_DIR:-$default_log_dir}"
-mkdir -p "$slurm_log_dir"
-slurm_out="$slurm_log_dir/slurm.out"
+# Determine default project directory and log location
 default_project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
 import os, config
 from pathlib import Path
@@ -49,6 +40,9 @@ print(Path(os.environ['MODEL_DIR']) / config.BASE_DIR)
 PY
 )
 project_dir="${1:-$default_project_dir}"
+project_name="$(basename "$project_dir")"
+slurm_out="$project_dir/${project_name}_training.out"
+mkdir -p "$project_dir"
 
 # When not launched by a slurm job, submit this script via sbatch similarly to
 # prediction/run_doa_slurm.sh.  This checks GPU partitions in the order
@@ -68,8 +62,8 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     for p in "${PARTITIONS[@]}"; do
         JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-            --output="$slurm_out" \
-            --wrap="SLURM_LAUNCHED=1 SLURM_LOG_DIR=\"$slurm_log_dir\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
+            --job-name="${project_name}_training" --output="$slurm_out" \
+            --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
         sleep 2
         info=$(squeue -j "$JOBID" -h -o '%T %R')
         state=$(echo "$info" | awk '{print $1}')
@@ -85,12 +79,10 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     LAST_PART=${PARTITIONS[$(( ${#PARTITIONS[@]} - 1 ))]}
     sbatch --partition="$LAST_PART" --gres="$GRES" \
         --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-        --output="$slurm_out" \
-        --wrap="SLURM_LAUNCHED=1 SLURM_LOG_DIR=\"$slurm_log_dir\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
+        --job-name="${project_name}_training" --output="$slurm_out" \
+        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
     exit 0
 fi
-
-project_dir="${1:-$default_project_dir}"
 
 input_excel=("$project_dir"/*.xlsx)
 results_dir="$project_dir/results"

@@ -1,13 +1,4 @@
 #!/bin/bash
-#!/bin/bash
-#SBATCH -J build-gnina
-#SBATCH -o build_gnina.%j.out
-#SBATCH -N 1
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=32G
-#SBATCH --gres=gpu:rtx3090:1
-#SBATCH -p gpu1
-#SBATCH -t 03:00:00
 
 # Run fingerprint generation and either training or prediction based on config.py
 
@@ -17,7 +8,12 @@ module load cuda/12.1
 module load python/3.11.2
 
 # resolve script directory and determine action
-script_dir="$(cd "$(dirname "$0")" && pwd)"
+# Resolve script directory both when run directly and within a Slurm job
+if [ -n "$SLURM_SUBMIT_DIR" ]; then
+    script_dir="$SLURM_SUBMIT_DIR/slurm"
+else
+    script_dir="$(cd "$(dirname "$0")" && pwd)"
+fi
 
 # Determine model directory based on config.VERSION
 version=$(python - "$script_dir" <<'PY'
@@ -44,12 +40,34 @@ else
     run_doa() { PYTHONPATH=. python prediction/calc_doa.py "$1" --metadata-file "$2"; }
 fi
 
-current_date=$(date +%Y-%m-%d)
-current_time=$(date +%H-%M-%S)
-default_log_dir="$script_dir/../slurm_logs/$current_date/$current_time"
-slurm_log_dir="${SLURM_LOG_DIR:-$default_log_dir}"
-mkdir -p "$slurm_log_dir"
-slurm_out="$slurm_log_dir/slurm.out"
+project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
+import os, config
+from pathlib import Path
+print(Path(os.environ['MODEL_DIR']) / config.BASE_DIR)
+PY
+)
+project_name="$(basename "$project_dir")"
+mode=$(PYTHONPATH="$model_dir" python - <<'PY'
+import config
+print(config.OBJECTS[config.OBJECT])
+PY
+)
+job_name="${project_name}_${mode}"
+slurm_out="$project_dir/${job_name}.out"
+mkdir -p "$project_dir"
+
+if [ -z "$SLURM_LAUNCHED" ]; then
+    arg_str=""
+    for a in "$@"; do
+        arg_str="$arg_str \"$a\""
+    done
+    sbatch --partition=gpu1 --gres=gpu:rtx3090:1 \
+        --cpus-per-task=16 --mem=32G --time=03:00:00 \
+        --job-name="$job_name" --output="$slurm_out" \
+        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_prediction.sh\"$arg_str"
+    exit 0
+fi
+
 echo "[$(date '+%F %T')] run_prediction start" >> "$slurm_out"
 step="${1:-predict}"
 
@@ -95,13 +113,7 @@ if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
     python -m toxcast_pkg.smiles2fing
 fi
 
-# determine mode from config
-mode=$(python - <<'PY'
-import config
-print(config.OBJECTS[config.OBJECT])
-PY
-)
-
+# mode already determined earlier
 echo "Running mode: $mode"
 
 case "$mode" in
