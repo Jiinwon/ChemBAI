@@ -10,9 +10,9 @@ import joblib
 import logging
 import numpy as np
 from tqdm import tqdm
-from sklearn.model_selection import StratifiedKFold, train_test_split
+from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import precision_score, recall_score, accuracy_score, f1_score, roc_auc_score
-from toxcast_pkg.common import ParameterGrid
+from toxcast_pkg.common import ParameterGrid, split_train_test_with_metadata
 from rdkit import RDLogger
 from imblearn.over_sampling import SMOTE
 import pandas as pd
@@ -104,15 +104,17 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
     assay_name = df.columns[assay_num+1]
 
     if drop_idx:
-        y = df.iloc[:, assay_num+1].drop(drop_idx).reset_index(drop=True)
+        base_df = df.drop(index=drop_idx).reset_index(drop=True)
     else:
-        y = df.iloc[:, assay_num+1].reset_index(drop=True)
+        base_df = df.reset_index(drop=True)
+
+    y = base_df.iloc[:, assay_num+1]
 
     na_idx = y[y.isnull()].index
     y = y.drop(index=na_idx).reset_index(drop=True)
     x = x.drop(index=na_idx).reset_index(drop=True)
+    base_df = base_df.drop(index=na_idx).reset_index(drop=True)
 
-############################################################################04.07 위 수정 x
     date_today = datetime.today().strftime("%Y%m%d")
 
     # time_now를 datetime 객체로 변환
@@ -121,12 +123,12 @@ def main(fingerprint_type, file_path, model_save_path, assay_num, fp_path, time_
         random_seed = abs(int(time_now_obj.timestamp()))
     except ValueError:
         raise ValueError(f"Invalid time format for time_now: {time_now}. Expected format: 'HH-MM-SS'")
-    
-    x_train, x_test, y_train, y_test = train_test_split(
-        x, y, test_size=0.2, shuffle=True, stratify=y, random_state=random_seed
+
+    x_train, x_test, y_train, y_test = split_train_test_with_metadata(
+        x, y, base_df, file_path, assay_name,
+        random_state=random_seed, stratify=y
     )
-    
-    
+
     # 저장 디렉토리 설정
     save_dir = f'./data_v.2/train_test_split/{data_name}/{assay_name}/{fingerprint_type}_xgb/{date_today}/{time_now}'
     os.makedirs(save_dir, exist_ok=True)
