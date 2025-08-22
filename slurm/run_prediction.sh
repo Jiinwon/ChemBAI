@@ -15,21 +15,21 @@ else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
 fi
 
+# Base directory containing shared config and experiments
+base_model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+
 # Determine model directory based on config.VERSION
-version=$(python - "$script_dir" <<'PY'
-import sys, pathlib
-script_dir = pathlib.Path(sys.argv[1])
-sys.path.append(str(script_dir.parent / "ToxCast_model"))
+version=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(getattr(config, "VERSION", 1))
 PY
 )
 if [ "$version" = "2" ]; then
-    model_dir="$(cd "$script_dir/../ToxCast_model/ToxCast_model_v.2" && pwd)"
+    model_dir="$base_model_dir/ToxCast_model_v.2"
     training_script="ToxCast_model_training_v.2.sh"
     prediction_script="prediction_v.2/Predict_data_v.2.py"
 else
-    model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+    model_dir="$base_model_dir"
     training_script="ToxCast_model_training.sh"
     prediction_script="prediction/Predict_data.py"
 fi
@@ -37,17 +37,16 @@ fi
 if [ -n "$SLURM_LAUNCHED" ]; then
     run_doa() { bash prediction/run_doa_slurm.sh "$1" "$2"; }
 else
-    run_doa() { PYTHONPATH=. python prediction/calc_doa.py "$1" --metadata-file "$2"; }
+    run_doa() { PYTHONPATH=".:$base_model_dir" python prediction/calc_doa.py "$1" --metadata-file "$2"; }
 fi
 
-project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
-import os, config
-from pathlib import Path
-print(Path(os.environ['MODEL_DIR']) / config.BASE_DIR)
+project_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
+import config
+print(config.BASE_DIR)
 PY
 )
 project_name="$(basename "$project_dir")"
-mode=$(PYTHONPATH="$model_dir" python - <<'PY'
+mode=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(config.OBJECTS[config.OBJECT])
 PY
@@ -76,7 +75,7 @@ if [ "$step" = "doa" ]; then
     result_file="$2"
     metadata_file="$3"
     if [ -z "$result_file" ]; then
-        results_dir=$(python - <<'PY'
+        results_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(config.RESULTS_DIR)
 PY
@@ -91,26 +90,26 @@ fi
 
 if [ "$step" = "train_doa" ]; then
     cd "$model_dir" || exit 1
-    PYTHONPATH=. python prediction/calc_train_doa.py "$2"
+    PYTHONPATH=".:$base_model_dir" python prediction/calc_train_doa.py "$2"
     exit $?
 fi
 
 cd "$model_dir" || exit 1
 
 # validate experiment setup
-python - <<'PY'
+PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 config.validate_paths()
 PY
 
 # generate fingerprints only if not already present
-fp_dir=$(python - <<'PY'
+fp_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(config.FINGERPRINT_OUTPUT_DIR)
 PY
 )
 if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
-    python -m toxcast_pkg.smiles2fing
+    PYTHONPATH="$model_dir:$base_model_dir" python -m toxcast_pkg.smiles2fing
 fi
 
 # mode already determined earlier
@@ -122,10 +121,10 @@ case "$mode" in
         ;;
     prediction)
         if [ "$version" = "2" ]; then
-            PYTHONPATH=. python "$prediction_script"
+            PYTHONPATH=".:$base_model_dir" python "$prediction_script"
         else
-            PYTHONPATH=. python "$prediction_script" --skip-doa
-            results_dir=$(python - <<'PY'
+            PYTHONPATH=".:$base_model_dir" python "$prediction_script" --skip-doa
+            results_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(config.RESULTS_DIR)
 PY
