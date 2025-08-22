@@ -1,10 +1,20 @@
 #!/bin/bash
+#!/bin/bash
+#SBATCH -J build-gnina
+#SBATCH -o build_gnina.%j.out
+#SBATCH -N 1
+#SBATCH --cpus-per-task=16
+#SBATCH --mem=32G
+#SBATCH --gres=gpu:rtx3090:1
+#SBATCH -p gpu1
+#SBATCH -t 03:00:00
+
 # Convenience script to train models for a project directory
 set -e
 
 # Load required modules for GPU execution
 module purge
-module load cuda/12.2.1
+module load cuda/12.1
 module load python/3.11.2
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"

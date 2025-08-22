@@ -3,7 +3,7 @@
 
 # Load required modules for GPU execution
 module purge
-module load cuda/12.2.1
+module load cuda/12.1
 module load python/3.11.2
 
 script_dir="$(cd "$(dirname "$0")" && pwd)"
@@ -15,10 +15,10 @@ PY
 
 case "$mode" in
     training)
-        bash "$script_dir/slurm/run_training.sh" "$@"
+        sbatch "$script_dir/slurm/run_training.sh" "$@"
         ;;
     prediction)
-        bash "$script_dir/slurm/run_prediction.sh" "$@"
+        sbatch "$script_dir/slurm/run_prediction.sh" "$@"
         ;;
     *)
         echo "Unknown OBJECT mode: $mode" >&2
