@@ -53,7 +53,7 @@ config.validate_paths()
 PY
 
 # generate fingerprints
-#python -m toxcast_pkg.smiles2fing
+python -m toxcast_pkg.smiles2fing
 
 # determine mode from config
 mode=$(python - <<'PY'

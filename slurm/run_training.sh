@@ -25,7 +25,7 @@ project_dir="${1:-$default_project_dir}"
 # that is not pending.  If all partitions remain pending, the job is submitted
 # to gpu1 and left pending.
 if [ -z "$SLURM_LAUNCHED" ]; then
-    PARTITIONS=(gpu6 gpu1 gpu2 gpu3 gpu4 gpu5)
+    PARTITIONS=(gpu1 gpu2 gpu3 gpu4 gpu5 gpu6)
     GRES="gpu"
     CPUS_PER_TASK=8
     MEM_PER_TASK="16G"
