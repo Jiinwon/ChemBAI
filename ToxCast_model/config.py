@@ -8,7 +8,7 @@ from datetime import datetime
 # 0 -> only prediction
 # 1 -> only training
 OBJECTS = ["prediction", "training"]
-OBJECT = 0
+OBJECT = 1
 # model selection
 # 0 -> best F1 model (assay_name only)
 # 1 -> user-specified model and fingerprint
@@ -17,13 +17,13 @@ MODEL_SELECTION = 1
 # model version
 # 1 -> original ToxCast_model
 # 2 -> ToxCast_model_v.2
-VERSION = 1
+VERSION = 2
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
-PROJECT_NAME = "NGRA"
-REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints'
+PROJECT_NAME = "KGML"
+#REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints'
 
 
 
@@ -41,8 +41,8 @@ SMILES_INPUT_PATH = BASE_DIR
 
 
 # training settings
-MODELS = ["dt"]
-FINGERPRINTS = ["MACCS"]
+MODELS = ["dt", "rf", "xgb", "gbt", "logistic"]
+FINGERPRINTS = ["MACCS", "Morgan", "RDKit", "Pettern", "Layered"]
 
 TRAIN_FILE_PATH = BASE_DIR
 
