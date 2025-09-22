@@ -1,0 +1,10 @@
+train_test_split 파일 저장 완료.
+  0%|          | 0/104 [00:00<?, ?it/s]2025-08-22 19:58:05,774 - Not enough positive samples for SMOTE; skipping oversampling.
+  0%|          | 0/104 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/rf.py", line 235, in <module>
+    main(
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/rf.py", line 171, in main
+    pred_probs = model.predict_proba(fold_val_x)[:, 1]  # 확률 예측값 사용
+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+IndexError: index 1 is out of bounds for axis 1 with size 1

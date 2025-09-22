@@ -2,6 +2,8 @@ import os
 import pandas as pd
 import numpy as np
 
+from toxcast_pkg.common import read_data_with_smiles
+
 try:
     from rdkit import Chem, RDLogger
     from rdkit.Chem import MACCSkeys, AllChem, RDKFingerprint
@@ -51,19 +53,20 @@ if __name__ == "__main__":
     except ImportError:
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
 
-    input_excel_path = SMILES_INPUT_PATH  # 입력 엑셀 파일 경로 : 훈련 or 예측에 사용할 데이터
+    input_excel_path = SMILES_INPUT_PATH  # 입력 엑셀 파일 경로 또는 디렉토리
+    if os.path.isdir(input_excel_path):
+        from toxcast_pkg.common import find_single_excel_file
+        input_excel_path = find_single_excel_file(input_excel_path)
     output_dir = FINGERPRINT_DIR  # fingerprints를 저장할 디렉토리
 
     # 출력 디렉토리 생성
     os.makedirs(output_dir, exist_ok=True)
 
-    # 엑셀 파일 읽기
-    data = pd.read_excel(input_excel_path, header=1)
 
-    # SMILES 열 추출
-    if 'SMILES' not in data.columns:
-        raise KeyError("엑셀 파일에 'SMILES' 열이 없습니다.")
-    smiles = data['SMILES']
+    # 엑셀 파일 읽기 - "data" 시트에서 SMILES 자동 탐지
+    df = read_data_with_smiles(input_excel_path, sheet="data")
+    smiles = df["SMILES"].astype(str)
+
 
     # Fingerprint 유형 리스트
     fps = ['MACCS', 'Morgan', 'RDKit', 'Layered', 'Pattern']

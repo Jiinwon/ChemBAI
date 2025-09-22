@@ -5,6 +5,9 @@
 module purge
 module load cuda/12.1
 
+source ~/anaconda3/etc/profile.d/conda.sh
+conda activate toxcast_env
+
 script_dir="$(cd "$(dirname "$0")" && pwd)"
 mode=$(python - <<'PY'
 import config

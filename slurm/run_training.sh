@@ -7,6 +7,9 @@ set -e
 module purge
 module load cuda/12.1
 
+source ~/anaconda3/etc/profile.d/conda.sh
+conda activate toxcast_env
+
 # Resolve script directory both when run directly and within a Slurm job
 if [ -n "$SLURM_SUBMIT_DIR" ]; then
     script_dir="$SLURM_SUBMIT_DIR"
@@ -14,39 +17,38 @@ else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
 fi
 
-# Base directory containing shared config and experiment folders
-base_model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
-
 # Determine model directory based on config.VERSION
-version=$(PYTHONPATH="$base_model_dir" python - <<'PY'
+version=$(python - "$script_dir" <<'PY'
+import sys, pathlib
+script_dir = pathlib.Path(sys.argv[1])
+sys.path.append(str(script_dir.parent / "ToxCast_model"))
 import config
 print(getattr(config, "VERSION", 1))
 PY
 )
+
 if [ "$version" = "2" ]; then
-    model_dir="$base_model_dir/ToxCast_model_v.2"
+    model_dir="$(cd "$script_dir/../ToxCast_model/ToxCast_model_v.2" && pwd)"
     run_subdir="run_v.2"
 else
-    model_dir="$base_model_dir"
+    model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
     run_subdir="run"
 fi
 
 # Determine default project directory and log location
-default_project_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
-import config
-print(config.BASE_DIR)
+default_project_dir=$(MODEL_DIR="$model_dir" PYTHONPATH="$model_dir" python - <<'PY'
+import os, config
+from pathlib import Path
+print(Path(os.environ['MODEL_DIR']) / config.BASE_DIR)
 PY
 )
+
 project_dir="${1:-$default_project_dir}"
 project_name="$(basename "$project_dir")"
 slurm_out="$project_dir/${project_name}_training.out"
 mkdir -p "$project_dir"
 
-# When not launched by a slurm job, submit this script via sbatch similarly to
-# prediction/run_doa_slurm.sh.  This checks GPU partitions in the order
-# gpu6->gpu1->gpu2->gpu3->gpu4->gpu5 and submits the job to the first partition
-# that is not pending.  If all partitions remain pending, the job is submitted
-# to gpu1 and left pending.
+# Submit via Slurm if not already launched
 if [ -z "$SLURM_LAUNCHED" ]; then
     PARTITIONS=(gpu1 gpu2 gpu3 gpu4 gpu5 gpu6)
     GRES="gpu"
@@ -82,6 +84,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     exit 0
 fi
 
+# Prepare directories
 input_excel=("$project_dir"/*.xlsx)
 results_dir="$project_dir/results"
 logs_dir="$project_dir/logs"
@@ -90,11 +93,12 @@ metadata_file="$project_dir/metadata.json"
 mkdir -p "$results_dir" "$logs_dir" "$fp_dir"
 : > "$metadata_file"
 
-# Generate fingerprints only if they do not already exist
+# Generate fingerprints only if missing
 if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
-    PYTHONPATH="$model_dir:$base_model_dir" python -m toxcast_pkg.smiles2fing
+    PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
 fi
 
+# Extract assay names from Excel
 mapfile -t assays < <(python - "$input_excel" <<'PY'
 import sys, zipfile, xml.etree.ElementTree as ET
 xlsx=sys.argv[1]
@@ -109,10 +113,7 @@ row=root.find('.//a:row[@r="2"]', ns)
 vals=[]
 for c in row.findall('a:c', ns):
     v=c.find('a:v', ns)
-    if v is None:
-        val=''
-    else:
-        val=v.text
+    val = '' if v is None else v.text
     if c.get('t')=='s':
         val=strings[int(val)]
     vals.append(val)
@@ -120,6 +121,7 @@ print('\n'.join(vals[2:]))
 PY
 )
 
+# Define fingerprints and models
 fingerprints=(MACCS Morgan Layered Pattern RDKit)
 models=(rf logistic xgb gbt dt)
 
@@ -130,10 +132,11 @@ for assay in "${assays[@]}"; do
             save_dir="$results_dir/${assay}_${fp}_${model}"
             mkdir -p "$save_dir"
             log_file="$logs_dir/${assay}/${assay}_${fp}_${model}.log"
+            mkdir -p "$(dirname "$log_file")"   # <<< fix: ensure assay log folder exists
             echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
             set +e
-            PYTHONPATH="$model_dir:$base_model_dir" python "$model_dir/$run_subdir/${model}.py" \
+            PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
                 --fingerprint_type "$fp" \
                 --file_path "$input_excel" \
                 --model_save_path "$save_dir" \
@@ -145,10 +148,12 @@ for assay in "${assays[@]}"; do
             end_time=$(date +%s)
             duration=$((end_time - start_time))
             echo "[$(date '+%F %T')] END ${assay}_${fp}_${model}" >> "$slurm_out"
+
             error_msg=""
             if [ $exit_code -ne 0 ]; then
                 error_msg=$(grep -m1 'ValueError' "$log_file" || true)
             fi
+
             test_f1=$(grep -o "Test F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             val_f1=$(grep -o "Validation F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             test_auc=$(grep -o "Test AUC: [0-9.e+-]*" "$log_file" | awk '{print $3}' | tail -n1)
@@ -156,6 +161,7 @@ for assay in "${assays[@]}"; do
             precision=$(grep -o "Test Precision: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             recall=$(grep -o "Test Recall: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
             accuracy=$(grep -o "Test Accuracy: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
+
             python - "$metadata_file" <<PY
 import json,sys
 f=sys.argv[1]
@@ -185,5 +191,5 @@ PY
     assay_index=$((assay_index+1))
 done
 
-PYTHONPATH="$model_dir:$base_model_dir" python "$model_dir/update_training_results.py" "$project_dir" "$input_excel" "$metadata_file"
+python "$model_dir/update_training_results.py" "$project_dir" "$input_excel" "$metadata_file"
 echo "[$(date '+%F %T')] Training complete" >> "$slurm_out"

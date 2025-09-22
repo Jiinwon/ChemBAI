@@ -1,9 +1,12 @@
 Traceback (most recent call last):
-  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/logistic.py", line 232, in <module>
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/logistic.py", line 234, in <module>
     main(
-  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/logistic.py", line 118, in main
-    x_train, x_test, y_train, y_test = train_test_split(
-                                       ^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/run_v.2/logistic.py", line 120, in main
+    x_train, x_test, y_train, y_test = split_train_test_with_metadata(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/ToxCast_model_v.2/toxcast_pkg/common.py", line 103, in split_train_test_with_metadata
+    x_tr, x_te, y_tr, y_te, s_tr, s_te = train_test_split(
+                                         ^^^^^^^^^^^^^^^^^
   File "/home1/won0316/anaconda3/envs/toxcast_env/lib/python3.11/site-packages/sklearn/utils/_param_validation.py", line 213, in wrapper
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^

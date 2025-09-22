@@ -23,7 +23,7 @@ VERSION = 2
 # under ``experiments/`` and contain exactly one Excel file with the training and
 # prediction data.
 PROJECT_NAME = "KGML"
-#REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints'
+REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints'
 
 
 
