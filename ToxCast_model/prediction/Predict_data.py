@@ -41,23 +41,37 @@ if __name__ == "__main__":
     except ImportError:
         raise ImportError("config.py 파일을 찾을 수 없습니다. 'ToxCast_model' 디렉토리에서 실행해 주세요.")
 
-    input_excel_path = PREDICT_LIST_PATH
+    input_path = Path(PREDICT_LIST_PATH)
 
     model_path_base = get_model_base()
     input_fp_path_base = Path(PREDICT_FP_PATH)
     SMILES_path = Path(PREDICT_SMILES_PATH)
-    if os.path.isdir(input_excel_path):
+    if input_path.is_dir():
         from toxcast_pkg.common import find_single_excel_file
-        input_excel_path = find_single_excel_file(input_excel_path)
+        input_path = Path(find_single_excel_file(input_path))
     if SMILES_path.is_dir():
         from toxcast_pkg.common import find_single_excel_file
         SMILES_path = Path(find_single_excel_file(SMILES_path))
 
-    # 입력 데이터 읽기
-    data = pd.read_excel(input_excel_path, sheet_name="assay_list")
-
-    data = _standardize_columns(data)
     df_data = read_data_with_smiles(SMILES_path, sheet="data")
+
+    if input_path.suffix.lower() in {".csv", ".tsv"}:
+        if MODEL_SELECTION == 1:
+            config_candidate = input_path.parent / "assay_list.csv"
+            if config_candidate.exists():
+                data = pd.read_csv(config_candidate)
+                data = _standardize_columns(data)
+            else:
+                raise FileNotFoundError(
+                    "MODEL_SELECTION=1 requires an assay_list.csv file when using CSV inputs."
+                )
+        else:
+            skip_cols = {"DTXSID", "SMILES"}
+            assay_names = [col for col in df_data.columns if col not in skip_cols]
+            data = pd.DataFrame({"assay_name": assay_names})
+    else:
+        data = pd.read_excel(input_path, sheet_name="assay_list")
+        data = _standardize_columns(data)
     SMILES = df_data["SMILES"].astype(str)
     has_dtxsid = "DTXSID" in df_data.columns
 
@@ -68,7 +82,7 @@ if __name__ == "__main__":
     else:
         required_columns = ["assay_name", "Model", "MF"]
     if not all(col in data.columns for col in required_columns):
-        raise KeyError(f"필요한 열 {required_columns}이(가) 엑셀 파일에 없습니다.")
+        raise KeyError(f"필요한 열 {required_columns}이(가) 설정 파일에 없습니다.")
 
     # 전체 결과를 저장할 데이터프레임 초기화
     all_results = pd.DataFrame()

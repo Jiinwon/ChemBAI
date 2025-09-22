@@ -17,13 +17,13 @@ MODEL_SELECTION = 1
 # model version
 # 1 -> original ToxCast_model
 # 2 -> ToxCast_model_v.2
-VERSION = 2
+# 3 -> ToxCast_model_v.3 (pre-split train/val/test data)
+VERSION = 3
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME for each run. The experiment directory must exist
-# under ``experiments/`` and contain exactly one Excel file with the training and
-# prediction data.
+# under ``experiments/`` and contain the required inputs for the selected version.
 PROJECT_NAME = "KGML"
-REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints'
+REF_FILE_PATH = Path('/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/data/ToxCast_v.4.1_v.2/fingerprints')
 
 
 
@@ -34,36 +34,61 @@ REF_FILE_PATH = '/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI
 ROOT_DIR = Path(__file__).resolve().parent
 BASE_DIR = ROOT_DIR / "experiments" / OBJECTS[OBJECT] / PROJECT_NAME
 
-FINGERPRINT_DIR = BASE_DIR / "fingerprints"
-FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
-RESULTS_DIR = BASE_DIR / "results"
-
-# fingerprint generation
-
-# The Excel file is automatically detected under ``BASE_DIR``.
-SMILES_INPUT_PATH = BASE_DIR
-
-
 # training settings
 MODELS = ["dt", "rf", "xgb", "gbt", "logistic"]
-FINGERPRINTS = ["MACCS", "Morgan", "RDKit", "Pettern", "Layered"]
+FINGERPRINTS = ["MACCS", "Morgan", "RDKit", "Pattern", "Layered"]
 
-TRAIN_FILE_PATH = BASE_DIR
+if VERSION == 3:
+    TRAIN_DIR = BASE_DIR / "train"
+    VAL_DIR = BASE_DIR / "val"
+    TEST_DIR = BASE_DIR / "test"
 
-TRAIN_FP_PATH = FINGERPRINT_DIR
+    TRAIN_FILE_PATH = TRAIN_DIR / "train_df.csv"
+    VAL_FILE_PATH = VAL_DIR / "val_df.csv"
+    TEST_FILE_PATH = TEST_DIR / "test_df.csv"
+
+    TRAIN_FP_PATH = TRAIN_DIR / "fingerprints"
+    VAL_FP_PATH = VAL_DIR / "fingerprints"
+    TEST_FP_PATH = TEST_DIR / "fingerprints"
+
+    FINGERPRINT_DIR = TRAIN_FP_PATH
+    FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
+    RESULTS_DIR = BASE_DIR / "results"
+
+    SMILES_INPUT_PATH = TRAIN_FILE_PATH
+
+    # prediction defaults
+    PREDICT_SPLIT = "test"
+    PREDICT_LIST_PATH = TEST_FILE_PATH
+    PREDICT_FP_PATH = TEST_FP_PATH
+    PREDICT_SMILES_PATH = TEST_FILE_PATH
+else:
+    FINGERPRINT_DIR = BASE_DIR / "fingerprints"
+    FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
+    RESULTS_DIR = BASE_DIR / "results"
+
+    # fingerprint generation
+    # The Excel file is automatically detected under ``BASE_DIR``.
+    SMILES_INPUT_PATH = BASE_DIR
+
+    TRAIN_FILE_PATH = BASE_DIR
+    VAL_FILE_PATH = BASE_DIR
+    TEST_FILE_PATH = BASE_DIR
+
+    TRAIN_FP_PATH = FINGERPRINT_DIR
+    VAL_FP_PATH = FINGERPRINT_DIR
+    TEST_FP_PATH = FINGERPRINT_DIR
+
+    PREDICT_LIST_PATH = BASE_DIR
+    PREDICT_FP_PATH = FINGERPRINT_DIR
+    PREDICT_SMILES_PATH = BASE_DIR
+
 DATA_NAME = PROJECT_NAME
-
-# prediction settings
-
-PREDICT_LIST_PATH = BASE_DIR
 
 
 # base directories for each selection mode
 MODEL_PATH_BASE_0 = Path("../Final_model_save/ToxCast_model(F1)")
 MODEL_PATH_BASE_1 = Path("../Final_model_save/ToxCast_v.4.2_model_total")
-
-PREDICT_FP_PATH = FINGERPRINT_DIR
-PREDICT_SMILES_PATH = BASE_DIR
 
 
 def get_model_base():
@@ -73,13 +98,27 @@ def get_model_base():
 
 
 def validate_paths():
-    """Ensure required files and sheets exist for the experiment."""
-    from toxcast_pkg.common import find_single_excel_file, check_required_sheets
+    """Ensure required input files exist for the selected version."""
 
-    p = SMILES_INPUT_PATH
-    if Path(p).is_dir():
-        p = find_single_excel_file(p)
-    check_required_sheets(p, ["data", "assay_list"])
+    if VERSION == 3:
+        required_paths = [
+            TRAIN_FILE_PATH,
+            VAL_FILE_PATH,
+            TEST_FILE_PATH,
+            TRAIN_FP_PATH,
+            VAL_FP_PATH,
+            TEST_FP_PATH,
+        ]
+        for path in required_paths:
+            if not Path(path).exists():
+                raise FileNotFoundError(f"Required path missing for VERSION=3: {path}")
+    else:
+        from toxcast_pkg.common import find_single_excel_file, check_required_sheets
+
+        p = SMILES_INPUT_PATH
+        if Path(p).is_dir():
+            p = find_single_excel_file(p)
+        check_required_sheets(p, ["data", "assay_list"])
 
 
 

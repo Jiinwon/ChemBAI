@@ -252,15 +252,26 @@ def _detect_header_row(xlsx: Path, sheet: str="data") -> int:
 
 
 def read_data_with_smiles(xlsx_path: str | Path, sheet: str="data") -> pd.DataFrame:
+    """Read an input file and ensure a ``SMILES`` column is available."""
+
     xlsx = Path(xlsx_path)
-    h = _detect_header_row(xlsx, sheet=sheet)
-    df = pd.read_excel(xlsx, sheet_name=sheet, header=h)
+    suffix = xlsx.suffix.lower()
+
+    if suffix in {".csv", ".tsv"}:
+        sep = "\t" if suffix == ".tsv" else ","
+        df = pd.read_csv(xlsx, sep=sep)
+    else:
+        h = _detect_header_row(xlsx, sheet=sheet)
+        df = pd.read_excel(xlsx, sheet_name=sheet, header=h)
+
     df = _standardize_columns(df)
     if "SMILES" not in df.columns:
         cands = [c for c in df.columns if re.search(r"smile", c, re.IGNORECASE)]
         if cands:
             df = df.rename(columns={cands[0]: "SMILES"})
     if "SMILES" not in df.columns:
-        raise KeyError(f"'SMILES' 컬럼을 찾지 못했습니다. 파일={xlsx_path}, 시트={sheet}, header={h}, columns={list(df.columns)}")
+        raise KeyError(
+            f"'SMILES' 컬럼을 찾지 못했습니다. 파일={xlsx_path}, columns={list(df.columns)}"
+        )
     return df
 
