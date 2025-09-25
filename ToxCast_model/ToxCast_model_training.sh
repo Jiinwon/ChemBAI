@@ -78,12 +78,12 @@ EOF
             continue
         fi
 
-        mapfile -t assays < <(python - <<'EOF'
+        mapfile -t assays < <(python - "$train_csv" <<'EOF'
 import sys
 from toxcast_pkg.v3_data import get_assay_names_from_csv
 print("\n".join(get_assay_names_from_csv(sys.argv[1])))
 EOF
-"$train_csv")
+)
 
         for assay_name in "${assays[@]}"; do
             assay_dir="${seed_logs_dir}/${assay_name}"
@@ -142,14 +142,14 @@ print(config.TRAIN_FP_PATH)
 EOF
 )
 
-mapfile -t assays < <(python - <<'EOF'
+mapfile -t assays < <(python - "$file_path" <<'EOF'
 import pandas as pd
 import sys
 path = sys.argv[1]
 df = pd.read_excel(path, sheet_name='data', header=None)
 print('\n'.join(str(v) for v in df.iloc[0,2:].tolist()))
 EOF
-"${file_path}")
+)
 
 max_jobs=45
 current_jobs=0
