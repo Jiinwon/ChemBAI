@@ -63,16 +63,30 @@ def main() -> None:
     fingerprint_type = args.fingerprint_type
     assay_name = resolve_assay_name(args)
 
-    train_dir = Path(args.train_fp_dir).parent
-    val_dir = Path(args.val_fp_dir).parent
-    test_dir = Path(args.test_fp_dir).parent
+    train_csv_path = Path(args.train_csv)
+    val_csv_path = Path(args.val_csv) if args.val_csv else None
+    test_csv_path = Path(args.test_csv) if args.test_csv else None
+
+    def normalise_fp_dir(csv_path: Path | None, fp_arg: str | None) -> Path | None:
+        if fp_arg:
+            return Path(fp_arg)
+        if csv_path is None:
+            return None
+        return csv_path.parent / "fingerprints"
+
+    train_fp_dir = normalise_fp_dir(train_csv_path, getattr(args, "train_fp_dir", None))
+    val_fp_dir = normalise_fp_dir(val_csv_path, getattr(args, "val_fp_dir", None))
+    test_fp_dir = normalise_fp_dir(test_csv_path, getattr(args, "test_fp_dir", None))
 
     train, val, test = prepare_datasets(
         fingerprint_type,
         assay_name,
-        train_dir,
-        val_dir,
-        test_dir,
+        train_csv_path,
+        val_csv_path,
+        test_csv_path,
+        train_fp_dir,
+        val_fp_dir,
+        test_fp_dir,
     )
 
     model_save_path = Path(args.model_save_path)
@@ -111,6 +125,7 @@ def main() -> None:
     train_x, train_y = apply_smote(train.features, train.labels, args.random_state)
     final_model.fit(train_x, train_y)
 
+    val_metrics = None
     if val and val.labels is not None:
         val_pred = final_model.predict(val.features)
         val_prob = final_model.predict_proba(val.features)[:, 1]
@@ -121,6 +136,7 @@ def main() -> None:
         logging.info("Holdout Validation Accuracy: %s", val_metrics["accuracy"])
         logging.info("Holdout Validation AUC: %s", val_metrics["roc_auc"])
 
+    test_metrics = None
     if test and test.labels is not None:
         test_pred = final_model.predict(test.features)
         test_prob = final_model.predict_proba(test.features)[:, 1]
@@ -131,9 +147,23 @@ def main() -> None:
         logging.info("Test Accuracy: %s", test_metrics["accuracy"])
         logging.info("Test AUC: %s", test_metrics["roc_auc"])
 
-    model_filename = model_save_path / f"{assay_name}_best_model_{fingerprint_type}_rf.joblib"
+    model_filename = model_save_path / "model.joblib"
     joblib.dump(final_model, model_filename)
     logging.info("Best model saved as %s", model_filename)
+
+    report = {
+        "assay_name": assay_name,
+        "model": "rf",
+        "fingerprint": fingerprint_type,
+        "best_params": best_params,
+        "cv_metrics": {metric: result[metric][best_key] for metric in METRIC_KEYS},
+        "cv_metrics_mean": best_metrics,
+        "validation_metrics": val_metrics,
+        "test_metrics": test_metrics,
+        "random_state": args.random_state,
+        "estimator": f"{final_model.__module__}.{final_model.__class__.__name__}",
+    }
+    save_results(report, model_save_path / "metrics.json")
 
 
 if __name__ == "__main__":

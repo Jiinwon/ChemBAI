@@ -2,9 +2,10 @@
 
 This module centralises the logic required to load the ``train``/``val``/``test``
 CSV files and their associated fingerprint matrices.  Version 3 of the
-ToxCast pipeline expects each split directory to contain a ``*_df.csv`` file
-and a ``fingerprints`` sub-directory that mirrors the layout described in the
-user instructions.
+ToxCast pipeline searches for ``seed_*`` directories that contain
+``*_df.csv`` files.  Fingerprint matrices are loaded from an accompanying
+``fingerprints`` directory when available, or generated on the fly from the
+SMILES column if they are missing.
 """
 
 from __future__ import annotations
@@ -14,6 +15,8 @@ from pathlib import Path
 from typing import Iterable
 
 import pandas as pd
+
+from toxcast_pkg.smiles2fing import Smiles2Fing
 
 
 DEFAULT_NON_ASSAY_COLUMNS = ("DTXSID", "SMILES")
@@ -114,39 +117,74 @@ class SplitData:
         return SplitData(features=features, labels=labels, smiles=smiles)
 
 
+def _ensure_fingerprint_matrix(
+    df: pd.DataFrame,
+    fingerprint_dir: Path,
+    fingerprint_type: str,
+) -> tuple[pd.DataFrame, list[int]]:
+    """Return the fingerprint matrix, generating it if necessary."""
+
+    fingerprint_dir.mkdir(parents=True, exist_ok=True)
+    fp_path = fingerprint_dir / f"{fingerprint_type}.csv"
+    drop_path = fingerprint_dir / f"{fingerprint_type}_dropidx.csv"
+
+    if fp_path.exists():
+        features = pd.read_csv(fp_path)
+        drop_idx = read_drop_indices(drop_path)
+        return features, drop_idx
+
+    smiles = df.get("SMILES")
+    if smiles is None:
+        raise ValueError(
+            "SMILES column missing; unable to generate fingerprint matrix."
+        )
+
+    drop_idx, features = Smiles2Fing(smiles.astype(str), fingerprint_type)
+    features.to_csv(fp_path, index=False)
+    pd.Series(drop_idx).to_csv(drop_path, index=False, header=False)
+    return features, drop_idx
+
+
 def load_split_data(
-    split_dir: Path,
+    split_source: Path,
     fingerprint_type: str,
     assay_name: str | None,
+    fingerprint_dir: Path | None = None,
 ) -> SplitData:
-    """Load the features/labels for a given split directory.
+    """Load the features/labels for a given split.
 
     Parameters
     ----------
-    split_dir:
-        Directory containing ``*_df.csv`` and the ``fingerprints`` folder.
+    split_source:
+        Directory containing ``*_df.csv`` or the CSV file itself.
     fingerprint_type:
-        One of ``MACCS``, ``Morgan`` ... matching the CSV files in
-        ``fingerprints``.
+        One of ``MACCS``, ``Morgan`` ... identifying the fingerprint matrix.
     assay_name:
         Name of the target column.  If ``None`` the labels field will be
         returned as ``None`` (useful for pure prediction inputs).
+    fingerprint_dir:
+        Optional explicit directory containing fingerprint CSV files.
     """
 
-    split_dir = Path(split_dir)
-    df_path = split_dir / f"{split_dir.name}_df.csv"
+    split_source = Path(split_source)
+    if split_source.is_dir():
+        df_path = split_source / f"{split_source.name}_df.csv"
+        base_dir = split_source
+    else:
+        df_path = split_source
+        base_dir = split_source.parent
+
     if not df_path.exists():
         raise FileNotFoundError(f"{df_path} does not exist")
 
     df = load_split_dataframe(df_path)
 
-    fingerprint_dir = split_dir / "fingerprints"
-    fp_path = fingerprint_dir / f"{fingerprint_type}.csv"
-    if not fp_path.exists():
-        raise FileNotFoundError(f"Fingerprint file missing: {fp_path}")
+    if fingerprint_dir is None:
+        fingerprint_dir = base_dir / "fingerprints"
+    else:
+        fingerprint_dir = Path(fingerprint_dir)
 
-    features = pd.read_csv(fp_path)
-    drop_idx = read_drop_indices(fingerprint_dir / f"{fingerprint_type}_dropidx.csv")
+    features, drop_idx = _ensure_fingerprint_matrix(df, fingerprint_dir, fingerprint_type)
     if drop_idx:
         features = features.drop(index=drop_idx).reset_index(drop=True)
         df = df.drop(index=drop_idx).reset_index(drop=True)

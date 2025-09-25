@@ -39,9 +39,16 @@ MODELS = ["dt", "rf", "xgb", "gbt", "logistic"]
 FINGERPRINTS = ["MACCS", "Morgan", "RDKit", "Pattern", "Layered"]
 
 if VERSION == 3:
-    TRAIN_DIR = BASE_DIR / "train"
-    VAL_DIR = BASE_DIR / "val"
-    TEST_DIR = BASE_DIR / "test"
+    DATA_DIR = BASE_DIR / "data"
+    RESULTS_DIR = BASE_DIR / "results"
+    LOGS_DIR = BASE_DIR / "logs"
+
+    # default fallback paths mimic the legacy single-split layout.  They are
+    # primarily used by helper scripts that operate on a single seed.  The
+    # training launcher resolves concrete seed-specific paths at runtime.
+    TRAIN_DIR = DATA_DIR / "seed_0" / "train"
+    VAL_DIR = DATA_DIR / "seed_0" / "val"
+    TEST_DIR = DATA_DIR / "seed_0" / "test"
 
     TRAIN_FILE_PATH = TRAIN_DIR / "train_df.csv"
     VAL_FILE_PATH = VAL_DIR / "val_df.csv"
@@ -53,7 +60,6 @@ if VERSION == 3:
 
     FINGERPRINT_DIR = TRAIN_FP_PATH
     FINGERPRINT_OUTPUT_DIR = FINGERPRINT_DIR
-    RESULTS_DIR = BASE_DIR / "results"
 
     SMILES_INPUT_PATH = TRAIN_FILE_PATH
 
@@ -101,17 +107,26 @@ def validate_paths():
     """Ensure required input files exist for the selected version."""
 
     if VERSION == 3:
-        required_paths = [
-            TRAIN_FILE_PATH,
-            VAL_FILE_PATH,
-            TEST_FILE_PATH,
-            TRAIN_FP_PATH,
-            VAL_FP_PATH,
-            TEST_FP_PATH,
-        ]
-        for path in required_paths:
-            if not Path(path).exists():
-                raise FileNotFoundError(f"Required path missing for VERSION=3: {path}")
+        data_dir = Path(DATA_DIR)
+        if not data_dir.exists():
+            raise FileNotFoundError(f"Data directory missing for VERSION=3: {data_dir}")
+
+        seed_dirs = sorted(p for p in data_dir.iterdir() if p.is_dir() and p.name.startswith("seed_"))
+        if not seed_dirs:
+            raise FileNotFoundError(
+                f"No seed directories found under {data_dir}. Expected seed_* directories."
+            )
+
+        for seed_dir in seed_dirs:
+            for split in ("train", "val", "test"):
+                csv_candidates = [
+                    seed_dir / f"{split}_df.csv",
+                    seed_dir / split / f"{split}_df.csv",
+                ]
+                if not any(path.exists() for path in csv_candidates):
+                    raise FileNotFoundError(
+                        f"Missing {split}_df.csv for {seed_dir}. Checked: {csv_candidates}"
+                    )
     else:
         from toxcast_pkg.common import find_single_excel_file, check_required_sheets
 
