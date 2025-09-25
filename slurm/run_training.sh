@@ -165,12 +165,12 @@ PYGEN
             fi
         done
 
-        mapfile -t assays < <(PYTHONPATH="$base_model_dir" python - <<'PY'
+        mapfile -t assays < <(PYTHONPATH="$base_model_dir" python - "$train_csv" <<'PY'
 import sys
 from toxcast_pkg.v3_data import get_assay_names_from_csv
 print("\n".join(get_assay_names_from_csv(sys.argv[1])))
 PY
-"$train_csv")
+)
 
         for assay in "${assays[@]}"; do
             for fp in "${fingerprints[@]}"; do
