@@ -59,8 +59,9 @@ PY
 )
 
 job_name="${project_name}_${mode}"
-slurm_out="$project_dir/${job_name}.out"
-mkdir -p "$project_dir"
+logs_dir="$project_dir/logs"
+mkdir -p "$project_dir" "$logs_dir"
+slurm_out="$logs_dir/logs_run_prediction.out"
 
 # Slurm submission if not launched
 if [ -z "$SLURM_LAUNCHED" ]; then
