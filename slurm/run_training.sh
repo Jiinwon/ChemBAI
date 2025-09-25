@@ -45,8 +45,9 @@ PY
 
 project_dir="${1:-$default_project_dir}"
 project_name="$(basename "$project_dir")"
-slurm_out="$project_dir/${project_name}_training.out"
-mkdir -p "$project_dir"
+project_logs_dir="$project_dir/logs"
+mkdir -p "$project_dir" "$project_logs_dir"
+slurm_out="$project_logs_dir/logs_run_training.out"
 
 # Submit via Slurm if not already launched
 if [ -z "$SLURM_LAUNCHED" ]; then
@@ -141,6 +142,28 @@ if [ "$version" = "3" ]; then
             echo "Missing train_df.csv for $seed_dir" >&2
             continue
         fi
+
+        for split in train val test; do
+            csv_var="${split}_csv"
+            fp_var="${split}_fp_dir"
+            csv_path="${!csv_var}"
+            fp_path="${!fp_var}"
+            if [ -n "$csv_path" ] && [ -f "$csv_path" ]; then
+                mkdir -p "$fp_path"
+                PYTHONPATH="$model_dir" python - "$csv_path" "$fp_path" "${fingerprints[@]}" <<'PYGEN'
+import sys
+from pathlib import Path
+from toxcast_pkg.v3_data import load_split_data
+
+csv_path = Path(sys.argv[1])
+fp_dir = Path(sys.argv[2])
+fingerprints = sys.argv[3:]
+
+for fp in fingerprints:
+    load_split_data(csv_path, fp, None, fp_dir)
+PYGEN
+            fi
+        done
 
         mapfile -t assays < <(PYTHONPATH="$base_model_dir" python - <<'PY'
 import sys
