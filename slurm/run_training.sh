@@ -85,38 +85,128 @@ if [ -z "$SLURM_LAUNCHED" ]; then
 fi
 
 # Prepare directories
-input_excel=("$project_dir"/*.xlsx)
 results_dir="$project_dir/results"
 logs_dir="$project_dir/logs"
-fp_dir="$project_dir/fingerprints"
-metadata_file="$project_dir/metadata.json"
-mkdir -p "$results_dir" "$logs_dir" "$fp_dir"
-: > "$metadata_file"
+mkdir -p "$results_dir" "$logs_dir"
 
-# Generate fingerprints only if missing (skip for version 3)
-if [ "$version" != "3" ]; then
-    if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
-        PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
-    fi
-fi
+fingerprints=(MACCS Morgan Layered Pattern RDKit)
+models=(rf logistic xgb gbt dt)
 
 if [ "$version" = "3" ]; then
-    train_csv="$project_dir/train/train_df.csv"
-    val_csv="$project_dir/val/val_df.csv"
-    test_csv="$project_dir/test/test_df.csv"
-    train_fp_dir="$project_dir/train/fingerprints"
-    val_fp_dir="$project_dir/val/fingerprints"
-    test_fp_dir="$project_dir/test/fingerprints"
-    mapfile -t assays < <(PYTHONPATH="$base_model_dir" python - <<'PY'
+    data_dir="$project_dir/data"
+    if [ ! -d "$data_dir" ]; then
+        echo "Data directory not found for VERSION=3: $data_dir" >&2
+        exit 1
+    fi
+
+    mapfile -t seed_dirs < <(find "$data_dir" -maxdepth 1 -mindepth 1 -type d -name 'seed_*' | sort)
+    if [ ${#seed_dirs[@]} -eq 0 ]; then
+        echo "No seed directories detected under $data_dir" >&2
+        exit 1
+    fi
+
+    for seed_dir in "${seed_dirs[@]}"; do
+        seed_name="$(basename "$seed_dir")"
+        seed_results_dir="$results_dir/$seed_name"
+        seed_logs_dir="$logs_dir/$seed_name"
+        mkdir -p "$seed_results_dir" "$seed_logs_dir"
+
+        train_csv="$seed_dir/train_df.csv"
+        val_csv="$seed_dir/val_df.csv"
+        test_csv="$seed_dir/test_df.csv"
+        if [ ! -f "$train_csv" ]; then
+            train_csv="$seed_dir/train/train_df.csv"
+        fi
+        if [ ! -f "$val_csv" ]; then
+            val_csv="$seed_dir/val/val_df.csv"
+        fi
+        if [ ! -f "$test_csv" ]; then
+            test_csv="$seed_dir/test/test_df.csv"
+        fi
+
+        train_fp_dir="$seed_dir/fingerprints/train"
+        val_fp_dir="$seed_dir/fingerprints/val"
+        test_fp_dir="$seed_dir/fingerprints/test"
+        if [ -d "$seed_dir/train/fingerprints" ]; then
+            train_fp_dir="$seed_dir/train/fingerprints"
+        fi
+        if [ -d "$seed_dir/val/fingerprints" ]; then
+            val_fp_dir="$seed_dir/val/fingerprints"
+        fi
+        if [ -d "$seed_dir/test/fingerprints" ]; then
+            test_fp_dir="$seed_dir/test/fingerprints"
+        fi
+
+        if [ ! -f "$train_csv" ]; then
+            echo "Missing train_df.csv for $seed_dir" >&2
+            continue
+        fi
+
+        mapfile -t assays < <(PYTHONPATH="$base_model_dir" python - <<'PY'
 import sys
 from toxcast_pkg.v3_data import get_assay_names_from_csv
-path=sys.argv[1]
-print('\n'.join(get_assay_names_from_csv(path)))
+print("\n".join(get_assay_names_from_csv(sys.argv[1])))
 PY
 "$train_csv")
-else
-    # Extract assay names from Excel
-    mapfile -t assays < <(python - "$input_excel" <<'PY'
+
+        for assay in "${assays[@]}"; do
+            for fp in "${fingerprints[@]}"; do
+                for model in "${models[@]}"; do
+                    save_dir="$seed_results_dir/${assay}_${model}_${fp}"
+                    mkdir -p "$save_dir"
+                    log_file="$seed_logs_dir/${assay}/${assay}_${model}_${fp}.log"
+                    mkdir -p "$(dirname "$log_file")"
+                    echo "[$(date '+%F %T')] START ${seed_name}:${assay}_${model}_${fp}" >> "$slurm_out"
+                    start_time=$(date +%s)
+                    set +e
+                    PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
+                        --fingerprint_type "$fp" \
+                        --train_csv "$train_csv" \
+                        --val_csv "$val_csv" \
+                        --test_csv "$test_csv" \
+                        --train_fp_dir "$train_fp_dir" \
+                        --val_fp_dir "$val_fp_dir" \
+                        --test_fp_dir "$test_fp_dir" \
+                        --assay_name "$assay" \
+                        --model_save_path "$save_dir" \
+                        >"$log_file" 2>&1
+                    exit_code=$?
+                    set -e
+                    end_time=$(date +%s)
+                    echo "[$(date '+%F %T')] END ${seed_name}:${assay}_${model}_${fp}" >> "$slurm_out"
+                    if [ $exit_code -ne 0 ]; then
+                        echo "Training failed for $seed_name/$assay/$fp/$model. See $log_file" >&2
+                    fi
+                done
+            done
+        done
+
+        PYTHONPATH="$model_dir" python -m toxcast_pkg.v3_summary \
+            --seed-dir "$seed_dir" \
+            --results-dir "$seed_results_dir" \
+            --output "$seed_results_dir/summary.csv"
+    done
+
+    PYTHONPATH="$model_dir" python -m toxcast_pkg.v3_summary \
+        --results-dir "$results_dir" \
+        --aggregate "$results_dir/summary_all_seeds.csv"
+
+    echo "[$(date '+%F %T')] Training complete" >> "$slurm_out"
+    exit 0
+fi
+
+input_excel=("$project_dir"/*.xlsx)
+fp_dir="$project_dir/fingerprints"
+metadata_file="$project_dir/metadata.json"
+mkdir -p "$fp_dir"
+: > "$metadata_file"
+
+if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
+    PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
+fi
+
+# Extract assay names from Excel
+mapfile -t assays < <(python - "$input_excel" <<'PY'
 import sys, zipfile, xml.etree.ElementTree as ET
 xlsx=sys.argv[1]
 with zipfile.ZipFile(xlsx) as z:
@@ -136,12 +226,7 @@ for c in row.findall('a:c', ns):
     vals.append(val)
 print('\n'.join(vals[2:]))
 PY
-    )
-fi
-
-# Define fingerprints and models
-fingerprints=(MACCS Morgan Layered Pattern RDKit)
-models=(rf logistic xgb gbt dt)
+)
 
 assay_index=0
 for assay in "${assays[@]}"; do
@@ -154,28 +239,13 @@ for assay in "${assays[@]}"; do
             echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
             start_time=$(date +%s)
             set +e
-            if [ "$version" = "3" ]; then
-                PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
-                    --fingerprint_type "$fp" \
-                    --train_csv "$train_csv" \
-                    --val_csv "$val_csv" \
-                    --test_csv "$test_csv" \
-                    --train_fp_dir "$train_fp_dir" \
-                    --val_fp_dir "$val_fp_dir" \
-                    --test_fp_dir "$test_fp_dir" \
-                    --assay_name "$assay" \
-                    --assay_index "$assay_index" \
-                    --model_save_path "$save_dir" \
-                    >"$log_file" 2>&1
-            else
-                PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
-                    --fingerprint_type "$fp" \
-                    --file_path "$input_excel" \
-                    --model_save_path "$save_dir" \
-                    --assay_num "$assay_index" \
-                    --fp_path "$fp_dir" \
-                    >"$log_file" 2>&1
-            fi
+            PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
+                --fingerprint_type "$fp" \
+                --file_path "$input_excel" \
+                --model_save_path "$save_dir" \
+                --assay_num "$assay_index" \
+                --fp_path "$fp_dir" \
+                >"$log_file" 2>&1
             exit_code=$?
             set -e
             end_time=$(date +%s)

@@ -96,13 +96,24 @@ def evaluate_predictions(y_true: pd.Series, y_pred: np.ndarray, y_prob: np.ndarr
 def prepare_datasets(
     fingerprint_type: str,
     assay_name: str,
-    train_dir: Path,
-    val_dir: Path | None,
-    test_dir: Path | None,
+    train_csv: Path,
+    val_csv: Path | None,
+    test_csv: Path | None,
+    train_fp_dir: Path | None = None,
+    val_fp_dir: Path | None = None,
+    test_fp_dir: Path | None = None,
 ) -> Tuple[SplitData, SplitData | None, SplitData | None]:
-    train = load_split_data(train_dir, fingerprint_type, assay_name)
-    val = load_split_data(val_dir, fingerprint_type, assay_name) if val_dir else None
-    test = load_split_data(test_dir, fingerprint_type, assay_name) if test_dir else None
+    train = load_split_data(train_csv, fingerprint_type, assay_name, train_fp_dir)
+    val = (
+        load_split_data(val_csv, fingerprint_type, assay_name, val_fp_dir)
+        if val_csv is not None
+        else None
+    )
+    test = (
+        load_split_data(test_csv, fingerprint_type, assay_name, test_fp_dir)
+        if test_csv is not None
+        else None
+    )
 
     ensure_matching_indices(*(d for d in (train, val, test) if d is not None))
     return train, val, test
