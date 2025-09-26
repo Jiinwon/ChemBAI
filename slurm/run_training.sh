@@ -3,6 +3,10 @@
 # Convenience script to train models for a project directory
 set -e
 
+strip_carriage_returns() {
+    printf '%s' "${1//$'\r'/}"
+}
+
 job_mode="${SLURM_JOB_MODE:-controller}"
 
 # Load required modules for GPU execution
@@ -32,8 +36,10 @@ import config
 print(config.BASE_DIR)
 PY
 )
+default_project_dir=$(strip_carriage_returns "$default_project_dir")
 
 project_dir="${1:-$default_project_dir}"
+project_dir=$(strip_carriage_returns "$project_dir")
 project_name="$(basename "$project_dir")"
 project_logs_dir="$project_dir/logs"
 mkdir -p "$project_dir" "$project_logs_dir"

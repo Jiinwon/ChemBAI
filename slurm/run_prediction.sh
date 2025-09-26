@@ -10,6 +10,10 @@ source ~/anaconda3/etc/profile.d/conda.sh
 conda activate toxcast_env
 
 # Resolve script directory both when run directly and within a Slurm job
+strip_carriage_returns() {
+    printf '%s' "${1//$'\r'/}"
+}
+
 if [ -n "$SLURM_SUBMIT_DIR" ]; then
     script_dir="$SLURM_SUBMIT_DIR"
 else
@@ -49,6 +53,7 @@ import config
 print(config.BASE_DIR)
 PY
 )
+project_dir=$(strip_carriage_returns "$project_dir")
 project_name="$(basename "$project_dir")"
 
 # Resolve mode from config
