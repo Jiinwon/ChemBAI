@@ -48,6 +48,7 @@ project_name="$(basename "$project_dir")"
 project_logs_dir="$project_dir/logs"
 mkdir -p "$project_dir" "$project_logs_dir"
 slurm_out="$project_logs_dir/logs_run_training.out"
+slurm_err="$project_logs_dir/logs_run_training.err"
 
 # Submit via Slurm if not already launched
 if [ -z "$SLURM_LAUNCHED" ]; then
@@ -63,7 +64,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     for p in "${PARTITIONS[@]}"; do
         JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-            --job-name="${project_name}_training" --output="$slurm_out" \
+            --job-name="${project_name}_training" --output="$slurm_out" --error="$slurm_err" \
             --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
         sleep 2
         info=$(squeue -j "$JOBID" -h -o '%T %R')
@@ -80,7 +81,7 @@ if [ -z "$SLURM_LAUNCHED" ]; then
     LAST_PART=${PARTITIONS[$(( ${#PARTITIONS[@]} - 1 ))]}
     sbatch --partition="$LAST_PART" --gres="$GRES" \
         --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-        --job-name="${project_name}_training" --output="$slurm_out" \
+        --job-name="${project_name}_training" --output="$slurm_out" --error="$slurm_err" \
         --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
     exit 0
 fi
@@ -172,14 +173,34 @@ print("\n".join(get_assay_names_from_csv(sys.argv[1])))
 PY
 )
 
-        for assay in "${assays[@]}"; do
+        if [ ${#assays[@]} -eq 0 ]; then
+            echo "No assays detected for $seed_dir" >&2
+            continue
+        fi
+
+        run_assay_training() {
+            local assay="$1"
+            local status=0
+
             for fp in "${fingerprints[@]}"; do
                 for model in "${models[@]}"; do
-                    save_dir="$seed_results_dir/${assay}_${model}_${fp}"
-                    mkdir -p "$save_dir"
-                    log_file="$seed_logs_dir/${assay}/${assay}_${model}_${fp}.log"
-                    mkdir -p "$(dirname "$log_file")"
-                    echo "[$(date '+%F %T')] START ${seed_name}:${assay}_${model}_${fp}" >> "$slurm_out"
+                    local save_dir="$seed_results_dir/${assay}_${model}_${fp}"
+                    local log_file="$seed_logs_dir/${assay}/${assay}_${model}_${fp}.log"
+                    local start_timestamp
+                    local end_timestamp
+                    local start_time
+                    local end_time
+                    local duration
+                    local start_message
+                    local end_message
+
+                    mkdir -p "$save_dir" "$(dirname "$log_file")"
+
+                    start_timestamp="$(date '+%F %T')"
+                    start_message="[${start_timestamp}] START ${seed_name}:${assay}_${model}_${fp}"
+                    echo "$start_message" >> "$slurm_out"
+                    echo "$start_message" >&2
+
                     start_time=$(date +%s)
                     set +e
                     PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
@@ -193,16 +214,59 @@ PY
                         --assay_name "$assay" \
                         --model_save_path "$save_dir" \
                         >"$log_file" 2>&1
-                    exit_code=$?
+                    local exit_code=$?
                     set -e
+
                     end_time=$(date +%s)
-                    echo "[$(date '+%F %T')] END ${seed_name}:${assay}_${model}_${fp}" >> "$slurm_out"
+                    duration=$(( end_time - start_time ))
+                    end_timestamp="$(date '+%F %T')"
+                    end_message="[${end_timestamp}] END ${seed_name}:${assay}_${model}_${fp} (status=${exit_code}, duration=${duration}s)"
+                    echo "$end_message" >> "$slurm_out"
+                    echo "$end_message" >&2
+
                     if [ $exit_code -ne 0 ]; then
+                        status=1
                         echo "Training failed for $seed_name/$assay/$fp/$model. See $log_file" >&2
                     fi
                 done
             done
+
+            return $status
+        }
+
+        max_parallel_assays=20
+        if [ ${#assays[@]} -lt $max_parallel_assays ]; then
+            max_parallel_assays=${#assays[@]}
+        fi
+        if [ $max_parallel_assays -le 0 ]; then
+            max_parallel_assays=1
+        fi
+
+        assay_pids=()
+        job_failed=0
+
+        for assay in "${assays[@]}"; do
+            run_assay_training "$assay" &
+            pid=$!
+            assay_pids+=($pid)
+
+            if [ ${#assay_pids[@]} -ge $max_parallel_assays ]; then
+                if ! wait "${assay_pids[0]}"; then
+                    job_failed=1
+                fi
+                assay_pids=("${assay_pids[@]:1}")
+            fi
         done
+
+        for pid in "${assay_pids[@]}"; do
+            if ! wait "$pid"; then
+                job_failed=1
+            fi
+        done
+
+        if [ $job_failed -ne 0 ]; then
+            echo "One or more assay training jobs failed for $seed_name. Check logs for details." >&2
+        fi
 
         PYTHONPATH="$model_dir" python -m toxcast_pkg.v3_summary \
             --seed-dir "$seed_dir" \
