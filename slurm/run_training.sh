@@ -3,6 +3,8 @@
 # Convenience script to train models for a project directory
 set -e
 
+job_mode="${SLURM_JOB_MODE:-controller}"
+
 # Load required modules for GPU execution
 module purge
 module load cuda/12.1
@@ -25,76 +27,156 @@ print(getattr(config, "VERSION", 1))
 PY
 )
 
-if [ "$version" = "2" ]; then
-    model_dir="$base_model_dir/ToxCast_model_v.2"
-    run_subdir="run_v.2"
-elif [ "$version" = "3" ]; then
-    model_dir="$base_model_dir"
-    run_subdir="run_v3"
-else
-    model_dir="$base_model_dir"
-    run_subdir="run"
-fi
-
-# Determine default project directory and log location
 default_project_dir=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(config.BASE_DIR)
 PY
 )
 
-project_dir="${1:-$default_project_dir}"
+project_dir="${PROJECT_DIR:-${1:-$default_project_dir}}"
 project_name="$(basename "$project_dir")"
-project_logs_dir="$project_dir/logs"
+project_logs_dir="${PROJECT_LOGS_DIR:-$project_dir/logs}"
 mkdir -p "$project_dir" "$project_logs_dir"
 slurm_out="$project_logs_dir/logs_run_training.out"
 slurm_err="$project_logs_dir/logs_run_training.err"
 
-# Submit via Slurm if not already launched
-if [ -z "$SLURM_LAUNCHED" ]; then
-    PARTITIONS=(gpu1 gpu2 gpu3 gpu4 gpu5 gpu6)
-    GRES="gpu"
-    CPUS_PER_TASK=8
-    MEM_PER_TASK="16G"
-
-    if [ -z "$1" ]; then
-        echo "Using project directory from config: $project_dir"
-    fi
-
-    for p in "${PARTITIONS[@]}"; do
-        JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
-            --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-            --job-name="${project_name}_training" --output="$slurm_out" --error="$slurm_err" \
-            --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\"")
-        sleep 2
-        info=$(squeue -j "$JOBID" -h -o '%T %R')
-        state=$(echo "$info" | awk '{print $1}')
-        if [ "$state" != "PD" ]; then
-            echo "Job $JOBID running on $(echo "$info" | awk '{print $2}')"
-            exit 0
-        fi
-        scancel "$JOBID"
-        echo "Partition $p busy, trying next..."
-        sleep 10
-    done
-
-    LAST_PART=${PARTITIONS[$(( ${#PARTITIONS[@]} - 1 ))]}
-    sbatch --partition="$LAST_PART" --gres="$GRES" \
-        --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-        --job-name="${project_name}_training" --output="$slurm_out" --error="$slurm_err" \
-        --wrap="SLURM_LAUNCHED=1 SLURM_SUBMIT_DIR=\"$PWD\" bash \"$script_dir/run_training.sh\" \"$project_dir\""
-    exit 0
-fi
-
-# Prepare directories
 results_dir="$project_dir/results"
-logs_dir="$project_dir/logs"
+logs_dir="$project_logs_dir"
 mkdir -p "$results_dir" "$logs_dir"
 
 fingerprints=(MACCS Morgan Layered Pattern RDKit)
 models=(rf logistic xgb gbt dt)
 
-if [ "$version" = "3" ]; then
+if [ "$version" = "2" ]; then
+    model_dir="$base_model_dir/ToxCast_model_v.2"
+    run_subdir="run_v.2"
+elif [ "$version" = "3" ]; then
+    model_dir="$base_model_dir"
+    run_subdir="run_v3"
+
+    if [ "$job_mode" = "worker" ]; then
+        if [ -z "${TASK_FILE:-}" ] || [ -z "${PROJECT_DIR:-}" ]; then
+            echo "TASK_FILE and PROJECT_DIR must be provided for worker mode" >&2
+            exit 1
+        fi
+        if [ -z "${MODEL_DIR:-}" ] || [ -z "${RUN_SUBDIR:-}" ]; then
+            echo "MODEL_DIR and RUN_SUBDIR must be provided for worker mode" >&2
+            exit 1
+        fi
+        if [ -z "${SLURM_ARRAY_TASK_ID:-}" ]; then
+            echo "SLURM_ARRAY_TASK_ID is not set for worker mode" >&2
+            exit 1
+        fi
+
+        task_index=$((SLURM_ARRAY_TASK_ID + 1))
+        task_line=$(sed -n "${task_index}p" "$TASK_FILE")
+        if [ -z "$task_line" ]; then
+            echo "No task entry for index $SLURM_ARRAY_TASK_ID in $TASK_FILE" >&2
+            exit 1
+        fi
+
+        IFS='|' read -r seed_dir seed_name assay model fp <<< "$task_line"
+
+        if [ -z "$seed_dir" ] || [ -z "$assay" ] || [ -z "$model" ] || [ -z "$fp" ]; then
+            echo "Malformed task entry: $task_line" >&2
+            exit 1
+        fi
+
+        results_dir="$PROJECT_DIR/results"
+        logs_dir="${PROJECT_LOGS_DIR:-$PROJECT_DIR/logs}"
+        seed_results_dir="$results_dir/$seed_name"
+        seed_logs_dir="$logs_dir/$seed_name"
+        log_dir="$seed_logs_dir/$assay"
+        save_dir="$seed_results_dir/${assay}_${model}_${fp}"
+        log_file="$log_dir/${assay}_${model}_${fp}.log"
+
+        mkdir -p "$save_dir" "$log_dir"
+
+        resolve_seed_paths "$seed_dir"
+        if [ ! -f "$train_csv" ]; then
+            echo "Missing train_df.csv for $seed_dir" >&2
+            exit 1
+        fi
+
+        project_name_worker="$(basename "$PROJECT_DIR")"
+        job_label="${project_name_worker}_${assay}_${model}_${fp}"
+        sanitized_label=$(echo "$job_label" | tr -c 'A-Za-z0-9_-' '_')
+        if command -v scontrol >/dev/null 2>&1; then
+            scontrol update JobId="$SLURM_JOB_ID" JobName="$sanitized_label" >/dev/null 2>&1 || true
+        fi
+
+        start_timestamp="$(date '+%F %T')"
+        start_time=$(date +%s)
+
+        : > "$log_file"
+        echo "[$start_timestamp] START ${seed_name}:${assay}_${model}_${fp}" | tee -a "$log_file" >&2
+
+        set +e
+        PYTHONPATH="$MODEL_DIR" python "$MODEL_DIR/$RUN_SUBDIR/${model}.py" \
+            --fingerprint_type "$fp" \
+            --train_csv "$train_csv" \
+            --val_csv "$val_csv" \
+            --test_csv "$test_csv" \
+            --train_fp_dir "$train_fp_dir" \
+            --val_fp_dir "$val_fp_dir" \
+            --test_fp_dir "$test_fp_dir" \
+            --assay_name "$assay" \
+            --model_save_path "$save_dir" \
+            2>&1 | tee -a "$log_file" >&2
+        exit_code=${PIPESTATUS[0]}
+        set -e
+
+        end_time=$(date +%s)
+        duration=$(( end_time - start_time ))
+        end_timestamp="$(date '+%F %T')"
+        echo "[$end_timestamp] END ${seed_name}:${assay}_${model}_${fp} (status=${exit_code}, duration=${duration}s)" | tee -a "$log_file" >&2
+
+        exit $exit_code
+    elif [ "$job_mode" = "summary" ]; then
+        if [ -z "${PROJECT_DIR:-}" ]; then
+            echo "PROJECT_DIR must be provided for summary mode" >&2
+            exit 1
+        fi
+
+        data_dir="$PROJECT_DIR/data"
+        if [ ! -d "$data_dir" ]; then
+            echo "Data directory not found for VERSION=3: $data_dir" >&2
+            exit 1
+        fi
+
+        mapfile -t seed_dirs < <(find "$data_dir" -maxdepth 1 -mindepth 1 -type d -name 'seed_*' | sort)
+        results_dir="$PROJECT_DIR/results"
+
+        for seed_dir in "${seed_dirs[@]}"; do
+            seed_name="$(basename "$seed_dir")"
+            seed_results_dir="$results_dir/$seed_name"
+            if [ -d "$seed_results_dir" ]; then
+                PYTHONPATH="$MODEL_DIR" python -m toxcast_pkg.v3_summary \
+                    --seed-dir "$seed_dir" \
+                    --results-dir "$seed_results_dir" \
+                    --output "$seed_results_dir/summary.csv"
+            fi
+        done
+
+        if [ -d "$results_dir" ]; then
+            PYTHONPATH="$MODEL_DIR" python -m toxcast_pkg.v3_summary \
+                --results-dir "$results_dir" \
+                --aggregate "$results_dir/summary_all_seeds.csv"
+        fi
+
+        echo "[$(date '+%F %T')] Summary aggregation complete for $(basename "$PROJECT_DIR")" >&2
+        exit 0
+    fi
+
+    if [ "$job_mode" != "controller" ]; then
+        echo "Unknown job mode '$job_mode' for VERSION=3" >&2
+        exit 1
+    fi
+
+    if [ -z "$1" ] && [ -z "${PROJECT_DIR:-}" ]; then
+        echo "Using project directory from config: $project_dir"
+    fi
+
     data_dir="$project_dir/data"
     if [ ! -d "$data_dir" ]; then
         echo "Data directory not found for VERSION=3: $data_dir" >&2
@@ -107,38 +189,17 @@ if [ "$version" = "3" ]; then
         exit 1
     fi
 
+    tasks_file="$project_logs_dir/training_tasks.txt"
+    : > "$tasks_file"
+    task_count=0
+
     for seed_dir in "${seed_dirs[@]}"; do
         seed_name="$(basename "$seed_dir")"
         seed_results_dir="$results_dir/$seed_name"
-        seed_logs_dir="$logs_dir/$seed_name"
+        seed_logs_dir="${PROJECT_LOGS_DIR:-$PROJECT_DIR/logs}/$seed_name"
         mkdir -p "$seed_results_dir" "$seed_logs_dir"
 
-        train_csv="$seed_dir/train_df.csv"
-        val_csv="$seed_dir/val_df.csv"
-        test_csv="$seed_dir/test_df.csv"
-        if [ ! -f "$train_csv" ]; then
-            train_csv="$seed_dir/train/train_df.csv"
-        fi
-        if [ ! -f "$val_csv" ]; then
-            val_csv="$seed_dir/val/val_df.csv"
-        fi
-        if [ ! -f "$test_csv" ]; then
-            test_csv="$seed_dir/test/test_df.csv"
-        fi
-
-        train_fp_dir="$seed_dir/fingerprints/train"
-        val_fp_dir="$seed_dir/fingerprints/val"
-        test_fp_dir="$seed_dir/fingerprints/test"
-        if [ -d "$seed_dir/train/fingerprints" ]; then
-            train_fp_dir="$seed_dir/train/fingerprints"
-        fi
-        if [ -d "$seed_dir/val/fingerprints" ]; then
-            val_fp_dir="$seed_dir/val/fingerprints"
-        fi
-        if [ -d "$seed_dir/test/fingerprints" ]; then
-            test_fp_dir="$seed_dir/test/fingerprints"
-        fi
-
+        resolve_seed_paths "$seed_dir"
         if [ ! -f "$train_csv" ]; then
             echo "Missing train_df.csv for $seed_dir" >&2
             continue
@@ -177,57 +238,12 @@ PY
             echo "No assays detected for $seed_dir" >&2
             continue
         fi
-
-        run_assay_training() {
-            local assay="$1"
-            local status=0
-
-            for fp in "${fingerprints[@]}"; do
-                for model in "${models[@]}"; do
-                    local save_dir="$seed_results_dir/${assay}_${model}_${fp}"
-                    local log_file="$seed_logs_dir/${assay}/${assay}_${model}_${fp}.log"
-                    local start_timestamp
-                    local end_timestamp
-                    local start_time
-                    local end_time
-                    local duration
-                    local start_message
-                    local end_message
-
-                    mkdir -p "$save_dir" "$(dirname "$log_file")"
-
-                    start_timestamp="$(date '+%F %T')"
-                    start_message="[${start_timestamp}] START ${seed_name}:${assay}_${model}_${fp}"
-                    echo "$start_message" >> "$slurm_out"
-                    echo "$start_message" >&2
-
-                    start_time=$(date +%s)
-                    set +e
-                    PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
-                        --fingerprint_type "$fp" \
-                        --train_csv "$train_csv" \
-                        --val_csv "$val_csv" \
-                        --test_csv "$test_csv" \
-                        --train_fp_dir "$train_fp_dir" \
-                        --val_fp_dir "$val_fp_dir" \
-                        --test_fp_dir "$test_fp_dir" \
-                        --assay_name "$assay" \
-                        --model_save_path "$save_dir" \
-                        >"$log_file" 2>&1
-                    local exit_code=$?
-                    set -e
-
-                    end_time=$(date +%s)
-                    duration=$(( end_time - start_time ))
-                    end_timestamp="$(date '+%F %T')"
-                    end_message="[${end_timestamp}] END ${seed_name}:${assay}_${model}_${fp} (status=${exit_code}, duration=${duration}s)"
-                    echo "$end_message" >> "$slurm_out"
-                    echo "$end_message" >&2
-
-                    if [ $exit_code -ne 0 ]; then
-                        status=1
-                        echo "Training failed for $seed_name/$assay/$fp/$model. See $log_file" >&2
-                    fi
+        
+        for assay in "${assays[@]}"; do
+            for model in "${models[@]}"; do
+                for fp in "${fingerprints[@]}"; do
+                    printf '%s|%s|%s|%s|%s\n' "$seed_dir" "$seed_name" "$assay" "$model" "$fp" >> "$tasks_file"
+                    ((task_count++))
                 done
             done
 
@@ -257,31 +273,83 @@ PY
                 assay_pids=("${assay_pids[@]:1}")
             fi
         done
-
-        for pid in "${assay_pids[@]}"; do
-            if ! wait "$pid"; then
-                job_failed=1
-            fi
-        done
-
-        if [ $job_failed -ne 0 ]; then
-            echo "One or more assay training jobs failed for $seed_name. Check logs for details." >&2
-        fi
-
-        PYTHONPATH="$model_dir" python -m toxcast_pkg.v3_summary \
-            --seed-dir "$seed_dir" \
-            --results-dir "$seed_results_dir" \
-            --output "$seed_results_dir/summary.csv"
     done
 
-    PYTHONPATH="$model_dir" python -m toxcast_pkg.v3_summary \
-        --results-dir "$results_dir" \
-        --aggregate "$results_dir/summary_all_seeds.csv"
+    if [ $task_count -eq 0 ]; then
+        echo "No training tasks to submit for $project_name" >&2
+        exit 0
+    fi
 
-    echo "[$(date '+%F %T')] Training complete" >> "$slurm_out"
+    PARTITIONS=(gpu1 gpu2 gpu3 gpu4 gpu5 gpu6)
+    GRES="gpu"
+    CPUS_PER_TASK=8
+    MEM_PER_TASK="16G"
+
+    array_spec="0-$((task_count - 1))%20"
+    output_pattern="$project_logs_dir/${project_name}_%A_%a.out"
+    error_pattern="$project_logs_dir/${project_name}_%A_%a.err"
+    export_args="ALL,SLURM_JOB_MODE=worker,PROJECT_DIR=$project_dir,MODEL_DIR=$model_dir,RUN_SUBDIR=$run_subdir,BASE_MODEL_DIR=$base_model_dir,TASK_FILE=$tasks_file,PROJECT_LOGS_DIR=$project_logs_dir"
+
+    chosen_partition=""
+    array_jobid=""
+
+    for p in "${PARTITIONS[@]}"; do
+        JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
+            --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
+            --job-name="${project_name}_training" --array="$array_spec" \
+            --output="$output_pattern" --error="$error_pattern" \
+            --export="$export_args" "$script_dir/run_training.sh" "$project_dir")
+        if [ -z "$JOBID" ]; then
+            echo "Failed to submit job array on partition $p" >&2
+            continue
+        fi
+        sleep 2
+        info=$(squeue -j "$JOBID" -h -o '%T %R')
+        state=$(echo "$info" | awk '{print $1}')
+        if [ "$state" != "PD" ]; then
+            chosen_partition="$p"
+            array_jobid="$JOBID"
+            break
+        fi
+        scancel "$JOBID" >/dev/null 2>&1 || true
+        echo "Partition $p busy, trying next..." >&2
+        sleep 10
+    done
+
+    if [ -z "$array_jobid" ]; then
+        last_index=$(( ${#PARTITIONS[@]} - 1 ))
+        LAST_PART=${PARTITIONS[$last_index]}
+        array_jobid=$(sbatch --parsable --partition="$LAST_PART" --gres="$GRES" \
+            --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
+            --job-name="${project_name}_training" --array="$array_spec" \
+            --output="$output_pattern" --error="$error_pattern" \
+            --export="$export_args" "$script_dir/run_training.sh" "$project_dir")
+        chosen_partition="$LAST_PART"
+    fi
+
+    if [ -z "$array_jobid" ]; then
+        echo "Failed to submit training job array" >&2
+        exit 1
+    fi
+
+    summary_export="ALL,SLURM_JOB_MODE=summary,PROJECT_DIR=$project_dir,MODEL_DIR=$model_dir,RUN_SUBDIR=$run_subdir,BASE_MODEL_DIR=$base_model_dir,PROJECT_LOGS_DIR=$project_logs_dir"
+    summary_out="$project_logs_dir/${project_name}_summary_%j.out"
+    summary_err="$project_logs_dir/${project_name}_summary_%j.err"
+    summary_jobid=$(sbatch --parsable --partition="$chosen_partition" --gres="$GRES" \
+        --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
+        --job-name="${project_name}_summary" --dependency="afterany:${array_jobid}" \
+        --output="$summary_out" --error="$summary_err" \
+        --export="$summary_export" "$script_dir/run_training.sh" "$project_dir")
+
+    echo "Submitted ${task_count} training tasks as array job ${array_jobid} on ${chosen_partition}" >&2
+    if [ -n "$summary_jobid" ]; then
+        echo "Summary job scheduled with JobID ${summary_jobid}" >&2
+    fi
     exit 0
+else
+    model_dir="$base_model_dir"
+    run_subdir="run"
 fi
-
 input_excel=("$project_dir"/*.xlsx)
 fp_dir="$project_dir/fingerprints"
 metadata_file="$project_dir/metadata.json"
