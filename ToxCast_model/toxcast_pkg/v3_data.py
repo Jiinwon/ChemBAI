@@ -221,16 +221,36 @@ def get_assay_names_from_csv(
 
 
 def ensure_matching_indices(*datasets: SplitData) -> None:
-    """Validate that all datasets share the same row count.
+    """Validate that each dataset has internally consistent row counts.
 
-    The function raises a ``ValueError`` when the feature matrices do not align,
-    providing an early signal that the supplied inputs are inconsistent.
+    The previous implementation compared row counts across *all* datasets which
+    inadvertently rejected perfectly valid train/validation/test splits of
+    different sizes.  Now we only ensure that the features align with their
+    associated labels (and SMILES when present) within each split.
     """
 
-    lengths = {data.features.shape[0] for data in datasets if data is not None}
-    if len(lengths) > 1:
+    mismatches: list[str] = []
+    for data in datasets:
+        if data is None:
+            continue
+
+        expected_len = data.features.shape[0]
+
+        if data.labels is not None and len(data.labels) != expected_len:
+            mismatches.append(
+                "labels length "
+                f"{len(data.labels)} does not match features length {expected_len}"
+            )
+
+        if data.smiles is not None and len(data.smiles) != expected_len:
+            mismatches.append(
+                "SMILES length "
+                f"{len(data.smiles)} does not match features length {expected_len}"
+            )
+
+    if mismatches:
         raise ValueError(
-            "Fingerprint matrices and CSV files must align. Found row counts: "
-            + ", ".join(map(str, sorted(lengths)))
+            "Fingerprint matrices and CSV files must align. "
+            + "; ".join(mismatches)
         )
 
