@@ -33,9 +33,9 @@ print(config.BASE_DIR)
 PY
 )
 
-project_dir="${PROJECT_DIR:-${1:-$default_project_dir}}"
+project_dir="${1:-$default_project_dir}"
 project_name="$(basename "$project_dir")"
-project_logs_dir="${PROJECT_LOGS_DIR:-$project_dir/logs}"
+project_logs_dir="$project_dir/logs"
 mkdir -p "$project_dir" "$project_logs_dir"
 slurm_out="$project_logs_dir/logs_run_training.out"
 slurm_err="$project_logs_dir/logs_run_training.err"
@@ -68,7 +68,7 @@ elif [ "$version" = "3" ]; then
             exit 1
         fi
 
-        task_index=$((SLURM_ARRAY_TASK_ID + 1))
+                task_index=$((SLURM_ARRAY_TASK_ID + 1))
         task_line=$(sed -n "${task_index}p" "$TASK_FILE")
         if [ -z "$task_line" ]; then
             echo "No task entry for index $SLURM_ARRAY_TASK_ID in $TASK_FILE" >&2
@@ -177,7 +177,7 @@ elif [ "$version" = "3" ]; then
         echo "Using project directory from config: $project_dir"
     fi
 
-    data_dir="$project_dir/data"
+        data_dir="$project_dir/data"
     if [ ! -d "$data_dir" ]; then
         echo "Data directory not found for VERSION=3: $data_dir" >&2
         exit 1
@@ -196,7 +196,7 @@ elif [ "$version" = "3" ]; then
     for seed_dir in "${seed_dirs[@]}"; do
         seed_name="$(basename "$seed_dir")"
         seed_results_dir="$results_dir/$seed_name"
-        seed_logs_dir="${PROJECT_LOGS_DIR:-$PROJECT_DIR/logs}/$seed_name"
+                seed_logs_dir="${PROJECT_LOGS_DIR:-$PROJECT_DIR/logs}/$seed_name"
         mkdir -p "$seed_results_dir" "$seed_logs_dir"
 
         resolve_seed_paths "$seed_dir"
@@ -238,42 +238,16 @@ PY
             echo "No assays detected for $seed_dir" >&2
             continue
         fi
-        
+
         for assay in "${assays[@]}"; do
-            for model in "${models[@]}"; do
+                    for model in "${models[@]}"; do
                 for fp in "${fingerprints[@]}"; do
                     printf '%s|%s|%s|%s|%s\n' "$seed_dir" "$seed_name" "$assay" "$model" "$fp" >> "$tasks_file"
                     ((task_count++))
                 done
             done
-
-            return $status
-        }
-
-        max_parallel_assays=20
-        if [ ${#assays[@]} -lt $max_parallel_assays ]; then
-            max_parallel_assays=${#assays[@]}
-        fi
-        if [ $max_parallel_assays -le 0 ]; then
-            max_parallel_assays=1
-        fi
-
-        assay_pids=()
-        job_failed=0
-
-        for assay in "${assays[@]}"; do
-            run_assay_training "$assay" &
-            pid=$!
-            assay_pids+=($pid)
-
-            if [ ${#assay_pids[@]} -ge $max_parallel_assays ]; then
-                if ! wait "${assay_pids[0]}"; then
-                    job_failed=1
-                fi
-                assay_pids=("${assay_pids[@]:1}")
-            fi
         done
-    done
+            done
 
     if [ $task_count -eq 0 ]; then
         echo "No training tasks to submit for $project_name" >&2
@@ -316,7 +290,7 @@ PY
         sleep 10
     done
 
-    if [ -z "$array_jobid" ]; then
+        if [ -z "$array_jobid" ]; then
         last_index=$(( ${#PARTITIONS[@]} - 1 ))
         LAST_PART=${PARTITIONS[$last_index]}
         array_jobid=$(sbatch --parsable --partition="$LAST_PART" --gres="$GRES" \
@@ -375,79 +349,3 @@ row=root.find('.//a:row[@r="2"]', ns)
 vals=[]
 for c in row.findall('a:c', ns):
     v=c.find('a:v', ns)
-    val = '' if v is None else v.text
-    if c.get('t')=='s':
-        val=strings[int(val)]
-    vals.append(val)
-print('\n'.join(vals[2:]))
-PY
-)
-
-assay_index=0
-for assay in "${assays[@]}"; do
-    for fp in "${fingerprints[@]}"; do
-        for model in "${models[@]}"; do
-            save_dir="$results_dir/model_save_path/${assay}/${assay}_${fp}_${model}"
-            mkdir -p "$save_dir"
-            log_file="$logs_dir/${assay}/${assay}_${fp}_${model}.log"
-            mkdir -p "$(dirname "$log_file")"
-            echo "[$(date '+%F %T')] START ${assay}_${fp}_${model}" >> "$slurm_out"
-            start_time=$(date +%s)
-            set +e
-            PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
-                --fingerprint_type "$fp" \
-                --file_path "$input_excel" \
-                --model_save_path "$save_dir" \
-                --assay_num "$assay_index" \
-                --fp_path "$fp_dir" \
-                >"$log_file" 2>&1
-            exit_code=$?
-            set -e
-            end_time=$(date +%s)
-            duration=$((end_time - start_time))
-            echo "[$(date '+%F %T')] END ${assay}_${fp}_${model}" >> "$slurm_out"
-
-            error_msg=""
-            if [ $exit_code -ne 0 ]; then
-                error_msg=$(grep -m1 'ValueError' "$log_file" || true)
-            fi
-
-            test_f1=$(grep -o "Test F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
-            val_f1=$(grep -o "Validation F1 Score: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
-            test_auc=$(grep -o "Test AUC: [0-9.e+-]*" "$log_file" | awk '{print $3}' | tail -n1)
-            val_auc=$(grep -o "Validation AUC: [0-9.e+-]*" "$log_file" | awk '{print $3}' | tail -n1)
-            precision=$(grep -o "Test Precision: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
-            recall=$(grep -o "Test Recall: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
-            accuracy=$(grep -o "Test Accuracy: [0-9.e+-]*" "$log_file" | awk '{print $4}' | tail -n1)
-
-            python - "$metadata_file" <<PY
-import json,sys
-f=sys.argv[1]
-try:
-    data=json.load(open(f))
-except Exception:
-    data=[]
-rec={"assay_name":"$assay","MF":"$fp","Model":"$model","duration":$duration}
-error="$error_msg"
-if error:
-    rec["Error"] = error
-else:
-    rec.update({
-        "F1":float("${test_f1:-0}"),
-        "valF1":float("${val_f1:-0}"),
-        "AUC":float("${test_auc:-0}"),
-        "valAUC":float("${val_auc:-0}"),
-        "Precision":float("${precision:-0}"),
-        "Recall":float("${recall:-0}"),
-        "Accuracy":float("${accuracy:-0}")
-    })
-data.append(rec)
-json.dump(data,open(f,'w'),indent=2)
-PY
-        done
-    done
-    assay_index=$((assay_index+1))
-done
-
-python "$model_dir/update_training_results.py" "$project_dir" "$input_excel" "$metadata_file"
-echo "[$(date '+%F %T')] Training complete" >> "$slurm_out"
