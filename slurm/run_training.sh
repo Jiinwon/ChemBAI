@@ -1,30 +1,38 @@
 #!/bin/bash
 
 # Convenience script to train models for a project directory
-set -e
 
-strip_carriage_returns() {
-    printf '%s' "${1//$'\r'/}"
-}
+# 에러 즉시 중단 + 어디서 터졌는지 보이게
+set -euo pipefail
+trap 'echo "[ERR] line:$LINENO cmd:${BASH_COMMAND}" >&2' ERR
+# 커맨드치환/서브셀에서도 -e 전파(가능하면)
+shopt -s inherit_errexit 2>/dev/null || true
+
+# -------- optional debug switch --------
+DEBUG="${DEBUG:-0}"
+dbg() { [ "$DEBUG" -eq 1 ] && echo "DEBUG: $*" >&2; }
+
+strip_carriage_returns() { printf '%s' "${1//$'\r'/}"; }
 
 job_mode="${SLURM_JOB_MODE:-controller}"
 
-# Load required modules for GPU execution
+# --- GPU env (adapt if needed) ---
 module purge
 module load cuda/12.1
 
 source ~/anaconda3/etc/profile.d/conda.sh
 conda activate toxcast_env
 
-# Resolve script directory both when run directly and within a Slurm job
+# --- resolve script dir ---
 if [ -n "$SLURM_SUBMIT_DIR" ]; then
     script_dir="$SLURM_SUBMIT_DIR"
 else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
 fi
 
-# Determine model directory based on config.VERSION
+# --- model base dir & version ---
 base_model_dir="$(cd "$script_dir/../ToxCast_model" && pwd)"
+echo base_model_dir: $base_model_dir
 version=$(PYTHONPATH="$base_model_dir" python - <<'PY'
 import config
 print(getattr(config, "VERSION", 1))
@@ -38,21 +46,30 @@ PY
 )
 default_project_dir=$(strip_carriage_returns "$default_project_dir")
 
+# --- project dirs ---
 project_dir="${1:-$default_project_dir}"
 project_dir=$(strip_carriage_returns "$project_dir")
 project_name="$(basename "$project_dir")"
+
+# 항상 프로젝트 내부 logs만 사용
 project_logs_dir="$project_dir/logs"
-mkdir -p "$project_dir" "$project_logs_dir"
+results_dir="$project_dir/results"
+mkdir -p "$project_dir" "$project_logs_dir" "$results_dir"
+
+# controller 표준 out/err
 slurm_out="$project_logs_dir/logs_run_training.out"
 slurm_err="$project_logs_dir/logs_run_training.err"
-
-results_dir="$project_dir/results"
-logs_dir="$project_logs_dir"
-mkdir -p "$results_dir" "$logs_dir"
 
 fingerprints=(MACCS Morgan Layered Pattern RDKit)
 models=(rf logistic xgb gbt dt)
 
+dbg "controller: job_mode=$job_mode"
+dbg "controller: version=$version"
+dbg "controller: project_dir=$project_dir"
+dbg "controller: project_logs_dir=$project_logs_dir"
+dbg "controller: results_dir=$results_dir"
+
+# --- version routing ---
 if [ "$version" = "2" ]; then
     model_dir="$base_model_dir/ToxCast_model_v.2"
     run_subdir="run_v.2"
@@ -60,50 +77,59 @@ elif [ "$version" = "3" ]; then
     model_dir="$base_model_dir"
     run_subdir="run_v3"
 
+    # ---------------- worker mode ----------------
     if [ "$job_mode" = "worker" ]; then
+        # 필수 환경변수 확인
         if [ -z "${TASK_FILE:-}" ] || [ -z "${PROJECT_DIR:-}" ]; then
-            echo "TASK_FILE and PROJECT_DIR must be provided for worker mode" >&2
-            exit 1
+            echo "TASK_FILE and PROJECT_DIR must be provided for worker mode" >&2; exit 1
         fi
         if [ -z "${MODEL_DIR:-}" ] || [ -z "${RUN_SUBDIR:-}" ]; then
-            echo "MODEL_DIR and RUN_SUBDIR must be provided for worker mode" >&2
-            exit 1
+            echo "MODEL_DIR and RUN_SUBDIR must be provided for worker mode" >&2; exit 1
         fi
         if [ -z "${SLURM_ARRAY_TASK_ID:-}" ]; then
-            echo "SLURM_ARRAY_TASK_ID is not set for worker mode" >&2
-            exit 1
+            echo "SLURM_ARRAY_TASK_ID is not set for worker mode" >&2; exit 1
         fi
 
-                task_index=$((SLURM_ARRAY_TASK_ID + 1))
+        # 항상 프로젝트 내부 logs (환경변수 무시)
+        results_dir="$PROJECT_DIR/results"
+        logs_dir="$PROJECT_DIR/logs"
+        mkdir -p "$results_dir" "$logs_dir"
+
+        [ "$DEBUG" -eq 1 ] && {
+            echo "DEBUG(worker): PROJECT_DIR=$PROJECT_DIR"
+            echo "DEBUG(worker): SLURM_ARRAY_TASK_ID=$SLURM_ARRAY_TASK_ID"
+            echo "DEBUG(worker): MODEL_DIR=$MODEL_DIR"
+            echo "DEBUG(worker): RUN_SUBDIR=$RUN_SUBDIR"
+            echo "DEBUG(worker): results_dir=$results_dir"
+            echo "DEBUG(worker): logs_dir=$logs_dir"
+        } >&2
+
+        # task line 추출
+        task_index=$((SLURM_ARRAY_TASK_ID + 1))
         task_line=$(sed -n "${task_index}p" "$TASK_FILE")
         if [ -z "$task_line" ]; then
-            echo "No task entry for index $SLURM_ARRAY_TASK_ID in $TASK_FILE" >&2
-            exit 1
+            echo "No task entry for index $SLURM_ARRAY_TASK_ID in $TASK_FILE" >&2; exit 1
         fi
 
         IFS='|' read -r seed_dir seed_name assay model fp <<< "$task_line"
-
         if [ -z "$seed_dir" ] || [ -z "$assay" ] || [ -z "$model" ] || [ -z "$fp" ]; then
-            echo "Malformed task entry: $task_line" >&2
-            exit 1
+            echo "Malformed task entry: $task_line" >&2; exit 1
         fi
 
-        results_dir="$PROJECT_DIR/results"
-        logs_dir="${PROJECT_LOGS_DIR:-$PROJECT_DIR/logs}"
         seed_results_dir="$results_dir/$seed_name"
         seed_logs_dir="$logs_dir/$seed_name"
         log_dir="$seed_logs_dir/$assay"
         save_dir="$seed_results_dir/${assay}_${model}_${fp}"
         log_file="$log_dir/${assay}_${model}_${fp}.log"
-
         mkdir -p "$save_dir" "$log_dir"
 
+        # 외부 함수: resolve_seed_paths (프로젝트에 이미 존재한다고 가정)
         resolve_seed_paths "$seed_dir"
         if [ ! -f "$train_csv" ]; then
-            echo "Missing train_df.csv for $seed_dir" >&2
-            exit 1
+            echo "Missing train_df.csv for $seed_dir" >&2; exit 1
         fi
 
+        # 잡 이름 정리
         project_name_worker="$(basename "$PROJECT_DIR")"
         job_label="${project_name_worker}_${assay}_${model}_${fp}"
         sanitized_label=$(echo "$job_label" | tr -c 'A-Za-z0-9_-' '_')
@@ -136,18 +162,18 @@ elif [ "$version" = "3" ]; then
         duration=$(( end_time - start_time ))
         end_timestamp="$(date '+%F %T')"
         echo "[$end_timestamp] END ${seed_name}:${assay}_${model}_${fp} (status=${exit_code}, duration=${duration}s)" | tee -a "$log_file" >&2
-
         exit $exit_code
-    elif [ "$job_mode" = "summary" ]; then
+    fi
+
+    # ---------------- summary mode ----------------
+    if [ "$job_mode" = "summary" ]; then
         if [ -z "${PROJECT_DIR:-}" ]; then
-            echo "PROJECT_DIR must be provided for summary mode" >&2
-            exit 1
+            echo "PROJECT_DIR must be provided for summary mode" >&2; exit 1
         fi
 
         data_dir="$PROJECT_DIR/data"
         if [ ! -d "$data_dir" ]; then
-            echo "Data directory not found for VERSION=3: $data_dir" >&2
-            exit 1
+            echo "Data directory not found for VERSION=3: $data_dir" >&2; exit 1
         fi
 
         mapfile -t seed_dirs < <(find "$data_dir" -maxdepth 1 -mindepth 1 -type d -name 'seed_*' | sort)
@@ -174,25 +200,23 @@ elif [ "$version" = "3" ]; then
         exit 0
     fi
 
+    # ---------------- controller mode (version=3) ----------------
     if [ "$job_mode" != "controller" ]; then
-        echo "Unknown job mode '$job_mode' for VERSION=3" >&2
-        exit 1
+        echo "Unknown job mode '$job_mode' for VERSION=3" >&2; exit 1
     fi
 
     if [ -z "$1" ] && [ -z "${PROJECT_DIR:-}" ]; then
         echo "Using project directory from config: $project_dir"
     fi
 
-        data_dir="$project_dir/data"
+    data_dir="$project_dir/data"
     if [ ! -d "$data_dir" ]; then
-        echo "Data directory not found for VERSION=3: $data_dir" >&2
-        exit 1
+        echo "Data directory not found for VERSION=3: $data_dir" >&2; exit 1
     fi
 
     mapfile -t seed_dirs < <(find "$data_dir" -maxdepth 1 -mindepth 1 -type d -name 'seed_*' | sort)
     if [ ${#seed_dirs[@]} -eq 0 ]; then
-        echo "No seed directories detected under $data_dir" >&2
-        exit 1
+        echo "No seed directories detected under $data_dir" >&2; exit 1
     fi
 
     tasks_file="$project_logs_dir/training_tasks.txt"
@@ -202,15 +226,17 @@ elif [ "$version" = "3" ]; then
     for seed_dir in "${seed_dirs[@]}"; do
         seed_name="$(basename "$seed_dir")"
         seed_results_dir="$results_dir/$seed_name"
-                seed_logs_dir="${PROJECT_LOGS_DIR:-$PROJECT_DIR/logs}/$seed_name"
+        seed_logs_dir="$project_dir/logs/$seed_name"   # 환경변수 무시, 프로젝트 내부 고정
         mkdir -p "$seed_results_dir" "$seed_logs_dir"
 
+        # 외부 함수
         resolve_seed_paths "$seed_dir"
         if [ ! -f "$train_csv" ]; then
             echo "Missing train_df.csv for $seed_dir" >&2
             continue
         fi
 
+        # 필요 split의 fingerprint 생성(존재하지 않으면)
         for split in train val test; do
             csv_var="${split}_csv"
             fp_var="${split}_fp_dir"
@@ -233,27 +259,27 @@ PYGEN
             fi
         done
 
+        # assay 목록 추출
         mapfile -t assays < <(PYTHONPATH="$base_model_dir" python - "$train_csv" <<'PY'
 import sys
 from toxcast_pkg.v3_data import get_assay_names_from_csv
 print("\n".join(get_assay_names_from_csv(sys.argv[1])))
 PY
 )
-
         if [ ${#assays[@]} -eq 0 ]; then
             echo "No assays detected for $seed_dir" >&2
             continue
         fi
 
         for assay in "${assays[@]}"; do
-                    for model in "${models[@]}"; do
+            for model in "${models[@]}"; do
                 for fp in "${fingerprints[@]}"; do
                     printf '%s|%s|%s|%s|%s\n' "$seed_dir" "$seed_name" "$assay" "$model" "$fp" >> "$tasks_file"
                     ((task_count++))
                 done
             done
         done
-            done
+    done
 
     if [ $task_count -eq 0 ]; then
         echo "No training tasks to submit for $project_name" >&2
@@ -268,6 +294,8 @@ PY
     array_spec="0-$((task_count - 1))%20"
     output_pattern="$project_logs_dir/${project_name}_%A_%a.out"
     error_pattern="$project_logs_dir/${project_name}_%A_%a.err"
+
+    # worker에 넘길 환경 (PROJECT_LOGS_DIR 넘겨도 worker는 무시)
     export_args="ALL,SLURM_JOB_MODE=worker,PROJECT_DIR=$project_dir,MODEL_DIR=$model_dir,RUN_SUBDIR=$run_subdir,BASE_MODEL_DIR=$base_model_dir,TASK_FILE=$tasks_file,PROJECT_LOGS_DIR=$project_logs_dir"
 
     chosen_partition=""
@@ -296,7 +324,7 @@ PY
         sleep 10
     done
 
-        if [ -z "$array_jobid" ]; then
+    if [ -z "$array_jobid" ]; then
         last_index=$(( ${#PARTITIONS[@]} - 1 ))
         LAST_PART=${PARTITIONS[$last_index]}
         array_jobid=$(sbatch --parsable --partition="$LAST_PART" --gres="$GRES" \
@@ -312,6 +340,7 @@ PY
         exit 1
     fi
 
+    # summary 잡은 동일 파티션에 afterany 의존성으로 제출
     summary_export="ALL,SLURM_JOB_MODE=summary,PROJECT_DIR=$project_dir,MODEL_DIR=$model_dir,RUN_SUBDIR=$run_subdir,BASE_MODEL_DIR=$base_model_dir,PROJECT_LOGS_DIR=$project_logs_dir"
     summary_out="$project_logs_dir/${project_name}_summary_%j.out"
     summary_err="$project_logs_dir/${project_name}_summary_%j.err"
@@ -322,36 +351,71 @@ PY
         --export="$summary_export" "$script_dir/run_training.sh" "$project_dir")
 
     echo "Submitted ${task_count} training tasks as array job ${array_jobid} on ${chosen_partition}" >&2
-    if [ -n "$summary_jobid" ]; then
-        echo "Summary job scheduled with JobID ${summary_jobid}" >&2
-    fi
+    [ -n "$summary_jobid" ] && echo "Summary job scheduled with JobID ${summary_jobid}" >&2
     exit 0
+
 else
+    # ------- version != 2,3 (레거시 단일 split용) -------
     model_dir="$base_model_dir"
     run_subdir="run"
-fi
-input_excel=("$project_dir"/*.xlsx)
-fp_dir="$project_dir/fingerprints"
-metadata_file="$project_dir/metadata.json"
-mkdir -p "$fp_dir"
-: > "$metadata_file"
 
-if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
-    PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
-fi
+    # 레거시 파이프라인 준비 (엑셀 → FP 생성)
+    input_excel=("$project_dir"/*.xlsx)
+    fp_dir="$project_dir/fingerprints"
+    metadata_file="$project_dir/metadata.json"
+    mkdir -p "$fp_dir"; : > "$metadata_file"
 
-# Extract assay names from Excel
-mapfile -t assays < <(python - "$input_excel" <<'PY'
+    if [ -z "$(ls -A "$fp_dir" 2>/dev/null)" ]; then
+        PYTHONPATH="$model_dir" python -m toxcast_pkg.smiles2fing
+    fi
+
+    # 엑셀 2행에서 assay 헤더 추출 (간단 파서)
+    mapfile -t assays < <(python - "${input_excel[0]}" <<'PY'
 import sys, zipfile, xml.etree.ElementTree as ET
 xlsx=sys.argv[1]
 with zipfile.ZipFile(xlsx) as z:
     shared=z.read('xl/sharedStrings.xml').decode()
     sheet=z.read('xl/worksheets/sheet1.xml').decode()
 ss=ET.fromstring(shared)
-strings=[s.find('{http://schemas.openxmlformats.org/spreadsheetml/2006/main}t').text for s in ss]
+strings=[t.text for t in ss.iter('{http://schemas.openxmlformats.org/spreadsheetml/2006/main}t')]
 ns={'a':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
 root=ET.fromstring(sheet)
 row=root.find('.//a:row[@r="2"]', ns)
 vals=[]
-for c in row.findall('a:c', ns):
-    v=c.find('a:v', ns)
+if row is not None:
+    for c in row.findall('a:c', ns):
+        v=c.find('a:v', ns)
+        if v is not None:
+            try:
+                idx=int(v.text)
+                if 0 <= idx < len(strings):
+                    vals.append(strings[idx])
+            except Exception:
+                pass
+print("\n".join(vals))
+PY
+)
+
+    # 단일 러너 (모든 모델×FP×assay 조합)
+    for assay in "${assays[@]}"; do
+        for model in "${models[@]}"; do
+            for fp in "${fingerprints[@]}"; do
+                save_dir="$results_dir/${assay}_${model}_${fp}"
+                log_dir="$project_logs_dir/$assay"
+                log_file="$log_dir/${assay}_${model}_${fp}.log"
+                mkdir -p "$save_dir" "$log_dir"
+                (
+                  set +e
+                  PYTHONPATH="$model_dir" python "$model_dir/$run_subdir/${model}.py" \
+                      --fingerprint_type "$fp" \
+                      --assay_name "$assay" \
+                      --model_save_path "$save_dir" \
+                      2>&1 | tee -a "$log_file"
+                  exit_code=${PIPESTATUS[0]}
+                  set -e
+                  exit $exit_code
+                )
+            done
+        done
+    done
+fi
