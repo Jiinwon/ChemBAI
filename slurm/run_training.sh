@@ -238,7 +238,7 @@ PY
             echo "No assays detected for $seed_dir" >&2
             continue
         fi
-
+        
         for assay in "${assays[@]}"; do
             for model in "${models[@]}"; do
                 for fp in "${fingerprints[@]}"; do
@@ -246,6 +246,32 @@ PY
                     ((task_count++))
                 done
             done
+
+            return $status
+        }
+
+        max_parallel_assays=20
+        if [ ${#assays[@]} -lt $max_parallel_assays ]; then
+            max_parallel_assays=${#assays[@]}
+        fi
+        if [ $max_parallel_assays -le 0 ]; then
+            max_parallel_assays=1
+        fi
+
+        assay_pids=()
+        job_failed=0
+
+        for assay in "${assays[@]}"; do
+            run_assay_training "$assay" &
+            pid=$!
+            assay_pids+=($pid)
+
+            if [ ${#assay_pids[@]} -ge $max_parallel_assays ]; then
+                if ! wait "${assay_pids[0]}"; then
+                    job_failed=1
+                fi
+                assay_pids=("${assay_pids[@]:1}")
+            fi
         done
     done
 
