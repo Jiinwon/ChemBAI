@@ -1,0 +1,57 @@
+project:
+  # Path to the config.py file that defines VERSION/OBJECT/paths
+  config_path: ../ToxCast_model/config.py
+  # Optional overrides; leave null to use values from config.py
+  base_dir: null
+  data_dir: null
+  logs_dir: null
+  results_dir: null
+  # Seed discovery behaviour
+  seeds:
+    # Provide an explicit ordered list of seed directory names. When empty,
+    # all directories matching ``seed_*`` under ``data_dir`` are used.
+    include: []
+    # Glob pattern used when ``include`` is empty.
+    pattern: "seed_*"
+assays:
+  # Provide an explicit list of assays to train. When empty, the assay names
+  # are inferred from the first seed's training CSV.
+  include: []
+slurm:
+  partitions: [gpu1, gpu2, gpu3, gpu4, gpu5, gpu6]
+  gres: gpu
+  cpus_per_task: 8
+  mem: 16G
+  time: 08:00:00
+  max_jobs: 20
+  throttle:
+    max_queue: 80
+    poll_interval_sec: 30
+logging:
+  # Optional additional directory for slurm stdout/stderr files. Defaults to
+  # ``logs/slurm`` inside the project directory when null.
+  slurm_dir: null
+environment:
+  module:
+    init: /etc/profile.d/modules.sh
+    purge: true
+    load: [cuda/12.1]
+  conda:
+    setup: ~/anaconda3/etc/profile.d/conda.sh
+    env: toxcast_env
+  python: python
+training:
+  models: []
+  fingerprints: []
+  run_subdir: run_v3
+  random_state: null
+  dry_run: false
+  summary:
+    enabled: true
+    script: run_training.sh
+    partition: null
+    gres: null
+    cpus_per_task: null
+    mem: null
+    time: null
+    depends_on_fail: false
