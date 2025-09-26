@@ -14,6 +14,31 @@ dbg() { [ "$DEBUG" -eq 1 ] && echo "DEBUG: $*" >&2; }
 
 strip_carriage_returns() { printf '%s' "${1//$'\r'/}"; }
 
+# Resolve dataset CSV and fingerprint directory paths for a given seed directory.
+# Populates global variables: train_csv, val_csv, test_csv, train_fp_dir, val_fp_dir, test_fp_dir.
+resolve_seed_paths() {
+    if [ $# -lt 1 ] || [ -z "$1" ]; then
+        echo "resolve_seed_paths: seed directory argument required" >&2
+        return 1
+    fi
+
+    local seed_dir="$1"
+
+    train_csv="$seed_dir/train_df.csv"
+    val_csv="$seed_dir/val_df.csv"
+    test_csv="$seed_dir/test_df.csv"
+    if [ ! -f "$train_csv" ]; then train_csv="$seed_dir/train/train_df.csv"; fi
+    if [ ! -f "$val_csv" ]; then val_csv="$seed_dir/val/val_df.csv"; fi
+    if [ ! -f "$test_csv" ]; then test_csv="$seed_dir/test/test_df.csv"; fi
+
+    train_fp_dir="$seed_dir/fingerprints/train"
+    val_fp_dir="$seed_dir/fingerprints/val"
+    test_fp_dir="$seed_dir/fingerprints/test"
+    if [ -d "$seed_dir/train/fingerprints" ]; then train_fp_dir="$seed_dir/train/fingerprints"; fi
+    if [ -d "$seed_dir/val/fingerprints" ]; then val_fp_dir="$seed_dir/val/fingerprints"; fi
+    if [ -d "$seed_dir/test/fingerprints" ]; then test_fp_dir="$seed_dir/test/fingerprints"; fi
+}
+
 job_mode="${SLURM_JOB_MODE:-controller}"
 
 # --- GPU env (adapt if needed) ---
@@ -205,7 +230,7 @@ elif [ "$version" = "3" ]; then
         echo "Unknown job mode '$job_mode' for VERSION=3" >&2; exit 1
     fi
 
-    if [ -z "$1" ] && [ -z "${PROJECT_DIR:-}" ]; then
+    if [ -z "${1-}" ] && [ -z "${PROJECT_DIR:-}" ]; then
         echo "Using project directory from config: $project_dir"
     fi
 
