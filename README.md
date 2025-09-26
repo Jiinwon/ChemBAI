@@ -96,6 +96,31 @@ Install dependencies with conda using `environment.yml` or via `pip install -r r
 
 The `ToxCast_model/run` directory contains standalone scripts for each algorithm. They perform cross-validation to select the best model and save it as a joblib file for later prediction.
 
+### Slurm-based VERSION=3 training
+
+For large VERSION=3 experiments you can orchestrate GPU training directly on
+Slurm without exceeding the submission quota:
+
+1. Configure your experiment in `ToxCast_model/config.py` and ensure
+   `OBJECTS = ["prediction", "training"]`, `OBJECT = 1`, and `VERSION = 3`.
+2. Review `slurm/training_config.yaml`. The file controls project paths,
+   available seeds, assay/model/fingerprint combinations, resource requests,
+   queue throttling and environment setup (modules and conda).
+3. Submit the jobs from the repository root:
+
+   ```bash
+   python slurm/submit_v3_training.py
+   ```
+
+   Use `--dry-run` to inspect the planned submissions without calling
+   `sbatch`.
+
+Each job trains a single assay/model/fingerprint combination sequentially over
+all configured seeds, writes the logs under `experiments/<PROJECT>/logs`, and
+saves models under `experiments/<PROJECT>/results`. Queue length is monitored to
+avoid overwhelming the scheduler, and a summary job is scheduled automatically
+after the training jobs finish.
+
 ## Prediction
 
 `ToxCast_model/prediction/Predict_data.py` loads trained models specified in `config.py` and generates predictions for each assay. The script appends the original SMILES strings and writes an Excel file with the predictions.
