@@ -224,6 +224,14 @@ while IFS='|' read -r seed_dir seed_name; do
          --train_csv "$train_csv" --val_csv "$val_csv" --test_csv "$test_csv"
          --train_fp_dir "$train_fp_dir" --val_fp_dir "$val_fp_dir" --test_fp_dir "$test_fp_dir"
          --assay_name "$ASSAY_NAME" --model_save_path "$save_dir")
+    case "${USE_GPU:-auto}" in
+        1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn])
+            cmd+=(--use-gpu)
+            ;;
+        0|[Ff][Aa][Ll][Ss][Ee]|[Nn][Oo]|[Oo][Ff][Ff])
+            cmd+=(--no-gpu)
+            ;;
+    esac
     if [ -n "$RANDOM_STATE" ]; then
         cmd+=(--random_state "$RANDOM_STATE")
     fi
