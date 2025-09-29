@@ -5,7 +5,7 @@ set -euo pipefail
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 REPO_ROOT=$(cd "${SCRIPT_DIR}/.." && pwd)
 JOB_TEMPLATE_PATH="${SCRIPT_DIR}/job_gpu.sbatch"
-LOG_DIR="${REPO_ROOT}/logs/slurm"
+LOG_DIR="${REPO_ROOT}/slurm_logs"
 LOG_FILE="${LOG_DIR}/submitter.log"
 
 mkdir -p "${LOG_DIR}"
@@ -46,6 +46,7 @@ require_cmd sbatch
 require_cmd squeue
 require_cmd scancel
 require_cmd date
+require_cmd id
 
 log_event() {
     local message="$1"
@@ -74,7 +75,9 @@ Options:
   --cuda-module NAME        CUDA module to load (default: cuda/12.1.1)
   --module NAME             Additional module to load (can be repeated)
   --poll-interval SEC       Polling interval in seconds (default: 2)
-  --poll-timeout SEC        Allocation timeout per partition (default: 60)
+  --poll-timeout SEC        Allocation timeout per partition (default: 3)
+  --max-jobs N              Maximum concurrent jobs allowed before aborting (default: 19)
+  --user NAME               User name for queue counting (default: current user)
   -h, --help                Show this help message
 
 The command following ``--`` is executed inside the job script. Use
@@ -98,7 +101,9 @@ compiler_module="gnu12/12.3.0"
 cuda_module="cuda/12.1.1"
 extra_modules=()
 poll_interval=2
-poll_timeout=60
+poll_timeout=3
+max_jobs=19
+user_name=""
 
 while [[ $# -gt 0 ]]; do
     case "$1" in
@@ -134,6 +139,10 @@ while [[ $# -gt 0 ]]; do
             poll_interval="$2"; shift 2 ;;
         --poll-timeout)
             poll_timeout="$2"; shift 2 ;;
+        --max-jobs)
+            max_jobs="$2"; shift 2 ;;
+        --user)
+            user_name="$2"; shift 2 ;;
         -h|--help)
             usage
             exit 0 ;;
@@ -160,6 +169,30 @@ fi
 
 if [[ "${job_name}" =~ [[:space:]] ]]; then
     echo "Job name must not contain whitespace." >&2
+    exit 1
+fi
+
+if [[ -z "${user_name}" ]]; then
+    user_name="${USER:-}"
+    if [[ -z "${user_name}" ]]; then
+        user_name=$(id -un)
+    fi
+fi
+
+if [[ -z "${user_name}" ]]; then
+    echo "Unable to determine user name for queue counting." >&2
+    exit 1
+fi
+
+if [[ ! "${max_jobs}" =~ ^[0-9]+$ ]]; then
+    echo "--max-jobs must be a positive integer." >&2
+    exit 1
+fi
+
+max_jobs=$((max_jobs))
+
+if (( max_jobs <= 0 )); then
+    echo "--max-jobs must be a positive integer." >&2
     exit 1
 fi
 
@@ -196,6 +229,37 @@ command_script=$(mktemp "${LOG_DIR}/cmd.XXXXXX.sh")
 chmod 700 "${command_script}"
 
 log_event "Command script created at ${command_script}"
+
+get_current_job_count() {
+    local output
+    if ! output=$(squeue -u "${user_name}" -h -o "%i" 2>/dev/null); then
+        log_event "Failed to query current job count for ${user_name}."
+        return 1
+    fi
+    if [[ -z "${output}" ]]; then
+        printf '0'
+        return 0
+    fi
+    awk 'NF { ++count } END { print count + 0 }' <<< "${output}"
+}
+
+ensure_job_limit() {
+    local context="${1:-}"
+    local job_count
+    if ! job_count=$(get_current_job_count); then
+        log_event "Unable to determine queue utilisation; aborting submission."
+        exit 1
+    fi
+    local message="Current jobs for ${user_name}: ${job_count}/${max_jobs}"
+    if [[ -n "${context}" ]]; then
+        message+=" (${context})"
+    fi
+    log_event "${message}"
+    if (( job_count >= max_jobs )); then
+        log_event "Job limit of ${max_jobs} reached. Aborting submission."
+        exit 1
+    fi
+}
 
 prepare_job_script() {
     local partition="$1"
@@ -270,9 +334,14 @@ poll_job() {
 submit_to_partition() {
     local partition="$1"
     local timeout="$2"
+<<<<<<< Updated upstream
     local leave_queued="${3:-false}"
+=======
+    local wait_mode="${3:-poll}"
+    ensure_job_limit "before submitting to ${partition}"
+>>>>>>> Stashed changes
     local job_script
-    job_script=$(mktemp "${REPO_ROOT}/.gpu_job.XXXXXX")
+    job_script=$(mktemp "${REPO_ROOT}/gpu_job_logs/.gpu_job.XXXXXX")
     cleanup_files+=("${job_script}")
     prepare_job_script "${partition}" "${job_script}"
 
@@ -302,6 +371,11 @@ submit_to_partition() {
         return 1
     fi
     log_event "Submitted job ${job_id} to ${partition}"
+
+    if [[ "${wait_mode}" == "no-wait" ]]; then
+        echo "${job_id}"
+        return 0
+    fi
 
     local poll_result
     poll_job "${job_id}" "${partition}" "${timeout}"
@@ -336,7 +410,11 @@ done
 
 if [[ -z "${job_allocated}" ]]; then
     log_event "No allocation after full rotation. Submitting to gpu1 and leaving job queued."
+<<<<<<< Updated upstream
     if job_id=$(submit_to_partition "gpu1" 0 true); then
+=======
+    if job_id=$(submit_to_partition "gpu1" "${poll_timeout}" "no-wait"); then
+>>>>>>> Stashed changes
         job_allocated="${job_id}"
         command_script_keep=true
     else

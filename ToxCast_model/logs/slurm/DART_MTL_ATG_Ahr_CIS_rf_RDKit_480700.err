@@ -1,0 +1,4 @@
+[2025-09-29 17:54:55] Job 480700 starting on n016.hpc
+[2025-09-29 17:54:55] Label: DART_MTL_ATG_Ahr_CIS_rf_RDKit
+[2025-09-29 17:54:55] Job DART_MTL_ATG_Ahr_CIS_rf_RDKit starting on n016.hpc
+slurmstepd-n016: error: *** JOB 480700 ON n016 CANCELLED AT 2025-09-29T18:04:45 ***

@@ -1,0 +1,4 @@
+[2025-09-29 17:36:07] Job 480660 starting on n027.hpc
+[2025-09-29 17:36:07] Label: DART_MTL_ATG_Ahr_CIS_xgb_RDKit
+[2025-09-29 17:36:07] Job DART_MTL_ATG_Ahr_CIS_xgb_RDKit starting on n027.hpc
+slurmstepd-n027: error: *** JOB 480660 ON n027 CANCELLED AT 2025-09-29T17:48:56 ***

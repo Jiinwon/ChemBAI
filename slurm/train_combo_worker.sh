@@ -30,7 +30,12 @@ case "$DEBUG" in
         DEBUG=0
         ;;
 esac
-dbg() { [ "$DEBUG" -eq 1 ] && echo "DEBUG: $*" >&2; }
+
+dbg() {
+    if [ "$DEBUG" = "1" ]; then
+        echo "DEBUG: $*" >&2
+    fi
+}
 
 strip_cr() { printf '%s' "${1//$'\r'/}"; }
 

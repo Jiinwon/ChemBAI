@@ -1,0 +1,4 @@
+[2025-09-29 17:54:34] Job 480694 starting on n037.hpc
+[2025-09-29 17:54:34] Label: DART_MTL_ATG_Ahr_CIS_dt_Layered
+[2025-09-29 17:54:34] Job DART_MTL_ATG_Ahr_CIS_dt_Layered starting on n037.hpc
+slurmstepd-n037: error: *** JOB 480694 ON n037 CANCELLED AT 2025-09-29T18:04:45 ***

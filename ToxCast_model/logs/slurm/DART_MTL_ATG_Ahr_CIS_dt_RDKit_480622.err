@@ -1,5 +1,0 @@
-[2025-09-29 17:11:08] Job 480622 starting on n011.hpc
-[2025-09-29 17:11:08] Label: DART_MTL_ATG_Ahr_CIS_dt_RDKit
-[2025-09-29 17:11:08] Job DART_MTL_ATG_Ahr_CIS_dt_RDKit starting on n011.hpc
-[ERR] line:220 cmd:[ "$DEBUG" -eq 1 ]
-[ERROR] line:91 cmd:tee -a "${perf_log}"

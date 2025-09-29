@@ -1,0 +1,3 @@
+[2025-09-29 22:25:56] START seed_0:ATG_ERE_CIS_xgb_RDKit
+2025-09-29 22:25:59,827 - Using PyTorch device: cuda:0
+2025-09-29 22:25:59,827 - Selected compute device: cuda:0

@@ -1,0 +1,4 @@
+[2025-09-29 17:55:53] Job 480711 starting on n011.hpc
+[2025-09-29 17:55:53] Label: DART_MTL_ATG_Ahr_CIS_xgb_MACCS
+[2025-09-29 17:55:53] Job DART_MTL_ATG_Ahr_CIS_xgb_MACCS starting on n011.hpc
+slurmstepd-n011: error: *** JOB 480711 ON n011 CANCELLED AT 2025-09-29T18:04:45 ***

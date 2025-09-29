@@ -1,0 +1,6 @@
+[2025-09-29 20:53:06] Job 480984 starting on n011.hpc
+[2025-09-29 20:53:06] Label: DART_MTL_ATG_Ahr_CIS_gbt_Pattern
+[2025-09-29 20:53:06] Job DART_MTL_ATG_Ahr_CIS_gbt_Pattern starting on n011.hpc
+[2025-09-29 20:53:06] START seed_0:ATG_Ahr_CIS_gbt_Pattern
+2025-09-29 20:53:10,276 - Using PyTorch device: cuda:0
+2025-09-29 20:53:10,277 - Selected compute device: cuda:0

@@ -1,0 +1,21 @@
+[2025-09-29 18:53:07] START seed_1:ATG_Ahr_CIS_xgb_Morgan
+2025-09-29 18:53:11,021 - Using PyTorch device: cuda:0
+2025-09-29 18:53:11,021 - Selected compute device: cuda:0
+2025-09-29 19:13:17,093 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 3, 'n_estimators': 200, 'subsample': 0.8}
+2025-09-29 19:13:17,093 - Validation F1 Score: 0.3877821449100264
+2025-09-29 19:13:17,093 - Validation Precision: 0.3422912675295816
+2025-09-29 19:13:17,093 - Validation Recall: 0.4495820271682341
+2025-09-29 19:13:17,093 - Validation Accuracy: 0.7920315064732806
+2025-09-29 19:13:17,093 - Validation AUC: 0.665556440370582
+2025-09-29 19:13:18,564 - Holdout Validation F1 Score: 0.1875
+2025-09-29 19:13:18,564 - Holdout Validation Precision: 0.16216216216216217
+2025-09-29 19:13:18,564 - Holdout Validation Recall: 0.2222222222222222
+2025-09-29 19:13:18,564 - Holdout Validation Accuracy: 0.6030534351145038
+2025-09-29 19:13:18,564 - Holdout Validation AUC: 0.4576655982905983
+2025-09-29 19:13:18,955 - Test F1 Score: 0.3380281690140845
+2025-09-29 19:13:18,955 - Test Precision: 0.3
+2025-09-29 19:13:18,955 - Test Recall: 0.3870967741935484
+2025-09-29 19:13:18,955 - Test Accuracy: 0.7080745341614907
+2025-09-29 19:13:18,955 - Test AUC: 0.5646712158808933
+2025-09-29 19:13:18,958 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_Ahr_CIS_xgb_Morgan/model.joblib
+[2025-09-29 19:13:19] END seed_1:ATG_Ahr_CIS_xgb_Morgan status=0

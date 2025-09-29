@@ -1,0 +1,68 @@
+[2025-09-29 18:45:13] Job 481013 starting on n016.hpc
+[2025-09-29 18:45:13] Label: DART_MTL_BSK_4H_MCP1_dt_MACCS
+[2025-09-29 18:45:13] Job DART_MTL_BSK_4H_MCP1_dt_MACCS starting on n016.hpc
+[2025-09-29 18:45:13] START seed_0:BSK_4H_MCP1_dt_MACCS
+2025-09-29 18:45:17,785 - Using PyTorch device: cuda:0
+2025-09-29 18:45:17,786 - Selected compute device: cuda:0
+2025-09-29 18:45:37,469 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 4}
+2025-09-29 18:45:37,469 - Validation F1 Score: 0.41364248267598674
+2025-09-29 18:45:37,469 - Validation Precision: 0.3743920612341665
+2025-09-29 18:45:37,469 - Validation Recall: 0.46503759398496236
+2025-09-29 18:45:37,469 - Validation Accuracy: 0.7131868131868132
+2025-09-29 18:45:37,469 - Validation AUC: 0.636342448876911
+2025-09-29 18:45:37,524 - Holdout Validation F1 Score: 0.33707865168539325
+2025-09-29 18:45:37,524 - Holdout Validation Precision: 0.36585365853658536
+2025-09-29 18:45:37,524 - Holdout Validation Recall: 0.3125
+2025-09-29 18:45:37,525 - Holdout Validation Accuracy: 0.609271523178808
+2025-09-29 18:45:37,525 - Holdout Validation AUC: 0.5992111650485437
+2025-09-29 18:45:37,535 - Test F1 Score: 0.4166666666666667
+2025-09-29 18:45:37,535 - Test Precision: 0.4444444444444444
+2025-09-29 18:45:37,535 - Test Recall: 0.39215686274509803
+2025-09-29 18:45:37,535 - Test Accuracy: 0.672514619883041
+2025-09-29 18:45:37,535 - Test AUC: 0.5871732026143789
+2025-09-29 18:45:37,537 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_4H_MCP1_dt_MACCS/model.joblib
+[2025-09-29 18:45:38] END seed_0:BSK_4H_MCP1_dt_MACCS status=0
+[2025-09-29 18:45:38] START seed_1:BSK_4H_MCP1_dt_MACCS
+2025-09-29 18:45:41,582 - Using PyTorch device: cuda:0
+2025-09-29 18:45:41,582 - Selected compute device: cuda:0
+2025-09-29 18:46:00,846 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-09-29 18:46:00,846 - Validation F1 Score: 0.45247085875832216
+2025-09-29 18:46:00,846 - Validation Precision: 0.41520663738195795
+2025-09-29 18:46:00,846 - Validation Recall: 0.5
+2025-09-29 18:46:00,846 - Validation Accuracy: 0.716274148035598
+2025-09-29 18:46:00,847 - Validation AUC: 0.6414978458286882
+2025-09-29 18:46:00,899 - Holdout Validation F1 Score: 0.37735849056603776
+2025-09-29 18:46:00,899 - Holdout Validation Precision: 0.4
+2025-09-29 18:46:00,899 - Holdout Validation Recall: 0.35714285714285715
+2025-09-29 18:46:00,899 - Holdout Validation Accuracy: 0.6915887850467289
+2025-09-29 18:46:00,899 - Holdout Validation AUC: 0.5836347197106692
+2025-09-29 18:46:00,909 - Test F1 Score: 0.3917525773195876
+2025-09-29 18:46:00,909 - Test Precision: 0.3064516129032258
+2025-09-29 18:46:00,909 - Test Recall: 0.5428571428571428
+2025-09-29 18:46:00,909 - Test Accuracy: 0.6193548387096774
+2025-09-29 18:46:00,909 - Test AUC: 0.5945238095238095
+2025-09-29 18:46:00,910 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_4H_MCP1_dt_MACCS/model.joblib
+[2025-09-29 18:46:01] END seed_1:BSK_4H_MCP1_dt_MACCS status=0
+[2025-09-29 18:46:01] START seed_2:BSK_4H_MCP1_dt_MACCS
+2025-09-29 18:46:04,720 - Using PyTorch device: cuda:0
+2025-09-29 18:46:04,720 - Selected compute device: cuda:0
+2025-09-29 18:46:23,183 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-09-29 18:46:23,183 - Validation F1 Score: 0.40618683464023386
+2025-09-29 18:46:23,183 - Validation Precision: 0.3682994853248018
+2025-09-29 18:46:23,183 - Validation Recall: 0.45813559322033903
+2025-09-29 18:46:23,183 - Validation Accuracy: 0.6991395082904516
+2025-09-29 18:46:23,183 - Validation AUC: 0.6151753954334014
+2025-09-29 18:46:23,233 - Holdout Validation F1 Score: 0.5148514851485149
+2025-09-29 18:46:23,233 - Holdout Validation Precision: 0.4642857142857143
+2025-09-29 18:46:23,233 - Holdout Validation Recall: 0.5777777777777777
+2025-09-29 18:46:23,234 - Holdout Validation Accuracy: 0.6643835616438356
+2025-09-29 18:46:23,234 - Holdout Validation AUC: 0.6403740374037403
+2025-09-29 18:46:23,244 - Test F1 Score: 0.29213483146067415
+2025-09-29 18:46:23,244 - Test Precision: 0.2708333333333333
+2025-09-29 18:46:23,244 - Test Recall: 0.3170731707317073
+2025-09-29 18:46:23,244 - Test Accuracy: 0.58
+2025-09-29 18:46:23,244 - Test AUC: 0.4955247258894607
+2025-09-29 18:46:23,245 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_4H_MCP1_dt_MACCS/model.joblib
+[2025-09-29 18:46:23] END seed_2:BSK_4H_MCP1_dt_MACCS status=0
+[2025-09-29 18:46:23] Job DART_MTL_BSK_4H_MCP1_dt_MACCS completed successfully
+[2025-09-29 18:46:23] Command finished with status 0

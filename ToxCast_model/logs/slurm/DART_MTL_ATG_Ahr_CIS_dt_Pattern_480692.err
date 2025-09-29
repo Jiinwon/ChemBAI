@@ -1,0 +1,4 @@
+[2025-09-29 17:54:27] Job 480692 starting on n011.hpc
+[2025-09-29 17:54:27] Label: DART_MTL_ATG_Ahr_CIS_dt_Pattern
+[2025-09-29 17:54:27] Job DART_MTL_ATG_Ahr_CIS_dt_Pattern starting on n011.hpc
+slurmstepd-n011: error: *** JOB 480692 ON n011 CANCELLED AT 2025-09-29T18:04:45 ***
