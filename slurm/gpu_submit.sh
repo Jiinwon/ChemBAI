@@ -270,6 +270,7 @@ poll_job() {
 submit_to_partition() {
     local partition="$1"
     local timeout="$2"
+    local leave_queued="${3:-false}"
     local job_script
     job_script=$(mktemp "${REPO_ROOT}/.gpu_job.XXXXXX")
     cleanup_files+=("${job_script}")
@@ -281,6 +282,18 @@ submit_to_partition() {
     fi
 
     local export_vars="ALL,COMMAND_FILE=${command_script},WORK_DIR=${work_dir},SEED_ID=${seed_id},ASSAY_NAME=${assay_name},MODEL_NAME=${model_name},MF_NAME=${mf_name},PERF_LOG_LABEL=${command_label},EXTRA_MODULES=${extra_modules_joined}"
+
+    if [[ "${leave_queued}" == true ]]; then
+        log_event "Submitting job to partition ${partition} without polling (leaving queued)"
+        local job_id
+        if ! job_id=$(sbatch --parsable --export="${export_vars}" "${job_script}"); then
+            log_event "Failed to submit job to ${partition} when leaving queued"
+            return 1
+        fi
+        log_event "Submitted job ${job_id} to ${partition} (queued)"
+        echo "${job_id}"
+        return 0
+    fi
 
     log_event "Submitting job to partition ${partition}"
     local job_id
@@ -322,15 +335,15 @@ for partition in "${partitions[@]}"; do
 done
 
 if [[ -z "${job_allocated}" ]]; then
-    log_event "No allocation after full rotation. Submitting to gpu1 with indefinite wait."
-    if job_id=$(submit_to_partition "gpu1" 0); then
+    log_event "No allocation after full rotation. Submitting to gpu1 and leaving job queued."
+    if job_id=$(submit_to_partition "gpu1" 0 true); then
         job_allocated="${job_id}"
         command_script_keep=true
     else
-        log_event "Submission to gpu1 failed during indefinite wait."
+        log_event "Submission to gpu1 failed when leaving job queued."
         exit 1
     fi
 fi
 
-log_event "Final allocated job ID: ${job_allocated}"
+log_event "Final submitted job ID: ${job_allocated}"
 exit 0
