@@ -1,21 +1,25 @@
 #!/usr/bin/env python
-"""Submit VERSION=3 training jobs based on ``training_config.yaml``."""
+"""Submit VERSION=3 training jobs with user-wide throttling & submit-limit aware retry."""
 
 from __future__ import annotations
 
 import argparse
 import dataclasses
-import getpass
 import importlib.util
 import itertools
 import subprocess
 import sys
 import time
+import re
 from pathlib import Path
 from typing import Iterable, Sequence
 
 import yaml
 
+
+# =========================
+# Data classes
+# =========================
 
 @dataclasses.dataclass
 class SeedEntry:
@@ -37,6 +41,10 @@ class Combo:
 class SubmissionError(RuntimeError):
     pass
 
+
+# =========================
+# Utils
+# =========================
 
 def load_yaml(path: Path) -> dict:
     with path.open("r", encoding="utf-8") as fh:
@@ -60,7 +68,7 @@ def ensure_training_v3(config_module) -> None:
         raise SubmissionError("config.py must define OBJECTS and OBJECT")
     try:
         mode = objects[object_idx]
-    except Exception as exc:  # pragma: no cover - defensive
+    except Exception as exc:
         raise SubmissionError("Unable to resolve OBJECT from config.py") from exc
     if mode != "training":
         raise SubmissionError(
@@ -108,7 +116,7 @@ def discover_assays(train_csv: Path, model_dir: Path) -> list[str]:
     sys.path.insert(0, str(model_dir))
     try:
         from toxcast_pkg.v3_data import get_assay_names_from_csv
-    except ImportError as exc:  # pragma: no cover - environment dependent
+    except ImportError as exc:
         raise SubmissionError(
             "toxcast_pkg.v3_data could not be imported. Ensure PYTHONPATH includes the model directory."
         ) from exc
@@ -128,101 +136,122 @@ def write_seed_file(seeds: Iterable[SeedEntry], path: Path) -> None:
             fh.write(f"{seed.path}|{seed.name}\n")
 
 
-def count_queue(user: str, max_queue: int | None) -> int:
-    if max_queue is None:
-        return 0
-    try:
-        cmd = ["squeue", "-u", user, "-h"]
-        result = subprocess.run(cmd, check=False, capture_output=True, text=True)
-    except FileNotFoundError:
-        return 0
-    if result.returncode != 0:
-        return 0
-    lines = [line for line in result.stdout.splitlines() if line.strip()]
-    return len(lines)
+# =========================
+# Throttle helpers
+# =========================
 
-
-def wait_for_queue(throttle_cfg: dict) -> None:
-    max_queue = throttle_cfg.get("max_queue")
-    if not max_queue:
-        return
-    poll = throttle_cfg.get("poll_interval_sec", 30)
-    user = getpass.getuser()
-    while True:
-        queued = count_queue(user, max_queue)
-        if queued < max_queue:
-            return
-        print(
-            f"[throttle] Current queue length {queued} exceeds limit {max_queue}. Sleeping {poll}s...",
-            file=sys.stderr,
-        )
-        time.sleep(poll)
-
+SUBMIT_LIMIT_PAT = re.compile(
+    r"(AssocMaxSubmitJobLimit|job submit limit|violates accounting/QOS policy)", re.IGNORECASE
+)
 
 def run_command(cmd: Sequence[str]) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, check=False, capture_output=True, text=True)
 
 
-def submit_job(
+def count_queue(user: str) -> int:
+    """
+    사용자 전체 큐(PENDING+RUNNING) 잡 개수를 squeue로 카운트.
+    """
+    try:
+        # %T=state. 기본 squeue는 PD/R만, -h로 헤더 제거
+        cmd = ["squeue", "-u", user, "-h", "-o", "%i"]
+        result = run_command(cmd)
+        if result.returncode != 0:
+            return 0
+        # 한 줄당 하나의 잡
+        return sum(1 for line in result.stdout.splitlines() if line.strip())
+    except FileNotFoundError:
+        return 0
+
+
+def wait_for_queue(user: str, max_queue: int, poll_interval: int) -> None:
+    """
+    사용자 전체 잡 수가 max_queue 미만이 될 때까지 대기.
+    """
+    while True:
+        queued = count_queue(user)
+        if queued < max_queue:
+            return
+        print(
+            f"[throttle] user={user} queue={queued} >= {max_queue}; sleep {poll_interval}s",
+            file=sys.stderr,
+            flush=True,
+        )
+        time.sleep(poll_interval)
+
+
+# =========================
+# Slurm submission
+# =========================
+
+def is_submit_limit_error(out: str, err: str) -> bool:
+    msg = f"{out}\n{err}"
+    return bool(SUBMIT_LIMIT_PAT.search(msg))
+
+
+def submit_job_once(
     worker_script: Path,
     combo: Combo,
     env: dict,
     slurm_cfg: dict,
     log_dir: Path,
-) -> str:
+) -> tuple[str | None, bool, str]:
+    """
+    한 번(한 파티션) sbatch 시도.
+    return: (job_id or None, submit_limit_hit, failure_reason)
+    """
     export_parts = ["ALL"]
     for key, value in env.items():
         export_parts.append(f"{key}={value}")
     export_arg = ",".join(export_parts)
 
-    partitions = slurm_cfg.get("partitions") or [None]
     gres = slurm_cfg.get("gres")
     cpus = slurm_cfg.get("cpus_per_task")
     mem = slurm_cfg.get("mem")
     time_limit = slurm_cfg.get("time")
+    partition = (slurm_cfg.get("partitions") or [None])[0]  # submit-limit 시 불필요한 파티션 순회 방지
 
     job_name = sanitise_job_name(env.get("JOB_LABEL", combo.label))
     stdout_path = log_dir / f"{job_name}_%j.out"
     stderr_path = log_dir / f"{job_name}_%j.err"
 
-    for idx, partition in enumerate(partitions):
-        cmd = ["sbatch", "--parsable"]
-        if partition:
-            cmd.append(f"--partition={partition}")
-        if gres:
-            cmd.append(f"--gres={gres}")
-        if cpus:
-            cmd.append(f"--cpus-per-task={cpus}")
-        if mem:
-            cmd.append(f"--mem={mem}")
-        if time_limit:
-            cmd.append(f"--time={time_limit}")
-        cmd.extend(
-            [
-                f"--job-name={job_name}",
-                f"--output={stdout_path}",
-                f"--error={stderr_path}",
-                f"--export={export_arg}",
-                str(worker_script),
-            ]
-        )
-        result = run_command(cmd)
-        if result.returncode == 0 and result.stdout.strip():
-            job_id = result.stdout.strip().splitlines()[0]
-            print(f"Submitted {combo.label} on partition {partition or 'default'} as JobID {job_id}")
-            return job_id
+    cmd = ["sbatch", "--parsable"]
+    if partition:
+        cmd.append(f"--partition={partition}")
+    if gres:
+        cmd.append(f"--gres={gres}")
+    if cpus:
+        cmd.append(f"--cpus-per-task={cpus}")
+    if mem:
+        cmd.append(f"--mem={mem}")
+    if time_limit:
+        cmd.append(f"--time={time_limit}")
+    cmd.extend(
+        [
+            f"--job-name={job_name}",
+            f"--output={stdout_path}",
+            f"--error={stderr_path}",
+            f"--export={export_arg}",
+            str(worker_script),
+        ]
+    )
+    result = run_command(cmd)
+    out = (result.stdout or "").strip()
+    err = (result.stderr or "").strip()
 
-        stderr = result.stderr.strip()
-        failure_reason = stderr or result.stdout.strip() or "unknown error"
-        print(
-            f"Failed to submit {combo.label} on partition {partition or 'default'}: {failure_reason}",
-            file=sys.stderr,
-        )
-        if idx == len(partitions) - 1:
-            raise SubmissionError(f"All partition submissions failed for {combo.label}")
-        time.sleep(2)
+    if result.returncode == 0 and out:
+        job_id = out.splitlines()[0]
+        print(f"Submitted {combo.label} as JobID {job_id}", flush=True)
+        return job_id, False, ""
 
-    raise SubmissionError(f"Unable to submit job for {combo.label}")
+    if is_submit_limit_error(out, err):
+        # submit-limit은 스로틀 신호로 외부에서 처리
+        print(f"[throttle] submit-limit hit for {combo.label}; deferring...", file=sys.stderr, flush=True)
+        return None, True, (err or out or "submit-limit")
+
+    failure_reason = err or out or "unknown error"
+    print(f"[error] Failed to submit {combo.label}: {failure_reason}", file=sys.stderr, flush=True)
+    return None, False, failure_reason
 
 
 def submit_summary_job(
@@ -287,15 +316,13 @@ def submit_summary_job(
             str(project_dir),
         ]
     )
-
     result = run_command(cmd)
-    if result.returncode != 0 or not result.stdout.strip():
-        stderr = result.stderr.strip()
-        failure_reason = stderr or result.stdout.strip() or "unknown error"
-        raise SubmissionError(f"Failed to submit summary job: {failure_reason}")
-
-    job_id = result.stdout.strip().splitlines()[0]
-    print(f"Scheduled summary job {job_id} ({job_name}) with dependency on {len(dependencies)} jobs")
+    out = (result.stdout or "").strip()
+    err = (result.stderr or "").strip()
+    if result.returncode != 0 or not out:
+        raise SubmissionError(f"Failed to submit summary job: {err or out or 'unknown error'}")
+    job_id = out.splitlines()[0]
+    print(f"Scheduled summary job {job_id} ({job_name}) with dependency on {len(dependencies)} jobs", flush=True)
 
 
 def build_env(
@@ -327,29 +354,31 @@ def build_env(
     env["MODULE_INIT"] = module_cfg.get("init", "")
     env["MODULE_PURGE"] = "1" if module_cfg.get("purge", True) else "0"
     env["ENV_MODULES"] = ",".join(module_cfg.get("load", []))
-    conda_cfg = env_cfg.get("conda", {})
-    env["CONDA_SETUP"] = conda_cfg.get("setup", "")
-    env["CONDA_ENV"] = conda_cfg.get("env", "")
+    #conda_cfg = env_cfg.get("conda", {})
+    #env["CONDA_SETUP"] = conda_cfg.get("setup", "")
+    #env["CONDA_ENV"] = conda_cfg.get("env", "")
     if random_state is not None:
         env["RANDOM_STATE"] = str(random_state)
     return env
 
 
+# =========================
+# Main
+# =========================
+
 def main(argv: Sequence[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description="Submit v3 training jobs from YAML configuration")
-    parser.add_argument(
-        "--config",
-        default=Path(__file__).with_name("training_config.yaml"),
-        type=Path,
-        help="Path to training configuration YAML file",
-    )
-    parser.add_argument("--dry-run", action="store_true", help="Print actions without calling sbatch")
+    parser = argparse.ArgumentParser(description="Submit v3 training jobs (user-wide throttled, submit-limit aware)")
+    parser.add_argument("--config", default=Path(__file__).with_name("training_config.yaml"), type=Path)
+    parser.add_argument("--dry-run", action="store_true")
+    parser.add_argument("--user", default="won0316", help="User name for squeue counting (default: won0316)")
+    parser.add_argument("--max-queue", type=int, default=20, help="Max concurrent jobs for the user (default 20)")
+    parser.add_argument("--poll-interval", type=int, default=30, help="Polling interval in seconds (default 30)")
+    parser.add_argument("--post-submit-sleep", type=int, default=3, help="Sleep seconds after successful sbatch (default 3)")
     args = parser.parse_args(argv)
 
     cfg_path = args.config.expanduser().resolve()
     if not cfg_path.exists():
         raise SubmissionError(f"Configuration file not found: {cfg_path}")
-
     config = load_yaml(cfg_path) or {}
 
     project_cfg = config.get("project", {})
@@ -390,18 +419,12 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     combos = [Combo(assay=a, model=m, fingerprint=f) for a, m, f in itertools.product(assays, models, fingerprints)]
 
-    slurm_cfg = config.get("slurm", {})
-    max_jobs = slurm_cfg.get("max_jobs")
-    if max_jobs and len(combos) > max_jobs:
-        raise SubmissionError(
-            f"Configuration would submit {len(combos)} jobs which exceeds max_jobs={max_jobs}. "
-            "Adjust the assay/model/fingerprint lists or increase the limit."
-        )
-
+    # 로그 디렉토리
     worker_script = Path(__file__).with_name("train_combo_worker.sh")
     if not worker_script.exists():
         raise SubmissionError(f"Worker script missing: {worker_script}")
 
+    slurm_cfg = config.get("slurm", {})
     slurm_log_dir = config.get("logging", {}).get("slurm_dir")
     if slurm_log_dir:
         slurm_log_dir = Path(slurm_log_dir).expanduser().resolve()
@@ -412,20 +435,39 @@ def main(argv: Sequence[str] | None = None) -> int:
     env_cfg = config.get("environment", {})
 
     if args.dry_run or training_cfg.get("dry_run", False):
-        print("[dry-run] The following jobs would be submitted:")
+        print("[dry-run] user-wide throttled submission")
+        print(f"  user={args.user} combos={len(combos)} max_queue={args.max_queue} poll={args.poll_interval}s")
         for combo in combos:
             env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
-            print(f"  - {combo.label} -> sbatch with env {env}")
+            print(f"  - {combo.label}  JOB_LABEL={env['JOB_LABEL']}")
         return 0
 
-    throttle_cfg = slurm_cfg.get("throttle", {})
     job_ids: list[str] = []
-    for combo in combos:
-        wait_for_queue(throttle_cfg)
-        env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
-        job_id = submit_job(worker_script, combo, env, slurm_cfg, slurm_log_dir)
-        job_ids.append(job_id)
+    for idx, combo in enumerate(combos, 1):
+        # 1) 사용자 전체 큐 길이로 먼저 스로틀
+        wait_for_queue(user=args.user, max_queue=args.max_queue, poll_interval=args.poll_interval)
 
+        # 2) 제출 시도; submit-limit이면 대기 후 재시도
+        while True:
+            env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
+            job_id, submit_limited, reason = submit_job_once(worker_script, combo, env, slurm_cfg, slurm_log_dir)
+            if submit_limited:
+                # 사용자의 타 잡/어카운트 제한 포함. 일정 시간 대기 후 다시 squeue 기반 스로틀부터 반복.
+                time.sleep(args.poll_interval)
+                wait_for_queue(user=args.user, max_queue=args.max_queue, poll_interval=args.poll_interval)
+                continue
+            if job_id is None:
+                # 기타 실패: 스킵(필요하면 raise로 바꿔도 됨)
+                break
+            job_ids.append(job_id)
+            # 제출 직후 squeue 반영 지연 완화
+            time.sleep(args.post_submit_sleep)
+            break
+
+        if idx % 10 == 0 or idx == len(combos):
+            print(f"[progress] Submitted {len(job_ids)}/{len(combos)} (scope=user)", flush=True)
+
+    # Summary job
     summary_cfg = training_cfg.get("summary", {})
     if job_ids:
         submit_summary_job(
@@ -440,7 +482,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             dependencies=job_ids,
         )
 
-    print(f"Submitted {len(job_ids)} training jobs.")
+    print(f"Submitted {len(job_ids)} training jobs (throttled user={args.user}, max_queue={args.max_queue}).", flush=True)
     return 0
 
 

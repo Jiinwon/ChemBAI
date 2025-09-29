@@ -10,7 +10,12 @@ shopt -s inherit_errexit 2>/dev/null || true
 
 # -------- optional debug switch --------
 DEBUG="${DEBUG:-0}"
-dbg() { [ "$DEBUG" -eq 1 ] && echo "DEBUG: $*" >&2; }
+dbg() {
+  if [ "${DEBUG:-0}" -eq 1 ]; then
+    echo "DEBUG: $*" >&2
+  fi
+  return 0   # 항상 성공으로 종료
+}
 
 strip_carriage_returns() { printf '%s' "${1//$'\r'/}"; }
 
@@ -49,7 +54,7 @@ source ~/anaconda3/etc/profile.d/conda.sh
 conda activate toxcast_env
 
 # --- resolve script dir ---
-if [ -n "$SLURM_SUBMIT_DIR" ]; then
+if [ -n "${SLURM_SUBMIT_DIR-}" ]; then
     script_dir="$SLURM_SUBMIT_DIR"
 else
     script_dir="$(cd "$(dirname "$0")" && pwd)"
@@ -120,15 +125,16 @@ elif [ "$version" = "3" ]; then
         logs_dir="$PROJECT_DIR/logs"
         mkdir -p "$results_dir" "$logs_dir"
 
-        [ "$DEBUG" -eq 1 ] && {
+        if [ "${DEBUG:-0}" -eq 1 ]; then
+        {
             echo "DEBUG(worker): PROJECT_DIR=$PROJECT_DIR"
             echo "DEBUG(worker): SLURM_ARRAY_TASK_ID=$SLURM_ARRAY_TASK_ID"
             echo "DEBUG(worker): MODEL_DIR=$MODEL_DIR"
             echo "DEBUG(worker): RUN_SUBDIR=$RUN_SUBDIR"
             echo "DEBUG(worker): results_dir=$results_dir"
             echo "DEBUG(worker): logs_dir=$logs_dir"
-        } >&2
-
+            } >&2
+        fi
         # task line 추출
         task_index=$((SLURM_ARRAY_TASK_ID + 1))
         task_line=$(sed -n "${task_index}p" "$TASK_FILE")
@@ -300,7 +306,7 @@ PY
             for model in "${models[@]}"; do
                 for fp in "${fingerprints[@]}"; do
                     printf '%s|%s|%s|%s|%s\n' "$seed_dir" "$seed_name" "$assay" "$model" "$fp" >> "$tasks_file"
-                    ((task_count++))
+                    ((task_count+=1))
                 done
             done
         done
@@ -316,6 +322,17 @@ PY
     CPUS_PER_TASK=8
     MEM_PER_TASK="16G"
 
+    if [ "$task_count" -eq 1 ]; then
+        array_spec="0"
+    else
+        max_parallel=20
+        if [ "$task_count" -lt "$max_parallel" ]; then
+            array_spec="0-$((task_count - 1))"
+        else
+            array_spec="0-$((task_count - 1))%$max_parallel"
+        fi
+    fi
+
     array_spec="0-$((task_count - 1))%20"
     output_pattern="$project_logs_dir/${project_name}_%A_%a.out"
     error_pattern="$project_logs_dir/${project_name}_%A_%a.err"
@@ -329,7 +346,7 @@ PY
     for p in "${PARTITIONS[@]}"; do
         JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES" \
             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-            --job-name="${project_name}_training" --array="$array_spec" \
+            --job-name="${project_name}_training"\
             --output="$output_pattern" --error="$error_pattern" \
             --export="$export_args" "$script_dir/run_training.sh" "$project_dir")
         if [ -z "$JOBID" ]; then
@@ -371,7 +388,7 @@ PY
     summary_err="$project_logs_dir/${project_name}_summary_%j.err"
     summary_jobid=$(sbatch --parsable --partition="$chosen_partition" --gres="$GRES" \
         --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK" \
-        --job-name="${project_name}_summary" --dependency="afterany:${array_jobid}" \
+        --job-name="${project_name}_summary" \
         --output="$summary_out" --error="$summary_err" \
         --export="$summary_export" "$script_dir/run_training.sh" "$project_dir")
 
