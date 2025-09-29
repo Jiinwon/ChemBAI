@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import argparse
 import json
 import logging
 from pathlib import Path
@@ -26,6 +27,76 @@ from toxcast_pkg.v3_data import (
 
 
 METRIC_KEYS = ("precision", "recall", "f1", "accuracy", "roc_auc")
+
+
+def add_device_arguments(parser: argparse.ArgumentParser) -> None:
+    """Add common GPU control arguments to ``parser``.
+
+    All run_v3 entrypoints share the same desire for a ``--use-gpu`` flag,
+    while still allowing users to opt out explicitly.  The helper keeps the
+    behaviour consistent across scripts.
+    """
+
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
+        "--use-gpu",
+        dest="use_gpu",
+        action="store_true",
+        help="Prefer CUDA devices when available (default: CPU).",
+    )
+    group.add_argument(
+        "--no-gpu",
+        dest="use_gpu",
+        action="store_false",
+        help="Force CPU execution even when CUDA devices are available.",
+    )
+    parser.set_defaults(use_gpu=False)
+
+
+def configure_device(use_gpu: bool, logger: logging.Logger | None = None) -> str:
+    """Initialise the preferred compute device for deep-learning frameworks.
+
+    The helper attempts to configure PyTorch first and falls back to
+    TensorFlow.  Any errors are converted into informative log messages so the
+    caller can keep running on CPU.  The selected device identifier is
+    returned to help with debugging/logging.
+    """
+
+    log = logger or logging.getLogger(__name__)
+    if use_gpu:
+        try:  # PyTorch configuration (optional dependency)
+            import torch
+
+            if torch.cuda.is_available():
+                torch.cuda.set_device(0)
+                device = torch.device("cuda:0")
+                log.info("Using PyTorch device: %s", device)
+                return str(device)
+            log.warning("GPU requested but PyTorch reports no CUDA devices. Falling back to CPU.")
+        except Exception as exc:  # pragma: no cover - optional dependency guard
+            log.warning("GPU requested but PyTorch initialisation failed: %s", exc)
+
+        try:  # TensorFlow configuration (optional dependency)
+            import tensorflow as tf
+
+            gpus = tf.config.list_physical_devices("GPU")
+            if gpus:
+                try:
+                    tf.config.set_visible_devices(gpus[0], "GPU")
+                except Exception as exc:  # pragma: no cover - TF runtime guard
+                    log.warning("Unable to limit TensorFlow to a single GPU: %s", exc)
+                try:  # pragma: no cover - best effort memory growth setting
+                    tf.config.experimental.set_memory_growth(gpus[0], True)
+                except Exception:
+                    pass
+                log.info("Using TensorFlow GPU device: %s", gpus[0].name)
+                return gpus[0].name
+            log.warning("GPU requested but TensorFlow did not detect any GPUs. Falling back to CPU.")
+        except Exception as exc:  # pragma: no cover - optional dependency guard
+            log.warning("TensorFlow GPU initialisation failed: %s", exc)
+
+    log.info("Using CPU execution.")
+    return "cpu"
 
 
 def save_results(result: dict, path: str | Path) -> None:
