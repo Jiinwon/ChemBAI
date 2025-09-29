@@ -1,0 +1,5 @@
+[2025-09-29 17:11:02] Job 480621 starting on n011.hpc
+[2025-09-29 17:11:02] Label: DART_MTL_ATG_Ahr_CIS_dt_Morgan
+[2025-09-29 17:11:02] Job DART_MTL_ATG_Ahr_CIS_dt_Morgan starting on n011.hpc
+[2025-09-29 17:11:02] START seed_0:ATG_Ahr_CIS_dt_Morgan
+[ERR] line:220 cmd:[ "$DEBUG" -eq 1 ]

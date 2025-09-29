@@ -1,0 +1,5 @@
+[2025-09-29 17:11:44] Job 480628 starting on n011.hpc
+[2025-09-29 17:11:44] Label: DART_MTL_ATG_Ahr_CIS_rf_Pattern
+[2025-09-29 17:11:44] Job DART_MTL_ATG_Ahr_CIS_rf_Pattern starting on n011.hpc
+[ERR] line:220 cmd:[ "$DEBUG" -eq 1 ]
+[ERROR] line:91 cmd:tee -a "${perf_log}"
