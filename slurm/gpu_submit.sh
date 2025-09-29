@@ -12,6 +12,8 @@ mkdir -p "${LOG_DIR}"
 touch "${LOG_FILE}"
 
 cleanup_files=()
+command_script=""
+command_script_keep=false
 
 cleanup() {
     local status=$?
@@ -20,7 +22,7 @@ cleanup() {
             rm -f "${path}"
         fi
     done
-    if [[ -n "${command_script:-}" && "${command_script_keep}" != true && -f "${command_script}" ]]; then
+    if [[ -n "${command_script:-}" && "${command_script_keep:-}" != true && -f "${command_script:-}" ]]; then
         rm -f "${command_script}"
     fi
     return ${status}
@@ -196,9 +198,6 @@ if (( max_jobs <= 0 )); then
     exit 1
 fi
 
-command_script=""
-command_script_keep=false
-
 normalise_export_value() {
     local name="$1"
     local value="$2"
@@ -334,12 +333,9 @@ poll_job() {
 submit_to_partition() {
     local partition="$1"
     local timeout="$2"
-<<<<<<< Updated upstream
-    local leave_queued="${3:-false}"
-=======
     local wait_mode="${3:-poll}"
+
     ensure_job_limit "before submitting to ${partition}"
->>>>>>> Stashed changes
     local job_script
     job_script=$(mktemp "${REPO_ROOT}/gpu_job_logs/.gpu_job.XXXXXX")
     cleanup_files+=("${job_script}")
@@ -352,7 +348,7 @@ submit_to_partition() {
 
     local export_vars="ALL,COMMAND_FILE=${command_script},WORK_DIR=${work_dir},SEED_ID=${seed_id},ASSAY_NAME=${assay_name},MODEL_NAME=${model_name},MF_NAME=${mf_name},PERF_LOG_LABEL=${command_label},EXTRA_MODULES=${extra_modules_joined}"
 
-    if [[ "${leave_queued}" == true ]]; then
+    if [[ "${wait_mode}" == "leave-queued" ]]; then
         log_event "Submitting job to partition ${partition} without polling (leaving queued)"
         local job_id
         if ! job_id=$(sbatch --parsable --export="${export_vars}" "${job_script}"); then
@@ -410,11 +406,7 @@ done
 
 if [[ -z "${job_allocated}" ]]; then
     log_event "No allocation after full rotation. Submitting to gpu1 and leaving job queued."
-<<<<<<< Updated upstream
-    if job_id=$(submit_to_partition "gpu1" 0 true); then
-=======
-    if job_id=$(submit_to_partition "gpu1" "${poll_timeout}" "no-wait"); then
->>>>>>> Stashed changes
+    if job_id=$(submit_to_partition "gpu1" 0 "leave-queued"); then
         job_allocated="${job_id}"
         command_script_keep=true
     else
