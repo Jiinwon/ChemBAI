@@ -22,6 +22,14 @@ trap cleanup_temp_seed_file EXIT
 shopt -s inherit_errexit 2>/dev/null || true
 
 DEBUG="${DEBUG:-0}"
+case "$DEBUG" in
+    1|[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|[Oo][Nn])
+        DEBUG=1
+        ;;
+    *)
+        DEBUG=0
+        ;;
+esac
 dbg() { [ "$DEBUG" -eq 1 ] && echo "DEBUG: $*" >&2; }
 
 strip_cr() { printf '%s' "${1//$'\r'/}"; }
