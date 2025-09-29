@@ -38,6 +38,30 @@ class Combo:
         return f"{self.assay}_{self.model}_{self.fingerprint}"
 
 
+def combo_already_trained(combo: Combo, seeds: Sequence[SeedEntry], results_dir: Path) -> bool:
+    """Return True when all seed-specific model artifacts exist for *combo*.
+
+    Each training job iterates over every seed and saves the resulting model to
+    ``results/seed_x/{assay}_{model}_{fingerprint}/model.joblib``.  If all of
+    those files already exist we can safely skip submitting another job for the
+    combo.
+    """
+
+    if not results_dir.exists():
+        return False
+
+    for seed in seeds:
+        model_path = (
+            results_dir
+            / seed.name
+            / combo.label
+            / "model.joblib"
+        )
+        if not model_path.is_file():
+            return False
+    return True
+
+
 @dataclasses.dataclass
 class GpuSubmitContext:
     script: Path
@@ -526,6 +550,29 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     combos = [Combo(assay=a, model=m, fingerprint=f) for a, m, f in itertools.product(assays, models, fingerprints)]
 
+    pending_combos: list[Combo] = []
+    skipped_combos: list[Combo] = []
+    for combo in combos:
+        if combo_already_trained(combo, seeds, results_dir):
+            skipped_combos.append(combo)
+        else:
+            pending_combos.append(combo)
+
+    if skipped_combos:
+        skipped_labels = ", ".join(c.label for c in skipped_combos[:10])
+        more = len(skipped_combos) - 10
+        if more > 0:
+            skipped_labels += f", ... (+{more} more)"
+        print(
+            f"[skip] {len(skipped_combos)} combos already have model.joblib artifacts. "
+            f"Skipping: {skipped_labels}",
+            flush=True,
+        )
+
+    if not pending_combos:
+        print("[info] All combos already trained. No submissions required.", flush=True)
+        return 0
+
     # 로그 디렉토리
     worker_script = Path(__file__).with_name("train_combo_worker.sh")
     if not worker_script.exists():
@@ -579,16 +626,20 @@ def main(argv: Sequence[str] | None = None) -> int:
         poll_timeout=gpu_poll_timeout,
     )
 
+    total_to_submit = len(pending_combos)
+
     if args.dry_run or training_cfg.get("dry_run", False):
         print("[dry-run] user-wide throttled submission")
-        print(f"  user={args.user} combos={len(combos)} max_queue={args.max_queue} poll={args.poll_interval}s")
-        for combo in combos:
+        print(f"  user={args.user} combos={total_to_submit} max_queue={args.max_queue} poll={args.poll_interval}s")
+        if skipped_combos:
+            print(f"  skipping={len(skipped_combos)} (artifacts exist)")
+        for combo in pending_combos:
             env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
             print(f"  - {combo.label}  JOB_LABEL={env['JOB_LABEL']}")
         return 0
 
     job_ids: list[str] = []
-    for idx, combo in enumerate(combos, 1):
+    for idx, combo in enumerate(pending_combos, 1):
         # 1) 사용자 전체 큐 길이로 먼저 스로틀
         wait_for_queue(user=args.user, max_queue=args.max_queue, poll_interval=args.poll_interval)
 
@@ -609,8 +660,8 @@ def main(argv: Sequence[str] | None = None) -> int:
             time.sleep(args.post_submit_sleep)
             break
 
-        if idx % 10 == 0 or idx == len(combos):
-            print(f"[progress] Submitted {len(job_ids)}/{len(combos)} (scope=user)", flush=True)
+        if idx % 10 == 0 or idx == total_to_submit:
+            print(f"[progress] Submitted {len(job_ids)}/{total_to_submit} (scope=user)", flush=True)
 
     # Summary job
     summary_cfg = training_cfg.get("summary", {})
