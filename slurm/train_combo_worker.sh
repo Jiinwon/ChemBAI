@@ -1,7 +1,24 @@
 #!/bin/bash
 
 set -euo pipefail
-trap 'echo "[ERR] line:$LINENO cmd:${BASH_COMMAND}" >&2' ERR
+
+cleanup_temp_seed_file() {
+    if [ -n "${__TEMP_SEED_FILE:-}" ] && [ -f "${__TEMP_SEED_FILE}" ]; then
+        rm -f "${__TEMP_SEED_FILE}"
+    fi
+}
+
+__TEMP_SEED_FILE=""
+
+trap_err() {
+    local line_no="$1"
+    local cmd="$2"
+    cleanup_temp_seed_file
+    echo "[ERR] line:$line_no cmd:$cmd" >&2
+}
+
+trap 'trap_err $LINENO "$BASH_COMMAND"' ERR
+trap cleanup_temp_seed_file EXIT
 shopt -s inherit_errexit 2>/dev/null || true
 
 DEBUG="${DEBUG:-0}"
@@ -46,7 +63,6 @@ require_var RUN_SUBDIR
 require_var ASSAY_NAME
 require_var MODEL_NAME
 require_var FINGERPRINT_NAME
-require_var SEED_FILE
 
 PROJECT_DIR=$(strip_cr "$PROJECT_DIR")
 MODEL_DIR=$(strip_cr "$MODEL_DIR")
@@ -54,11 +70,59 @@ RUN_SUBDIR=$(strip_cr "$RUN_SUBDIR")
 ASSAY_NAME=$(strip_cr "$ASSAY_NAME")
 MODEL_NAME=$(strip_cr "$MODEL_NAME")
 FINGERPRINT_NAME=$(strip_cr "$FINGERPRINT_NAME")
-SEED_FILE=$(strip_cr "$SEED_FILE")
 
 LOGS_DIR=$(strip_cr "${LOGS_DIR:-$PROJECT_DIR/logs}")
 RESULTS_DIR=$(strip_cr "${RESULTS_DIR:-$PROJECT_DIR/results}")
 PYTHON_BIN=$(strip_cr "${PYTHON_BIN:-python}")
+
+if [ -z "${SEED_FILE:-}" ]; then
+    tmp_seed_file="$(mktemp "${TMPDIR:-/tmp}/seed_list.XXXXXX")"
+    if ! "$PYTHON_BIN" - "$PROJECT_DIR" "$MODEL_DIR" "$tmp_seed_file" <<'PY'
+import sys
+from pathlib import Path
+
+project_dir = Path(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1] else None
+model_dir = Path(sys.argv[2]) if len(sys.argv) > 2 and sys.argv[2] else None
+if len(sys.argv) <= 3 or not sys.argv[3]:
+    print("Missing output path for seed list", file=sys.stderr)
+    raise SystemExit(1)
+out_path = Path(sys.argv[3])
+
+if model_dir:
+    sys.path.insert(0, str(model_dir))
+
+try:
+    import config  # type: ignore
+except Exception as exc:  # pragma: no cover - runtime safeguard
+    print(f"Unable to import config.py from {model_dir}: {exc}", file=sys.stderr)
+    raise SystemExit(1)
+
+base_dir = Path(project_dir) if project_dir else Path(getattr(config, "BASE_DIR"))
+data_dir = Path(getattr(config, "DATA_DIR", base_dir / "data"))
+
+if not data_dir.exists():
+    print(f"Data directory not found: {data_dir}", file=sys.stderr)
+    raise SystemExit(1)
+
+seed_dirs = sorted(p for p in data_dir.iterdir() if p.is_dir() and p.name.startswith("seed_"))
+if not seed_dirs:
+    print(f"No seed directories found under {data_dir}", file=sys.stderr)
+    raise SystemExit(1)
+
+with out_path.open("w", encoding="utf-8") as fh:
+    for seed in seed_dirs:
+        fh.write(f"{seed}|{seed.name}\n")
+PY
+    then
+        echo "Failed to auto-discover seed directories under $PROJECT_DIR" >&2
+        rm -f "$tmp_seed_file"
+        exit 1
+    fi
+    SEED_FILE="$tmp_seed_file"
+    __TEMP_SEED_FILE="$tmp_seed_file"
+fi
+
+SEED_FILE=$(strip_cr "$SEED_FILE")
 PYTHONPATH_BASE=$(strip_cr "${PYTHONPATH_BASE:-$MODEL_DIR}")
 RANDOM_STATE=$(strip_cr "${RANDOM_STATE:-}")
 ENV_MODULE_INIT=$(strip_cr "${MODULE_INIT:-}")
