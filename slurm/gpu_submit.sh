@@ -78,7 +78,8 @@ Options:
   --module NAME             Additional module to load (can be repeated)
   --poll-interval SEC       Polling interval in seconds (default: 2)
   --poll-timeout SEC        Allocation timeout per partition (default: 3)
-  --max-jobs N              Maximum concurrent jobs allowed before aborting (default: 19)
+  --max-jobs N              Maximum concurrent jobs allowed before submission (default: 19)
+  --queue-wait SEC          Seconds to wait before re-checking queue when max jobs reached (default: 60)
   --user NAME               User name for queue counting (default: current user)
   -h, --help                Show this help message
 
@@ -105,6 +106,7 @@ extra_modules=()
 poll_interval=2
 poll_timeout=3
 max_jobs=19
+queue_wait=60
 user_name=""
 
 while [[ $# -gt 0 ]]; do
@@ -141,6 +143,8 @@ while [[ $# -gt 0 ]]; do
             poll_interval="$2"; shift 2 ;;
         --poll-timeout)
             poll_timeout="$2"; shift 2 ;;
+        --queue-wait)
+            queue_wait="$2"; shift 2 ;;
         --max-jobs)
             max_jobs="$2"; shift 2 ;;
         --user)
@@ -198,6 +202,13 @@ if (( max_jobs <= 0 )); then
     exit 1
 fi
 
+if [[ ! "${queue_wait}" =~ ^[0-9]+$ ]]; then
+    echo "--queue-wait must be a non-negative integer." >&2
+    exit 1
+fi
+
+queue_wait=$((queue_wait))
+
 normalise_export_value() {
     local name="$1"
     local value="$2"
@@ -242,22 +253,29 @@ get_current_job_count() {
     awk 'NF { ++count } END { print count + 0 }' <<< "${output}"
 }
 
-ensure_job_limit() {
+wait_for_queue_slot() {
     local context="${1:-}"
-    local job_count
-    if ! job_count=$(get_current_job_count); then
-        log_event "Unable to determine queue utilisation; aborting submission."
-        exit 1
-    fi
-    local message="Current jobs for ${user_name}: ${job_count}/${max_jobs}"
-    if [[ -n "${context}" ]]; then
-        message+=" (${context})"
-    fi
-    log_event "${message}"
-    if (( job_count >= max_jobs )); then
-        log_event "Job limit of ${max_jobs} reached. Aborting submission."
-        exit 1
-    fi
+    while true; do
+        local job_count
+        if ! job_count=$(get_current_job_count); then
+            log_event "Unable to determine queue utilisation; aborting submission."
+            exit 1
+        fi
+        local message="Current jobs for ${user_name}: ${job_count}/${max_jobs}"
+        if [[ -n "${context}" ]]; then
+            message+=" (${context})"
+        fi
+        log_event "${message}"
+        if (( job_count < max_jobs )); then
+            return 0
+        fi
+        if (( queue_wait <= 0 )); then
+            log_event "Job limit of ${max_jobs} reached and no wait configured; aborting submission."
+            exit 1
+        fi
+        log_event "Job limit reached; sleeping ${queue_wait}s before retry."
+        sleep "${queue_wait}"
+    done
 }
 
 prepare_job_script() {
@@ -335,7 +353,7 @@ submit_to_partition() {
     local timeout="$2"
     local wait_mode="${3:-poll}"
 
-    ensure_job_limit "before submitting to ${partition}"
+    wait_for_queue_slot "before submitting to ${partition}"
     local job_script
     job_script=$(mktemp "${REPO_ROOT}/gpu_job_logs/.gpu_job.XXXXXX")
     cleanup_files+=("${job_script}")
