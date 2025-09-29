@@ -208,7 +208,9 @@ while IFS='|' read -r seed_dir seed_name; do
     seed_logs_dir="$LOGS_DIR/$seed_name"
     log_dir="$seed_logs_dir/$ASSAY_NAME"
     log_file="$log_dir/${ASSAY_NAME}_${MODEL_NAME}_${FINGERPRINT_NAME}.log"
+    err_file="$log_dir/${ASSAY_NAME}_${MODEL_NAME}_${FINGERPRINT_NAME}.err"
     mkdir -p "$seed_results_dir" "$log_dir"
+    : > "$err_file"
 
     resolve_seed_paths "$seed_dir"
     if [ ! -f "$train_csv" ]; then
@@ -242,8 +244,10 @@ while IFS='|' read -r seed_dir seed_name; do
     fi
 
     set +e
-    "${cmd[@]}" 2>&1 | tee -a "$log_file"
-    exit_code=${PIPESTATUS[0]}
+    "${cmd[@]}" \
+        > >(tee -a "$log_file") \
+        2> >(tee -a "$err_file" | tee -a "$log_file" >&2)
+    exit_code=$?
     set -e
 
     end_ts="$(date '+%F %T')"

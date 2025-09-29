@@ -152,7 +152,9 @@ elif [ "$version" = "3" ]; then
         log_dir="$seed_logs_dir/$assay"
         save_dir="$seed_results_dir/${assay}_${model}_${fp}"
         log_file="$log_dir/${assay}_${model}_${fp}.log"
+        err_file="$log_dir/${assay}_${model}_${fp}.err"
         mkdir -p "$save_dir" "$log_dir"
+        : > "$err_file"
 
         # 외부 함수: resolve_seed_paths (프로젝트에 이미 존재한다고 가정)
         resolve_seed_paths "$seed_dir"
@@ -185,8 +187,9 @@ elif [ "$version" = "3" ]; then
             --test_fp_dir "$test_fp_dir" \
             --assay_name "$assay" \
             --model_save_path "$save_dir" \
-            2>&1 | tee -a "$log_file" >&2
-        exit_code=${PIPESTATUS[0]}
+            > >(tee -a "$log_file") \
+            2> >(tee -a "$err_file" | tee -a "$log_file" >&2)
+        exit_code=$?
         set -e
 
         end_time=$(date +%s)
