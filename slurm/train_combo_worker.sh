@@ -183,7 +183,7 @@ while IFS='|' read -r seed_dir seed_name; do
     if [ -z "$seed_dir" ]; then
         continue
     fi
-    ((line_no++))
+    ((++line_no))
 
     if [ ! -d "$seed_dir" ]; then
         echo "Seed directory not found: $seed_dir" >&2
