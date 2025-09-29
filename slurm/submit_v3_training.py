@@ -38,6 +38,21 @@ class Combo:
         return f"{self.assay}_{self.model}_{self.fingerprint}"
 
 
+@dataclasses.dataclass
+class GpuSubmitContext:
+    script: Path
+    work_dir: Path
+    gpu_count: int | None
+    cpus: int | None
+    memory: str | None
+    time_limit: str | None
+    compiler_module: str
+    cuda_module: str
+    extra_modules: tuple[str, ...]
+    poll_interval: int | None
+    poll_timeout: int | None
+
+
 class SubmissionError(RuntimeError):
     pass
 
@@ -136,6 +151,76 @@ def write_seed_file(seeds: Iterable[SeedEntry], path: Path) -> None:
             fh.write(f"{seed.path}|{seed.name}\n")
 
 
+def normalise_bool(value, default: bool) -> bool:
+    if value is None:
+        return default
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, (int, float)):
+        return bool(value)
+    if isinstance(value, str):
+        val = value.strip().lower()
+        if val in {"1", "true", "yes", "on"}:
+            return True
+        if val in {"0", "false", "no", "off"}:
+            return False
+    return default
+
+
+def coerce_optional_int(value, name: str) -> int | None:
+    if value is None or value == "":
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError) as exc:
+        raise SubmissionError(f"Invalid integer for {name}: {value!r}") from exc
+
+
+def parse_gpu_count(gres: str | None) -> int | None:
+    if not gres:
+        return None
+    match = re.search(r"gpu(?::[^:]+)?(?::(\d+))?", gres)
+    if not match:
+        return None
+    count = match.group(1)
+    if not count:
+        return 1
+    try:
+        value = int(count)
+    except ValueError:
+        return None
+    return value if value > 0 else None
+
+
+def normalise_module_config(module_cfg: dict) -> tuple[str, str, tuple[str, ...]]:
+    loads = module_cfg.get("load") or []
+    compiler = module_cfg.get("compiler") or module_cfg.get("compiler_module")
+    if not compiler:
+        for mod in loads:
+            mod_l = mod.lower()
+            if mod_l.startswith("gnu") or mod_l.startswith("gcc"):
+                compiler = mod
+                break
+    if not compiler:
+        compiler = "gnu12/12.3.0"
+
+    cuda = module_cfg.get("cuda") or module_cfg.get("cuda_module")
+    if not cuda:
+        for mod in loads:
+            if "cuda" in mod.lower():
+                cuda = mod
+                break
+    if not cuda:
+        cuda = "cuda/12.1.1"
+
+    extra = module_cfg.get("extra")
+    if extra is None:
+        extra_list = [mod for mod in loads if mod not in {compiler, cuda}]
+    else:
+        extra_list = list(extra)
+    return compiler, cuda, tuple(extra_list)
+
+
 # =========================
 # Throttle helpers
 # =========================
@@ -193,63 +278,84 @@ def submit_job_once(
     worker_script: Path,
     combo: Combo,
     env: dict,
-    slurm_cfg: dict,
-    log_dir: Path,
+    gpu_ctx: GpuSubmitContext,
 ) -> tuple[str | None, bool, str]:
     """
-    한 번(한 파티션) sbatch 시도.
+    gpu_submit.sh를 통해 한 번 제출 시도.
     return: (job_id or None, submit_limit_hit, failure_reason)
     """
-    export_parts = ["ALL"]
-    for key, value in env.items():
-        export_parts.append(f"{key}={value}")
-    export_arg = ",".join(export_parts)
 
-    gres = slurm_cfg.get("gres")
-    cpus = slurm_cfg.get("cpus_per_task")
-    mem = slurm_cfg.get("mem")
-    time_limit = slurm_cfg.get("time")
-    partition = (slurm_cfg.get("partitions") or [None])[0]  # submit-limit 시 불필요한 파티션 순회 방지
+    if not gpu_ctx.script.exists():
+        raise SubmissionError(f"GPU submit script not found: {gpu_ctx.script}")
 
     job_name = sanitise_job_name(env.get("JOB_LABEL", combo.label))
-    stdout_path = log_dir / f"{job_name}_%j.out"
-    stderr_path = log_dir / f"{job_name}_%j.err"
+    cmd: list[str] = [str(gpu_ctx.script), "--job-name", job_name]
 
-    cmd = ["sbatch", "--parsable"]
-    if partition:
-        cmd.append(f"--partition={partition}")
-    if gres:
-        cmd.append(f"--gres={gres}")
-    if cpus:
-        cmd.append(f"--cpus-per-task={cpus}")
-    if mem:
-        cmd.append(f"--mem={mem}")
-    if time_limit:
-        cmd.append(f"--time={time_limit}")
-    cmd.extend(
-        [
-            f"--job-name={job_name}",
-            f"--output={stdout_path}",
-            f"--error={stderr_path}",
-            f"--export={export_arg}",
-            str(worker_script),
-        ]
-    )
-    result = run_command(cmd)
-    out = (result.stdout or "").strip()
-    err = (result.stderr or "").strip()
+    if gpu_ctx.gpu_count:
+        cmd.extend(["--gpu-count", str(gpu_ctx.gpu_count)])
+    if gpu_ctx.cpus:
+        cmd.extend(["--cpus", str(gpu_ctx.cpus)])
+    if gpu_ctx.memory:
+        cmd.extend(["--mem", gpu_ctx.memory])
+    if gpu_ctx.time_limit:
+        cmd.extend(["--time", gpu_ctx.time_limit])
+    if gpu_ctx.work_dir:
+        cmd.extend(["--workdir", str(gpu_ctx.work_dir)])
+    if gpu_ctx.compiler_module:
+        cmd.extend(["--compiler-module", gpu_ctx.compiler_module])
+    if gpu_ctx.cuda_module:
+        cmd.extend(["--cuda-module", gpu_ctx.cuda_module])
+    for module_name in gpu_ctx.extra_modules:
+        if module_name:
+            cmd.extend(["--module", module_name])
+    if gpu_ctx.poll_interval is not None:
+        cmd.extend(["--poll-interval", str(gpu_ctx.poll_interval)])
+    if gpu_ctx.poll_timeout is not None:
+        cmd.extend(["--poll-timeout", str(gpu_ctx.poll_timeout)])
 
-    if result.returncode == 0 and out:
-        job_id = out.splitlines()[0]
-        print(f"Submitted {combo.label} as JobID {job_id}", flush=True)
-        return job_id, False, ""
+    cmd.extend([
+        "--assay",
+        combo.assay,
+        "--model",
+        combo.model,
+        "--mf",
+        combo.fingerprint,
+        "--label",
+        job_name,
+        "--seed",
+        "multi",
+        "--",
+    ])
+
+    env_pairs = [f"{key}={value}" for key, value in sorted((k, str(v)) for k, v in env.items())]
+    cmd.append("env")
+    cmd.extend(env_pairs)
+    cmd.append(str(worker_script))
+
+    result = subprocess.run(cmd, check=False, capture_output=True, text=True)
+    out = (result.stdout or "")
+    err = (result.stderr or "")
+
+    if out:
+        print(out, end="", flush=True)
+    if err:
+        print(err, file=sys.stderr, end="", flush=True)
+
+    if result.returncode == 0:
+        match = re.search(r"Final allocated job ID: (\S+)", out)
+        if match:
+            job_id = match.group(1)
+            print(f"Submitted {combo.label} as JobID {job_id}", flush=True)
+            return job_id, False, ""
+        failure_reason = "submit succeeded but job id missing"
+        print(f"[error] {failure_reason} for {combo.label}", file=sys.stderr, flush=True)
+        return None, False, failure_reason
 
     if is_submit_limit_error(out, err):
-        # submit-limit은 스로틀 신호로 외부에서 처리
         print(f"[throttle] submit-limit hit for {combo.label}; deferring...", file=sys.stderr, flush=True)
         return None, True, (err or out or "submit-limit")
 
-    failure_reason = err or out or "unknown error"
+    failure_reason = (err or out or "unknown error").strip()
     print(f"[error] Failed to submit {combo.label}: {failure_reason}", file=sys.stderr, flush=True)
     return None, False, failure_reason
 
@@ -357,6 +463,7 @@ def build_env(
     #conda_cfg = env_cfg.get("conda", {})
     #env["CONDA_SETUP"] = conda_cfg.get("setup", "")
     #env["CONDA_ENV"] = conda_cfg.get("env", "")
+    env["USE_GPU"] = "1" if normalise_bool(env_cfg.get("use_gpu", True), True) else "0"
     if random_state is not None:
         env["RANDOM_STATE"] = str(random_state)
     return env
@@ -433,6 +540,44 @@ def main(argv: Sequence[str] | None = None) -> int:
     slurm_log_dir.mkdir(parents=True, exist_ok=True)
 
     env_cfg = config.get("environment", {})
+    module_cfg = env_cfg.get("module", {})
+    compiler_module, cuda_module, extra_modules = normalise_module_config(module_cfg)
+
+    if args.max_queue == parser.get_default("max_queue") and slurm_cfg.get("max_jobs"):
+        args.max_queue = int(slurm_cfg["max_jobs"])
+
+    throttle_cfg = slurm_cfg.get("throttle", {})
+    if args.max_queue == parser.get_default("max_queue") and throttle_cfg.get("max_queue"):
+        args.max_queue = int(throttle_cfg["max_queue"])
+    if args.poll_interval == parser.get_default("poll_interval") and throttle_cfg.get("poll_interval_sec"):
+        args.poll_interval = int(throttle_cfg["poll_interval_sec"])
+
+    gpu_submit_cfg = slurm_cfg.get("gpu_submit", {})
+    poll_interval_raw = gpu_submit_cfg.get("poll_interval")
+    if poll_interval_raw is None:
+        poll_interval_raw = gpu_submit_cfg.get("poll_interval_sec")
+    poll_timeout_raw = gpu_submit_cfg.get("poll_timeout")
+    if poll_timeout_raw is None:
+        poll_timeout_raw = gpu_submit_cfg.get("poll_timeout_sec")
+
+    gpu_poll_interval = coerce_optional_int(poll_interval_raw, "gpu_submit.poll_interval")
+    gpu_poll_timeout = coerce_optional_int(poll_timeout_raw, "gpu_submit.poll_timeout")
+
+    gpu_submit_script = worker_script.with_name("gpu_submit.sh")
+    gpu_count = parse_gpu_count(slurm_cfg.get("gres")) or 1
+    gpu_ctx = GpuSubmitContext(
+        script=gpu_submit_script,
+        work_dir=base_dir,
+        gpu_count=gpu_count,
+        cpus=slurm_cfg.get("cpus_per_task"),
+        memory=slurm_cfg.get("mem"),
+        time_limit=slurm_cfg.get("time"),
+        compiler_module=compiler_module,
+        cuda_module=cuda_module,
+        extra_modules=extra_modules,
+        poll_interval=gpu_poll_interval,
+        poll_timeout=gpu_poll_timeout,
+    )
 
     if args.dry_run or training_cfg.get("dry_run", False):
         print("[dry-run] user-wide throttled submission")
@@ -450,7 +595,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         # 2) 제출 시도; submit-limit이면 대기 후 재시도
         while True:
             env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
-            job_id, submit_limited, reason = submit_job_once(worker_script, combo, env, slurm_cfg, slurm_log_dir)
+            job_id, submit_limited, reason = submit_job_once(worker_script, combo, env, gpu_ctx)
             if submit_limited:
                 # 사용자의 타 잡/어카운트 제한 포함. 일정 시간 대기 후 다시 squeue 기반 스로틀부터 반복.
                 time.sleep(args.poll_interval)
