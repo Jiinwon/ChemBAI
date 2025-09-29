@@ -18,7 +18,9 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from run_v3.utils import (
     METRIC_KEYS,
+    add_device_arguments,
     apply_smote,
+    configure_device,
     cross_validate_models,
     evaluate_predictions,
     find_best_model,
@@ -43,6 +45,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--assay_index", type=int, default=None)
     parser.add_argument("--model_save_path", required=True)
     parser.add_argument("--random_state", type=int, default=42)
+    add_device_arguments(parser)
     return parser.parse_args()
 
 
@@ -61,6 +64,8 @@ def build_model(params: dict, random_state: int) -> LogisticRegression:
 
 def main() -> None:
     args = parse_args()
+    device = configure_device(args.use_gpu)
+    logging.info("Selected compute device: %s", device)
     fingerprint_type = args.fingerprint_type
     assay_name = resolve_assay_name(args)
 
