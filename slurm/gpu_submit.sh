@@ -9,6 +9,7 @@ LOG_DIR="${REPO_ROOT}/logs/slurm"
 LOG_FILE="${LOG_DIR}/submitter.log"
 
 mkdir -p "${LOG_DIR}"
+touch "${LOG_FILE}"
 
 cleanup_files=()
 
@@ -209,7 +210,7 @@ prepare_job_script() {
     REPL_COMPILER_MODULE="${compiler_module}" \
     REPL_CUDA_MODULE="${cuda_module}" \
     REPL_WORK_DIR="${work_dir}" \
-    python - <<'PY'
+    python - "${output_path}" <<'PY'
 import os
 import sys
 from pathlib import Path
