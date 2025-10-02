@@ -1,0 +1,3 @@
+[2025-10-03 07:12:54] START seed_2:ATG_DR5_RAR_CIS_gbt_Pattern
+2025-10-03 07:12:58,102 - Using PyTorch device: cuda:0
+2025-10-03 07:12:58,102 - Selected compute device: cuda:0

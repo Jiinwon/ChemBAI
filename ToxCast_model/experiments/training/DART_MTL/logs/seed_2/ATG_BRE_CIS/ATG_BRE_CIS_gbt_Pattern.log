@@ -1,3 +1,9 @@
 [2025-10-03 02:28:35] START seed_2:ATG_BRE_CIS_gbt_Pattern
 2025-10-03 02:28:38,337 - Using PyTorch device: cuda:0
 2025-10-03 02:28:38,338 - Selected compute device: cuda:0
+2025-10-03 07:24:29,339 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+2025-10-03 07:24:29,339 - Validation F1 Score: 0.28005726836646766
+2025-10-03 07:24:29,339 - Validation Precision: 0.24984700231275578
+2025-10-03 07:24:29,339 - Validation Recall: 0.319706498951782
+2025-10-03 07:24:29,339 - Validation Accuracy: 0.8505452121598834
+2025-10-03 07:24:29,339 - Validation AUC: 0.7275171170049876
