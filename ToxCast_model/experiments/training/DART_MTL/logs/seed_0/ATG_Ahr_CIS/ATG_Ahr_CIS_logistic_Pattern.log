@@ -25,3 +25,4 @@
 [2025-10-02 16:56:01] START seed_0:ATG_Ahr_CIS_logistic_Pattern
 2025-10-02 16:56:05,684 - Using PyTorch device: cuda:0
 2025-10-02 16:56:05,685 - Selected compute device: cuda:0
+[2025-10-02 19:55:24] END seed_0:ATG_Ahr_CIS_logistic_Pattern status=0

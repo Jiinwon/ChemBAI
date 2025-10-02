@@ -19,3 +19,6 @@
 2025-09-30 14:01:59,343 - Test AUC: 0.5486042183622829
 2025-09-30 14:02:00,167 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_Ahr_CIS_logistic_Pattern/model.joblib
 [2025-09-30 14:02:00] END seed_1:ATG_Ahr_CIS_logistic_Pattern status=0
+[2025-10-02 19:55:24] START seed_1:ATG_Ahr_CIS_logistic_Pattern
+2025-10-02 19:55:28,362 - Using PyTorch device: cuda:0
+2025-10-02 19:55:28,363 - Selected compute device: cuda:0
