@@ -1,0 +1,63 @@
+[2025-09-30 16:11:41] START seed_0:ATG_DR5_RAR_CIS_gbt_Morgan
+2025-09-30 16:11:44,750 - Using PyTorch device: cuda:0
+2025-09-30 16:11:44,750 - Selected compute device: cuda:0
+2025-09-30 18:04:36,165 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 300}
+2025-09-30 18:04:36,165 - Validation F1 Score: 0.1663674925107027
+2025-09-30 18:04:36,165 - Validation Precision: 0.16107093061904576
+2025-09-30 18:04:36,165 - Validation Recall: 0.1745454545454545
+2025-09-30 18:04:36,165 - Validation Accuracy: 0.8697043815862452
+2025-09-30 18:04:36,165 - Validation AUC: 0.5114190470719248
+2025-09-30 18:05:09,242 - Holdout Validation F1 Score: 0.14545454545454545
+2025-09-30 18:05:09,242 - Holdout Validation Precision: 0.21052631578947367
+2025-09-30 18:05:09,242 - Holdout Validation Recall: 0.1111111111111111
+2025-09-30 18:05:09,242 - Holdout Validation Accuracy: 0.8171206225680934
+2025-09-30 18:05:09,242 - Holdout Validation AUC: 0.5755404725992961
+2025-09-30 18:05:09,266 - Test F1 Score: 0.1
+2025-09-30 18:05:09,266 - Test Precision: 0.2
+2025-09-30 18:05:09,266 - Test Recall: 0.06666666666666667
+2025-09-30 18:05:09,266 - Test Accuracy: 0.8846153846153846
+2025-09-30 18:05:09,266 - Test AUC: 0.43664302600472815
+2025-09-30 18:05:09,284 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_DR5_RAR_CIS_gbt_Morgan/model.joblib
+[2025-09-30 18:05:09] END seed_0:ATG_DR5_RAR_CIS_gbt_Morgan status=0
+[2025-09-30 18:05:09] START seed_1:ATG_DR5_RAR_CIS_gbt_Morgan
+2025-09-30 18:05:12,869 - Using PyTorch device: cuda:0
+2025-09-30 18:05:12,869 - Selected compute device: cuda:0
+2025-09-30 19:58:17,930 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+2025-09-30 19:58:17,930 - Validation F1 Score: 0.18747331886556867
+2025-09-30 19:58:17,930 - Validation Precision: 0.14491530392699178
+2025-09-30 19:58:17,930 - Validation Recall: 0.2666666666666667
+2025-09-30 19:58:17,930 - Validation Accuracy: 0.8265194422502702
+2025-09-30 19:58:17,930 - Validation AUC: 0.5397318534825415
+2025-09-30 19:58:25,963 - Holdout Validation F1 Score: 0.12307692307692308
+2025-09-30 19:58:25,963 - Holdout Validation Precision: 0.11764705882352941
+2025-09-30 19:58:25,963 - Holdout Validation Recall: 0.12903225806451613
+2025-09-30 19:58:25,963 - Holdout Validation Accuracy: 0.7824427480916031
+2025-09-30 19:58:25,963 - Holdout Validation AUC: 0.4493785784108364
+2025-09-30 19:58:25,982 - Test F1 Score: 0.208955223880597
+2025-09-30 19:58:25,982 - Test Precision: 0.20588235294117646
+2025-09-30 19:58:25,982 - Test Recall: 0.21212121212121213
+2025-09-30 19:58:25,982 - Test Accuracy: 0.8354037267080745
+2025-09-30 19:58:25,982 - Test AUC: 0.5202893991821328
+2025-09-30 19:58:25,987 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_DR5_RAR_CIS_gbt_Morgan/model.joblib
+[2025-09-30 19:58:26] END seed_1:ATG_DR5_RAR_CIS_gbt_Morgan status=0
+[2025-09-30 19:58:26] START seed_2:ATG_DR5_RAR_CIS_gbt_Morgan
+2025-09-30 19:58:29,184 - Using PyTorch device: cuda:0
+2025-09-30 19:58:29,185 - Selected compute device: cuda:0
+2025-09-30 21:50:42,946 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-09-30 21:50:42,946 - Validation F1 Score: 0.15554592818012652
+2025-09-30 21:50:42,947 - Validation Precision: 0.13159042327575707
+2025-09-30 21:50:42,947 - Validation Recall: 0.19306197964847366
+2025-09-30 21:50:42,947 - Validation Accuracy: 0.8397480743812953
+2025-09-30 21:50:42,947 - Validation AUC: 0.48755636447529155
+2025-09-30 21:50:58,543 - Holdout Validation F1 Score: 0.2
+2025-09-30 21:50:58,544 - Holdout Validation Precision: 0.19230769230769232
+2025-09-30 21:50:58,544 - Holdout Validation Recall: 0.20833333333333334
+2025-09-30 21:50:58,544 - Holdout Validation Accuracy: 0.8662207357859532
+2025-09-30 21:50:58,544 - Holdout Validation AUC: 0.4868181818181818
+2025-09-30 21:50:58,565 - Test F1 Score: 0.09836065573770492
+2025-09-30 21:50:58,565 - Test Precision: 0.10344827586206896
+2025-09-30 21:50:58,565 - Test Recall: 0.09375
+2025-09-30 21:50:58,565 - Test Accuracy: 0.8208469055374593
+2025-09-30 21:50:58,565 - Test AUC: 0.539715909090909
+2025-09-30 21:50:58,574 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/ATG_DR5_RAR_CIS_gbt_Morgan/model.joblib
+[2025-09-30 21:50:58] END seed_2:ATG_DR5_RAR_CIS_gbt_Morgan status=0

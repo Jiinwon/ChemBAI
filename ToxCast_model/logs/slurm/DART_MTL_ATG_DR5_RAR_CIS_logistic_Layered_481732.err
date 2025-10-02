@@ -1,0 +1,4 @@
+[2025-09-30 19:51:53] Job 481732 starting on n005.hpc
+[2025-09-30 19:51:53] Label: DART_MTL_ATG_DR5_RAR_CIS_logistic_Layered
+[2025-09-30 19:51:54] Job DART_MTL_ATG_DR5_RAR_CIS_logistic_Layered starting on n005.hpc
+slurmstepd-n005: error: *** JOB 481732 ON n005 CANCELLED AT 2025-10-01T03:52:06 DUE TO TIME LIMIT ***

@@ -1,0 +1,21 @@
+[2025-10-01 17:28:40] START seed_2:BSK_3C_uPAR_logistic_Layered
+2025-10-01 17:28:42,685 - Using PyTorch device: cuda:0
+2025-10-01 17:28:42,686 - Selected compute device: cuda:0
+2025-10-01 18:36:32,226 - Best Model Parameters: {'C': 0.5, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-01 18:36:32,226 - Validation F1 Score: 0.42785168944917806
+2025-10-01 18:36:32,227 - Validation Precision: 0.41208713930232915
+2025-10-01 18:36:32,227 - Validation Recall: 0.4483870967741935
+2025-10-01 18:36:32,227 - Validation Accuracy: 0.7188050314465408
+2025-10-01 18:36:32,227 - Validation AUC: 0.651262084733819
+2025-10-01 18:36:32,892 - Holdout Validation F1 Score: 0.5348837209302325
+2025-10-01 18:36:32,893 - Holdout Validation Precision: 0.6571428571428571
+2025-10-01 18:36:32,893 - Holdout Validation Recall: 0.45098039215686275
+2025-10-01 18:36:32,893 - Holdout Validation Accuracy: 0.726027397260274
+2025-10-01 18:36:32,893 - Holdout Validation AUC: 0.6724458204334366
+2025-10-01 18:36:32,916 - Test F1 Score: 0.38
+2025-10-01 18:36:32,916 - Test Precision: 0.3584905660377358
+2025-10-01 18:36:32,916 - Test Recall: 0.40425531914893614
+2025-10-01 18:36:32,916 - Test Accuracy: 0.5866666666666667
+2025-10-01 18:36:32,916 - Test AUC: 0.5621772361082421
+2025-10-01 18:36:32,918 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_3C_uPAR_logistic_Layered/model.joblib
+[2025-10-01 18:36:33] END seed_2:BSK_3C_uPAR_logistic_Layered status=0

@@ -1,0 +1,21 @@
+[2025-10-01 03:54:17] START seed_1:ATG_HIF1a_CIS_xgb_MACCS
+2025-10-01 03:54:20,958 - Using PyTorch device: cuda:0
+2025-10-01 03:54:20,958 - Selected compute device: cuda:0
+2025-10-01 03:59:50,039 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 3, 'min_child_weight': 3, 'n_estimators': 200, 'subsample': 0.8}
+2025-10-01 03:59:50,040 - Validation F1 Score: 0.21586421065182454
+2025-10-01 03:59:50,040 - Validation Precision: 0.15475033069985336
+2025-10-01 03:59:50,040 - Validation Recall: 0.35928080380750926
+2025-10-01 03:59:50,040 - Validation Accuracy: 0.7317580096693053
+2025-10-01 03:59:50,040 - Validation AUC: 0.5759953373008042
+2025-10-01 03:59:50,394 - Holdout Validation F1 Score: 0.19801980198019803
+2025-10-01 03:59:50,394 - Holdout Validation Precision: 0.11764705882352941
+2025-10-01 03:59:50,394 - Holdout Validation Recall: 0.625
+2025-10-01 03:59:50,394 - Holdout Validation Accuracy: 0.6908396946564885
+2025-10-01 03:59:50,394 - Holdout Validation AUC: 0.7196392276422765
+2025-10-01 03:59:50,466 - Test F1 Score: 0.26900584795321636
+2025-10-01 03:59:50,466 - Test Precision: 0.18253968253968253
+2025-10-01 03:59:50,466 - Test Recall: 0.5111111111111111
+2025-10-01 03:59:50,466 - Test Accuracy: 0.6118012422360248
+2025-10-01 03:59:50,466 - Test AUC: 0.593020457280385
+2025-10-01 03:59:50,469 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_HIF1a_CIS_xgb_MACCS/model.joblib
+[2025-10-01 03:59:51] END seed_1:ATG_HIF1a_CIS_xgb_MACCS status=0

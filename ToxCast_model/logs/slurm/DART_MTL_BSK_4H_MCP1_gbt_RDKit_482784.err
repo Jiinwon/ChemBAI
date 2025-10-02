@@ -1,0 +1,4 @@
+[2025-10-01 17:58:27] Job 482784 starting on n004.hpc
+[2025-10-01 17:58:27] Label: DART_MTL_BSK_4H_MCP1_gbt_RDKit
+[2025-10-01 17:58:27] Job DART_MTL_BSK_4H_MCP1_gbt_RDKit starting on n004.hpc
+slurmstepd-n004: error: *** JOB 482784 ON n004 CANCELLED AT 2025-10-02T01:58:43 DUE TO TIME LIMIT ***

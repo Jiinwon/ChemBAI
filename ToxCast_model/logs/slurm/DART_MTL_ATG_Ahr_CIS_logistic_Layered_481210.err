@@ -1,0 +1,4 @@
+[2025-09-30 08:27:28] Job 481210 starting on n011.hpc
+[2025-09-30 08:27:28] Label: DART_MTL_ATG_Ahr_CIS_logistic_Layered
+[2025-09-30 08:27:28] Job DART_MTL_ATG_Ahr_CIS_logistic_Layered starting on n011.hpc
+slurmstepd-n011: error: *** JOB 481210 ON n011 CANCELLED AT 2025-09-30T16:27:27 DUE TO TIME LIMIT ***

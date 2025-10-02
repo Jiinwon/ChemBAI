@@ -4,3 +4,57 @@
 [2025-09-29 20:52:17] START seed_0:ATG_Ahr_CIS_gbt_RDKit
 2025-09-29 20:52:21,826 - Using PyTorch device: cuda:0
 2025-09-29 20:52:21,826 - Selected compute device: cuda:0
+[2025-09-29 22:53:53] Job 481074 starting on n017.hpc
+[2025-09-29 22:53:53] Label: DART_MTL_ATG_Ahr_CIS_gbt_RDKit
+[2025-09-29 22:53:54] Job DART_MTL_ATG_Ahr_CIS_gbt_RDKit starting on n017.hpc
+[2025-09-29 22:53:54] START seed_0:ATG_Ahr_CIS_gbt_RDKit
+2025-09-29 22:54:00,243 - Using PyTorch device: cuda:0
+2025-09-29 22:54:00,245 - Selected compute device: cuda:0
+[2025-09-30 01:16:56] Job 481167 starting on n005.hpc
+[2025-09-30 01:16:56] Label: DART_MTL_ATG_Ahr_CIS_gbt_RDKit
+[2025-09-30 01:16:56] Job DART_MTL_ATG_Ahr_CIS_gbt_RDKit starting on n005.hpc
+[2025-09-30 01:16:56] START seed_0:ATG_Ahr_CIS_gbt_RDKit
+2025-09-30 01:17:00,143 - Using PyTorch device: cuda:0
+2025-09-30 01:17:00,144 - Selected compute device: cuda:0
+2025-09-30 03:57:32,701 - Best Model Parameters: {'learning_rate': 0.1, 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-09-30 03:57:32,701 - Validation F1 Score: 0.327034910113574
+2025-09-30 03:57:32,701 - Validation Precision: 0.2972937263132886
+2025-09-30 03:57:32,701 - Validation Recall: 0.3641981613891726
+2025-09-30 03:57:32,702 - Validation Accuracy: 0.7804087631724904
+2025-09-30 03:57:32,702 - Validation AUC: 0.6316616369865669
+2025-09-30 03:58:04,084 - Holdout Validation F1 Score: 0.25287356321839083
+2025-09-30 03:58:04,085 - Holdout Validation Precision: 0.3235294117647059
+2025-09-30 03:58:04,085 - Holdout Validation Recall: 0.20754716981132076
+2025-09-30 03:58:04,085 - Holdout Validation Accuracy: 0.7470817120622568
+2025-09-30 03:58:04,085 - Holdout Validation AUC: 0.5524417314095449
+2025-09-30 03:58:04,116 - Test F1 Score: 0.31932773109243695
+2025-09-30 03:58:04,116 - Test Precision: 0.31666666666666665
+2025-09-30 03:58:04,116 - Test Recall: 0.3220338983050847
+2025-09-30 03:58:04,116 - Test Accuracy: 0.7403846153846154
+2025-09-30 03:58:04,116 - Test AUC: 0.6055469953775039
+2025-09-30 03:58:04,125 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_Ahr_CIS_gbt_RDKit/model.joblib
+[2025-09-30 03:58:04] END seed_0:ATG_Ahr_CIS_gbt_RDKit status=0
+[2025-09-30 03:58:04] START seed_1:ATG_Ahr_CIS_gbt_RDKit
+2025-09-30 03:58:06,832 - Using PyTorch device: cuda:0
+2025-09-30 03:58:06,833 - Selected compute device: cuda:0
+2025-09-30 08:20:50,993 - Best Model Parameters: {'learning_rate': 0.1, 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-09-30 08:20:50,993 - Validation F1 Score: 0.327034910113574
+2025-09-30 08:20:50,994 - Validation Precision: 0.2972937263132886
+2025-09-30 08:20:50,994 - Validation Recall: 0.3641981613891726
+2025-09-30 08:20:50,994 - Validation Accuracy: 0.7804087631724904
+2025-09-30 08:20:50,994 - Validation AUC: 0.6316616369865669
+2025-09-30 08:21:22,404 - Holdout Validation F1 Score: 0.25287356321839083
+2025-09-30 08:21:22,404 - Holdout Validation Precision: 0.3235294117647059
+2025-09-30 08:21:22,404 - Holdout Validation Recall: 0.20754716981132076
+2025-09-30 08:21:22,404 - Holdout Validation Accuracy: 0.7470817120622568
+2025-09-30 08:21:22,404 - Holdout Validation AUC: 0.5524417314095449
+2025-09-30 08:21:22,436 - Test F1 Score: 0.31932773109243695
+2025-09-30 08:21:22,436 - Test Precision: 0.31666666666666665
+2025-09-30 08:21:22,436 - Test Recall: 0.3220338983050847
+2025-09-30 08:21:22,436 - Test Accuracy: 0.7403846153846154
+2025-09-30 08:21:22,436 - Test AUC: 0.6055469953775039
+2025-09-30 08:21:22,446 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_Ahr_CIS_gbt_RDKit/model.joblib
+[2025-09-30 08:21:22] END seed_0:ATG_Ahr_CIS_gbt_RDKit status=0
+[2025-09-30 08:21:23] START seed_1:ATG_Ahr_CIS_gbt_RDKit
+2025-09-30 08:21:26,058 - Using PyTorch device: cuda:0
+2025-09-30 08:21:26,059 - Selected compute device: cuda:0

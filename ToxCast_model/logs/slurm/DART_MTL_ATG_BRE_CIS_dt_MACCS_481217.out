@@ -1,0 +1,63 @@
+[2025-09-30 08:34:33] START seed_0:ATG_BRE_CIS_dt_MACCS
+2025-09-30 08:34:37,704 - Using PyTorch device: cuda:0
+2025-09-30 08:34:37,704 - Selected compute device: cuda:0
+2025-09-30 08:35:04,039 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-09-30 08:35:04,039 - Validation F1 Score: 0.1994339072815839
+2025-09-30 08:35:04,039 - Validation Precision: 0.16120881406922596
+2025-09-30 08:35:04,039 - Validation Recall: 0.2627450980392157
+2025-09-30 08:35:04,039 - Validation Accuracy: 0.8223948973932336
+2025-09-30 08:35:04,039 - Validation AUC: 0.5681223355379575
+2025-09-30 08:35:04,134 - Holdout Validation F1 Score: 0.18823529411764706
+2025-09-30 08:35:04,135 - Holdout Validation Precision: 0.16
+2025-09-30 08:35:04,135 - Holdout Validation Recall: 0.22857142857142856
+2025-09-30 08:35:04,135 - Holdout Validation Accuracy: 0.7315175097276264
+2025-09-30 08:35:04,135 - Holdout Validation AUC: 0.5285714285714286
+2025-09-30 08:35:04,144 - Test F1 Score: 0.22857142857142856
+2025-09-30 08:35:04,144 - Test Precision: 0.18181818181818182
+2025-09-30 08:35:04,144 - Test Recall: 0.3076923076923077
+2025-09-30 08:35:04,144 - Test Accuracy: 0.6538461538461539
+2025-09-30 08:35:04,144 - Test AUC: 0.511871301775148
+2025-09-30 08:35:04,146 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_BRE_CIS_dt_MACCS/model.joblib
+[2025-09-30 08:35:04] END seed_0:ATG_BRE_CIS_dt_MACCS status=0
+[2025-09-30 08:35:04] START seed_1:ATG_BRE_CIS_dt_MACCS
+2025-09-30 08:35:07,603 - Using PyTorch device: cuda:0
+2025-09-30 08:35:07,604 - Selected compute device: cuda:0
+2025-09-30 08:35:32,931 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 3}
+2025-09-30 08:35:32,931 - Validation F1 Score: 0.21942016895618927
+2025-09-30 08:35:32,931 - Validation Precision: 0.1841920006321659
+2025-09-30 08:35:32,931 - Validation Recall: 0.271948051948052
+2025-09-30 08:35:32,931 - Validation Accuracy: 0.822510546041243
+2025-09-30 08:35:32,931 - Validation AUC: 0.580217388699861
+2025-09-30 08:35:33,020 - Holdout Validation F1 Score: 0.2857142857142857
+2025-09-30 08:35:33,020 - Holdout Validation Precision: 0.19718309859154928
+2025-09-30 08:35:33,020 - Holdout Validation Recall: 0.5185185185185185
+2025-09-30 08:35:33,020 - Holdout Validation Accuracy: 0.732824427480916
+2025-09-30 08:35:33,020 - Holdout Validation AUC: 0.6315996847911742
+2025-09-30 08:35:33,031 - Test F1 Score: 0.27350427350427353
+2025-09-30 08:35:33,031 - Test Precision: 0.20512820512820512
+2025-09-30 08:35:33,031 - Test Recall: 0.41025641025641024
+2025-09-30 08:35:33,031 - Test Accuracy: 0.7360248447204969
+2025-09-30 08:35:33,031 - Test AUC: 0.6146144785720759
+2025-09-30 08:35:33,033 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_BRE_CIS_dt_MACCS/model.joblib
+[2025-09-30 08:35:33] END seed_1:ATG_BRE_CIS_dt_MACCS status=0
+[2025-09-30 08:35:33] START seed_2:ATG_BRE_CIS_dt_MACCS
+2025-09-30 08:35:35,715 - Using PyTorch device: cuda:0
+2025-09-30 08:35:35,716 - Selected compute device: cuda:0
+2025-09-30 08:36:01,216 - Best Model Parameters: {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 3, 'min_samples_split': 2}
+2025-09-30 08:36:01,216 - Validation F1 Score: 0.2253568736895605
+2025-09-30 08:36:01,216 - Validation Precision: 0.17842289839554387
+2025-09-30 08:36:01,216 - Validation Recall: 0.30908455625436754
+2025-09-30 08:36:01,216 - Validation Accuracy: 0.8070193929173695
+2025-09-30 08:36:01,216 - Validation AUC: 0.6067221437841384
+2025-09-30 08:36:01,305 - Holdout Validation F1 Score: 0.25806451612903225
+2025-09-30 08:36:01,306 - Holdout Validation Precision: 0.2
+2025-09-30 08:36:01,306 - Holdout Validation Recall: 0.36363636363636365
+2025-09-30 08:36:01,306 - Holdout Validation Accuracy: 0.7692307692307693
+2025-09-30 08:36:01,306 - Holdout Validation AUC: 0.5912508544087491
+2025-09-30 08:36:01,316 - Test F1 Score: 0.20512820512820512
+2025-09-30 08:36:01,316 - Test Precision: 0.15584415584415584
+2025-09-30 08:36:01,316 - Test Recall: 0.3
+2025-09-30 08:36:01,316 - Test Accuracy: 0.6970684039087948
+2025-09-30 08:36:01,316 - Test AUC: 0.5181647940074907
+2025-09-30 08:36:01,318 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/ATG_BRE_CIS_dt_MACCS/model.joblib
+[2025-09-30 08:36:01] END seed_2:ATG_BRE_CIS_dt_MACCS status=0

@@ -1,0 +1,21 @@
+[2025-10-02 00:44:34] START seed_2:BSK_CASM3C_uPAR_rf_RDKit
+2025-10-02 00:44:36,258 - Using PyTorch device: cuda:0
+2025-10-02 00:44:36,259 - Selected compute device: cuda:0
+2025-10-02 00:48:25,236 - Best Model Parameters: {'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-02 00:48:25,236 - Validation F1 Score: 0.2933597020043715
+2025-10-02 00:48:25,236 - Validation Precision: 0.33782342657342657
+2025-10-02 00:48:25,236 - Validation Recall: 0.26216216216216215
+2025-10-02 00:48:25,236 - Validation Accuracy: 0.8261606632361349
+2025-10-02 00:48:25,236 - Validation AUC: 0.716252665835323
+2025-10-02 00:48:26,034 - Holdout Validation F1 Score: 0.0
+2025-10-02 00:48:26,034 - Holdout Validation Precision: 0.0
+2025-10-02 00:48:26,035 - Holdout Validation Recall: 0.0
+2025-10-02 00:48:26,035 - Holdout Validation Accuracy: 0.8082191780821918
+2025-10-02 00:48:26,035 - Holdout Validation AUC: 0.5913750441852245
+2025-10-02 00:48:26,104 - Test F1 Score: 0.05714285714285714
+2025-10-02 00:48:26,104 - Test Precision: 0.16666666666666666
+2025-10-02 00:48:26,104 - Test Recall: 0.034482758620689655
+2025-10-02 00:48:26,104 - Test Accuracy: 0.78
+2025-10-02 00:48:26,104 - Test AUC: 0.5463094898831576
+2025-10-02 00:48:26,155 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_CASM3C_uPAR_rf_RDKit/model.joblib
+[2025-10-02 00:48:26] END seed_2:BSK_CASM3C_uPAR_rf_RDKit status=0

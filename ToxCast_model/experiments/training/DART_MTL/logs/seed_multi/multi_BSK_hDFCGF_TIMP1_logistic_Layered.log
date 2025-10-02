@@ -1,0 +1,6 @@
+[2025-10-02 12:58:00] Job 483905 starting on n004.hpc
+[2025-10-02 12:58:00] Label: DART_MTL_BSK_hDFCGF_TIMP1_logistic_Layered
+[2025-10-02 12:58:00] Job DART_MTL_BSK_hDFCGF_TIMP1_logistic_Layered starting on n004.hpc
+[2025-10-02 12:58:00] START seed_0:BSK_hDFCGF_TIMP1_logistic_Layered
+2025-10-02 12:58:04,508 - Using PyTorch device: cuda:0
+2025-10-02 12:58:04,509 - Selected compute device: cuda:0

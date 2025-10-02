@@ -1,0 +1,4 @@
+[2025-09-30 11:51:24] Job 481380 starting on n005.hpc
+[2025-09-30 11:51:24] Label: DART_MTL_ATG_BRE_CIS_logistic_RDKit
+[2025-09-30 11:51:25] Job DART_MTL_ATG_BRE_CIS_logistic_RDKit starting on n005.hpc
+slurmstepd-n005: error: *** JOB 481380 ON n005 CANCELLED AT 2025-09-30T19:51:30 DUE TO TIME LIMIT ***

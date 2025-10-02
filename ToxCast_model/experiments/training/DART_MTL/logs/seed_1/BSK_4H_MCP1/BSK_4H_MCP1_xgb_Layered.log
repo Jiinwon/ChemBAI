@@ -1,0 +1,21 @@
+[2025-10-01 17:49:37] START seed_1:BSK_4H_MCP1_xgb_Layered
+2025-10-01 17:49:39,690 - Using PyTorch device: cuda:0
+2025-10-01 17:49:39,690 - Selected compute device: cuda:0
+2025-10-01 18:25:18,951 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 3, 'min_child_weight': 5, 'n_estimators': 400, 'subsample': 1.0}
+2025-10-01 18:25:18,951 - Validation F1 Score: 0.4710706613987604
+2025-10-01 18:25:18,951 - Validation Precision: 0.4558347791101978
+2025-10-01 18:25:18,951 - Validation Recall: 0.490625
+2025-10-01 18:25:18,951 - Validation Accuracy: 0.7398578250488388
+2025-10-01 18:25:18,951 - Validation AUC: 0.7103130225752509
+2025-10-01 18:25:22,220 - Holdout Validation F1 Score: 0.4166666666666667
+2025-10-01 18:25:22,221 - Holdout Validation Precision: 0.5
+2025-10-01 18:25:22,221 - Holdout Validation Recall: 0.35714285714285715
+2025-10-01 18:25:22,221 - Holdout Validation Accuracy: 0.7383177570093458
+2025-10-01 18:25:22,221 - Holdout Validation AUC: 0.666365280289331
+2025-10-01 18:25:22,962 - Test F1 Score: 0.3835616438356164
+2025-10-01 18:25:22,962 - Test Precision: 0.3684210526315789
+2025-10-01 18:25:22,962 - Test Recall: 0.4
+2025-10-01 18:25:22,962 - Test Accuracy: 0.7096774193548387
+2025-10-01 18:25:22,963 - Test AUC: 0.7109523809523809
+2025-10-01 18:25:22,967 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_4H_MCP1_xgb_Layered/model.joblib
+[2025-10-01 18:25:23] END seed_1:BSK_4H_MCP1_xgb_Layered status=0

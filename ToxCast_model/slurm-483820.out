@@ -1,0 +1,6 @@
+base_model_dir: /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model
+Using project directory from config: /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL
+sbatch: error: Unable to open file /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/run_training.sh
+[ERR] line:354 cmd:JOBID=$(sbatch --parsable --partition="$p" --gres="$GRES"             --cpus-per-task="$CPUS_PER_TASK" --mem="$MEM_PER_TASK"             --job-name="${project_name}_training"            --output="$output_pattern" --error="$error_pattern"             --export="$export_args" "$script_dir/run_training.sh" "$project_dir")
+Training exited with status 1
+GPU utilisation samples saved to /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/logs/gpu_utilization_20251002_115957.csv

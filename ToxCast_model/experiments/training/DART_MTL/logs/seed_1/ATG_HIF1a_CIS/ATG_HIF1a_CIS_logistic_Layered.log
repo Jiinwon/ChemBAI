@@ -1,0 +1,21 @@
+[2025-10-01 12:54:02] START seed_1:ATG_HIF1a_CIS_logistic_Layered
+2025-10-01 12:54:05,970 - Using PyTorch device: cuda:0
+2025-10-01 12:54:05,970 - Selected compute device: cuda:0
+2025-10-01 15:58:45,707 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-01 15:58:45,707 - Validation F1 Score: 0.19626160194997772
+2025-10-01 15:58:45,707 - Validation Precision: 0.14431438306870278
+2025-10-01 15:58:45,707 - Validation Recall: 0.3107350608143839
+2025-10-01 15:58:45,707 - Validation Accuracy: 0.7431326084155448
+2025-10-01 15:58:45,707 - Validation AUC: 0.5614990883762047
+2025-10-01 15:58:46,766 - Holdout Validation F1 Score: 0.1839080459770115
+2025-10-01 15:58:46,767 - Holdout Validation Precision: 0.11267605633802817
+2025-10-01 15:58:46,767 - Holdout Validation Recall: 0.5
+2025-10-01 15:58:46,767 - Holdout Validation Accuracy: 0.7290076335877863
+2025-10-01 15:58:46,767 - Holdout Validation AUC: 0.6297002032520325
+2025-10-01 15:58:46,793 - Test F1 Score: 0.22764227642276422
+2025-10-01 15:58:46,793 - Test Precision: 0.1794871794871795
+2025-10-01 15:58:46,793 - Test Recall: 0.3111111111111111
+2025-10-01 15:58:46,793 - Test Accuracy: 0.7049689440993789
+2025-10-01 15:58:46,793 - Test AUC: 0.5695948656237464
+2025-10-01 15:58:46,795 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_HIF1a_CIS_logistic_Layered/model.joblib
+[2025-10-01 15:58:47] END seed_1:ATG_HIF1a_CIS_logistic_Layered status=0

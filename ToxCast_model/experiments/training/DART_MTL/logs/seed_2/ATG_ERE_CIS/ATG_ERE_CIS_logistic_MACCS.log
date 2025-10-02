@@ -1,0 +1,21 @@
+[2025-10-01 00:43:22] START seed_2:ATG_ERE_CIS_logistic_MACCS
+2025-10-01 00:43:24,338 - Using PyTorch device: cuda:0
+2025-10-01 00:43:24,339 - Selected compute device: cuda:0
+2025-10-01 00:51:16,622 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'saga'}
+2025-10-01 00:51:16,623 - Validation F1 Score: 0.4027926764409826
+2025-10-01 00:51:16,623 - Validation Precision: 0.3279428339966891
+2025-10-01 00:51:16,623 - Validation Recall: 0.5222187104930468
+2025-10-01 00:51:16,623 - Validation Accuracy: 0.7071544141105692
+2025-10-01 00:51:16,623 - Validation AUC: 0.6886702488289187
+2025-10-01 00:51:16,972 - Holdout Validation F1 Score: 0.4918032786885246
+2025-10-01 00:51:16,972 - Holdout Validation Precision: 0.40268456375838924
+2025-10-01 00:51:16,972 - Holdout Validation Recall: 0.631578947368421
+2025-10-01 00:51:16,972 - Holdout Validation Accuracy: 0.5852842809364549
+2025-10-01 00:51:16,972 - Holdout Validation AUC: 0.6650928792569659
+2025-10-01 00:51:16,983 - Test F1 Score: 0.42790697674418604
+2025-10-01 00:51:16,983 - Test Precision: 0.3129251700680272
+2025-10-01 00:51:16,983 - Test Recall: 0.6764705882352942
+2025-10-01 00:51:16,983 - Test Accuracy: 0.5993485342019544
+2025-10-01 00:51:16,983 - Test AUC: 0.6135244892936254
+2025-10-01 00:51:16,984 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/ATG_ERE_CIS_logistic_MACCS/model.joblib
+[2025-10-01 00:51:17] END seed_2:ATG_ERE_CIS_logistic_MACCS status=0

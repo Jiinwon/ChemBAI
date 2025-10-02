@@ -1,0 +1,4 @@
+[2025-09-30 17:43:53] Job 481672 starting on n011.hpc
+[2025-09-30 17:43:53] Label: DART_MTL_ATG_DR5_RAR_CIS_gbt_Layered
+[2025-09-30 17:43:53] Job DART_MTL_ATG_DR5_RAR_CIS_gbt_Layered starting on n011.hpc
+slurmstepd-n011: error: *** JOB 481672 ON n011 CANCELLED AT 2025-10-01T01:44:05 DUE TO TIME LIMIT ***

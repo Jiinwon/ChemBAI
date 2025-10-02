@@ -1,3 +1,4 @@
 [2025-09-29 21:08:08] Job 480991 starting on n014.hpc
 [2025-09-29 21:08:08] Label: DART_MTL_ATG_Ahr_CIS_gbt_Layered
 [2025-09-29 21:08:09] Job DART_MTL_ATG_Ahr_CIS_gbt_Layered starting on n014.hpc
+slurmstepd-n014: error: *** JOB 480991 ON n014 CANCELLED AT 2025-09-30T05:08:22 DUE TO TIME LIMIT ***

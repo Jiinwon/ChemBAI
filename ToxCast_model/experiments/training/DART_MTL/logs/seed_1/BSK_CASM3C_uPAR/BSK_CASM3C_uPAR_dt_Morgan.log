@@ -1,0 +1,21 @@
+[2025-10-02 00:00:31] START seed_1:BSK_CASM3C_uPAR_dt_Morgan
+2025-10-02 00:00:34,675 - Using PyTorch device: cuda:0
+2025-10-02 00:00:34,676 - Selected compute device: cuda:0
+2025-10-02 00:02:05,994 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-10-02 00:02:05,994 - Validation F1 Score: 0.30002689863378795
+2025-10-02 00:02:05,994 - Validation Precision: 0.2049683659323041
+2025-10-02 00:02:05,994 - Validation Recall: 0.5650472334682861
+2025-10-02 00:02:05,994 - Validation Accuracy: 0.6263484914260907
+2025-10-02 00:02:05,994 - Validation AUC: 0.6088242072947991
+2025-10-02 00:02:06,262 - Holdout Validation F1 Score: 0.15384615384615385
+2025-10-02 00:02:06,262 - Holdout Validation Precision: 0.11428571428571428
+2025-10-02 00:02:06,262 - Holdout Validation Recall: 0.23529411764705882
+2025-10-02 00:02:06,262 - Holdout Validation Accuracy: 0.5887850467289719
+2025-10-02 00:02:06,262 - Holdout Validation AUC: 0.5098039215686274
+2025-10-02 00:02:06,278 - Test F1 Score: 0.3013698630136986
+2025-10-02 00:02:06,279 - Test Precision: 0.25
+2025-10-02 00:02:06,279 - Test Recall: 0.3793103448275862
+2025-10-02 00:02:06,279 - Test Accuracy: 0.6709677419354839
+2025-10-02 00:02:06,279 - Test AUC: 0.5626710454296662
+2025-10-02 00:02:06,280 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_CASM3C_uPAR_dt_Morgan/model.joblib
+[2025-10-02 00:02:06] END seed_1:BSK_CASM3C_uPAR_dt_Morgan status=0

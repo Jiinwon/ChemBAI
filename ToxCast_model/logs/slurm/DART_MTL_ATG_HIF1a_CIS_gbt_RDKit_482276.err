@@ -1,0 +1,4 @@
+[2025-10-01 06:19:53] Job 482276 starting on n004.hpc
+[2025-10-01 06:19:53] Label: DART_MTL_ATG_HIF1a_CIS_gbt_RDKit
+[2025-10-01 06:19:53] Job DART_MTL_ATG_HIF1a_CIS_gbt_RDKit starting on n004.hpc
+slurmstepd-n004: error: *** JOB 482276 ON n004 CANCELLED AT 2025-10-01T14:20:10 DUE TO TIME LIMIT ***

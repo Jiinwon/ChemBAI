@@ -1,0 +1,3 @@
+[2025-10-01 07:24:09] START seed_2:ATG_ERE_CIS_logistic_Layered
+2025-10-01 07:24:12,282 - Using PyTorch device: cuda:0
+2025-10-01 07:24:12,283 - Selected compute device: cuda:0

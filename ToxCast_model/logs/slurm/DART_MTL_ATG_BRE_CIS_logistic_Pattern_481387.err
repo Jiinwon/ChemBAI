@@ -1,0 +1,4 @@
+[2025-09-30 12:43:28] Job 481387 starting on n014.hpc
+[2025-09-30 12:43:28] Label: DART_MTL_ATG_BRE_CIS_logistic_Pattern
+[2025-09-30 12:43:28] Job DART_MTL_ATG_BRE_CIS_logistic_Pattern starting on n014.hpc
+slurmstepd-n014: error: *** JOB 481387 ON n014 CANCELLED AT 2025-09-30T20:43:30 DUE TO TIME LIMIT ***

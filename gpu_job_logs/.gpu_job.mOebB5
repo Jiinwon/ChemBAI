@@ -1,0 +1,101 @@
+#!/usr/bin/env bash
+#SBATCH --job-name=DART_MTL_ATG_DR5_RAR_CIS_logistic_Morgan
+#SBATCH --partition=gpu4
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=16G
+#SBATCH --time=08:00:00
+#SBATCH -e logs/slurm/%x_%j.err
+#SBATCH -o logs/slurm/%x_%j.out
+
+set -euo pipefail
+set -o pipefail
+
+trap 'echo "[ERROR] line:${LINENO} cmd:${BASH_COMMAND}" >&2' ERR
+
+cleanup() {
+    if [[ -n "${__JOB_TMP_SCRIPT:-}" && -f "${__JOB_TMP_SCRIPT}" ]]; then
+        rm -f "${__JOB_TMP_SCRIPT}"
+    fi
+}
+trap cleanup EXIT
+
+if [[ -n "${WORK_DIR:-}" ]]; then
+    if [[ ! -d "${WORK_DIR}" ]]; then
+        echo "Work directory not found: ${WORK_DIR}" >&2
+        exit 1
+    fi
+    cd "${WORK_DIR}"
+fi
+
+mkdir -p logs/slurm
+
+if command -v module >/dev/null 2>&1; then
+    module purge || true
+    module load gnu12/12.3.0
+    module load cuda/12.1
+    if [[ -n "${EXTRA_MODULES:-}" ]]; then
+        IFS=',' read -r -a __extra_mods <<< "${EXTRA_MODULES}"
+        for __mod in "${__extra_mods[@]}"; do
+            if [[ -n "${__mod}" ]]; then
+                module load "${__mod}"
+            fi
+        done
+    fi
+fi
+
+if [[ -z "${COMMAND_FILE:-}" ]]; then
+    echo "COMMAND_FILE is empty; aborting." >&2
+    exit 1
+fi
+
+if [[ ! -f "${COMMAND_FILE}" ]]; then
+    echo "Command file not found: ${COMMAND_FILE}" >&2
+    exit 1
+fi
+
+if [[ ! -x "${COMMAND_FILE}" ]]; then
+    chmod +x "${COMMAND_FILE}" 2>/dev/null || true
+fi
+
+__JOB_TMP_SCRIPT="${COMMAND_FILE}"
+
+sanitise_component() {
+    local value="$1"
+    value=${value//[^A-Za-z0-9_.-]/_}
+    printf '%s' "${value}"
+}
+
+if [[ -n "${SEED_ID:-}" && -n "${ASSAY_NAME:-}" && -n "${MODEL_NAME:-}" && -n "${MF_NAME:-}" ]]; then
+    seed_component=$(sanitise_component "${SEED_ID}")
+    assay_component=$(sanitise_component "${ASSAY_NAME}")
+    model_component=$(sanitise_component "${MODEL_NAME}")
+    mf_component=$(sanitise_component "${MF_NAME}")
+    perf_dir="logs/seed_${seed_component}"
+    perf_log="${perf_dir}/${seed_component}_${assay_component}_${model_component}_${mf_component}.log"
+else
+    perf_dir="logs/perf"
+    mkdir -p "${perf_dir}"
+    perf_log="${perf_dir}/${SLURM_JOB_ID}.log"
+fi
+mkdir -p "$(dirname "${perf_log}")"
+
+echo "[$(date '+%F %T')] Job ${SLURM_JOB_ID} starting on $(hostname)" | tee -a "${perf_log}" >&2
+if [[ -n "${PERF_LOG_LABEL:-}" ]]; then
+    echo "[$(date '+%F %T')] Label: ${PERF_LOG_LABEL}" | tee -a "${perf_log}" >&2
+fi
+
+if [[ -n "${perf_log}" ]]; then
+    {
+        "${COMMAND_FILE}"
+    } 2> >(tee -a "${perf_log}" >&2) | tee -a "${perf_log}"
+    command_status=${PIPESTATUS[0]}
+else
+    "${COMMAND_FILE}"
+    command_status=$?
+fi
+
+end_ts="$(date '+%F %T')"
+echo "[${end_ts}] Command finished with status ${command_status}" | tee -a "${perf_log}" >&2
+
+exit ${command_status}

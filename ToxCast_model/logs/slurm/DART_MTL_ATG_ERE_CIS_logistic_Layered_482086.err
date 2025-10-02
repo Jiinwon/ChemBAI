@@ -1,0 +1,4 @@
+[2025-10-01 01:46:38] Job 482086 starting on n005.hpc
+[2025-10-01 01:46:38] Label: DART_MTL_ATG_ERE_CIS_logistic_Layered
+[2025-10-01 01:46:38] Job DART_MTL_ATG_ERE_CIS_logistic_Layered starting on n005.hpc
+slurmstepd-n005: error: *** JOB 482086 ON n005 CANCELLED AT 2025-10-01T09:46:36 DUE TO TIME LIMIT ***

@@ -1,0 +1,9 @@
+[2025-09-30 01:49:01] START seed_1:ATG_Ahr_CIS_gbt_Pattern
+2025-09-30 01:49:04,298 - Using PyTorch device: cuda:0
+2025-09-30 01:49:04,299 - Selected compute device: cuda:0
+[2025-09-30 03:47:38] START seed_1:ATG_Ahr_CIS_gbt_Pattern
+2025-09-30 03:47:42,066 - Using PyTorch device: cuda:0
+2025-09-30 03:47:42,067 - Selected compute device: cuda:0
+[2025-09-30 07:22:43] START seed_1:ATG_Ahr_CIS_gbt_Pattern
+2025-09-30 07:22:47,262 - Using PyTorch device: cuda:0
+2025-09-30 07:22:47,262 - Selected compute device: cuda:0

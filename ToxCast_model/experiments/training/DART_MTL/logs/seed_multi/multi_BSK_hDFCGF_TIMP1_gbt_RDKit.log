@@ -1,0 +1,6 @@
+[2025-10-02 11:30:08] Job 483812 starting on n004.hpc
+[2025-10-02 11:30:08] Label: DART_MTL_BSK_hDFCGF_TIMP1_gbt_RDKit
+[2025-10-02 11:30:08] Job DART_MTL_BSK_hDFCGF_TIMP1_gbt_RDKit starting on n004.hpc
+[2025-10-02 11:30:08] START seed_0:BSK_hDFCGF_TIMP1_gbt_RDKit
+2025-10-02 11:30:11,779 - Using PyTorch device: cuda:0
+2025-10-02 11:30:11,780 - Selected compute device: cuda:0

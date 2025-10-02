@@ -1,3 +1,42 @@
 [2025-09-29 22:25:56] START seed_0:ATG_ERE_CIS_xgb_RDKit
 2025-09-29 22:25:59,827 - Using PyTorch device: cuda:0
 2025-09-29 22:25:59,827 - Selected compute device: cuda:0
+2025-09-29 23:09:47,274 - Best Model Parameters: {'colsample_bytree': 1.0, 'learning_rate': 0.05, 'max_depth': 6, 'min_child_weight': 5, 'n_estimators': 400, 'subsample': 0.8}
+2025-09-29 23:09:47,274 - Validation F1 Score: 0.4501191109727952
+2025-09-29 23:09:47,275 - Validation Precision: 0.4344711467305878
+2025-09-29 23:09:47,275 - Validation Recall: 0.4683046683046683
+2025-09-29 23:09:47,275 - Validation Accuracy: 0.7897365501941209
+2025-09-29 23:09:47,275 - Validation AUC: 0.6956015644587075
+2025-09-29 23:09:51,767 - Holdout Validation F1 Score: 0.38461538461538464
+2025-09-29 23:09:51,767 - Holdout Validation Precision: 0.5952380952380952
+2025-09-29 23:09:51,767 - Holdout Validation Recall: 0.2840909090909091
+2025-09-29 23:09:51,767 - Holdout Validation Accuracy: 0.688715953307393
+2025-09-29 23:09:51,767 - Holdout Validation AUC: 0.6250000000000001
+2025-09-29 23:09:52,519 - Test F1 Score: 0.5151515151515151
+2025-09-29 23:09:52,520 - Test Precision: 0.723404255319149
+2025-09-29 23:09:52,520 - Test Recall: 0.4
+2025-09-29 23:09:52,520 - Test Accuracy: 0.7948717948717948
+2025-09-29 23:09:52,520 - Test AUC: 0.7360196942213008
+2025-09-29 23:09:52,525 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_ERE_CIS_xgb_RDKit/model.joblib
+[2025-09-29 23:09:53] END seed_0:ATG_ERE_CIS_xgb_RDKit status=0
+[2025-09-30 21:33:24] START seed_0:ATG_ERE_CIS_xgb_RDKit
+2025-09-30 21:33:28,425 - Using PyTorch device: cuda:0
+2025-09-30 21:33:28,425 - Selected compute device: cuda:0
+2025-09-30 22:16:22,450 - Best Model Parameters: {'colsample_bytree': 1.0, 'learning_rate': 0.05, 'max_depth': 6, 'min_child_weight': 5, 'n_estimators': 400, 'subsample': 0.8}
+2025-09-30 22:16:22,450 - Validation F1 Score: 0.4501191109727952
+2025-09-30 22:16:22,450 - Validation Precision: 0.4344711467305878
+2025-09-30 22:16:22,450 - Validation Recall: 0.4683046683046683
+2025-09-30 22:16:22,450 - Validation Accuracy: 0.7897365501941209
+2025-09-30 22:16:22,450 - Validation AUC: 0.6956015644587075
+2025-09-30 22:16:26,968 - Holdout Validation F1 Score: 0.38461538461538464
+2025-09-30 22:16:26,968 - Holdout Validation Precision: 0.5952380952380952
+2025-09-30 22:16:26,968 - Holdout Validation Recall: 0.2840909090909091
+2025-09-30 22:16:26,968 - Holdout Validation Accuracy: 0.688715953307393
+2025-09-30 22:16:26,968 - Holdout Validation AUC: 0.6250000000000001
+2025-09-30 22:16:27,718 - Test F1 Score: 0.5151515151515151
+2025-09-30 22:16:27,718 - Test Precision: 0.723404255319149
+2025-09-30 22:16:27,718 - Test Recall: 0.4
+2025-09-30 22:16:27,718 - Test Accuracy: 0.7948717948717948
+2025-09-30 22:16:27,718 - Test AUC: 0.7360196942213008
+2025-09-30 22:16:27,724 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_ERE_CIS_xgb_RDKit/model.joblib
+[2025-09-30 22:16:28] END seed_0:ATG_ERE_CIS_xgb_RDKit status=0

@@ -1,0 +1,4 @@
+[2025-09-30 23:45:01] Job 481986 starting on n004.hpc
+[2025-09-30 23:45:01] Label: DART_MTL_ATG_ERE_CIS_gbt_RDKit
+[2025-09-30 23:45:01] Job DART_MTL_ATG_ERE_CIS_gbt_RDKit starting on n004.hpc
+slurmstepd-n004: error: *** JOB 481986 ON n004 CANCELLED AT 2025-10-01T07:45:07 DUE TO TIME LIMIT ***

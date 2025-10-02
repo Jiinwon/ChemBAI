@@ -1,0 +1,21 @@
+[2025-10-01 20:32:05] START seed_2:BSK_BE3C_PAI1_xgb_MACCS
+2025-10-01 20:32:08,339 - Using PyTorch device: cuda:0
+2025-10-01 20:32:08,339 - Selected compute device: cuda:0
+2025-10-01 20:36:48,181 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 6, 'min_child_weight': 5, 'n_estimators': 200, 'subsample': 0.8}
+2025-10-01 20:36:48,182 - Validation F1 Score: 0.38872777866738256
+2025-10-01 20:36:48,182 - Validation Precision: 0.3650165255662229
+2025-10-01 20:36:48,182 - Validation Recall: 0.4183507549361208
+2025-10-01 20:36:48,182 - Validation Accuracy: 0.7936335048599199
+2025-10-01 20:36:48,182 - Validation AUC: 0.7044942006114487
+2025-10-01 20:36:48,541 - Holdout Validation F1 Score: 0.3283582089552239
+2025-10-01 20:36:48,541 - Holdout Validation Precision: 0.34375
+2025-10-01 20:36:48,541 - Holdout Validation Recall: 0.3142857142857143
+2025-10-01 20:36:48,541 - Holdout Validation Accuracy: 0.6917808219178082
+2025-10-01 20:36:48,541 - Holdout Validation AUC: 0.576962676962677
+2025-10-01 20:36:48,613 - Test F1 Score: 0.2777777777777778
+2025-10-01 20:36:48,613 - Test Precision: 0.23809523809523808
+2025-10-01 20:36:48,613 - Test Recall: 0.3333333333333333
+2025-10-01 20:36:48,613 - Test Accuracy: 0.6533333333333333
+2025-10-01 20:36:48,613 - Test AUC: 0.5822222222222222
+2025-10-01 20:36:48,616 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_BE3C_PAI1_xgb_MACCS/model.joblib
+[2025-10-01 20:36:49] END seed_2:BSK_BE3C_PAI1_xgb_MACCS status=0

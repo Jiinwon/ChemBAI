@@ -1,0 +1,63 @@
+[2025-10-01 18:36:56] START seed_0:BSK_4H_MCP1_logistic_Pattern
+2025-10-01 18:37:00,370 - Using PyTorch device: cuda:0
+2025-10-01 18:37:00,371 - Selected compute device: cuda:0
+2025-10-01 19:44:39,442 - Best Model Parameters: {'C': 0.5, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-01 19:44:39,442 - Validation F1 Score: 0.49335532976410745
+2025-10-01 19:44:39,442 - Validation Precision: 0.4555153343388637
+2025-10-01 19:44:39,442 - Validation Recall: 0.5386591478696742
+2025-10-01 19:44:39,442 - Validation Accuracy: 0.757897237897238
+2025-10-01 19:44:39,442 - Validation AUC: 0.7424571219298306
+2025-10-01 19:45:39,024 - Holdout Validation F1 Score: 0.6306306306306306
+2025-10-01 19:45:39,024 - Holdout Validation Precision: 0.5555555555555556
+2025-10-01 19:45:39,024 - Holdout Validation Recall: 0.7291666666666666
+2025-10-01 19:45:39,024 - Holdout Validation Accuracy: 0.7284768211920529
+2025-10-01 19:45:39,024 - Holdout Validation AUC: 0.7748786407766991
+2025-10-01 19:45:39,049 - Test F1 Score: 0.3956043956043956
+2025-10-01 19:45:39,050 - Test Precision: 0.45
+2025-10-01 19:45:39,050 - Test Recall: 0.35294117647058826
+2025-10-01 19:45:39,050 - Test Accuracy: 0.6783625730994152
+2025-10-01 19:45:39,050 - Test AUC: 0.6467320261437909
+2025-10-01 19:45:39,051 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_4H_MCP1_logistic_Pattern/model.joblib
+[2025-10-01 19:45:39] END seed_0:BSK_4H_MCP1_logistic_Pattern status=0
+[2025-10-01 19:45:39] START seed_1:BSK_4H_MCP1_logistic_Pattern
+2025-10-01 19:45:41,665 - Using PyTorch device: cuda:0
+2025-10-01 19:45:41,666 - Selected compute device: cuda:0
+2025-10-01 20:55:08,383 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-01 20:55:08,383 - Validation F1 Score: 0.515747649461229
+2025-10-01 20:55:08,384 - Validation Precision: 0.4527402728257073
+2025-10-01 20:55:08,384 - Validation Recall: 0.6
+2025-10-01 20:55:08,384 - Validation Accuracy: 0.7339591925331017
+2025-10-01 20:55:08,384 - Validation AUC: 0.7639122596153844
+2025-10-01 20:55:51,177 - Holdout Validation F1 Score: 0.42857142857142855
+2025-10-01 20:55:51,177 - Holdout Validation Precision: 0.35714285714285715
+2025-10-01 20:55:51,177 - Holdout Validation Recall: 0.5357142857142857
+2025-10-01 20:55:51,177 - Holdout Validation Accuracy: 0.6261682242990654
+2025-10-01 20:55:51,177 - Holdout Validation AUC: 0.6598101265822786
+2025-10-01 20:55:51,202 - Test F1 Score: 0.4222222222222222
+2025-10-01 20:55:51,202 - Test Precision: 0.34545454545454546
+2025-10-01 20:55:51,202 - Test Recall: 0.5428571428571428
+2025-10-01 20:55:51,202 - Test Accuracy: 0.6645161290322581
+2025-10-01 20:55:51,202 - Test AUC: 0.7044047619047619
+2025-10-01 20:55:51,204 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_4H_MCP1_logistic_Pattern/model.joblib
+[2025-10-01 20:55:51] END seed_1:BSK_4H_MCP1_logistic_Pattern status=0
+[2025-10-01 20:55:51] START seed_2:BSK_4H_MCP1_logistic_Pattern
+2025-10-01 20:55:54,609 - Using PyTorch device: cuda:0
+2025-10-01 20:55:54,610 - Selected compute device: cuda:0
+2025-10-01 22:05:10,245 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-01 22:05:10,245 - Validation F1 Score: 0.5167242832852861
+2025-10-01 22:05:10,246 - Validation Precision: 0.45279732079873825
+2025-10-01 22:05:10,246 - Validation Recall: 0.603050847457627
+2025-10-01 22:05:10,246 - Validation Accuracy: 0.7475700400228702
+2025-10-01 22:05:10,246 - Validation AUC: 0.7683686015912323
+2025-10-01 22:06:05,413 - Holdout Validation F1 Score: 0.3917525773195876
+2025-10-01 22:06:05,414 - Holdout Validation Precision: 0.36538461538461536
+2025-10-01 22:06:05,414 - Holdout Validation Recall: 0.4222222222222222
+2025-10-01 22:06:05,414 - Holdout Validation Accuracy: 0.5958904109589042
+2025-10-01 22:06:05,414 - Holdout Validation AUC: 0.6327832783278328
+2025-10-01 22:06:05,438 - Test F1 Score: 0.4
+2025-10-01 22:06:05,438 - Test Precision: 0.3673469387755102
+2025-10-01 22:06:05,438 - Test Recall: 0.43902439024390244
+2025-10-01 22:06:05,438 - Test Accuracy: 0.64
+2025-10-01 22:06:05,438 - Test AUC: 0.643768180801074
+2025-10-01 22:06:05,440 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_4H_MCP1_logistic_Pattern/model.joblib
+[2025-10-01 22:06:05] END seed_2:BSK_4H_MCP1_logistic_Pattern status=0

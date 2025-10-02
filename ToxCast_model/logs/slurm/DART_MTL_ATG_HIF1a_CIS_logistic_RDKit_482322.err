@@ -1,0 +1,4 @@
+[2025-10-01 07:59:40] Job 482322 starting on n011.hpc
+[2025-10-01 07:59:40] Label: DART_MTL_ATG_HIF1a_CIS_logistic_RDKit
+[2025-10-01 07:59:40] Job DART_MTL_ATG_HIF1a_CIS_logistic_RDKit starting on n011.hpc
+slurmstepd-n011: error: *** JOB 482322 ON n011 CANCELLED AT 2025-10-01T15:59:40 DUE TO TIME LIMIT ***

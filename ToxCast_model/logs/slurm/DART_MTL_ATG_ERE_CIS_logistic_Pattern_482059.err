@@ -1,0 +1,4 @@
+[2025-10-01 01:44:09] Job 482059 starting on n011.hpc
+[2025-10-01 01:44:09] Label: DART_MTL_ATG_ERE_CIS_logistic_Pattern
+[2025-10-01 01:44:09] Job DART_MTL_ATG_ERE_CIS_logistic_Pattern starting on n011.hpc
+slurmstepd-n011: error: *** JOB 482059 ON n011 CANCELLED AT 2025-10-01T09:44:36 DUE TO TIME LIMIT ***

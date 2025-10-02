@@ -1,0 +1,4 @@
+[2025-09-30 08:04:06] Job 481203 starting on n014.hpc
+[2025-09-30 08:04:06] Label: DART_MTL_ATG_Ahr_CIS_logistic_Pattern
+[2025-09-30 08:04:07] Job DART_MTL_ATG_Ahr_CIS_logistic_Pattern starting on n014.hpc
+slurmstepd-n014: error: *** JOB 481203 ON n014 CANCELLED AT 2025-09-30T16:04:25 DUE TO TIME LIMIT ***

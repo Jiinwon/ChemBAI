@@ -1,0 +1,4 @@
+[2025-09-30 07:29:16] Job 481352 starting on n027.hpc
+[2025-09-30 07:29:16] Label: DART_MTL_ATG_BRE_CIS_gbt_Pattern
+[2025-09-30 07:29:16] Job DART_MTL_ATG_BRE_CIS_gbt_Pattern starting on n027.hpc
+slurmstepd-n027: error: *** JOB 481352 ON n027 CANCELLED AT 2025-09-30T15:29:25 DUE TO TIME LIMIT ***

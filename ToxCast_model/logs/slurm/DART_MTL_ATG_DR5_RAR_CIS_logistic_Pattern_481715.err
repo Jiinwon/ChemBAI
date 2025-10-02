@@ -1,0 +1,4 @@
+[2025-09-30 17:46:53] Job 481715 starting on n004.hpc
+[2025-09-30 17:46:53] Label: DART_MTL_ATG_DR5_RAR_CIS_logistic_Pattern
+[2025-09-30 17:46:53] Job DART_MTL_ATG_DR5_RAR_CIS_logistic_Pattern starting on n004.hpc
+slurmstepd-n004: error: *** JOB 481715 ON n004 CANCELLED AT 2025-10-01T01:47:06 DUE TO TIME LIMIT ***

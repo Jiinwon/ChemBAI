@@ -1,0 +1,21 @@
+[2025-10-01 10:15:35] START seed_2:BSK_3C_uPAR_rf_Layered
+2025-10-01 10:15:38,197 - Using PyTorch device: cuda:0
+2025-10-01 10:15:38,198 - Selected compute device: cuda:0
+2025-10-01 10:19:21,653 - Best Model Parameters: {'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 400}
+2025-10-01 10:19:21,653 - Validation F1 Score: 0.416122124926961
+2025-10-01 10:19:21,654 - Validation Precision: 0.3559411292067203
+2025-10-01 10:19:21,654 - Validation Recall: 0.5096774193548387
+2025-10-01 10:19:21,654 - Validation Accuracy: 0.6614408233276158
+2025-10-01 10:19:21,654 - Validation AUC: 0.6603190686143142
+2025-10-01 10:19:22,578 - Holdout Validation F1 Score: 0.5483870967741935
+2025-10-01 10:19:22,578 - Holdout Validation Precision: 0.4657534246575342
+2025-10-01 10:19:22,578 - Holdout Validation Recall: 0.6666666666666666
+2025-10-01 10:19:22,578 - Holdout Validation Accuracy: 0.6164383561643836
+2025-10-01 10:19:22,578 - Holdout Validation AUC: 0.6751289989680083
+2025-10-01 10:19:22,691 - Test F1 Score: 0.49586776859504134
+2025-10-01 10:19:22,691 - Test Precision: 0.40540540540540543
+2025-10-01 10:19:22,691 - Test Recall: 0.6382978723404256
+2025-10-01 10:19:22,691 - Test Accuracy: 0.5933333333333334
+2025-10-01 10:19:22,691 - Test AUC: 0.6218756455277835
+2025-10-01 10:19:22,781 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_3C_uPAR_rf_Layered/model.joblib
+[2025-10-01 10:19:23] END seed_2:BSK_3C_uPAR_rf_Layered status=0

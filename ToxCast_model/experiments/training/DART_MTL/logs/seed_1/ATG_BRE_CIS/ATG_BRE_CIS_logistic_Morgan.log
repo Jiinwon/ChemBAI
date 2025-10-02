@@ -1,0 +1,21 @@
+[2025-09-30 11:59:55] START seed_1:ATG_BRE_CIS_logistic_Morgan
+2025-09-30 11:59:57,847 - Using PyTorch device: cuda:0
+2025-09-30 11:59:57,848 - Selected compute device: cuda:0
+2025-09-30 13:00:34,619 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'saga'}
+2025-09-30 13:00:34,619 - Validation F1 Score: 0.18632872020312452
+2025-09-30 13:00:34,619 - Validation Precision: 0.1384278173507811
+2025-09-30 13:00:34,619 - Validation Recall: 0.28655844155844157
+2025-09-30 13:00:34,619 - Validation Accuracy: 0.7709315809818322
+2025-09-30 13:00:34,619 - Validation AUC: 0.5366685436334883
+2025-09-30 13:00:40,043 - Holdout Validation F1 Score: 0.06666666666666667
+2025-09-30 13:00:40,043 - Holdout Validation Precision: 0.047619047619047616
+2025-09-30 13:00:40,043 - Holdout Validation Recall: 0.1111111111111111
+2025-09-30 13:00:40,043 - Holdout Validation Accuracy: 0.6793893129770993
+2025-09-30 13:00:40,043 - Holdout Validation AUC: 0.422301024428684
+2025-09-30 13:00:40,061 - Test F1 Score: 0.1523809523809524
+2025-09-30 13:00:40,061 - Test Precision: 0.12121212121212122
+2025-09-30 13:00:40,061 - Test Recall: 0.20512820512820512
+2025-09-30 13:00:40,061 - Test Accuracy: 0.7236024844720497
+2025-09-30 13:00:40,061 - Test AUC: 0.4712331249433723
+2025-09-30 13:00:40,063 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_BRE_CIS_logistic_Morgan/model.joblib
+[2025-09-30 13:00:40] END seed_1:ATG_BRE_CIS_logistic_Morgan status=0

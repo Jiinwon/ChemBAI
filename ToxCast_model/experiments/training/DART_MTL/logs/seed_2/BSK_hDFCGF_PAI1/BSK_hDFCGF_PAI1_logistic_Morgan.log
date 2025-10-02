@@ -1,0 +1,21 @@
+[2025-10-02 08:38:56] START seed_2:BSK_hDFCGF_PAI1_logistic_Morgan
+2025-10-02 08:38:59,728 - Using PyTorch device: cuda:0
+2025-10-02 08:38:59,729 - Selected compute device: cuda:0
+2025-10-02 09:01:01,923 - Best Model Parameters: {'C': 1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-02 09:01:01,923 - Validation F1 Score: 0.40116846169477755
+2025-10-02 09:01:01,923 - Validation Precision: 0.3737804532176182
+2025-10-02 09:01:01,923 - Validation Recall: 0.43382936507936504
+2025-10-02 09:01:01,923 - Validation Accuracy: 0.6878216123499142
+2025-10-02 09:01:01,923 - Validation AUC: 0.6004534618573798
+2025-10-02 09:01:02,161 - Holdout Validation F1 Score: 0.3181818181818182
+2025-10-02 09:01:02,161 - Holdout Validation Precision: 0.27450980392156865
+2025-10-02 09:01:02,161 - Holdout Validation Recall: 0.3783783783783784
+2025-10-02 09:01:02,161 - Holdout Validation Accuracy: 0.589041095890411
+2025-10-02 09:01:02,161 - Holdout Validation AUC: 0.4929333002727498
+2025-10-02 09:01:02,177 - Test F1 Score: 0.35051546391752575
+2025-10-02 09:01:02,177 - Test Precision: 0.3090909090909091
+2025-10-02 09:01:02,177 - Test Recall: 0.40476190476190477
+2025-10-02 09:01:02,177 - Test Accuracy: 0.58
+2025-10-02 09:01:02,177 - Test AUC: 0.5325176366843033
+2025-10-02 09:01:02,191 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_hDFCGF_PAI1_logistic_Morgan/model.joblib
+[2025-10-02 09:01:02] END seed_2:BSK_hDFCGF_PAI1_logistic_Morgan status=0

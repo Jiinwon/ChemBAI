@@ -1,0 +1,21 @@
+[2025-10-01 15:35:56] START seed_0:BSK_4H_MCP1_dt_Morgan
+2025-10-01 15:36:00,757 - Using PyTorch device: cuda:0
+2025-10-01 15:36:00,758 - Selected compute device: cuda:0
+2025-10-01 15:37:27,594 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 4}
+2025-10-01 15:37:27,595 - Validation F1 Score: 0.3531121327195946
+2025-10-01 15:37:27,595 - Validation Precision: 0.3195215311004785
+2025-10-01 15:37:27,595 - Validation Recall: 0.3981203007518797
+2025-10-01 15:37:27,595 - Validation Accuracy: 0.6815622215622216
+2025-10-01 15:37:27,595 - Validation AUC: 0.5801464334273719
+2025-10-01 15:37:27,919 - Holdout Validation F1 Score: 0.46938775510204084
+2025-10-01 15:37:27,919 - Holdout Validation Precision: 0.46
+2025-10-01 15:37:27,919 - Holdout Validation Recall: 0.4791666666666667
+2025-10-01 15:37:27,919 - Holdout Validation Accuracy: 0.6556291390728477
+2025-10-01 15:37:27,919 - Holdout Validation AUC: 0.6126618122977346
+2025-10-01 15:37:27,936 - Test F1 Score: 0.2857142857142857
+2025-10-01 15:37:27,936 - Test Precision: 0.26229508196721313
+2025-10-01 15:37:27,936 - Test Recall: 0.3137254901960784
+2025-10-01 15:37:27,936 - Test Accuracy: 0.5321637426900585
+2025-10-01 15:37:27,936 - Test AUC: 0.4770424836601307
+2025-10-01 15:37:27,938 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_4H_MCP1_dt_Morgan/model.joblib
+[2025-10-01 15:37:28] END seed_0:BSK_4H_MCP1_dt_Morgan status=0

@@ -1,0 +1,21 @@
+[2025-10-01 09:59:15] START seed_2:ATG_HIF1a_CIS_gbt_Morgan
+2025-10-01 09:59:19,107 - Using PyTorch device: cuda:0
+2025-10-01 09:59:19,108 - Selected compute device: cuda:0
+2025-10-01 11:51:40,825 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 100}
+2025-10-01 11:51:40,825 - Validation F1 Score: 0.15979777797959613
+2025-10-01 11:51:40,825 - Validation Precision: 0.14735190492178069
+2025-10-01 11:51:40,825 - Validation Recall: 0.17700501253132833
+2025-10-01 11:51:40,825 - Validation Accuracy: 0.8238776719383802
+2025-10-01 11:51:40,825 - Validation AUC: 0.4902591857572724
+2025-10-01 11:51:52,131 - Holdout Validation F1 Score: 0.1728395061728395
+2025-10-01 11:51:52,131 - Holdout Validation Precision: 0.175
+2025-10-01 11:51:52,131 - Holdout Validation Recall: 0.17073170731707318
+2025-10-01 11:51:52,131 - Holdout Validation Accuracy: 0.7759197324414716
+2025-10-01 11:51:52,131 - Holdout Validation AUC: 0.4826999432785026
+2025-10-01 11:51:52,149 - Test F1 Score: 0.058823529411764705
+2025-10-01 11:51:52,150 - Test Precision: 0.08333333333333333
+2025-10-01 11:51:52,150 - Test Recall: 0.045454545454545456
+2025-10-01 11:51:52,150 - Test Accuracy: 0.7915309446254072
+2025-10-01 11:51:52,150 - Test AUC: 0.4260715520221224
+2025-10-01 11:51:52,157 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/ATG_HIF1a_CIS_gbt_Morgan/model.joblib
+[2025-10-01 11:51:52] END seed_2:ATG_HIF1a_CIS_gbt_Morgan status=0

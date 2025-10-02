@@ -1,0 +1,21 @@
+[2025-09-30 14:55:30] START seed_0:ATG_DR5_RAR_CIS_rf_Layered
+2025-09-30 14:55:33,560 - Using PyTorch device: cuda:0
+2025-09-30 14:55:33,560 - Selected compute device: cuda:0
+2025-09-30 15:01:40,737 - Best Model Parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 400}
+2025-09-30 15:01:40,737 - Validation F1 Score: 0.18868842466353697
+2025-09-30 15:01:40,737 - Validation Precision: 0.1920604335754044
+2025-09-30 15:01:40,737 - Validation Recall: 0.18818181818181817
+2025-09-30 15:01:40,737 - Validation Accuracy: 0.8783649473100388
+2025-09-30 15:01:40,737 - Validation AUC: 0.6684846895620277
+2025-09-30 15:01:42,782 - Holdout Validation F1 Score: 0.12244897959183673
+2025-09-30 15:01:42,782 - Holdout Validation Precision: 0.23076923076923078
+2025-09-30 15:01:42,782 - Holdout Validation Recall: 0.08333333333333333
+2025-09-30 15:01:42,782 - Holdout Validation Accuracy: 0.8326848249027238
+2025-09-30 15:01:42,782 - Holdout Validation AUC: 0.6080945198592257
+2025-09-30 15:01:42,906 - Test F1 Score: 0.11428571428571428
+2025-09-30 15:01:42,906 - Test Precision: 0.4
+2025-09-30 15:01:42,906 - Test Recall: 0.06666666666666667
+2025-09-30 15:01:42,906 - Test Accuracy: 0.9006410256410257
+2025-09-30 15:01:42,906 - Test AUC: 0.6214539007092199
+2025-09-30 15:01:43,016 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_DR5_RAR_CIS_rf_Layered/model.joblib
+[2025-09-30 15:01:43] END seed_0:ATG_DR5_RAR_CIS_rf_Layered status=0
