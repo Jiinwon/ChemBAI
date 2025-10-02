@@ -1,3 +1,21 @@
 [2025-10-02 12:58:00] START seed_0:BSK_hDFCGF_TIMP1_logistic_Layered
 2025-10-02 12:58:04,508 - Using PyTorch device: cuda:0
 2025-10-02 12:58:04,509 - Selected compute device: cuda:0
+2025-10-02 14:10:06,791 - Best Model Parameters: {'C': 0.5, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-02 14:10:06,791 - Validation F1 Score: 0.34896507897310464
+2025-10-02 14:10:06,791 - Validation Precision: 0.3217251789969474
+2025-10-02 14:10:06,791 - Validation Recall: 0.382281284606866
+2025-10-02 14:10:06,791 - Validation Accuracy: 0.7671606771606772
+2025-10-02 14:10:06,791 - Validation AUC: 0.6193446320763865
+2025-10-02 14:11:13,582 - Holdout Validation F1 Score: 0.5070422535211268
+2025-10-02 14:11:13,582 - Holdout Validation Precision: 0.42857142857142855
+2025-10-02 14:11:13,582 - Holdout Validation Recall: 0.6206896551724138
+2025-10-02 14:11:13,582 - Holdout Validation Accuracy: 0.7682119205298014
+2025-10-02 14:11:13,582 - Holdout Validation AUC: 0.7480214810627474
+2025-10-02 14:11:13,607 - Test F1 Score: 0.17543859649122806
+2025-10-02 14:11:13,607 - Test Precision: 0.1724137931034483
+2025-10-02 14:11:13,607 - Test Recall: 0.17857142857142858
+2025-10-02 14:11:13,607 - Test Accuracy: 0.7251461988304093
+2025-10-02 14:11:13,607 - Test AUC: 0.4825174825174825
+2025-10-02 14:11:13,634 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_hDFCGF_TIMP1_logistic_Layered/model.joblib
+[2025-10-02 14:11:14] END seed_0:BSK_hDFCGF_TIMP1_logistic_Layered status=0

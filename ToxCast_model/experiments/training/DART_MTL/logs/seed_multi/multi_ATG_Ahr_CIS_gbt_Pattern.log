@@ -79,3 +79,17 @@
 [2025-09-30 07:22:43] START seed_1:ATG_Ahr_CIS_gbt_Pattern
 2025-09-30 07:22:47,262 - Using PyTorch device: cuda:0
 2025-09-30 07:22:47,262 - Selected compute device: cuda:0
+[2025-10-02 16:40:00] Job 484516 starting on n004.hpc
+[2025-10-02 16:40:00] Label: DART_MTL_ATG_Ahr_CIS_gbt_Pattern
+[2025-10-02 16:40:00] Job DART_MTL_ATG_Ahr_CIS_gbt_Pattern starting on n004.hpc
+[2025-10-02 16:40:00] START seed_0:ATG_Ahr_CIS_gbt_Pattern
+2025-10-02 16:40:04,729 - Using PyTorch device: cuda:0
+2025-10-02 16:40:04,730 - Selected compute device: cuda:0
+[2025-10-02 16:54:23] Job 484573 starting on n076.hpc
+[2025-10-02 16:54:23] Label: ATG_Ahr_CIS_gbt_Pattern
+[2025-10-02 16:54:23] Job ATG_Ahr_CIS_gbt_Pattern starting on n076.hpc
+[2025-10-02 16:54:23] START seed_0:ATG_Ahr_CIS_gbt_Pattern
+2025-10-02 16:54:26,592 - GPU requested but PyTorch reports no CUDA devices. Falling back to CPU.
+2025-10-02 16:54:26,593 - TensorFlow GPU initialisation failed: No module named 'tensorflow'
+2025-10-02 16:54:26,594 - Using CPU execution.
+2025-10-02 16:54:26,594 - Selected compute device: cpu

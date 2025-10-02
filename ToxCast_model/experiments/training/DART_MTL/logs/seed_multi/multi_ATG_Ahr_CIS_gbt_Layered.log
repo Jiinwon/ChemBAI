@@ -79,3 +79,15 @@
 [2025-09-30 10:17:42] START seed_1:ATG_Ahr_CIS_gbt_Layered
 2025-09-30 10:17:46,408 - Using PyTorch device: cuda:0
 2025-09-30 10:17:46,409 - Selected compute device: cuda:0
+[2025-10-02 16:40:00] Job 484518 starting on n021.hpc
+[2025-10-02 16:40:00] Label: DART_MTL_ATG_Ahr_CIS_gbt_Layered
+[2025-10-02 16:40:00] Job DART_MTL_ATG_Ahr_CIS_gbt_Layered starting on n021.hpc
+[2025-10-02 16:40:00] START seed_0:ATG_Ahr_CIS_gbt_Layered
+2025-10-02 16:40:04,558 - Using PyTorch device: cuda:0
+2025-10-02 16:40:04,559 - Selected compute device: cuda:0
+[2025-10-02 16:54:59] Job 484580 starting on n005.hpc
+[2025-10-02 16:54:59] Label: ATG_Ahr_CIS_gbt_Layered
+[2025-10-02 16:54:59] Job ATG_Ahr_CIS_gbt_Layered starting on n005.hpc
+[2025-10-02 16:54:59] START seed_0:ATG_Ahr_CIS_gbt_Layered
+2025-10-02 16:55:03,636 - Using PyTorch device: cuda:0
+2025-10-02 16:55:03,636 - Selected compute device: cuda:0

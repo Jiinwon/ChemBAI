@@ -46,3 +46,15 @@
 [2025-09-30 12:10:37] START seed_2:ATG_Ahr_CIS_logistic_RDKit
 2025-09-30 12:10:40,051 - Using PyTorch device: cuda:0
 2025-09-30 12:10:40,052 - Selected compute device: cuda:0
+[2025-10-02 16:40:59] Job 484530 starting on n014.hpc
+[2025-10-02 16:40:59] Label: DART_MTL_ATG_Ahr_CIS_logistic_RDKit
+[2025-10-02 16:40:59] Job DART_MTL_ATG_Ahr_CIS_logistic_RDKit starting on n014.hpc
+[2025-10-02 16:40:59] START seed_0:ATG_Ahr_CIS_logistic_RDKit
+2025-10-02 16:41:04,267 - Using PyTorch device: cuda:0
+2025-10-02 16:41:04,267 - Selected compute device: cuda:0
+[2025-10-02 16:56:00] Job 484587 starting on n004.hpc
+[2025-10-02 16:56:00] Label: ATG_Ahr_CIS_logistic_RDKit
+[2025-10-02 16:56:01] Job ATG_Ahr_CIS_logistic_RDKit starting on n004.hpc
+[2025-10-02 16:56:01] START seed_0:ATG_Ahr_CIS_logistic_RDKit
+2025-10-02 16:56:05,625 - Using PyTorch device: cuda:0
+2025-10-02 16:56:05,626 - Selected compute device: cuda:0

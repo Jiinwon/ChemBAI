@@ -1,0 +1,68 @@
+[2025-10-02 14:02:12] Job 483990 starting on n005.hpc
+[2025-10-02 14:02:12] Label: DART_MTL_BSK_hDFCGF_VCAM1_rf_Morgan
+[2025-10-02 14:02:12] Job DART_MTL_BSK_hDFCGF_VCAM1_rf_Morgan starting on n005.hpc
+[2025-10-02 14:02:13] START seed_0:BSK_hDFCGF_VCAM1_rf_Morgan
+2025-10-02 14:02:17,431 - Using PyTorch device: cuda:0
+2025-10-02 14:02:17,432 - Selected compute device: cuda:0
+2025-10-02 14:05:16,142 - Best Model Parameters: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 400}
+2025-10-02 14:05:16,142 - Validation F1 Score: 0.3827074382590546
+2025-10-02 14:05:16,142 - Validation Precision: 0.3606538776354418
+2025-10-02 14:05:16,142 - Validation Recall: 0.41002331002331005
+2025-10-02 14:05:16,142 - Validation Accuracy: 0.6677101277101277
+2025-10-02 14:05:16,143 - Validation AUC: 0.6281159129850439
+2025-10-02 14:05:16,862 - Holdout Validation F1 Score: 0.45714285714285713
+2025-10-02 14:05:16,862 - Holdout Validation Precision: 0.45714285714285713
+2025-10-02 14:05:16,862 - Holdout Validation Recall: 0.45714285714285713
+2025-10-02 14:05:16,862 - Holdout Validation Accuracy: 0.7483443708609272
+2025-10-02 14:05:16,862 - Holdout Validation AUC: 0.717487684729064
+2025-10-02 14:05:16,966 - Test F1 Score: 0.2
+2025-10-02 14:05:16,966 - Test Precision: 0.28
+2025-10-02 14:05:16,966 - Test Recall: 0.15555555555555556
+2025-10-02 14:05:16,966 - Test Accuracy: 0.672514619883041
+2025-10-02 14:05:16,966 - Test AUC: 0.5973544973544973
+2025-10-02 14:05:17,060 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_hDFCGF_VCAM1_rf_Morgan/model.joblib
+[2025-10-02 14:05:17] END seed_0:BSK_hDFCGF_VCAM1_rf_Morgan status=0
+[2025-10-02 14:05:17] START seed_1:BSK_hDFCGF_VCAM1_rf_Morgan
+2025-10-02 14:05:20,535 - Using PyTorch device: cuda:0
+2025-10-02 14:05:20,536 - Selected compute device: cuda:0
+2025-10-02 14:08:18,528 - Best Model Parameters: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 400}
+2025-10-02 14:08:18,528 - Validation F1 Score: 0.41018341666931796
+2025-10-02 14:08:18,528 - Validation Precision: 0.38653242224036016
+2025-10-02 14:08:18,528 - Validation Recall: 0.4386615515771526
+2025-10-02 14:08:18,528 - Validation Accuracy: 0.6816474929455177
+2025-10-02 14:08:18,528 - Validation AUC: 0.6500235176529382
+2025-10-02 14:08:19,242 - Holdout Validation F1 Score: 0.10526315789473684
+2025-10-02 14:08:19,242 - Holdout Validation Precision: 0.2222222222222222
+2025-10-02 14:08:19,242 - Holdout Validation Recall: 0.06896551724137931
+2025-10-02 14:08:19,242 - Holdout Validation Accuracy: 0.6822429906542056
+2025-10-02 14:08:19,242 - Holdout Validation AUC: 0.48275862068965514
+2025-10-02 14:08:19,346 - Test F1 Score: 0.2571428571428571
+2025-10-02 14:08:19,346 - Test Precision: 0.28125
+2025-10-02 14:08:19,346 - Test Recall: 0.23684210526315788
+2025-10-02 14:08:19,346 - Test Accuracy: 0.6645161290322581
+2025-10-02 14:08:19,346 - Test AUC: 0.5699505173189384
+2025-10-02 14:08:19,441 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_hDFCGF_VCAM1_rf_Morgan/model.joblib
+[2025-10-02 14:08:19] END seed_1:BSK_hDFCGF_VCAM1_rf_Morgan status=0
+[2025-10-02 14:08:19] START seed_2:BSK_hDFCGF_VCAM1_rf_Morgan
+2025-10-02 14:08:22,336 - Using PyTorch device: cuda:0
+2025-10-02 14:08:22,337 - Selected compute device: cuda:0
+2025-10-02 14:11:20,042 - Best Model Parameters: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-02 14:11:20,042 - Validation F1 Score: 0.4048968485543596
+2025-10-02 14:11:20,042 - Validation Precision: 0.3880196811411406
+2025-10-02 14:11:20,042 - Validation Recall: 0.4242424242424242
+2025-10-02 14:11:20,042 - Validation Accuracy: 0.6885934819897084
+2025-10-02 14:11:20,042 - Validation AUC: 0.6528533776934873
+2025-10-02 14:11:20,487 - Holdout Validation F1 Score: 0.2972972972972973
+2025-10-02 14:11:20,487 - Holdout Validation Precision: 0.3235294117647059
+2025-10-02 14:11:20,487 - Holdout Validation Recall: 0.275
+2025-10-02 14:11:20,487 - Holdout Validation Accuracy: 0.6438356164383562
+2025-10-02 14:11:20,487 - Holdout Validation AUC: 0.592806603773585
+2025-10-02 14:11:20,550 - Test F1 Score: 0.25396825396825395
+2025-10-02 14:11:20,550 - Test Precision: 0.3333333333333333
+2025-10-02 14:11:20,550 - Test Recall: 0.20512820512820512
+2025-10-02 14:11:20,550 - Test Accuracy: 0.6866666666666666
+2025-10-02 14:11:20,550 - Test AUC: 0.5758835758835757
+2025-10-02 14:11:20,598 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_hDFCGF_VCAM1_rf_Morgan/model.joblib
+[2025-10-02 14:11:21] END seed_2:BSK_hDFCGF_VCAM1_rf_Morgan status=0
+[2025-10-02 14:11:21] Job DART_MTL_BSK_hDFCGF_VCAM1_rf_Morgan completed successfully
+[2025-10-02 14:11:21] Command finished with status 0

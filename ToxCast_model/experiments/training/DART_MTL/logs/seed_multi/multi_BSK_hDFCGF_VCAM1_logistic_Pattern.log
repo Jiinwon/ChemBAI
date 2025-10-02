@@ -1,0 +1,6 @@
+[2025-10-02 14:38:13] Job 484279 starting on n005.hpc
+[2025-10-02 14:38:13] Label: DART_MTL_BSK_hDFCGF_VCAM1_logistic_Pattern
+[2025-10-02 14:38:13] Job DART_MTL_BSK_hDFCGF_VCAM1_logistic_Pattern starting on n005.hpc
+[2025-10-02 14:38:13] START seed_0:BSK_hDFCGF_VCAM1_logistic_Pattern
+2025-10-02 14:38:17,357 - Using PyTorch device: cuda:0
+2025-10-02 14:38:17,358 - Selected compute device: cuda:0

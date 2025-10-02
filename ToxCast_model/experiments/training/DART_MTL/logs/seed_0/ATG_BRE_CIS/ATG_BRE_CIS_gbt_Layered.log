@@ -19,3 +19,6 @@
 2025-09-30 15:28:21,439 - Test AUC: 0.6347263313609468
 2025-09-30 15:28:21,455 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_BRE_CIS_gbt_Layered/model.joblib
 [2025-09-30 15:28:21] END seed_0:ATG_BRE_CIS_gbt_Layered status=0
+[2025-10-02 16:57:24] START seed_0:ATG_BRE_CIS_gbt_Layered
+2025-10-02 16:57:27,608 - Using PyTorch device: cuda:0
+2025-10-02 16:57:27,609 - Selected compute device: cuda:0

@@ -1,0 +1,6 @@
+[2025-10-02 14:26:59] Job 484084 starting on n011.hpc
+[2025-10-02 14:26:59] Label: DART_MTL_BSK_hDFCGF_VCAM1_xgb_Morgan
+[2025-10-02 14:26:59] Job DART_MTL_BSK_hDFCGF_VCAM1_xgb_Morgan starting on n011.hpc
+[2025-10-02 14:26:59] START seed_0:BSK_hDFCGF_VCAM1_xgb_Morgan
+2025-10-02 14:27:03,933 - Using PyTorch device: cuda:0
+2025-10-02 14:27:03,933 - Selected compute device: cuda:0
