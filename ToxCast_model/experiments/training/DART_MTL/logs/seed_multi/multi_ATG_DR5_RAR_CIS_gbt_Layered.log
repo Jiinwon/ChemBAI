@@ -25,3 +25,10 @@
 [2025-10-01 00:21:12] START seed_1:ATG_DR5_RAR_CIS_gbt_Layered
 2025-10-01 00:21:15,076 - Using PyTorch device: cuda:0
 2025-10-01 00:21:15,077 - Selected compute device: cuda:0
+[2025-10-03 03:31:32] Job 484658 starting on n007.hpc
+[2025-10-03 03:31:32] Label: ATG_DR5_RAR_CIS_gbt_Layered
+[2025-10-03 03:31:32] Job ATG_DR5_RAR_CIS_gbt_Layered starting on n007.hpc
+[2025-10-03 03:31:32] SKIP seed_0:ATG_DR5_RAR_CIS_gbt_Layered model.joblib exists
+[2025-10-03 03:31:32] START seed_1:ATG_DR5_RAR_CIS_gbt_Layered
+2025-10-03 03:31:36,651 - Using PyTorch device: cuda:0
+2025-10-03 03:31:36,652 - Selected compute device: cuda:0
