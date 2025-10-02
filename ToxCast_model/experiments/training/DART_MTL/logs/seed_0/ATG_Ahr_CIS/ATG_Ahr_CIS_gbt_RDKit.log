@@ -52,3 +52,4 @@
 [2025-10-02 16:53:59] START seed_0:ATG_Ahr_CIS_gbt_RDKit
 2025-10-02 16:54:04,262 - Using PyTorch device: cuda:0
 2025-10-02 16:54:04,263 - Selected compute device: cuda:0
+[2025-10-02 23:59:03] END seed_0:ATG_Ahr_CIS_gbt_RDKit status=0

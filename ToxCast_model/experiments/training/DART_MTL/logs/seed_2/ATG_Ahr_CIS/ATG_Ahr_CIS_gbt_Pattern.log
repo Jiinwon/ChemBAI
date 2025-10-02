@@ -1,0 +1,5 @@
+[2025-10-03 00:03:12] START seed_2:ATG_Ahr_CIS_gbt_Pattern
+2025-10-03 00:03:15,492 - GPU requested but PyTorch reports no CUDA devices. Falling back to CPU.
+2025-10-03 00:03:15,493 - TensorFlow GPU initialisation failed: No module named 'tensorflow'
+2025-10-03 00:03:15,493 - Using CPU execution.
+2025-10-03 00:03:15,493 - Selected compute device: cpu

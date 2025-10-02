@@ -12,3 +12,21 @@
 2025-10-02 20:32:28,828 - TensorFlow GPU initialisation failed: No module named 'tensorflow'
 2025-10-02 20:32:28,828 - Using CPU execution.
 2025-10-02 20:32:28,828 - Selected compute device: cpu
+2025-10-03 00:03:02,953 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 100}
+2025-10-03 00:03:02,953 - Validation F1 Score: 0.37725798569186486
+2025-10-03 00:03:02,953 - Validation Precision: 0.34133358982898765
+2025-10-03 00:03:02,953 - Validation Recall: 0.4243469174503657
+2025-10-03 00:03:02,953 - Validation Accuracy: 0.7960510467611188
+2025-10-03 00:03:02,953 - Validation AUC: 0.6740113856296903
+2025-10-03 00:03:12,283 - Holdout Validation F1 Score: 0.29473684210526313
+2025-10-03 00:03:12,283 - Holdout Validation Precision: 0.34146341463414637
+2025-10-03 00:03:12,283 - Holdout Validation Recall: 0.25925925925925924
+2025-10-03 00:03:12,283 - Holdout Validation Accuracy: 0.7442748091603053
+2025-10-03 00:03:12,283 - Holdout Validation AUC: 0.5687321937321937
+2025-10-03 00:03:12,304 - Test F1 Score: 0.234375
+2025-10-03 00:03:12,304 - Test Precision: 0.22727272727272727
+2025-10-03 00:03:12,304 - Test Recall: 0.24193548387096775
+2025-10-03 00:03:12,304 - Test Accuracy: 0.6956521739130435
+2025-10-03 00:03:12,304 - Test AUC: 0.5681761786600495
+2025-10-03 00:03:12,309 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_Ahr_CIS_gbt_Pattern/model.joblib
+[2025-10-03 00:03:12] END seed_1:ATG_Ahr_CIS_gbt_Pattern status=0
