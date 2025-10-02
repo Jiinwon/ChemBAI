@@ -190,6 +190,9 @@ echo "[$job_start] Job $JOB_LABEL starting on $(hostname)" >&2
 
 failures=0
 line_no=0
+target_seed_name=$(strip_cr "${TARGET_SEED_NAME:-}")
+target_seed_dir=$(strip_cr "${TARGET_SEED_DIR:-}")
+target_seed_processed=0
 while IFS='|' read -r seed_dir seed_name; do
     seed_dir=$(strip_cr "$seed_dir")
     seed_name=$(strip_cr "$seed_name")
@@ -198,9 +201,25 @@ while IFS='|' read -r seed_dir seed_name; do
     fi
     ((++line_no))
 
+    current_seed_is_target=0
+    if [ -n "$target_seed_name" ]; then
+        if [ "$seed_name" != "$target_seed_name" ]; then
+            dbg "Skipping seed $seed_name (target $target_seed_name)"
+            continue
+        fi
+        current_seed_is_target=1
+        if [ -n "$target_seed_dir" ] && [ "$seed_dir" != "$target_seed_dir" ]; then
+            echo "Target seed directory mismatch for $seed_name: expected $target_seed_dir got $seed_dir" >&2
+        fi
+    fi
+
     if [ ! -d "$seed_dir" ]; then
         echo "Seed directory not found: $seed_dir" >&2
         failures=1
+        if [ "$current_seed_is_target" = "1" ]; then
+            target_seed_processed=1
+            break
+        fi
         continue
     fi
 
@@ -216,11 +235,26 @@ while IFS='|' read -r seed_dir seed_name; do
     if [ ! -f "$train_csv" ]; then
         echo "Missing train_df.csv for $seed_dir" | tee -a "$log_file" >&2
         failures=1
+        if [ "$current_seed_is_target" = "1" ]; then
+            target_seed_processed=1
+            break
+        fi
         continue
     fi
 
     save_dir="$seed_results_dir/${ASSAY_NAME}_${MODEL_NAME}_${FINGERPRINT_NAME}"
     mkdir -p "$save_dir"
+
+    model_path="$save_dir/model.joblib"
+    if [ -f "$model_path" ]; then
+        skip_ts="$(date '+%F %T')"
+        echo "[$skip_ts] SKIP ${seed_name}:${ASSAY_NAME}_${MODEL_NAME}_${FINGERPRINT_NAME} model.joblib exists" | tee -a "$log_file"
+        if [ "$current_seed_is_target" = "1" ]; then
+            target_seed_processed=1
+            break
+        fi
+        continue
+    fi
 
     start_ts="$(date '+%F %T')"
     echo "[$start_ts] START ${seed_name}:${ASSAY_NAME}_${MODEL_NAME}_${FINGERPRINT_NAME}" | tee -a "$log_file"
@@ -258,7 +292,17 @@ while IFS='|' read -r seed_dir seed_name; do
         echo "[$end_ts] END ${seed_name}:${ASSAY_NAME}_${MODEL_NAME}_${FINGERPRINT_NAME} status=0" | tee -a "$log_file"
     fi
 
+    if [ "$current_seed_is_target" = "1" ]; then
+        target_seed_processed=1
+        break
+    fi
+
 done < "$SEED_FILE"
+
+if [ -n "$target_seed_name" ] && [ "$target_seed_processed" != "1" ]; then
+    echo "Target seed $target_seed_name not found or processed from $SEED_FILE" >&2
+    exit 1
+fi
 
 job_end="$(date '+%F %T')"
 if [ "$failures" -ne 0 ]; then

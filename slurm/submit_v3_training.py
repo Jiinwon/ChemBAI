@@ -38,18 +38,15 @@ class Combo:
         return f"{self.assay}_{self.model}_{self.fingerprint}"
 
 
-def combo_already_trained(combo: Combo, seeds: Sequence[SeedEntry], results_dir: Path) -> bool:
-    """Return True when all seed-specific model artifacts exist for *combo*.
-
-    Each training job iterates over every seed and saves the resulting model to
-    ``results/seed_x/{assay}_{model}_{fingerprint}/model.joblib``.  If all of
-    those files already exist we can safely skip submitting another job for the
-    combo.
-    """
+def combo_missing_seeds(
+    combo: Combo, seeds: Sequence[SeedEntry], results_dir: Path
+) -> list[SeedEntry]:
+    """Return the seeds that still require training for *combo*."""
 
     if not results_dir.exists():
-        return False
+        return list(seeds)
 
+    missing: list[SeedEntry] = []
     for seed in seeds:
         model_path = (
             results_dir
@@ -58,8 +55,8 @@ def combo_already_trained(combo: Combo, seeds: Sequence[SeedEntry], results_dir:
             / "model.joblib"
         )
         if not model_path.is_file():
-            return False
-    return True
+            missing.append(seed)
+    return missing
 
 
 @dataclasses.dataclass
@@ -301,6 +298,7 @@ def is_submit_limit_error(out: str, err: str) -> bool:
 def submit_job_once(
     worker_script: Path,
     combo: Combo,
+    seed: SeedEntry,
     env: dict,
     gpu_ctx: GpuSubmitContext,
 ) -> tuple[str | None, bool, str]:
@@ -347,7 +345,7 @@ def submit_job_once(
         "--label",
         job_name,
         "--seed",
-        "multi",
+        seed.name,
         "--",
     ])
 
@@ -457,6 +455,7 @@ def submit_summary_job(
 
 def build_env(
     combo: Combo,
+    seed: SeedEntry,
     project_dir: Path,
     model_dir: Path,
     run_subdir: str,
@@ -478,7 +477,9 @@ def build_env(
         "RESULTS_DIR": str(results_dir),
         "PYTHON_BIN": env_cfg.get("python", "python"),
         "PYTHONPATH_BASE": str(model_dir),
-        "JOB_LABEL": sanitise_job_name(f"{project_dir.name}_{combo.label}"),
+        "JOB_LABEL": sanitise_job_name(f"{project_dir.name}_{combo.label}_{seed.name}"),
+        "TARGET_SEED_NAME": seed.name,
+        "TARGET_SEED_DIR": str(seed.path),
     }
     module_cfg = env_cfg.get("module", {})
     env["MODULE_INIT"] = module_cfg.get("init", "")
@@ -530,9 +531,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     pattern = seed_cfg.get("pattern", "seed_*")
     seeds = discover_seeds(data_dir, include_seeds, pattern)
 
-    worker_seed_file = logs_dir / "seed_list.txt"
-    worker_seed_file.parent.mkdir(parents=True, exist_ok=True)
-    write_seed_file(seeds, worker_seed_file)
+    seed_file_dir = logs_dir / "seed_lists"
+    seed_file_dir.mkdir(parents=True, exist_ok=True)
+    seed_file_map: dict[str, Path] = {}
+    for seed in seeds:
+        seed_file_path = seed_file_dir / f"{seed.name}.txt"
+        write_seed_file([seed], seed_file_path)
+        seed_file_map[seed.name] = seed_file_path
 
     model_dir = Path(getattr(config_module, "ROOT_DIR"))
     run_subdir = config.get("training", {}).get("run_subdir", "run_v3")
@@ -550,13 +555,15 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     combos = [Combo(assay=a, model=m, fingerprint=f) for a, m, f in itertools.product(assays, models, fingerprints)]
 
-    pending_combos: list[Combo] = []
+    pending_tasks: list[tuple[Combo, SeedEntry]] = []
     skipped_combos: list[Combo] = []
     for combo in combos:
-        if combo_already_trained(combo, seeds, results_dir):
+        missing_seeds = combo_missing_seeds(combo, seeds, results_dir)
+        if not missing_seeds:
             skipped_combos.append(combo)
         else:
-            pending_combos.append(combo)
+            for seed in missing_seeds:
+                pending_tasks.append((combo, seed))
 
     if skipped_combos:
         skipped_labels = ", ".join(c.label for c in skipped_combos[:10])
@@ -569,7 +576,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             flush=True,
         )
 
-    if not pending_combos:
+    if not pending_tasks:
         print("[info] All combos already trained. No submissions required.", flush=True)
         return 0
 
@@ -626,27 +633,46 @@ def main(argv: Sequence[str] | None = None) -> int:
         poll_timeout=gpu_poll_timeout,
     )
 
-    total_to_submit = len(pending_combos)
+    total_to_submit = len(pending_tasks)
 
     if args.dry_run or training_cfg.get("dry_run", False):
         print("[dry-run] user-wide throttled submission")
-        print(f"  user={args.user} combos={total_to_submit} max_queue={args.max_queue} poll={args.poll_interval}s")
+        print(
+            "  user="
+            f"{args.user} seeds={total_to_submit} max_queue={args.max_queue} poll={args.poll_interval}s"
+        )
         if skipped_combos:
             print(f"  skipping={len(skipped_combos)} (artifacts exist)")
-        for combo in pending_combos:
-            env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
-            print(f"  - {combo.label}  JOB_LABEL={env['JOB_LABEL']}")
+        for combo, seed in pending_tasks:
+            job_label = sanitise_job_name(
+                f"{base_dir.name}_{combo.label}_{seed.name}"
+            )
+            print(f"  - {combo.label} seed={seed.name} JOB_LABEL={job_label}")
         return 0
 
     job_ids: list[str] = []
-    for idx, combo in enumerate(pending_combos, 1):
+    for idx, (combo, seed) in enumerate(pending_tasks, 1):
         # 1) 사용자 전체 큐 길이로 먼저 스로틀
         wait_for_queue(user=args.user, max_queue=args.max_queue, poll_interval=args.poll_interval)
 
         # 2) 제출 시도; submit-limit이면 대기 후 재시도
         while True:
-            env = build_env(combo, base_dir, model_dir, run_subdir, logs_dir, results_dir, worker_seed_file, env_cfg, random_state)
-            job_id, submit_limited, reason = submit_job_once(worker_script, combo, env, gpu_ctx)
+            seed_file = seed_file_map.get(seed.name)
+            if seed_file is None:
+                raise SubmissionError(f"Seed file missing for {seed.name}")
+            env = build_env(
+                combo,
+                seed,
+                base_dir,
+                model_dir,
+                run_subdir,
+                logs_dir,
+                results_dir,
+                seed_file,
+                env_cfg,
+                random_state,
+            )
+            job_id, submit_limited, reason = submit_job_once(worker_script, combo, seed, env, gpu_ctx)
             if submit_limited:
                 # 사용자의 타 잡/어카운트 제한 포함. 일정 시간 대기 후 다시 squeue 기반 스로틀부터 반복.
                 time.sleep(args.poll_interval)
@@ -661,7 +687,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             break
 
         if idx % 10 == 0 or idx == total_to_submit:
-            print(f"[progress] Submitted {len(job_ids)}/{total_to_submit} (scope=user)", flush=True)
+            print(
+                f"[progress] Submitted {len(job_ids)}/{total_to_submit} seed jobs (scope=user)",
+                flush=True,
+            )
 
     # Summary job
     summary_cfg = training_cfg.get("summary", {})
@@ -678,7 +707,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             dependencies=job_ids,
         )
 
-    print(f"Submitted {len(job_ids)} training jobs (throttled user={args.user}, max_queue={args.max_queue}).", flush=True)
+    print(
+        f"Submitted {len(job_ids)} training seed jobs (throttled user={args.user}, max_queue={args.max_queue}).",
+        flush=True,
+    )
     return 0
 
 
