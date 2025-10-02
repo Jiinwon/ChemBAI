@@ -1,3 +1,6 @@
 [2025-09-30 18:11:53] START seed_2:ATG_BRE_CIS_logistic_RDKit
 2025-09-30 18:11:57,373 - Using PyTorch device: cuda:0
 2025-09-30 18:11:57,373 - Selected compute device: cuda:0
+[2025-10-02 23:18:55] START seed_2:ATG_BRE_CIS_logistic_RDKit
+2025-10-02 23:18:59,627 - Using PyTorch device: cuda:0
+2025-10-02 23:18:59,628 - Selected compute device: cuda:0

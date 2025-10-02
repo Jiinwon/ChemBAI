@@ -1,3 +1,6 @@
 [2025-09-30 14:28:52] START seed_2:ATG_Ahr_CIS_logistic_Layered
 2025-09-30 14:28:55,743 - Using PyTorch device: cuda:0
 2025-09-30 14:28:55,744 - Selected compute device: cuda:0
+[2025-10-02 22:58:39] START seed_2:ATG_Ahr_CIS_logistic_Layered
+2025-10-02 22:58:42,443 - Using PyTorch device: cuda:0
+2025-10-02 22:58:42,444 - Selected compute device: cuda:0
