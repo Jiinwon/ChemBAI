@@ -4,3 +4,21 @@
 [2025-10-02 23:18:55] START seed_2:ATG_BRE_CIS_logistic_RDKit
 2025-10-02 23:18:59,627 - Using PyTorch device: cuda:0
 2025-10-02 23:18:59,628 - Selected compute device: cuda:0
+2025-10-03 02:27:27,951 - Best Model Parameters: {'C': 50, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-03 02:27:27,952 - Validation F1 Score: 0.23270346755725207
+2025-10-03 02:27:27,952 - Validation Precision: 0.1830625877201222
+2025-10-03 02:27:27,952 - Validation Recall: 0.3197763801537386
+2025-10-03 02:27:27,952 - Validation Accuracy: 0.8083730231074245
+2025-10-03 02:27:27,952 - Validation AUC: 0.5503496004843714
+2025-10-03 02:27:34,985 - Holdout Validation F1 Score: 0.183206106870229
+2025-10-03 02:27:34,985 - Holdout Validation Precision: 0.12244897959183673
+2025-10-03 02:27:34,985 - Holdout Validation Recall: 0.36363636363636365
+2025-10-03 02:27:34,985 - Holdout Validation Accuracy: 0.6421404682274248
+2025-10-03 02:27:34,985 - Holdout Validation AUC: 0.5035315561631353
+2025-10-03 02:27:35,011 - Test F1 Score: 0.23423423423423423
+2025-10-03 02:27:35,011 - Test Precision: 0.18309859154929578
+2025-10-03 02:27:35,011 - Test Recall: 0.325
+2025-10-03 02:27:35,012 - Test Accuracy: 0.7231270358306189
+2025-10-03 02:27:35,012 - Test AUC: 0.4902621722846442
+2025-10-03 02:27:35,944 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/ATG_BRE_CIS_logistic_RDKit/model.joblib
+[2025-10-03 02:27:36] END seed_2:ATG_BRE_CIS_logistic_RDKit status=0
