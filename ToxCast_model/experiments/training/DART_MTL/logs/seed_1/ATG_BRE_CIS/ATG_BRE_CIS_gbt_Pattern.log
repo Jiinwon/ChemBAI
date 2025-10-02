@@ -1,3 +1,6 @@
 [2025-09-30 12:07:01] START seed_1:ATG_BRE_CIS_gbt_Pattern
 2025-09-30 12:07:03,418 - Using PyTorch device: cuda:0
 2025-09-30 12:07:03,418 - Selected compute device: cuda:0
+[2025-10-02 21:42:52] START seed_1:ATG_BRE_CIS_gbt_Pattern
+2025-10-02 21:42:56,982 - Using PyTorch device: cuda:0
+2025-10-02 21:42:56,982 - Selected compute device: cuda:0

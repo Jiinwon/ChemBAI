@@ -22,3 +22,4 @@
 [2025-10-02 16:57:24] START seed_0:ATG_BRE_CIS_gbt_Layered
 2025-10-02 16:57:27,608 - Using PyTorch device: cuda:0
 2025-10-02 16:57:27,609 - Selected compute device: cuda:0
+[2025-10-02 22:03:19] END seed_0:ATG_BRE_CIS_gbt_Layered status=0
