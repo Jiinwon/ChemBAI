@@ -46,3 +46,11 @@
 [2025-09-30 19:09:17] START seed_2:ATG_BRE_CIS_logistic_Pattern
 2025-09-30 19:09:21,786 - Using PyTorch device: cuda:0
 2025-09-30 19:09:21,787 - Selected compute device: cuda:0
+[2025-10-03 01:44:07] Job 484630 starting on n007.hpc
+[2025-10-03 01:44:07] Label: ATG_BRE_CIS_logistic_Pattern
+[2025-10-03 01:44:07] Job ATG_BRE_CIS_logistic_Pattern starting on n007.hpc
+[2025-10-03 01:44:07] SKIP seed_0:ATG_BRE_CIS_logistic_Pattern model.joblib exists
+[2025-10-03 01:44:07] SKIP seed_1:ATG_BRE_CIS_logistic_Pattern model.joblib exists
+[2025-10-03 01:44:07] START seed_2:ATG_BRE_CIS_logistic_Pattern
+2025-10-03 01:44:10,952 - Using PyTorch device: cuda:0
+2025-10-03 01:44:10,953 - Selected compute device: cuda:0
