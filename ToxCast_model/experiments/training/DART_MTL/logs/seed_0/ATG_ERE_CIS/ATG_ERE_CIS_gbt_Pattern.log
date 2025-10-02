@@ -19,3 +19,4 @@
 2025-10-01 04:36:35,560 - Test AUC: 0.7076444674786214
 2025-10-01 04:36:35,569 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_ERE_CIS_gbt_Pattern/model.joblib
 [2025-10-01 04:36:36] END seed_0:ATG_ERE_CIS_gbt_Pattern status=0
+[2025-10-03 08:13:16] SKIP seed_0:ATG_ERE_CIS_gbt_Pattern model.joblib exists

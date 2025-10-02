@@ -46,3 +46,11 @@
 [2025-10-01 02:14:37] START seed_2:ATG_DR5_RAR_CIS_logistic_Layered
 2025-10-01 02:14:40,895 - Using PyTorch device: cuda:0
 2025-10-01 02:14:40,896 - Selected compute device: cuda:0
+[2025-10-03 07:25:04] Job 484679 starting on n007.hpc
+[2025-10-03 07:25:04] Label: ATG_DR5_RAR_CIS_logistic_Layered
+[2025-10-03 07:25:04] Job ATG_DR5_RAR_CIS_logistic_Layered starting on n007.hpc
+[2025-10-03 07:25:04] SKIP seed_0:ATG_DR5_RAR_CIS_logistic_Layered model.joblib exists
+[2025-10-03 07:25:04] SKIP seed_1:ATG_DR5_RAR_CIS_logistic_Layered model.joblib exists
+[2025-10-03 07:25:04] START seed_2:ATG_DR5_RAR_CIS_logistic_Layered
+2025-10-03 07:25:08,495 - Using PyTorch device: cuda:0
+2025-10-03 07:25:08,496 - Selected compute device: cuda:0

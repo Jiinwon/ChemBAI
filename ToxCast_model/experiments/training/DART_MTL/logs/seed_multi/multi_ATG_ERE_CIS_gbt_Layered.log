@@ -25,3 +25,10 @@
 [2025-10-01 05:07:10] START seed_1:ATG_ERE_CIS_gbt_Layered
 2025-10-01 05:07:12,750 - Using PyTorch device: cuda:0
 2025-10-01 05:07:12,751 - Selected compute device: cuda:0
+[2025-10-03 08:18:09] Job 484995 starting on n007.hpc
+[2025-10-03 08:18:09] Label: ATG_ERE_CIS_gbt_Layered
+[2025-10-03 08:18:09] Job ATG_ERE_CIS_gbt_Layered starting on n007.hpc
+[2025-10-03 08:18:09] SKIP seed_0:ATG_ERE_CIS_gbt_Layered model.joblib exists
+[2025-10-03 08:18:09] START seed_1:ATG_ERE_CIS_gbt_Layered
+2025-10-03 08:18:13,393 - Using PyTorch device: cuda:0
+2025-10-03 08:18:13,394 - Selected compute device: cuda:0

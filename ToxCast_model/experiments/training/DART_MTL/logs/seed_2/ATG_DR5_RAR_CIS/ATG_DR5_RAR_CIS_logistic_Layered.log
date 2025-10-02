@@ -1,3 +1,6 @@
 [2025-10-01 02:14:37] START seed_2:ATG_DR5_RAR_CIS_logistic_Layered
 2025-10-01 02:14:40,895 - Using PyTorch device: cuda:0
 2025-10-01 02:14:40,896 - Selected compute device: cuda:0
+[2025-10-03 07:25:04] START seed_2:ATG_DR5_RAR_CIS_logistic_Layered
+2025-10-03 07:25:08,495 - Using PyTorch device: cuda:0
+2025-10-03 07:25:08,496 - Selected compute device: cuda:0

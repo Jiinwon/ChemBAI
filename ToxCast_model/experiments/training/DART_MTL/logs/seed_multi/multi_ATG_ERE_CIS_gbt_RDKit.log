@@ -25,3 +25,10 @@
 [2025-10-01 05:47:18] START seed_1:ATG_ERE_CIS_gbt_RDKit
 2025-10-01 05:47:20,411 - Using PyTorch device: cuda:0
 2025-10-01 05:47:20,411 - Selected compute device: cuda:0
+[2025-10-03 08:01:04] Job 484690 starting on n005.hpc
+[2025-10-03 08:01:04] Label: ATG_ERE_CIS_gbt_RDKit
+[2025-10-03 08:01:05] Job ATG_ERE_CIS_gbt_RDKit starting on n005.hpc
+[2025-10-03 08:01:05] SKIP seed_0:ATG_ERE_CIS_gbt_RDKit model.joblib exists
+[2025-10-03 08:01:05] START seed_1:ATG_ERE_CIS_gbt_RDKit
+2025-10-03 08:01:08,774 - Using PyTorch device: cuda:0
+2025-10-03 08:01:08,775 - Selected compute device: cuda:0
