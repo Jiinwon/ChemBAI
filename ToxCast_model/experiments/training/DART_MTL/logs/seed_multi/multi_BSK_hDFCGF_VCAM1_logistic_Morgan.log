@@ -4,3 +4,30 @@
 [2025-10-02 14:37:01] START seed_0:BSK_hDFCGF_VCAM1_logistic_Morgan
 2025-10-02 14:37:06,098 - Using PyTorch device: cuda:0
 2025-10-02 14:37:06,099 - Selected compute device: cuda:0
+[2025-10-04 00:00:03] Job 485604 starting on n006.hpc
+[2025-10-04 00:00:03] Label: BSK_hDFCGF_VCAM1_logistic_Morgan
+[2025-10-04 00:00:03] Job BSK_hDFCGF_VCAM1_logistic_Morgan starting on n006.hpc
+[2025-10-04 00:00:03] START seed_0:BSK_hDFCGF_VCAM1_logistic_Morgan
+2025-10-04 00:00:07,368 - Using PyTorch device: cuda:0
+2025-10-04 00:00:07,369 - Selected compute device: cuda:0
+2025-10-04 00:22:05,700 - Best Model Parameters: {'C': 1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 00:22:05,700 - Validation F1 Score: 0.39578010471462194
+2025-10-04 00:22:05,700 - Validation Precision: 0.35869242449206096
+2025-10-04 00:22:05,700 - Validation Recall: 0.44363636363636366
+2025-10-04 00:22:05,701 - Validation Accuracy: 0.6576685476685477
+2025-10-04 00:22:05,701 - Validation AUC: 0.600807306131541
+2025-10-04 00:22:05,945 - Holdout Validation F1 Score: 0.425531914893617
+2025-10-04 00:22:05,945 - Holdout Validation Precision: 0.3389830508474576
+2025-10-04 00:22:05,945 - Holdout Validation Recall: 0.5714285714285714
+2025-10-04 00:22:05,945 - Holdout Validation Accuracy: 0.6423841059602649
+2025-10-04 00:22:05,945 - Holdout Validation AUC: 0.6524630541871922
+2025-10-04 00:22:05,962 - Test F1 Score: 0.25742574257425743
+2025-10-04 00:22:05,962 - Test Precision: 0.23214285714285715
+2025-10-04 00:22:05,962 - Test Recall: 0.28888888888888886
+2025-10-04 00:22:05,962 - Test Accuracy: 0.5614035087719298
+2025-10-04 00:22:05,962 - Test AUC: 0.49100529100529094
+2025-10-04 00:22:05,964 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_hDFCGF_VCAM1_logistic_Morgan/model.joblib
+[2025-10-04 00:22:06] END seed_0:BSK_hDFCGF_VCAM1_logistic_Morgan status=0
+[2025-10-04 00:22:06] START seed_1:BSK_hDFCGF_VCAM1_logistic_Morgan
+2025-10-04 00:22:09,251 - Using PyTorch device: cuda:0
+2025-10-04 00:22:09,252 - Selected compute device: cuda:0

@@ -4,3 +4,9 @@
 [2025-10-02 14:37:01] START seed_0:BSK_hDFCGF_VCAM1_logistic_RDKit
 2025-10-02 14:37:06,154 - Using PyTorch device: cuda:0
 2025-10-02 14:37:06,155 - Selected compute device: cuda:0
+[2025-10-04 00:07:03] Job 485611 starting on n005.hpc
+[2025-10-04 00:07:03] Label: BSK_hDFCGF_VCAM1_logistic_RDKit
+[2025-10-04 00:07:03] Job BSK_hDFCGF_VCAM1_logistic_RDKit starting on n005.hpc
+[2025-10-04 00:07:03] START seed_0:BSK_hDFCGF_VCAM1_logistic_RDKit
+2025-10-04 00:07:07,687 - Using PyTorch device: cuda:0
+2025-10-04 00:07:07,688 - Selected compute device: cuda:0

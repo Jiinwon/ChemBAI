@@ -1,0 +1,6 @@
+[2025-10-03 23:39:03] Job 485573 starting on n007.hpc
+[2025-10-03 23:39:03] Label: BSK_hDFCGF_VCAM1_gbt_Pattern
+[2025-10-03 23:39:03] Job BSK_hDFCGF_VCAM1_gbt_Pattern starting on n007.hpc
+[2025-10-03 23:39:03] START seed_0:BSK_hDFCGF_VCAM1_gbt_Pattern
+2025-10-03 23:39:07,583 - Using PyTorch device: cuda:0
+2025-10-03 23:39:07,584 - Selected compute device: cuda:0
