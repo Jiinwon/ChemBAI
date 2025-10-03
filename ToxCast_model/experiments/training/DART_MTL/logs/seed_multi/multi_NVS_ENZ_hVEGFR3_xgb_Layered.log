@@ -1,0 +1,6 @@
+[2025-10-04 07:06:27] Job 486025 starting on n005.hpc
+[2025-10-04 07:06:27] Label: NVS_ENZ_hVEGFR3_xgb_Layered
+[2025-10-04 07:06:28] Job NVS_ENZ_hVEGFR3_xgb_Layered starting on n005.hpc
+[2025-10-04 07:06:28] START seed_0:NVS_ENZ_hVEGFR3_xgb_Layered
+2025-10-04 07:06:31,513 - Using PyTorch device: cuda:0
+2025-10-04 07:06:31,514 - Selected compute device: cuda:0

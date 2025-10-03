@@ -1,0 +1,3 @@
+[2025-10-04 07:19:54] START seed_2:NVS_ENZ_hVEGFR3_xgb_RDKit
+2025-10-04 07:19:56,902 - Using PyTorch device: cuda:0
+2025-10-04 07:19:56,902 - Selected compute device: cuda:0
