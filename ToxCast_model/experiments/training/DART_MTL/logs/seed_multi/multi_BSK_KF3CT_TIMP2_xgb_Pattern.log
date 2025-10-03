@@ -1,0 +1,6 @@
+[2025-10-04 02:03:59] Job 485770 starting on n006.hpc
+[2025-10-04 02:03:59] Label: BSK_KF3CT_TIMP2_xgb_Pattern
+[2025-10-04 02:03:59] Job BSK_KF3CT_TIMP2_xgb_Pattern starting on n006.hpc
+[2025-10-04 02:03:59] START seed_0:BSK_KF3CT_TIMP2_xgb_Pattern
+2025-10-04 02:04:02,771 - Using PyTorch device: cuda:0
+2025-10-04 02:04:02,771 - Selected compute device: cuda:0

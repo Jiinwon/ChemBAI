@@ -1,0 +1,3 @@
+[2025-10-04 01:59:17] START seed_1:BSK_hDFCGF_VCAM1_logistic_Pattern
+2025-10-04 01:59:20,898 - Using PyTorch device: cuda:0
+2025-10-04 01:59:20,899 - Selected compute device: cuda:0
