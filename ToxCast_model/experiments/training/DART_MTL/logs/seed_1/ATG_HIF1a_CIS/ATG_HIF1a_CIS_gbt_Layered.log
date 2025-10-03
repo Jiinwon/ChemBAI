@@ -1,3 +1,6 @@
 [2025-10-01 12:47:48] START seed_1:ATG_HIF1a_CIS_gbt_Layered
 2025-10-01 12:47:51,495 - Using PyTorch device: cuda:0
 2025-10-01 12:47:51,496 - Selected compute device: cuda:0
+[2025-10-03 13:31:26] START seed_1:ATG_HIF1a_CIS_gbt_Layered
+2025-10-03 13:31:30,378 - Using PyTorch device: cuda:0
+2025-10-03 13:31:30,379 - Selected compute device: cuda:0

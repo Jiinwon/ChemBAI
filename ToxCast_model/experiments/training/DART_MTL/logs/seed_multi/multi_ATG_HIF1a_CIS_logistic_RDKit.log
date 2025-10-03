@@ -46,3 +46,11 @@
 [2025-10-01 14:15:25] START seed_2:ATG_HIF1a_CIS_logistic_RDKit
 2025-10-01 14:15:27,867 - Using PyTorch device: cuda:0
 2025-10-01 14:15:27,867 - Selected compute device: cuda:0
+[2025-10-03 14:02:20] Job 485154 starting on n006.hpc
+[2025-10-03 14:02:20] Label: ATG_HIF1a_CIS_logistic_RDKit
+[2025-10-03 14:02:20] Job ATG_HIF1a_CIS_logistic_RDKit starting on n006.hpc
+[2025-10-03 14:02:20] SKIP seed_0:ATG_HIF1a_CIS_logistic_RDKit model.joblib exists
+[2025-10-03 14:02:20] SKIP seed_1:ATG_HIF1a_CIS_logistic_RDKit model.joblib exists
+[2025-10-03 14:02:20] START seed_2:ATG_HIF1a_CIS_logistic_RDKit
+2025-10-03 14:02:24,222 - Using PyTorch device: cuda:0
+2025-10-03 14:02:24,223 - Selected compute device: cuda:0
