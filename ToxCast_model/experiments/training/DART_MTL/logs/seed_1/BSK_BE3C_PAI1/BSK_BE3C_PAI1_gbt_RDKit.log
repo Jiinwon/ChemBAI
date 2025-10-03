@@ -19,3 +19,4 @@
 2025-10-02 04:37:55,877 - Test AUC: 0.6688842203548085
 2025-10-02 04:37:55,887 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_BE3C_PAI1_gbt_RDKit/model.joblib
 [2025-10-02 04:37:56] END seed_1:BSK_BE3C_PAI1_gbt_RDKit status=0
+[2025-10-03 17:38:24] SKIP seed_1:BSK_BE3C_PAI1_gbt_RDKit model.joblib exists

@@ -1,3 +1,6 @@
 [2025-10-02 13:21:13] START seed_2:BSK_hDFCGF_PAI1_gbt_RDKit
 2025-10-02 13:21:16,321 - Using PyTorch device: cuda:0
 2025-10-02 13:21:16,322 - Selected compute device: cuda:0
+[2025-10-03 18:22:02] START seed_2:BSK_hDFCGF_PAI1_gbt_RDKit
+2025-10-03 18:22:06,572 - Using PyTorch device: cuda:0
+2025-10-03 18:22:06,573 - Selected compute device: cuda:0
