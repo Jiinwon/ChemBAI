@@ -25,3 +25,10 @@
 [2025-10-02 14:24:46] START seed_1:BSK_hDFCGF_TIMP1_gbt_Layered
 2025-10-02 14:24:49,174 - Using PyTorch device: cuda:0
 2025-10-02 14:24:49,175 - Selected compute device: cuda:0
+[2025-10-03 20:15:54] Job 485357 starting on n007.hpc
+[2025-10-03 20:15:54] Label: BSK_hDFCGF_TIMP1_gbt_Layered
+[2025-10-03 20:15:54] Job BSK_hDFCGF_TIMP1_gbt_Layered starting on n007.hpc
+[2025-10-03 20:15:54] SKIP seed_0:BSK_hDFCGF_TIMP1_gbt_Layered model.joblib exists
+[2025-10-03 20:15:54] START seed_1:BSK_hDFCGF_TIMP1_gbt_Layered
+2025-10-03 20:15:58,654 - Using PyTorch device: cuda:0
+2025-10-03 20:15:58,655 - Selected compute device: cuda:0

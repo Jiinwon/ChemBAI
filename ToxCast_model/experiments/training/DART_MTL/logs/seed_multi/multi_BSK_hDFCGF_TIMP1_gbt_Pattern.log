@@ -46,3 +46,11 @@
 [2025-10-02 15:33:29] START seed_2:BSK_hDFCGF_TIMP1_gbt_Pattern
 2025-10-02 15:33:33,959 - Using PyTorch device: cuda:0
 2025-10-02 15:33:33,959 - Selected compute device: cuda:0
+[2025-10-03 20:06:31] Job 485340 starting on n006.hpc
+[2025-10-03 20:06:31] Label: BSK_hDFCGF_TIMP1_gbt_Pattern
+[2025-10-03 20:06:31] Job BSK_hDFCGF_TIMP1_gbt_Pattern starting on n006.hpc
+[2025-10-03 20:06:31] SKIP seed_0:BSK_hDFCGF_TIMP1_gbt_Pattern model.joblib exists
+[2025-10-03 20:06:31] SKIP seed_1:BSK_hDFCGF_TIMP1_gbt_Pattern model.joblib exists
+[2025-10-03 20:06:31] START seed_2:BSK_hDFCGF_TIMP1_gbt_Pattern
+2025-10-03 20:06:35,349 - Using PyTorch device: cuda:0
+2025-10-03 20:06:35,350 - Selected compute device: cuda:0
