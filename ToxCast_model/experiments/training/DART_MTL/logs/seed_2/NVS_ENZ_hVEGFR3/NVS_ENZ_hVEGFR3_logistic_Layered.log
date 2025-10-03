@@ -1,0 +1,3 @@
+[2025-10-04 08:30:01] START seed_2:NVS_ENZ_hVEGFR3_logistic_Layered
+2025-10-04 08:30:03,617 - Using PyTorch device: cuda:0
+2025-10-04 08:30:03,618 - Selected compute device: cuda:0

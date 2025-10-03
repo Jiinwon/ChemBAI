@@ -1,0 +1,21 @@
+[2025-10-04 08:12:43] START seed_2:NVS_ENZ_hVEGFR3_logistic_Morgan
+2025-10-04 08:12:45,435 - Using PyTorch device: cuda:0
+2025-10-04 08:12:45,436 - Selected compute device: cuda:0
+2025-10-04 08:14:04,015 - Best Model Parameters: {'C': 0.5, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 08:14:04,015 - Validation F1 Score: 0.42000000000000004
+2025-10-04 08:14:04,016 - Validation Precision: 0.36666666666666664
+2025-10-04 08:14:04,016 - Validation Recall: 0.5
+2025-10-04 08:14:04,016 - Validation Accuracy: 0.8230769230769232
+2025-10-04 08:14:04,016 - Validation AUC: 0.675
+2025-10-04 08:14:04,164 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:14:04,164 - Holdout Validation Precision: 0.0
+2025-10-04 08:14:04,164 - Holdout Validation Recall: 0.0
+2025-10-04 08:14:04,164 - Holdout Validation Accuracy: 0.6
+2025-10-04 08:14:04,164 - Holdout Validation AUC: 0.4444444444444444
+2025-10-04 08:14:04,178 - Test F1 Score: 0.4
+2025-10-04 08:14:04,178 - Test Precision: 0.25
+2025-10-04 08:14:04,178 - Test Recall: 1.0
+2025-10-04 08:14:04,178 - Test Accuracy: 0.7
+2025-10-04 08:14:04,178 - Test AUC: 0.8888888888888888
+2025-10-04 08:14:04,180 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/NVS_ENZ_hVEGFR3_logistic_Morgan/model.joblib
+[2025-10-04 08:14:04] END seed_2:NVS_ENZ_hVEGFR3_logistic_Morgan status=0

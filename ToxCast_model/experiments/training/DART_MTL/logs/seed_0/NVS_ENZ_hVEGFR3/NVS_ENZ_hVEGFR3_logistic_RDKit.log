@@ -1,0 +1,21 @@
+[2025-10-04 08:10:06] START seed_0:NVS_ENZ_hVEGFR3_logistic_RDKit
+2025-10-04 08:10:10,024 - Using PyTorch device: cuda:0
+2025-10-04 08:10:10,024 - Selected compute device: cuda:0
+2025-10-04 08:14:12,792 - Best Model Parameters: {'C': 2, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 08:14:12,792 - Validation F1 Score: 0.48
+2025-10-04 08:14:12,792 - Validation Precision: 0.7166666666666667
+2025-10-04 08:14:12,793 - Validation Recall: 0.4333333333333333
+2025-10-04 08:14:12,793 - Validation Accuracy: 0.8197802197802198
+2025-10-04 08:14:12,793 - Validation AUC: 0.6454545454545455
+2025-10-04 08:14:13,038 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:14:13,038 - Holdout Validation Precision: 0.0
+2025-10-04 08:14:13,038 - Holdout Validation Recall: 0.0
+2025-10-04 08:14:13,038 - Holdout Validation Accuracy: 1.0
+2025-10-04 08:14:13,038 - Holdout Validation AUC: nan
+2025-10-04 08:14:13,058 - Test F1 Score: 0.0
+2025-10-04 08:14:13,058 - Test Precision: 0.0
+2025-10-04 08:14:13,058 - Test Recall: 0.0
+2025-10-04 08:14:13,058 - Test Accuracy: 0.875
+2025-10-04 08:14:13,058 - Test AUC: nan
+2025-10-04 08:14:13,060 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/NVS_ENZ_hVEGFR3_logistic_RDKit/model.joblib
+[2025-10-04 08:14:13] END seed_0:NVS_ENZ_hVEGFR3_logistic_RDKit status=0
