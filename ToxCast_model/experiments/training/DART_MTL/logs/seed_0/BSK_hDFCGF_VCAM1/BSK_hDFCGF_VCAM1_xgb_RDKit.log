@@ -1,3 +1,6 @@
 [2025-10-02 14:34:59] START seed_0:BSK_hDFCGF_VCAM1_xgb_RDKit
 2025-10-02 14:35:03,084 - Using PyTorch device: cuda:0
 2025-10-02 14:35:03,085 - Selected compute device: cuda:0
+[2025-10-03 22:01:56] START seed_0:BSK_hDFCGF_VCAM1_xgb_RDKit
+2025-10-03 22:02:00,425 - Using PyTorch device: cuda:0
+2025-10-03 22:02:00,425 - Selected compute device: cuda:0
