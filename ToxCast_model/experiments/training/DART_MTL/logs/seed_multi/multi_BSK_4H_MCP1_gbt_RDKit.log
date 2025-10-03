@@ -46,3 +46,11 @@
 [2025-10-02 00:09:14] START seed_2:BSK_4H_MCP1_gbt_RDKit
 2025-10-02 00:09:16,377 - Using PyTorch device: cuda:0
 2025-10-02 00:09:16,378 - Selected compute device: cuda:0
+[2025-10-03 17:14:33] Job 485212 starting on n007.hpc
+[2025-10-03 17:14:33] Label: BSK_4H_MCP1_gbt_RDKit
+[2025-10-03 17:14:33] Job BSK_4H_MCP1_gbt_RDKit starting on n007.hpc
+[2025-10-03 17:14:33] SKIP seed_0:BSK_4H_MCP1_gbt_RDKit model.joblib exists
+[2025-10-03 17:14:33] SKIP seed_1:BSK_4H_MCP1_gbt_RDKit model.joblib exists
+[2025-10-03 17:14:33] START seed_2:BSK_4H_MCP1_gbt_RDKit
+2025-10-03 17:14:37,620 - Using PyTorch device: cuda:0
+2025-10-03 17:14:37,621 - Selected compute device: cuda:0

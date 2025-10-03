@@ -1,3 +1,6 @@
 [2025-10-01 18:15:54] START seed_2:BSK_3C_uPAR_gbt_RDKit
 2025-10-01 18:15:57,961 - Using PyTorch device: cuda:0
 2025-10-01 18:15:57,962 - Selected compute device: cuda:0
+[2025-10-03 17:10:09] START seed_2:BSK_3C_uPAR_gbt_RDKit
+2025-10-03 17:10:13,340 - Using PyTorch device: cuda:0
+2025-10-03 17:10:13,341 - Selected compute device: cuda:0
