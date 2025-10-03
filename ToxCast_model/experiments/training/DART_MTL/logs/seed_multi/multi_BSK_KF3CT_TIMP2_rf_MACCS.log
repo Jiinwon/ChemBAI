@@ -1,0 +1,6 @@
+[2025-10-04 01:29:03] Job 485693 starting on n007.hpc
+[2025-10-04 01:29:03] Label: BSK_KF3CT_TIMP2_rf_MACCS
+[2025-10-04 01:29:03] Job BSK_KF3CT_TIMP2_rf_MACCS starting on n007.hpc
+[2025-10-04 01:29:03] START seed_0:BSK_KF3CT_TIMP2_rf_MACCS
+2025-10-04 01:29:07,203 - Using PyTorch device: cuda:0
+2025-10-04 01:29:07,204 - Selected compute device: cuda:0

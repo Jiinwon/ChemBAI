@@ -4,3 +4,9 @@
 [2025-10-02 14:38:13] START seed_0:BSK_hDFCGF_VCAM1_logistic_Pattern
 2025-10-02 14:38:17,357 - Using PyTorch device: cuda:0
 2025-10-02 14:38:17,358 - Selected compute device: cuda:0
+[2025-10-04 00:53:03] Job 485624 starting on n007.hpc
+[2025-10-04 00:53:03] Label: BSK_hDFCGF_VCAM1_logistic_Pattern
+[2025-10-04 00:53:03] Job BSK_hDFCGF_VCAM1_logistic_Pattern starting on n007.hpc
+[2025-10-04 00:53:03] START seed_0:BSK_hDFCGF_VCAM1_logistic_Pattern
+2025-10-04 00:53:07,621 - Using PyTorch device: cuda:0
+2025-10-04 00:53:07,621 - Selected compute device: cuda:0
