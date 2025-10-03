@@ -19,3 +19,4 @@
 2025-10-01 14:30:12,877 - Test AUC: 0.5556758924989972
 2025-10-01 14:30:12,879 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_HIF1a_CIS_logistic_Pattern/model.joblib
 [2025-10-01 14:30:13] END seed_1:ATG_HIF1a_CIS_logistic_Pattern status=0
+[2025-10-03 14:35:39] SKIP seed_1:ATG_HIF1a_CIS_logistic_Pattern model.joblib exists
