@@ -1,0 +1,3 @@
+[2025-10-04 06:25:13] START seed_1:BSK_KF3CT_TIMP2_gbt_Layered
+2025-10-04 06:25:16,608 - Using PyTorch device: cuda:0
+2025-10-04 06:25:16,609 - Selected compute device: cuda:0

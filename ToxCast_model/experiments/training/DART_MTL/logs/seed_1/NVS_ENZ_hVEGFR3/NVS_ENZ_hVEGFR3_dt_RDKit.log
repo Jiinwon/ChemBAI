@@ -1,0 +1,21 @@
+[2025-10-04 05:45:11] START seed_1:NVS_ENZ_hVEGFR3_dt_RDKit
+2025-10-04 05:45:13,891 - Using PyTorch device: cuda:0
+2025-10-04 05:45:13,892 - Selected compute device: cuda:0
+2025-10-04 05:46:55,052 - Best Model Parameters: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-10-04 05:46:55,052 - Validation F1 Score: 0.5409523809523809
+2025-10-04 05:46:55,052 - Validation Precision: 0.4333333333333333
+2025-10-04 05:46:55,052 - Validation Recall: 0.7333333333333333
+2025-10-04 05:46:55,052 - Validation Accuracy: 0.8032967032967033
+2025-10-04 05:46:55,052 - Validation AUC: 0.7984848484848485
+2025-10-04 05:46:55,218 - Holdout Validation F1 Score: 0.0
+2025-10-04 05:46:55,219 - Holdout Validation Precision: 0.0
+2025-10-04 05:46:55,219 - Holdout Validation Recall: 0.0
+2025-10-04 05:46:55,219 - Holdout Validation Accuracy: 0.8
+2025-10-04 05:46:55,219 - Holdout Validation AUC: nan
+2025-10-04 05:46:55,239 - Test F1 Score: 0.0
+2025-10-04 05:46:55,239 - Test Precision: 0.0
+2025-10-04 05:46:55,239 - Test Recall: 0.0
+2025-10-04 05:46:55,239 - Test Accuracy: 0.9166666666666666
+2025-10-04 05:46:55,239 - Test AUC: 0.5
+2025-10-04 05:46:55,241 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/NVS_ENZ_hVEGFR3_dt_RDKit/model.joblib
+[2025-10-04 05:46:55] END seed_1:NVS_ENZ_hVEGFR3_dt_RDKit status=0

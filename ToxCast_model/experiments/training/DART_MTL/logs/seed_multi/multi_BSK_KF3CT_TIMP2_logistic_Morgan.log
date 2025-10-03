@@ -46,3 +46,23 @@
 [2025-10-04 05:14:53] START seed_2:BSK_KF3CT_TIMP2_logistic_Morgan
 2025-10-04 05:14:56,165 - Using PyTorch device: cuda:0
 2025-10-04 05:14:56,166 - Selected compute device: cuda:0
+2025-10-04 05:39:04,361 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 05:39:04,361 - Validation F1 Score: 0.35707697505533204
+2025-10-04 05:39:04,361 - Validation Precision: 0.28791512285183174
+2025-10-04 05:39:04,361 - Validation Recall: 0.47313829787234035
+2025-10-04 05:39:04,361 - Validation Accuracy: 0.6946340766152087
+2025-10-04 05:39:04,361 - Validation AUC: 0.629614761538592
+2025-10-04 05:39:04,607 - Holdout Validation F1 Score: 0.3611111111111111
+2025-10-04 05:39:04,607 - Holdout Validation Precision: 0.3333333333333333
+2025-10-04 05:39:04,607 - Holdout Validation Recall: 0.3939393939393939
+2025-10-04 05:39:04,607 - Holdout Validation Accuracy: 0.684931506849315
+2025-10-04 05:39:04,607 - Holdout Validation AUC: 0.6149101635827299
+2025-10-04 05:39:04,624 - Test F1 Score: 0.3283582089552239
+2025-10-04 05:39:04,624 - Test Precision: 0.3333333333333333
+2025-10-04 05:39:04,624 - Test Recall: 0.3235294117647059
+2025-10-04 05:39:04,624 - Test Accuracy: 0.7
+2025-10-04 05:39:04,624 - Test AUC: 0.5927991886409737
+2025-10-04 05:39:04,626 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_KF3CT_TIMP2_logistic_Morgan/model.joblib
+[2025-10-04 05:39:05] END seed_2:BSK_KF3CT_TIMP2_logistic_Morgan status=0
+[2025-10-04 05:39:05] Job BSK_KF3CT_TIMP2_logistic_Morgan completed successfully
+[2025-10-04 05:39:05] Command finished with status 0

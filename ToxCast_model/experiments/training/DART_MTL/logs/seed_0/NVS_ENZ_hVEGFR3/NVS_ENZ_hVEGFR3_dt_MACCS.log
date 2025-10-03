@@ -1,0 +1,21 @@
+[2025-10-04 05:39:25] START seed_0:NVS_ENZ_hVEGFR3_dt_MACCS
+2025-10-04 05:39:29,175 - Using PyTorch device: cuda:0
+2025-10-04 05:39:29,175 - Selected compute device: cuda:0
+2025-10-04 05:39:41,249 - Best Model Parameters: {'criterion': 'gini', 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-10-04 05:39:41,249 - Validation F1 Score: 0.31555555555555553
+2025-10-04 05:39:41,249 - Validation Precision: 0.25
+2025-10-04 05:39:41,249 - Validation Recall: 0.4333333333333333
+2025-10-04 05:39:41,249 - Validation Accuracy: 0.7175824175824177
+2025-10-04 05:39:41,249 - Validation AUC: 0.5863636363636363
+2025-10-04 05:39:41,272 - Holdout Validation F1 Score: 0.0
+2025-10-04 05:39:41,272 - Holdout Validation Precision: 0.0
+2025-10-04 05:39:41,272 - Holdout Validation Recall: 0.0
+2025-10-04 05:39:41,272 - Holdout Validation Accuracy: 0.625
+2025-10-04 05:39:41,272 - Holdout Validation AUC: nan
+2025-10-04 05:39:41,280 - Test F1 Score: 0.0
+2025-10-04 05:39:41,280 - Test Precision: 0.0
+2025-10-04 05:39:41,280 - Test Recall: 0.0
+2025-10-04 05:39:41,280 - Test Accuracy: 0.625
+2025-10-04 05:39:41,280 - Test AUC: nan
+2025-10-04 05:39:41,282 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/NVS_ENZ_hVEGFR3_dt_MACCS/model.joblib
+[2025-10-04 05:39:41] END seed_0:NVS_ENZ_hVEGFR3_dt_MACCS status=0
