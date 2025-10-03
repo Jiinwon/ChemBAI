@@ -1,0 +1,6 @@
+[2025-10-04 05:04:24] Job 485877 starting on n007.hpc
+[2025-10-04 05:04:24] Label: BSK_KF3CT_TIMP2_logistic_Layered
+[2025-10-04 05:04:24] Job BSK_KF3CT_TIMP2_logistic_Layered starting on n007.hpc
+[2025-10-04 05:04:24] START seed_0:BSK_KF3CT_TIMP2_logistic_Layered
+2025-10-04 05:04:28,099 - Using PyTorch device: cuda:0
+2025-10-04 05:04:28,100 - Selected compute device: cuda:0
