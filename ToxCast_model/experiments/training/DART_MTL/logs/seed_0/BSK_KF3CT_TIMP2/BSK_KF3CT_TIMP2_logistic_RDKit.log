@@ -1,0 +1,3 @@
+[2025-10-04 04:27:23] START seed_0:BSK_KF3CT_TIMP2_logistic_RDKit
+2025-10-04 04:27:27,190 - Using PyTorch device: cuda:0
+2025-10-04 04:27:27,191 - Selected compute device: cuda:0

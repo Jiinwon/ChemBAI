@@ -1,0 +1,6 @@
+[2025-10-04 03:46:13] Job 485798 starting on n007.hpc
+[2025-10-04 03:46:13] Label: BSK_KF3CT_TIMP2_gbt_RDKit
+[2025-10-04 03:46:13] Job BSK_KF3CT_TIMP2_gbt_RDKit starting on n007.hpc
+[2025-10-04 03:46:13] START seed_0:BSK_KF3CT_TIMP2_gbt_RDKit
+2025-10-04 03:46:17,044 - Using PyTorch device: cuda:0
+2025-10-04 03:46:17,045 - Selected compute device: cuda:0
