@@ -1,3 +1,6 @@
 [2025-10-02 14:52:07] START seed_2:BSK_hDFCGF_TIMP1_logistic_RDKit
 2025-10-02 14:52:09,486 - Using PyTorch device: cuda:0
 2025-10-02 14:52:09,486 - Selected compute device: cuda:0
+[2025-10-03 20:48:47] START seed_2:BSK_hDFCGF_TIMP1_logistic_RDKit
+2025-10-03 20:48:51,446 - Using PyTorch device: cuda:0
+2025-10-03 20:48:51,447 - Selected compute device: cuda:0
