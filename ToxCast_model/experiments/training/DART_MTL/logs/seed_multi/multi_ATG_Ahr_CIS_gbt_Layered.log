@@ -91,3 +91,4 @@
 [2025-10-02 16:54:59] START seed_0:ATG_Ahr_CIS_gbt_Layered
 2025-10-02 16:55:03,636 - Using PyTorch device: cuda:0
 2025-10-02 16:55:03,636 - Selected compute device: cuda:0
+[2025-10-03 09:20:53] Command finished with status 0
