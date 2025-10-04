@@ -1,0 +1,21 @@
+[2025-10-04 11:51:51] START seed_1:CEETOX_H295R_ESTRADIOL_logistic_Morgan
+2025-10-04 11:51:54,121 - Using PyTorch device: cuda:0
+2025-10-04 11:51:54,122 - Selected compute device: cuda:0
+2025-10-04 12:00:11,856 - Best Model Parameters: {'C': 1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-04 12:00:11,856 - Validation F1 Score: 0.23941798941798945
+2025-10-04 12:00:11,856 - Validation Precision: 0.21078862314156432
+2025-10-04 12:00:11,856 - Validation Recall: 0.2818181818181818
+2025-10-04 12:00:11,856 - Validation Accuracy: 0.7905005107252299
+2025-10-04 12:00:11,856 - Validation AUC: 0.5770245787967306
+2025-10-04 12:00:12,057 - Holdout Validation F1 Score: 0.34782608695652173
+2025-10-04 12:00:12,058 - Holdout Validation Precision: 0.25
+2025-10-04 12:00:12,058 - Holdout Validation Recall: 0.5714285714285714
+2025-10-04 12:00:12,058 - Holdout Validation Accuracy: 0.6739130434782609
+2025-10-04 12:00:12,058 - Holdout Validation AUC: 0.6703296703296704
+2025-10-04 12:00:12,073 - Test F1 Score: 0.1111111111111111
+2025-10-04 12:00:12,073 - Test Precision: 0.16666666666666666
+2025-10-04 12:00:12,073 - Test Recall: 0.08333333333333333
+2025-10-04 12:00:12,073 - Test Accuracy: 0.7575757575757576
+2025-10-04 12:00:12,074 - Test AUC: 0.5432098765432098
+2025-10-04 12:00:12,075 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/CEETOX_H295R_ESTRADIOL_logistic_Morgan/model.joblib
+[2025-10-04 12:00:12] END seed_1:CEETOX_H295R_ESTRADIOL_logistic_Morgan status=0

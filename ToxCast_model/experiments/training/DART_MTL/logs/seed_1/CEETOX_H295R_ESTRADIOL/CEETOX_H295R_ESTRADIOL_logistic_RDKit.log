@@ -1,0 +1,3 @@
+[2025-10-04 12:21:26] START seed_1:CEETOX_H295R_ESTRADIOL_logistic_RDKit
+2025-10-04 12:21:29,458 - Using PyTorch device: cuda:0
+2025-10-04 12:21:29,458 - Selected compute device: cuda:0

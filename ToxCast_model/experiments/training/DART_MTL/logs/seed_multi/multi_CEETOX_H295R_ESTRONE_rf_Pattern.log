@@ -1,0 +1,6 @@
+[2025-10-04 12:31:53] Job 486612 starting on n005.hpc
+[2025-10-04 12:31:53] Label: CEETOX_H295R_ESTRONE_rf_Pattern
+[2025-10-04 12:31:53] Job CEETOX_H295R_ESTRONE_rf_Pattern starting on n005.hpc
+[2025-10-04 12:31:53] START seed_0:CEETOX_H295R_ESTRONE_rf_Pattern
+2025-10-04 12:31:56,822 - Using PyTorch device: cuda:0
+2025-10-04 12:31:56,823 - Selected compute device: cuda:0

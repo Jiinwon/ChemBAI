@@ -25,3 +25,44 @@
 [2025-10-04 11:10:46] START seed_1:CEETOX_H295R_ESTRADIOL_xgb_RDKit
 2025-10-04 11:10:48,645 - Using PyTorch device: cuda:0
 2025-10-04 11:10:48,645 - Selected compute device: cuda:0
+2025-10-04 11:41:57,704 - Best Model Parameters: {'colsample_bytree': 1.0, 'learning_rate': 0.05, 'max_depth': 9, 'min_child_weight': 3, 'n_estimators': 200, 'subsample': 0.8}
+2025-10-04 11:41:57,705 - Validation F1 Score: 0.1473913043478261
+2025-10-04 11:41:57,705 - Validation Precision: 0.1766666666666667
+2025-10-04 11:41:57,705 - Validation Recall: 0.13454545454545458
+2025-10-04 11:41:57,705 - Validation Accuracy: 0.8063329928498468
+2025-10-04 11:41:57,705 - Validation AUC: 0.5504284323271665
+2025-10-04 11:42:00,042 - Holdout Validation F1 Score: 0.4
+2025-10-04 11:42:00,042 - Holdout Validation Precision: 0.375
+2025-10-04 11:42:00,042 - Holdout Validation Recall: 0.42857142857142855
+2025-10-04 11:42:00,042 - Holdout Validation Accuracy: 0.8043478260869565
+2025-10-04 11:42:00,042 - Holdout Validation AUC: 0.684981684981685
+2025-10-04 11:42:00,765 - Test F1 Score: 0.13333333333333333
+2025-10-04 11:42:00,765 - Test Precision: 0.3333333333333333
+2025-10-04 11:42:00,765 - Test Recall: 0.08333333333333333
+2025-10-04 11:42:00,765 - Test Accuracy: 0.803030303030303
+2025-10-04 11:42:00,765 - Test AUC: 0.5447530864197532
+2025-10-04 11:42:00,769 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/CEETOX_H295R_ESTRADIOL_xgb_RDKit/model.joblib
+[2025-10-04 11:42:01] END seed_1:CEETOX_H295R_ESTRADIOL_xgb_RDKit status=0
+[2025-10-04 11:42:01] START seed_2:CEETOX_H295R_ESTRADIOL_xgb_RDKit
+2025-10-04 11:42:03,662 - Using PyTorch device: cuda:0
+2025-10-04 11:42:03,663 - Selected compute device: cuda:0
+2025-10-04 12:12:55,931 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 400, 'subsample': 1.0}
+2025-10-04 12:12:55,932 - Validation F1 Score: 0.25337461300309594
+2025-10-04 12:12:55,932 - Validation Precision: 0.28555555555555556
+2025-10-04 12:12:55,932 - Validation Recall: 0.23272727272727273
+2025-10-04 12:12:55,932 - Validation Accuracy: 0.8341176470588236
+2025-10-04 12:12:55,932 - Validation AUC: 0.6101597051597051
+2025-10-04 12:12:58,781 - Holdout Validation F1 Score: 0.2857142857142857
+2025-10-04 12:12:58,781 - Holdout Validation Precision: 0.42857142857142855
+2025-10-04 12:12:58,781 - Holdout Validation Recall: 0.21428571428571427
+2025-10-04 12:12:58,781 - Holdout Validation Accuracy: 0.7692307692307693
+2025-10-04 12:12:58,781 - Holdout Validation AUC: 0.6400560224089635
+2025-10-04 12:12:59,510 - Test F1 Score: 0.0
+2025-10-04 12:12:59,510 - Test Precision: 0.0
+2025-10-04 12:12:59,510 - Test Recall: 0.0
+2025-10-04 12:12:59,510 - Test Accuracy: 0.855072463768116
+2025-10-04 12:12:59,510 - Test AUC: 0.37037037037037035
+2025-10-04 12:12:59,515 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/CEETOX_H295R_ESTRADIOL_xgb_RDKit/model.joblib
+[2025-10-04 12:13:00] END seed_2:CEETOX_H295R_ESTRADIOL_xgb_RDKit status=0
+[2025-10-04 12:13:00] Job CEETOX_H295R_ESTRADIOL_xgb_RDKit completed successfully
+[2025-10-04 12:13:00] Command finished with status 0

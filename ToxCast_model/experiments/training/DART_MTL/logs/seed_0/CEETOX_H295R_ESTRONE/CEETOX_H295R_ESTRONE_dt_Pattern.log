@@ -1,0 +1,21 @@
+[2025-10-04 12:17:52] START seed_0:CEETOX_H295R_ESTRONE_dt_Pattern
+2025-10-04 12:17:55,255 - Using PyTorch device: cuda:0
+2025-10-04 12:17:55,255 - Selected compute device: cuda:0
+2025-10-04 12:19:53,889 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': 3, 'min_samples_leaf': 3, 'min_samples_split': 2}
+2025-10-04 12:19:53,889 - Validation F1 Score: 0.22774941061468573
+2025-10-04 12:19:53,889 - Validation Precision: 0.1458422736683606
+2025-10-04 12:19:53,889 - Validation Recall: 0.5555555555555556
+2025-10-04 12:19:53,889 - Validation Accuracy: 0.5995182174043963
+2025-10-04 12:19:53,889 - Validation AUC: 0.6113605614747168
+2025-10-04 12:19:54,098 - Holdout Validation F1 Score: 0.3333333333333333
+2025-10-04 12:19:54,098 - Holdout Validation Precision: 0.23076923076923078
+2025-10-04 12:19:54,098 - Holdout Validation Recall: 0.6
+2025-10-04 12:19:54,098 - Holdout Validation Accuracy: 0.47058823529411764
+2025-10-04 12:19:54,098 - Holdout Validation AUC: 0.529559748427673
+2025-10-04 12:19:54,120 - Test F1 Score: 0.4857142857142857
+2025-10-04 12:19:54,121 - Test Precision: 0.40476190476190477
+2025-10-04 12:19:54,121 - Test Recall: 0.6071428571428571
+2025-10-04 12:19:54,121 - Test Accuracy: 0.5555555555555556
+2025-10-04 12:19:54,121 - Test AUC: 0.544811320754717
+2025-10-04 12:19:54,123 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/CEETOX_H295R_ESTRONE_dt_Pattern/model.joblib
+[2025-10-04 12:19:54] END seed_0:CEETOX_H295R_ESTRONE_dt_Pattern status=0
