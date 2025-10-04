@@ -10,3 +10,18 @@
 2025-10-05 07:37:28,908 - Validation Recall: 0.37158020274299347
 2025-10-05 07:37:28,908 - Validation Accuracy: 0.8802180787497675
 2025-10-05 07:37:28,908 - Validation AUC: 0.7630746426137817
+2025-10-05 07:40:16,496 - Holdout Validation F1 Score: 0.48760330578512395
+2025-10-05 07:40:16,496 - Holdout Validation Precision: 0.5959595959595959
+2025-10-05 07:40:16,496 - Holdout Validation Recall: 0.4125874125874126
+2025-10-05 07:40:16,496 - Holdout Validation Accuracy: 0.8442211055276382
+2025-10-05 07:40:16,496 - Holdout Validation AUC: 0.802477002323863
+2025-10-05 07:40:16,547 - Test F1 Score: 0.2965779467680608
+2025-10-05 07:40:16,547 - Test Precision: 0.34210526315789475
+2025-10-05 07:40:16,547 - Test Recall: 0.26174496644295303
+2025-10-05 07:40:16,547 - Test Accuracy: 0.7628205128205128
+2025-10-05 07:40:16,547 - Test AUC: 0.6671098395005264
+2025-10-05 07:40:16,566 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_ERa_BLA_Antagonist_ratio_gbt_Layered/model.joblib
+[2025-10-05 07:40:17] END seed_0:TOX21_ERa_BLA_Antagonist_ratio_gbt_Layered status=0
+[2025-10-05 07:40:17] START seed_1:TOX21_ERa_BLA_Antagonist_ratio_gbt_Layered
+2025-10-05 07:40:19,987 - Using PyTorch device: cuda:0
+2025-10-05 07:40:19,988 - Selected compute device: cuda:0
