@@ -1,0 +1,3 @@
+[2025-10-05 02:32:38] START seed_1:TOX21_ERa_BLA_Antagonist_ratio_logistic_Pattern
+2025-10-05 02:32:40,393 - Using PyTorch device: cuda:0
+2025-10-05 02:32:40,394 - Selected compute device: cuda:0
