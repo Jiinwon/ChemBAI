@@ -1,0 +1,21 @@
+[2025-10-04 14:55:01] START seed_2:CEETOX_H295R_ESTRONE_logistic_Pattern
+2025-10-04 14:55:03,246 - Using PyTorch device: cuda:0
+2025-10-04 14:55:03,246 - Selected compute device: cuda:0
+2025-10-04 15:17:33,394 - Best Model Parameters: {'C': 1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-04 15:17:33,394 - Validation F1 Score: 0.34353303146406594
+2025-10-04 15:17:33,394 - Validation Precision: 0.33335497835497835
+2025-10-04 15:17:33,394 - Validation Recall: 0.36923076923076925
+2025-10-04 15:17:33,394 - Validation Accuracy: 0.7938375350140057
+2025-10-04 15:17:33,394 - Validation AUC: 0.646677500902853
+2025-10-04 15:17:33,741 - Holdout Validation F1 Score: 0.36363636363636365
+2025-10-04 15:17:33,741 - Holdout Validation Precision: 0.35294117647058826
+2025-10-04 15:17:33,741 - Holdout Validation Recall: 0.375
+2025-10-04 15:17:33,741 - Holdout Validation Accuracy: 0.676923076923077
+2025-10-04 15:17:33,741 - Holdout Validation AUC: 0.5848214285714286
+2025-10-04 15:17:33,764 - Test F1 Score: 0.09523809523809523
+2025-10-04 15:17:33,764 - Test Precision: 0.07142857142857142
+2025-10-04 15:17:33,764 - Test Recall: 0.14285714285714285
+2025-10-04 15:17:33,764 - Test Accuracy: 0.7246376811594203
+2025-10-04 15:17:33,764 - Test AUC: 0.35253456221198154
+2025-10-04 15:17:33,766 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/CEETOX_H295R_ESTRONE_logistic_Pattern/model.joblib
+[2025-10-04 15:17:34] END seed_2:CEETOX_H295R_ESTRONE_logistic_Pattern status=0

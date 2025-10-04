@@ -1,0 +1,6 @@
+[2025-10-04 15:32:09] Job 486919 starting on n006.hpc
+[2025-10-04 15:32:09] Label: CEETOX_H295R_PROG_gbt_Layered
+[2025-10-04 15:32:09] Job CEETOX_H295R_PROG_gbt_Layered starting on n006.hpc
+[2025-10-04 15:32:09] START seed_0:CEETOX_H295R_PROG_gbt_Layered
+2025-10-04 15:32:12,873 - Using PyTorch device: cuda:0
+2025-10-04 15:32:12,874 - Selected compute device: cuda:0

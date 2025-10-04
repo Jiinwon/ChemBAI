@@ -1,0 +1,6 @@
+[2025-10-04 15:34:06] Job 486928 starting on n005.hpc
+[2025-10-04 15:34:06] Label: CEETOX_H295R_PROG_logistic_MACCS
+[2025-10-04 15:34:06] Job CEETOX_H295R_PROG_logistic_MACCS starting on n005.hpc
+[2025-10-04 15:34:06] START seed_0:CEETOX_H295R_PROG_logistic_MACCS
+2025-10-04 15:34:10,002 - Using PyTorch device: cuda:0
+2025-10-04 15:34:10,002 - Selected compute device: cuda:0
