@@ -1,0 +1,6 @@
+[2025-10-04 17:25:24] Job 487127 starting on n005.hpc
+[2025-10-04 17:25:24] Label: TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit
+[2025-10-04 17:25:24] Job TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit starting on n005.hpc
+[2025-10-04 17:25:24] START seed_0:TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit
+2025-10-04 17:25:28,301 - Using PyTorch device: cuda:0
+2025-10-04 17:25:28,301 - Selected compute device: cuda:0
