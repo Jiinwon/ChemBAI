@@ -1,0 +1,3 @@
+[2025-10-04 16:34:31] START seed_2:CEETOX_H295R_PROG_logistic_Pattern
+2025-10-04 16:34:33,947 - Using PyTorch device: cuda:0
+2025-10-04 16:34:33,948 - Selected compute device: cuda:0

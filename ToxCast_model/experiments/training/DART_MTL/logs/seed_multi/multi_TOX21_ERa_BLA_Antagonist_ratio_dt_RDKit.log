@@ -1,0 +1,27 @@
+[2025-10-04 16:21:42] Job 486978 starting on n007.hpc
+[2025-10-04 16:21:42] Label: TOX21_ERa_BLA_Antagonist_ratio_dt_RDKit
+[2025-10-04 16:21:42] Job TOX21_ERa_BLA_Antagonist_ratio_dt_RDKit starting on n007.hpc
+[2025-10-04 16:21:42] START seed_0:TOX21_ERa_BLA_Antagonist_ratio_dt_RDKit
+2025-10-04 16:21:46,308 - Using PyTorch device: cuda:0
+2025-10-04 16:21:46,309 - Selected compute device: cuda:0
+2025-10-04 16:32:40,078 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 4}
+2025-10-04 16:32:40,079 - Validation F1 Score: 0.3633257763490097
+2025-10-04 16:32:40,079 - Validation Precision: 0.3078917105902973
+2025-10-04 16:32:40,079 - Validation Recall: 0.4442576028622541
+2025-10-04 16:32:40,079 - Validation Accuracy: 0.8358697790440452
+2025-10-04 16:32:40,079 - Validation AUC: 0.6667562430406321
+2025-10-04 16:32:43,054 - Holdout Validation F1 Score: 0.3753501400560224
+2025-10-04 16:32:43,054 - Holdout Validation Precision: 0.3130841121495327
+2025-10-04 16:32:43,054 - Holdout Validation Recall: 0.46853146853146854
+2025-10-04 16:32:43,054 - Holdout Validation Accuracy: 0.7198492462311558
+2025-10-04 16:32:43,054 - Holdout Validation AUC: 0.638125274419302
+2025-10-04 16:32:43,081 - Test F1 Score: 0.25748502994011974
+2025-10-04 16:32:43,081 - Test Precision: 0.23243243243243245
+2025-10-04 16:32:43,081 - Test Recall: 0.28859060402684567
+2025-10-04 16:32:43,081 - Test Accuracy: 0.6820512820512821
+2025-10-04 16:32:43,081 - Test AUC: 0.5279358427551879
+2025-10-04 16:32:43,083 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_ERa_BLA_Antagonist_ratio_dt_RDKit/model.joblib
+[2025-10-04 16:32:43] END seed_0:TOX21_ERa_BLA_Antagonist_ratio_dt_RDKit status=0
+[2025-10-04 16:32:43] START seed_1:TOX21_ERa_BLA_Antagonist_ratio_dt_RDKit
+2025-10-04 16:32:45,793 - Using PyTorch device: cuda:0
+2025-10-04 16:32:45,794 - Selected compute device: cuda:0
