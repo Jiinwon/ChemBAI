@@ -25,3 +25,44 @@
 [2025-10-04 20:31:03] START seed_1:TOX21_p53_BLA_p2_ratio_dt_RDKit
 2025-10-04 20:31:07,202 - Using PyTorch device: cuda:0
 2025-10-04 20:31:07,203 - Selected compute device: cuda:0
+2025-10-04 20:42:51,287 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-10-04 20:42:51,287 - Validation F1 Score: 0.3008845057565535
+2025-10-04 20:42:51,287 - Validation Precision: 0.2421779970266252
+2025-10-04 20:42:51,287 - Validation Recall: 0.39922412272967733
+2025-10-04 20:42:51,288 - Validation Accuracy: 0.8401458509473818
+2025-10-04 20:42:51,288 - Validation AUC: 0.6421434327639588
+2025-10-04 20:42:54,615 - Holdout Validation F1 Score: 0.13145539906103287
+2025-10-04 20:42:54,615 - Holdout Validation Precision: 0.1206896551724138
+2025-10-04 20:42:54,615 - Holdout Validation Recall: 0.14432989690721648
+2025-10-04 20:42:54,615 - Holdout Validation Accuracy: 0.7609819121447028
+2025-10-04 20:42:54,615 - Holdout Validation AUC: 0.5283695503205471
+2025-10-04 20:42:54,643 - Test F1 Score: 0.23834196891191708
+2025-10-04 20:42:54,643 - Test Precision: 0.21296296296296297
+2025-10-04 20:42:54,643 - Test Recall: 0.27058823529411763
+2025-10-04 20:42:54,643 - Test Accuracy: 0.8090909090909091
+2025-10-04 20:42:54,643 - Test AUC: 0.5682610562473164
+2025-10-04 20:42:54,646 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_p53_BLA_p2_ratio_dt_RDKit/model.joblib
+[2025-10-04 20:42:55] END seed_1:TOX21_p53_BLA_p2_ratio_dt_RDKit status=0
+[2025-10-04 20:42:55] START seed_2:TOX21_p53_BLA_p2_ratio_dt_RDKit
+2025-10-04 20:42:58,163 - Using PyTorch device: cuda:0
+2025-10-04 20:42:58,164 - Selected compute device: cuda:0
+2025-10-04 20:54:27,708 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 2}
+2025-10-04 20:54:27,708 - Validation F1 Score: 0.3219551809857856
+2025-10-04 20:54:27,708 - Validation Precision: 0.27046984068057894
+2025-10-04 20:54:27,708 - Validation Recall: 0.4018348623853211
+2025-10-04 20:54:27,708 - Validation Accuracy: 0.8484107579462103
+2025-10-04 20:54:27,708 - Validation AUC: 0.6613062316390671
+2025-10-04 20:54:30,902 - Holdout Validation F1 Score: 0.19742489270386265
+2025-10-04 20:54:30,902 - Holdout Validation Precision: 0.1513157894736842
+2025-10-04 20:54:30,903 - Holdout Validation Recall: 0.2839506172839506
+2025-10-04 20:54:30,903 - Holdout Validation Accuracy: 0.7599486521181001
+2025-10-04 20:54:30,903 - Holdout Validation AUC: 0.5577133962998337
+2025-10-04 20:54:30,932 - Test F1 Score: 0.1940928270042194
+2025-10-04 20:54:30,932 - Test Precision: 0.15333333333333332
+2025-10-04 20:54:30,932 - Test Recall: 0.26436781609195403
+2025-10-04 20:54:30,932 - Test Accuracy: 0.7529107373868047
+2025-10-04 20:54:30,932 - Test AUC: 0.5429610267752422
+2025-10-04 20:54:30,934 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_p53_BLA_p2_ratio_dt_RDKit/model.joblib
+[2025-10-04 20:54:31] END seed_2:TOX21_p53_BLA_p2_ratio_dt_RDKit status=0
+[2025-10-04 20:54:31] Job TOX21_p53_BLA_p2_ratio_dt_RDKit completed successfully
+[2025-10-04 20:54:31] Command finished with status 0

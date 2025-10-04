@@ -1,0 +1,21 @@
+[2025-10-04 20:42:25] START seed_0:TOX21_p53_BLA_p2_ratio_dt_Pattern
+2025-10-04 20:42:29,394 - Using PyTorch device: cuda:0
+2025-10-04 20:42:29,395 - Selected compute device: cuda:0
+2025-10-04 20:52:21,067 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-10-04 20:52:21,067 - Validation F1 Score: 0.30183202523409897
+2025-10-04 20:52:21,067 - Validation Precision: 0.25870796550314423
+2025-10-04 20:52:21,067 - Validation Recall: 0.3632236842105263
+2025-10-04 20:52:21,067 - Validation Accuracy: 0.8679423167253928
+2025-10-04 20:52:21,067 - Validation AUC: 0.6371735158187716
+2025-10-04 20:52:23,438 - Holdout Validation F1 Score: 0.38686131386861317
+2025-10-04 20:52:23,439 - Holdout Validation Precision: 0.36551724137931035
+2025-10-04 20:52:23,439 - Holdout Validation Recall: 0.4108527131782946
+2025-10-04 20:52:23,439 - Holdout Validation Accuracy: 0.7889447236180904
+2025-10-04 20:52:23,439 - Holdout Validation AUC: 0.6393605522819985
+2025-10-04 20:52:23,467 - Test F1 Score: 0.2683982683982684
+2025-10-04 20:52:23,467 - Test Precision: 0.24603174603174602
+2025-10-04 20:52:23,467 - Test Recall: 0.29523809523809524
+2025-10-04 20:52:23,467 - Test Accuracy: 0.7833333333333333
+2025-10-04 20:52:23,467 - Test AUC: 0.5808183421516754
+2025-10-04 20:52:23,469 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_p53_BLA_p2_ratio_dt_Pattern/model.joblib
+[2025-10-04 20:52:23] END seed_0:TOX21_p53_BLA_p2_ratio_dt_Pattern status=0
