@@ -63,3 +63,6 @@
 2025-10-04 10:33:04,741 - Test Accuracy: 0.8115942028985508
 2025-10-04 10:33:04,741 - Test AUC: 0.5793650793650794
 2025-10-04 10:33:04,878 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/CEETOX_H295R_ESTRADIOL_rf_MACCS/model.joblib
+[2025-10-04 10:33:05] END seed_2:CEETOX_H295R_ESTRADIOL_rf_MACCS status=0
+[2025-10-04 10:33:05] Job CEETOX_H295R_ESTRADIOL_rf_MACCS completed successfully
+[2025-10-04 10:33:05] Command finished with status 0

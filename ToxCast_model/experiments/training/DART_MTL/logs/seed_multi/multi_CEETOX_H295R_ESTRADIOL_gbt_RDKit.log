@@ -1,0 +1,6 @@
+[2025-10-04 11:11:34] Job 486475 starting on n006.hpc
+[2025-10-04 11:11:34] Label: CEETOX_H295R_ESTRADIOL_gbt_RDKit
+[2025-10-04 11:11:34] Job CEETOX_H295R_ESTRADIOL_gbt_RDKit starting on n006.hpc
+[2025-10-04 11:11:34] START seed_0:CEETOX_H295R_ESTRADIOL_gbt_RDKit
+2025-10-04 11:11:38,042 - Using PyTorch device: cuda:0
+2025-10-04 11:11:38,042 - Selected compute device: cuda:0
