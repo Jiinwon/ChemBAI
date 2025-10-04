@@ -1,0 +1,21 @@
+[2025-10-04 13:26:13] START seed_2:CEETOX_H295R_ESTRONE_gbt_MACCS
+2025-10-04 13:26:16,721 - Using PyTorch device: cuda:0
+2025-10-04 13:26:16,722 - Selected compute device: cuda:0
+2025-10-04 13:33:40,516 - Best Model Parameters: {'learning_rate': 0.1, 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 200}
+2025-10-04 13:33:40,516 - Validation F1 Score: 0.4454700854700855
+2025-10-04 13:33:40,516 - Validation Precision: 0.4232767232767233
+2025-10-04 13:33:40,516 - Validation Recall: 0.4769230769230769
+2025-10-04 13:33:40,516 - Validation Accuracy: 0.8222689075630252
+2025-10-04 13:33:40,516 - Validation AUC: 0.7089563019140483
+2025-10-04 13:33:41,044 - Holdout Validation F1 Score: 0.25806451612903225
+2025-10-04 13:33:41,045 - Holdout Validation Precision: 0.26666666666666666
+2025-10-04 13:33:41,045 - Holdout Validation Recall: 0.25
+2025-10-04 13:33:41,045 - Holdout Validation Accuracy: 0.6461538461538462
+2025-10-04 13:33:41,045 - Holdout Validation AUC: 0.5510204081632653
+2025-10-04 13:33:41,055 - Test F1 Score: 0.16666666666666666
+2025-10-04 13:33:41,055 - Test Precision: 0.11764705882352941
+2025-10-04 13:33:41,055 - Test Recall: 0.2857142857142857
+2025-10-04 13:33:41,055 - Test Accuracy: 0.7101449275362319
+2025-10-04 13:33:41,055 - Test AUC: 0.4447004608294931
+2025-10-04 13:33:41,063 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/CEETOX_H295R_ESTRONE_gbt_MACCS/model.joblib
+[2025-10-04 13:33:41] END seed_2:CEETOX_H295R_ESTRONE_gbt_MACCS status=0
