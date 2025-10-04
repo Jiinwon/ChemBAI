@@ -1,3 +1,9 @@
 [2025-10-04 17:52:47] START seed_0:TOX21_ERa_BLA_Antagonist_ratio_gbt_Layered
 2025-10-04 17:52:51,088 - Using PyTorch device: cuda:0
 2025-10-04 17:52:51,089 - Selected compute device: cuda:0
+2025-10-05 07:37:28,908 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-05 07:37:28,908 - Validation F1 Score: 0.3955577648792212
+2025-10-05 07:37:28,908 - Validation Precision: 0.42400025288132104
+2025-10-05 07:37:28,908 - Validation Recall: 0.37158020274299347
+2025-10-05 07:37:28,908 - Validation Accuracy: 0.8802180787497675
+2025-10-05 07:37:28,908 - Validation AUC: 0.7630746426137817
