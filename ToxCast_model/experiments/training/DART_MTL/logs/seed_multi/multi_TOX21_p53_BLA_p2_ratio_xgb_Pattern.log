@@ -1,0 +1,6 @@
+[2025-10-04 23:48:00] Job 487344 starting on n005.hpc
+[2025-10-04 23:48:00] Label: TOX21_p53_BLA_p2_ratio_xgb_Pattern
+[2025-10-04 23:48:00] Job TOX21_p53_BLA_p2_ratio_xgb_Pattern starting on n005.hpc
+[2025-10-04 23:48:00] START seed_0:TOX21_p53_BLA_p2_ratio_xgb_Pattern
+2025-10-04 23:48:04,340 - Using PyTorch device: cuda:0
+2025-10-04 23:48:04,340 - Selected compute device: cuda:0
