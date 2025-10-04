@@ -46,3 +46,23 @@
 [2025-10-04 08:30:01] START seed_2:NVS_ENZ_hVEGFR3_logistic_Layered
 2025-10-04 08:30:03,617 - Using PyTorch device: cuda:0
 2025-10-04 08:30:03,618 - Selected compute device: cuda:0
+2025-10-04 08:33:30,878 - Best Model Parameters: {'C': 2, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 08:33:30,878 - Validation F1 Score: 0.36666666666666664
+2025-10-04 08:33:30,878 - Validation Precision: 0.5
+2025-10-04 08:33:30,878 - Validation Recall: 0.3
+2025-10-04 08:33:30,878 - Validation Accuracy: 0.8089743589743591
+2025-10-04 08:33:30,878 - Validation AUC: 0.6436363636363638
+2025-10-04 08:33:31,130 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:33:31,130 - Holdout Validation Precision: 0.0
+2025-10-04 08:33:31,130 - Holdout Validation Recall: 0.0
+2025-10-04 08:33:31,130 - Holdout Validation Accuracy: 0.9
+2025-10-04 08:33:31,130 - Holdout Validation AUC: 1.0
+2025-10-04 08:33:31,151 - Test F1 Score: 0.5
+2025-10-04 08:33:31,151 - Test Precision: 0.3333333333333333
+2025-10-04 08:33:31,151 - Test Recall: 1.0
+2025-10-04 08:33:31,151 - Test Accuracy: 0.8
+2025-10-04 08:33:31,151 - Test AUC: 1.0
+2025-10-04 08:33:31,153 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/NVS_ENZ_hVEGFR3_logistic_Layered/model.joblib
+[2025-10-04 08:33:31] END seed_2:NVS_ENZ_hVEGFR3_logistic_Layered status=0
+[2025-10-04 08:33:31] Job NVS_ENZ_hVEGFR3_logistic_Layered completed successfully
+[2025-10-04 08:33:31] Command finished with status 0

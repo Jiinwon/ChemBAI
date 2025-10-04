@@ -1,0 +1,6 @@
+[2025-10-04 09:06:04] Job 486268 starting on n007.hpc
+[2025-10-04 09:06:04] Label: CEETOX_H295R_OHPROG_gbt_Pattern
+[2025-10-04 09:06:04] Job CEETOX_H295R_OHPROG_gbt_Pattern starting on n007.hpc
+[2025-10-04 09:06:04] START seed_0:CEETOX_H295R_OHPROG_gbt_Pattern
+2025-10-04 09:06:07,987 - Using PyTorch device: cuda:0
+2025-10-04 09:06:07,988 - Selected compute device: cuda:0

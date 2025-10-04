@@ -1,0 +1,6 @@
+[2025-10-04 08:51:04] Job 486261 starting on n005.hpc
+[2025-10-04 08:51:04] Label: CEETOX_H295R_OHPROG_gbt_RDKit
+[2025-10-04 08:51:04] Job CEETOX_H295R_OHPROG_gbt_RDKit starting on n005.hpc
+[2025-10-04 08:51:04] START seed_0:CEETOX_H295R_OHPROG_gbt_RDKit
+2025-10-04 08:51:07,895 - Using PyTorch device: cuda:0
+2025-10-04 08:51:07,895 - Selected compute device: cuda:0
