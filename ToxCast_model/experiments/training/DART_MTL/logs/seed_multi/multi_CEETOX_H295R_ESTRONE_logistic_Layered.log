@@ -1,0 +1,6 @@
+[2025-10-04 14:14:05] Job 486732 starting on n007.hpc
+[2025-10-04 14:14:05] Label: CEETOX_H295R_ESTRONE_logistic_Layered
+[2025-10-04 14:14:05] Job CEETOX_H295R_ESTRONE_logistic_Layered starting on n007.hpc
+[2025-10-04 14:14:05] START seed_0:CEETOX_H295R_ESTRONE_logistic_Layered
+2025-10-04 14:14:09,034 - Using PyTorch device: cuda:0
+2025-10-04 14:14:09,034 - Selected compute device: cuda:0

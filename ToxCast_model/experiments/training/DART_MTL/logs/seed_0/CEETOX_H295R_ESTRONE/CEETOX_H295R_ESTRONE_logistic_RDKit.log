@@ -1,0 +1,21 @@
+[2025-10-04 14:02:05] START seed_0:CEETOX_H295R_ESTRONE_logistic_RDKit
+2025-10-04 14:02:08,968 - Using PyTorch device: cuda:0
+2025-10-04 14:02:08,968 - Selected compute device: cuda:0
+2025-10-04 14:25:16,723 - Best Model Parameters: {'C': 5, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 14:25:16,723 - Validation F1 Score: 0.19731134878193704
+2025-10-04 14:25:16,723 - Validation Precision: 0.19822954822954822
+2025-10-04 14:25:16,723 - Validation Recall: 0.19999999999999998
+2025-10-04 14:25:16,723 - Validation Accuracy: 0.8279735019572418
+2025-10-04 14:25:16,723 - Validation AUC: 0.581350414341282
+2025-10-04 14:25:17,024 - Holdout Validation F1 Score: 0.1111111111111111
+2025-10-04 14:25:17,024 - Holdout Validation Precision: 0.3333333333333333
+2025-10-04 14:25:17,024 - Holdout Validation Recall: 0.06666666666666667
+2025-10-04 14:25:17,024 - Holdout Validation Accuracy: 0.7647058823529411
+2025-10-04 14:25:17,024 - Holdout Validation AUC: 0.5352201257861635
+2025-10-04 14:25:17,047 - Test F1 Score: 0.3404255319148936
+2025-10-04 14:25:17,047 - Test Precision: 0.42105263157894735
+2025-10-04 14:25:17,047 - Test Recall: 0.2857142857142857
+2025-10-04 14:25:17,047 - Test Accuracy: 0.6172839506172839
+2025-10-04 14:25:17,047 - Test AUC: 0.5929919137466307
+2025-10-04 14:25:17,049 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/CEETOX_H295R_ESTRONE_logistic_RDKit/model.joblib
+[2025-10-04 14:25:17] END seed_0:CEETOX_H295R_ESTRONE_logistic_RDKit status=0
