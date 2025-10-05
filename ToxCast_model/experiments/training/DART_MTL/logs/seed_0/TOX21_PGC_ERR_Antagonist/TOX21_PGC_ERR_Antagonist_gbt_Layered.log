@@ -1,0 +1,3 @@
+[2025-10-06 01:09:51] START seed_0:TOX21_PGC_ERR_Antagonist_gbt_Layered
+2025-10-06 01:09:54,624 - Using PyTorch device: cuda:0
+2025-10-06 01:09:54,625 - Selected compute device: cuda:0
