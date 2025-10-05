@@ -1,0 +1,6 @@
+[2025-10-05 21:54:11] Job 487915 starting on n005.hpc
+[2025-10-05 21:54:11] Label: TOX21_PGC_ERR_Antagonist_gbt_Morgan
+[2025-10-05 21:54:11] Job TOX21_PGC_ERR_Antagonist_gbt_Morgan starting on n005.hpc
+[2025-10-05 21:54:11] START seed_0:TOX21_PGC_ERR_Antagonist_gbt_Morgan
+2025-10-05 21:54:15,597 - Using PyTorch device: cuda:0
+2025-10-05 21:54:15,598 - Selected compute device: cuda:0

@@ -1,0 +1,6 @@
+[2025-10-05 21:53:12] Job 487905 starting on n005.hpc
+[2025-10-05 21:53:12] Label: TOX21_PGC_ERR_Antagonist_gbt_MACCS
+[2025-10-05 21:53:12] Job TOX21_PGC_ERR_Antagonist_gbt_MACCS starting on n005.hpc
+[2025-10-05 21:53:12] START seed_0:TOX21_PGC_ERR_Antagonist_gbt_MACCS
+2025-10-05 21:53:16,422 - Using PyTorch device: cuda:0
+2025-10-05 21:53:16,423 - Selected compute device: cuda:0
