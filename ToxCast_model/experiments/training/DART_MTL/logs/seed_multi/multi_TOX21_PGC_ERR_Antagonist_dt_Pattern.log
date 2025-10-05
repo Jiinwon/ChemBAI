@@ -1,0 +1,6 @@
+[2025-10-05 17:40:25] Job 487615 starting on n005.hpc
+[2025-10-05 17:40:25] Label: TOX21_PGC_ERR_Antagonist_dt_Pattern
+[2025-10-05 17:40:25] Job TOX21_PGC_ERR_Antagonist_dt_Pattern starting on n005.hpc
+[2025-10-05 17:40:25] START seed_0:TOX21_PGC_ERR_Antagonist_dt_Pattern
+2025-10-05 17:40:29,499 - Using PyTorch device: cuda:0
+2025-10-05 17:40:29,499 - Selected compute device: cuda:0
