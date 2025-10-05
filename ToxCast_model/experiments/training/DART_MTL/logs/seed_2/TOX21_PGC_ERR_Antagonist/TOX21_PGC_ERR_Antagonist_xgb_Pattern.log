@@ -1,0 +1,3 @@
+[2025-10-05 20:58:35] START seed_2:TOX21_PGC_ERR_Antagonist_xgb_Pattern
+2025-10-05 20:58:37,999 - Using PyTorch device: cuda:0
+2025-10-05 20:58:37,999 - Selected compute device: cuda:0
