@@ -1,0 +1,3 @@
+[2025-10-05 15:24:21] START seed_1:TOX21_p53_BLA_p2_ratio_logistic_MACCS
+2025-10-05 15:24:24,957 - Using PyTorch device: cuda:0
+2025-10-05 15:24:24,957 - Selected compute device: cuda:0

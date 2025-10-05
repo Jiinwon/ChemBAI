@@ -1,0 +1,6 @@
+[2025-10-05 15:06:39] Job 487435 starting on n005.hpc
+[2025-10-05 15:06:39] Label: TOX21_p53_BLA_p2_ratio_logistic_Morgan
+[2025-10-05 15:06:39] Job TOX21_p53_BLA_p2_ratio_logistic_Morgan starting on n005.hpc
+[2025-10-05 15:06:39] START seed_0:TOX21_p53_BLA_p2_ratio_logistic_Morgan
+2025-10-05 15:06:43,086 - Using PyTorch device: cuda:0
+2025-10-05 15:06:43,086 - Selected compute device: cuda:0
