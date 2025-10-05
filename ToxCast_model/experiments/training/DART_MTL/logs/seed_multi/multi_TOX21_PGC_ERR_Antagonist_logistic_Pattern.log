@@ -1,0 +1,6 @@
+[2025-10-06 05:57:48] Job 487997 starting on n006.hpc
+[2025-10-06 05:57:48] Label: TOX21_PGC_ERR_Antagonist_logistic_Pattern
+[2025-10-06 05:57:48] Job TOX21_PGC_ERR_Antagonist_logistic_Pattern starting on n006.hpc
+[2025-10-06 05:57:48] START seed_0:TOX21_PGC_ERR_Antagonist_logistic_Pattern
+2025-10-06 05:57:52,497 - Using PyTorch device: cuda:0
+2025-10-06 05:57:52,498 - Selected compute device: cuda:0
