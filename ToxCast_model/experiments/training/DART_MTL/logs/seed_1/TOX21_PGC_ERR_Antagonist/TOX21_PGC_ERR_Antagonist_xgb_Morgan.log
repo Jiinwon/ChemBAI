@@ -1,0 +1,3 @@
+[2025-10-05 19:19:54] START seed_1:TOX21_PGC_ERR_Antagonist_xgb_Morgan
+2025-10-05 19:19:57,662 - Using PyTorch device: cuda:0
+2025-10-05 19:19:57,662 - Selected compute device: cuda:0

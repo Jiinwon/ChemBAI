@@ -1,3 +1,21 @@
 [2025-10-05 17:21:45] START seed_1:TOX21_p53_BLA_p2_ratio_logistic_Morgan
 2025-10-05 17:21:48,480 - Using PyTorch device: cuda:0
 2025-10-05 17:21:48,480 - Selected compute device: cuda:0
+2025-10-05 19:37:52,782 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-05 19:37:52,783 - Validation F1 Score: 0.24795720526612977
+2025-10-05 19:37:52,783 - Validation Precision: 0.20225848494988447
+2025-10-05 19:37:52,783 - Validation Recall: 0.3219714336095926
+2025-10-05 19:37:52,783 - Validation Accuracy: 0.8311913766919427
+2025-10-05 19:37:52,783 - Validation AUC: 0.6114126743445968
+2025-10-05 19:37:53,479 - Holdout Validation F1 Score: 0.3384615384615385
+2025-10-05 19:37:53,480 - Holdout Validation Precision: 0.26993865030674846
+2025-10-05 19:37:53,480 - Holdout Validation Recall: 0.4536082474226804
+2025-10-05 19:37:53,480 - Holdout Validation Accuracy: 0.7777777777777778
+2025-10-05 19:37:53,480 - Holdout Validation AUC: 0.636380940778754
+2025-10-05 19:37:53,500 - Test F1 Score: 0.2094240837696335
+2025-10-05 19:37:53,500 - Test Precision: 0.18867924528301888
+2025-10-05 19:37:53,500 - Test Recall: 0.23529411764705882
+2025-10-05 19:37:53,500 - Test Accuracy: 0.8038961038961039
+2025-10-05 19:37:53,500 - Test AUC: 0.5542893945899527
+2025-10-05 19:37:53,502 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_p53_BLA_p2_ratio_logistic_Morgan/model.joblib
+[2025-10-05 19:37:53] END seed_1:TOX21_p53_BLA_p2_ratio_logistic_Morgan status=0
