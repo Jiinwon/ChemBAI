@@ -1,0 +1,3 @@
+[2025-10-05 18:34:04] START seed_2:TOX21_PGC_ERR_Antagonist_rf_RDKit
+2025-10-05 18:34:07,315 - Using PyTorch device: cuda:0
+2025-10-05 18:34:07,315 - Selected compute device: cuda:0
