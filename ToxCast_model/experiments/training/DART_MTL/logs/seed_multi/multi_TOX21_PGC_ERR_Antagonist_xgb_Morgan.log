@@ -25,3 +25,44 @@
 [2025-10-05 19:19:54] START seed_1:TOX21_PGC_ERR_Antagonist_xgb_Morgan
 2025-10-05 19:19:57,662 - Using PyTorch device: cuda:0
 2025-10-05 19:19:57,662 - Selected compute device: cuda:0
+2025-10-05 19:45:37,534 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 9, 'min_child_weight': 1, 'n_estimators': 400, 'subsample': 0.8}
+2025-10-05 19:45:37,534 - Validation F1 Score: 0.3188146358529861
+2025-10-05 19:45:37,534 - Validation Precision: 0.339847208122138
+2025-10-05 19:45:37,534 - Validation Recall: 0.3009842519685039
+2025-10-05 19:45:37,534 - Validation Accuracy: 0.8604205318491033
+2025-10-05 19:45:37,534 - Validation AUC: 0.688115188099641
+2025-10-05 19:45:40,524 - Holdout Validation F1 Score: 0.12941176470588237
+2025-10-05 19:45:40,524 - Holdout Validation Precision: 0.19298245614035087
+2025-10-05 19:45:40,524 - Holdout Validation Recall: 0.09734513274336283
+2025-10-05 19:45:40,524 - Holdout Validation Accuracy: 0.7900709219858156
+2025-10-05 19:45:40,524 - Holdout Validation AUC: 0.4798343697679981
+2025-10-05 19:45:40,917 - Test F1 Score: 0.2159090909090909
+2025-10-05 19:45:40,918 - Test Precision: 0.2714285714285714
+2025-10-05 19:45:40,918 - Test Recall: 0.1792452830188679
+2025-10-05 19:45:40,918 - Test Accuracy: 0.8061797752808989
+2025-10-05 19:45:40,918 - Test AUC: 0.593351080391058
+2025-10-05 19:45:40,924 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_PGC_ERR_Antagonist_xgb_Morgan/model.joblib
+[2025-10-05 19:45:41] END seed_1:TOX21_PGC_ERR_Antagonist_xgb_Morgan status=0
+[2025-10-05 19:45:41] START seed_2:TOX21_PGC_ERR_Antagonist_xgb_Morgan
+2025-10-05 19:45:44,338 - Using PyTorch device: cuda:0
+2025-10-05 19:45:44,339 - Selected compute device: cuda:0
+2025-10-05 20:11:22,285 - Best Model Parameters: {'colsample_bytree': 1.0, 'learning_rate': 0.1, 'max_depth': 9, 'min_child_weight': 5, 'n_estimators': 400, 'subsample': 0.8}
+2025-10-05 20:11:22,285 - Validation F1 Score: 0.34094899226848885
+2025-10-05 20:11:22,286 - Validation Precision: 0.33405135394182606
+2025-10-05 20:11:22,286 - Validation Recall: 0.3503759398496241
+2025-10-05 20:11:22,286 - Validation Accuracy: 0.8473508211659224
+2025-10-05 20:11:22,286 - Validation AUC: 0.7054660710038508
+2025-10-05 20:11:25,284 - Holdout Validation F1 Score: 0.2553191489361702
+2025-10-05 20:11:25,284 - Holdout Validation Precision: 0.24742268041237114
+2025-10-05 20:11:25,284 - Holdout Validation Recall: 0.26373626373626374
+2025-10-05 20:11:25,284 - Holdout Validation Accuracy: 0.7976878612716763
+2025-10-05 20:11:25,284 - Holdout Validation AUC: 0.645416979027628
+2025-10-05 20:11:25,682 - Test F1 Score: 0.2413793103448276
+2025-10-05 20:11:25,682 - Test Precision: 0.2876712328767123
+2025-10-05 20:11:25,682 - Test Recall: 0.2079207920792079
+2025-10-05 20:11:25,682 - Test Accuracy: 0.8108882521489972
+2025-10-05 20:11:25,682 - Test AUC: 0.6080899547241156
+2025-10-05 20:11:25,687 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_PGC_ERR_Antagonist_xgb_Morgan/model.joblib
+[2025-10-05 20:11:26] END seed_2:TOX21_PGC_ERR_Antagonist_xgb_Morgan status=0
+[2025-10-05 20:11:26] Job TOX21_PGC_ERR_Antagonist_xgb_Morgan completed successfully
+[2025-10-05 20:11:26] Command finished with status 0

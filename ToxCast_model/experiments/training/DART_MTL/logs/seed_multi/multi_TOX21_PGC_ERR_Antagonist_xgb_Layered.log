@@ -1,0 +1,6 @@
+[2025-10-05 20:12:11] Job 487896 starting on n006.hpc
+[2025-10-05 20:12:11] Label: TOX21_PGC_ERR_Antagonist_xgb_Layered
+[2025-10-05 20:12:11] Job TOX21_PGC_ERR_Antagonist_xgb_Layered starting on n006.hpc
+[2025-10-05 20:12:11] START seed_0:TOX21_PGC_ERR_Antagonist_xgb_Layered
+2025-10-05 20:12:15,493 - Using PyTorch device: cuda:0
+2025-10-05 20:12:15,493 - Selected compute device: cuda:0
