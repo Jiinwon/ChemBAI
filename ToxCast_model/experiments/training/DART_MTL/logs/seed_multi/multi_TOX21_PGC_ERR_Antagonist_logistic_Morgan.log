@@ -1,0 +1,6 @@
+[2025-10-06 04:37:15] Job 487974 starting on n007.hpc
+[2025-10-06 04:37:15] Label: TOX21_PGC_ERR_Antagonist_logistic_Morgan
+[2025-10-06 04:37:15] Job TOX21_PGC_ERR_Antagonist_logistic_Morgan starting on n007.hpc
+[2025-10-06 04:37:15] START seed_0:TOX21_PGC_ERR_Antagonist_logistic_Morgan
+2025-10-06 04:37:19,496 - Using PyTorch device: cuda:0
+2025-10-06 04:37:19,496 - Selected compute device: cuda:0
