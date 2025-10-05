@@ -25,3 +25,24 @@
 [2025-10-05 06:46:28] START seed_1:TOX21_p53_BLA_p2_ratio_gbt_Morgan
 2025-10-05 06:46:31,493 - Using PyTorch device: cuda:0
 2025-10-05 06:46:31,494 - Selected compute device: cuda:0
+2025-10-05 10:56:15,508 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 200}
+2025-10-05 10:56:15,508 - Validation F1 Score: 0.3035290245788655
+2025-10-05 10:56:15,509 - Validation Precision: 0.30823194851454455
+2025-10-05 10:56:15,509 - Validation Recall: 0.2993828248986069
+2025-10-05 10:56:15,509 - Validation Accuracy: 0.8813284018414909
+2025-10-05 10:56:15,509 - Validation AUC: 0.6405127313936123
+2025-10-05 10:57:05,938 - Holdout Validation F1 Score: 0.25287356321839083
+2025-10-05 10:57:05,938 - Holdout Validation Precision: 0.2857142857142857
+2025-10-05 10:57:05,939 - Holdout Validation Recall: 0.2268041237113402
+2025-10-05 10:57:05,939 - Holdout Validation Accuracy: 0.8320413436692506
+2025-10-05 10:57:05,939 - Holdout Validation AUC: 0.6101128386300994
+2025-10-05 10:57:05,969 - Test F1 Score: 0.20270270270270271
+2025-10-05 10:57:05,969 - Test Precision: 0.23809523809523808
+2025-10-05 10:57:05,969 - Test Recall: 0.17647058823529413
+2025-10-05 10:57:05,969 - Test Accuracy: 0.8467532467532467
+2025-10-05 10:57:05,969 - Test AUC: 0.5443280377844569
+2025-10-05 10:57:05,982 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_p53_BLA_p2_ratio_gbt_Morgan/model.joblib
+[2025-10-05 10:57:06] END seed_1:TOX21_p53_BLA_p2_ratio_gbt_Morgan status=0
+[2025-10-05 10:57:06] START seed_2:TOX21_p53_BLA_p2_ratio_gbt_Morgan
+2025-10-05 10:57:09,016 - Using PyTorch device: cuda:0
+2025-10-05 10:57:09,017 - Selected compute device: cuda:0
