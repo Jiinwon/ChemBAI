@@ -1,0 +1,6 @@
+[2025-10-06 12:41:54] Job 488284 starting on n006.hpc
+[2025-10-06 12:41:54] Label: TOX21_ERb_BLA_Antagonist_ratio_rf_Layered
+[2025-10-06 12:41:54] Job TOX21_ERb_BLA_Antagonist_ratio_rf_Layered starting on n006.hpc
+[2025-10-06 12:41:54] START seed_0:TOX21_ERb_BLA_Antagonist_ratio_rf_Layered
+2025-10-06 12:41:58,662 - Using PyTorch device: cuda:0
+2025-10-06 12:41:58,663 - Selected compute device: cuda:0
