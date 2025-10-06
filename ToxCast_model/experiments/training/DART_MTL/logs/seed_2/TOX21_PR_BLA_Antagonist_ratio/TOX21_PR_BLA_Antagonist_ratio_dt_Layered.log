@@ -1,0 +1,3 @@
+[2025-10-07 02:49:46] START seed_2:TOX21_PR_BLA_Antagonist_ratio_dt_Layered
+2025-10-07 02:49:49,156 - Using PyTorch device: cuda:0
+2025-10-07 02:49:49,157 - Selected compute device: cuda:0
