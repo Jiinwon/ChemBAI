@@ -1,0 +1,6 @@
+[2025-10-07 06:49:37] Job 488889 starting on n006.hpc
+[2025-10-07 06:49:37] Label: TOX21_PR_BLA_Antagonist_ratio_gbt_Morgan
+[2025-10-07 06:49:38] Job TOX21_PR_BLA_Antagonist_ratio_gbt_Morgan starting on n006.hpc
+[2025-10-07 06:49:38] START seed_0:TOX21_PR_BLA_Antagonist_ratio_gbt_Morgan
+2025-10-07 06:49:41,891 - Using PyTorch device: cuda:0
+2025-10-07 06:49:41,891 - Selected compute device: cuda:0
