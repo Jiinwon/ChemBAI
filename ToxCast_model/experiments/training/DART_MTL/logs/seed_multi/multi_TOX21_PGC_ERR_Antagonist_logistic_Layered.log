@@ -1,0 +1,6 @@
+[2025-10-06 10:14:44] Job 488025 starting on n005.hpc
+[2025-10-06 10:14:44] Label: TOX21_PGC_ERR_Antagonist_logistic_Layered
+[2025-10-06 10:14:45] Job TOX21_PGC_ERR_Antagonist_logistic_Layered starting on n005.hpc
+[2025-10-06 10:14:45] START seed_0:TOX21_PGC_ERR_Antagonist_logistic_Layered
+2025-10-06 10:14:48,815 - Using PyTorch device: cuda:0
+2025-10-06 10:14:48,816 - Selected compute device: cuda:0

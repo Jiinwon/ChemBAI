@@ -1,0 +1,9 @@
+[2025-10-06 10:43:35] START seed_1:TOX21_ERb_BLA_Antagonist_ratio_dt_Morgan
+2025-10-06 10:43:38,352 - Using PyTorch device: cuda:0
+2025-10-06 10:43:38,353 - Selected compute device: cuda:0
+2025-10-06 10:47:47,726 - Best Model Parameters: {'criterion': 'entropy', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 2}
+2025-10-06 10:47:47,727 - Validation F1 Score: 0.38119303969078244
+2025-10-06 10:47:47,727 - Validation Precision: 0.3274303451925628
+2025-10-06 10:47:47,727 - Validation Recall: 0.45645798082346306
+2025-10-06 10:47:47,727 - Validation Accuracy: 0.7509357353816634
+2025-10-06 10:47:47,727 - Validation AUC: 0.6363562374090954
