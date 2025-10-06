@@ -1,3 +1,21 @@
 [2025-10-06 11:19:54] START seed_1:TOX21_PGC_ERR_Antagonist_logistic_RDKit
 2025-10-06 11:19:57,325 - Using PyTorch device: cuda:0
 2025-10-06 11:19:57,326 - Selected compute device: cuda:0
+2025-10-06 17:42:55,101 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-06 17:42:55,101 - Validation F1 Score: 0.32178071274827147
+2025-10-06 17:42:55,101 - Validation Precision: 0.25995272973518596
+2025-10-06 17:42:55,101 - Validation Recall: 0.4232529527559056
+2025-10-06 17:42:55,101 - Validation Accuracy: 0.8066969523578337
+2025-10-06 17:42:55,101 - Validation AUC: 0.6473568981669043
+2025-10-06 17:42:58,551 - Holdout Validation F1 Score: 0.3546099290780142
+2025-10-06 17:42:58,552 - Holdout Validation Precision: 0.2958579881656805
+2025-10-06 17:42:58,552 - Holdout Validation Recall: 0.4424778761061947
+2025-10-06 17:42:58,552 - Holdout Validation Accuracy: 0.7418439716312056
+2025-10-06 17:42:58,552 - Holdout Validation AUC: 0.6590752810332456
+2025-10-06 17:42:58,581 - Test F1 Score: 0.24778761061946902
+2025-10-06 17:42:58,581 - Test Precision: 0.23333333333333334
+2025-10-06 17:42:58,581 - Test Recall: 0.2641509433962264
+2025-10-06 17:42:58,581 - Test Accuracy: 0.7612359550561798
+2025-10-06 17:42:58,581 - Test AUC: 0.5227131203686406
+2025-10-06 17:42:58,584 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_PGC_ERR_Antagonist_logistic_RDKit/model.joblib
+[2025-10-06 17:42:59] END seed_1:TOX21_PGC_ERR_Antagonist_logistic_RDKit status=0
