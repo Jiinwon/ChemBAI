@@ -1,0 +1,21 @@
+[2025-10-06 13:00:46] START seed_2:TOX21_ERb_BLA_Antagonist_ratio_rf_Layered
+2025-10-06 13:00:49,475 - Using PyTorch device: cuda:0
+2025-10-06 13:00:49,476 - Selected compute device: cuda:0
+2025-10-06 13:10:05,908 - Best Model Parameters: {'max_depth': 10, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-06 13:10:05,908 - Validation F1 Score: 0.5088255600912247
+2025-10-06 13:10:05,909 - Validation Precision: 0.42918935648369894
+2025-10-06 13:10:05,909 - Validation Recall: 0.6258645076330294
+2025-10-06 13:10:05,909 - Validation Accuracy: 0.7930285069150438
+2025-10-06 13:10:05,909 - Validation AUC: 0.8081437651292667
+2025-10-06 13:10:07,621 - Holdout Validation F1 Score: 0.45454545454545453
+2025-10-06 13:10:07,621 - Holdout Validation Precision: 0.3401360544217687
+2025-10-06 13:10:07,621 - Holdout Validation Recall: 0.684931506849315
+2025-10-06 13:10:07,621 - Holdout Validation Accuracy: 0.653179190751445
+2025-10-06 13:10:07,622 - Holdout Validation AUC: 0.7275641025641025
+2025-10-06 13:10:07,716 - Test F1 Score: 0.43271767810026385
+2025-10-06 13:10:07,716 - Test Precision: 0.3416666666666667
+2025-10-06 13:10:07,716 - Test Recall: 0.5899280575539568
+2025-10-06 13:10:07,717 - Test Accuracy: 0.6919770773638968
+2025-10-06 13:10:07,717 - Test AUC: 0.7220563441911945
+2025-10-06 13:10:07,767 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_ERb_BLA_Antagonist_ratio_rf_Layered/model.joblib
+[2025-10-06 13:10:08] END seed_2:TOX21_ERb_BLA_Antagonist_ratio_rf_Layered status=0

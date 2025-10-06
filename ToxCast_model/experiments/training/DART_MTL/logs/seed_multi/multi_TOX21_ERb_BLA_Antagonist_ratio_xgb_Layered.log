@@ -1,0 +1,6 @@
+[2025-10-06 13:16:14] Job 488370 starting on n007.hpc
+[2025-10-06 13:16:14] Label: TOX21_ERb_BLA_Antagonist_ratio_xgb_Layered
+[2025-10-06 13:16:14] Job TOX21_ERb_BLA_Antagonist_ratio_xgb_Layered starting on n007.hpc
+[2025-10-06 13:16:14] START seed_0:TOX21_ERb_BLA_Antagonist_ratio_xgb_Layered
+2025-10-06 13:16:18,672 - Using PyTorch device: cuda:0
+2025-10-06 13:16:18,672 - Selected compute device: cuda:0
