@@ -1,0 +1,6 @@
+[2025-10-07 17:17:03] Job 488991 starting on n006.hpc
+[2025-10-07 17:17:03] Label: TOX21_PR_BLA_Antagonist_ratio_logistic_Layered
+[2025-10-07 17:17:03] Job TOX21_PR_BLA_Antagonist_ratio_logistic_Layered starting on n006.hpc
+[2025-10-07 17:17:03] START seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered
+2025-10-07 17:17:07,509 - Using PyTorch device: cuda:0
+2025-10-07 17:17:07,510 - Selected compute device: cuda:0
