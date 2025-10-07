@@ -4,3 +4,24 @@
 [2025-10-07 17:15:55] START seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_Pattern
 2025-10-07 17:15:59,474 - Using PyTorch device: cuda:0
 2025-10-07 17:15:59,474 - Selected compute device: cuda:0
+2025-10-07 22:54:02,313 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-07 22:54:02,313 - Validation F1 Score: 0.5590262618291217
+2025-10-07 22:54:02,313 - Validation Precision: 0.5275914243825526
+2025-10-07 22:54:02,313 - Validation Recall: 0.5953307392996109
+2025-10-07 22:54:02,313 - Validation Accuracy: 0.7956283815783809
+2025-10-07 22:54:02,313 - Validation AUC: 0.7981364760629844
+2025-10-07 22:54:04,194 - Holdout Validation F1 Score: 0.6474820143884892
+2025-10-07 22:54:04,195 - Holdout Validation Precision: 0.6040268456375839
+2025-10-07 22:54:04,195 - Holdout Validation Recall: 0.6976744186046512
+2025-10-07 22:54:04,195 - Holdout Validation Accuracy: 0.7273991655076495
+2025-10-07 22:54:04,195 - Holdout Validation AUC: 0.7781827506768232
+2025-10-07 22:54:04,226 - Test F1 Score: 0.6527777777777778
+2025-10-07 22:54:04,227 - Test Precision: 0.632996632996633
+2025-10-07 22:54:04,227 - Test Recall: 0.6738351254480287
+2025-10-07 22:54:04,227 - Test Accuracy: 0.7054491899852725
+2025-10-07 22:54:04,227 - Test AUC: 0.774807347670251
+2025-10-07 22:54:04,229 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_PR_BLA_Antagonist_ratio_logistic_Pattern/model.joblib
+[2025-10-07 22:54:04] END seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_Pattern status=0
+[2025-10-07 22:54:04] START seed_1:TOX21_PR_BLA_Antagonist_ratio_logistic_Pattern
+2025-10-07 22:54:06,847 - Using PyTorch device: cuda:0
+2025-10-07 22:54:06,847 - Selected compute device: cuda:0
