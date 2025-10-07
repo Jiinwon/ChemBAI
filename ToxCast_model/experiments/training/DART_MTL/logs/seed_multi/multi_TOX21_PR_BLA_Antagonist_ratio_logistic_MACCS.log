@@ -1,0 +1,6 @@
+[2025-10-07 15:54:26] Job 488932 starting on n007.hpc
+[2025-10-07 15:54:26] Label: TOX21_PR_BLA_Antagonist_ratio_logistic_MACCS
+[2025-10-07 15:54:26] Job TOX21_PR_BLA_Antagonist_ratio_logistic_MACCS starting on n007.hpc
+[2025-10-07 15:54:26] START seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_MACCS
+2025-10-07 15:54:30,722 - Using PyTorch device: cuda:0
+2025-10-07 15:54:30,722 - Selected compute device: cuda:0
