@@ -1,0 +1,6 @@
+[2025-10-07 16:35:19] Job 488946 starting on n007.hpc
+[2025-10-07 16:35:19] Label: TOX21_PR_BLA_Antagonist_ratio_logistic_RDKit
+[2025-10-07 16:35:19] Job TOX21_PR_BLA_Antagonist_ratio_logistic_RDKit starting on n007.hpc
+[2025-10-07 16:35:19] START seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_RDKit
+2025-10-07 16:35:23,560 - Using PyTorch device: cuda:0
+2025-10-07 16:35:23,560 - Selected compute device: cuda:0
