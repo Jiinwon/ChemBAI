@@ -1,0 +1,6 @@
+[2025-10-07 19:31:58] Job 489310 starting on n006.hpc
+[2025-10-07 19:31:58] Label: TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_xgb_Morgan
+[2025-10-07 19:31:59] Job TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_xgb_Morgan starting on n006.hpc
+[2025-10-07 19:31:59] START seed_0:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_xgb_Morgan
+2025-10-07 19:32:03,152 - Using PyTorch device: cuda:0
+2025-10-07 19:32:03,152 - Selected compute device: cuda:0
