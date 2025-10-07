@@ -1,0 +1,3 @@
+[2025-10-08 02:38:44] START seed_1:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Morgan
+2025-10-08 02:38:47,001 - Using PyTorch device: cuda:0
+2025-10-08 02:38:47,002 - Selected compute device: cuda:0
