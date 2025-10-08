@@ -25,3 +25,9 @@
 [2025-10-08 14:28:27] START seed_1:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_logistic_RDKit
 2025-10-08 14:28:30,684 - Using PyTorch device: cuda:0
 2025-10-08 14:28:30,684 - Selected compute device: cuda:0
+2025-10-08 21:00:57,086 - Best Model Parameters: {'C': 10, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-08 21:00:57,087 - Validation F1 Score: 0.544565131087061
+2025-10-08 21:00:57,087 - Validation Precision: 0.48620641194554237
+2025-10-08 21:00:57,087 - Validation Recall: 0.6263157894736842
+2025-10-08 21:00:57,087 - Validation Accuracy: 0.9821495038117201
+2025-10-08 21:00:57,087 - Validation AUC: 0.9009790203172094
