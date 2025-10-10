@@ -1,0 +1,6 @@
+[2025-10-10 19:02:42] Job 491041 starting on n011.hpc
+[2025-10-10 19:02:42] Label: DART_MTL_TOX21_ERb_BLA_Antagonist_ratio_gbt_Pattern_seed_2
+[2025-10-10 19:02:42] Job DART_MTL_TOX21_ERb_BLA_Antagonist_ratio_gbt_Pattern_seed_2 starting on n011.hpc
+[2025-10-10 19:02:42] START seed_2:TOX21_ERb_BLA_Antagonist_ratio_gbt_Pattern
+2025-10-10 19:02:50,538 - Using PyTorch device: cuda:0
+2025-10-10 19:02:50,539 - Selected compute device: cuda:0

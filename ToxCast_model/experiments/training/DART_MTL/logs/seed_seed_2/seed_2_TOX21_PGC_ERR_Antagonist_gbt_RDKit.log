@@ -1,0 +1,6 @@
+[2025-10-10 18:58:42] Job 490998 starting on n003.hpc
+[2025-10-10 18:58:43] Label: DART_MTL_TOX21_PGC_ERR_Antagonist_gbt_RDKit_seed_2
+[2025-10-10 18:58:43] Job DART_MTL_TOX21_PGC_ERR_Antagonist_gbt_RDKit_seed_2 starting on n003.hpc
+[2025-10-10 18:58:43] START seed_2:TOX21_PGC_ERR_Antagonist_gbt_RDKit
+2025-10-10 18:58:48,008 - Using PyTorch device: cuda:0
+2025-10-10 18:58:48,009 - Selected compute device: cuda:0

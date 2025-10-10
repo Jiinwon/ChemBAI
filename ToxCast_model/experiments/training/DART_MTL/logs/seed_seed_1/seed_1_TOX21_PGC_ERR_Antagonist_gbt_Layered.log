@@ -1,0 +1,6 @@
+[2025-10-10 19:00:44] Job 491012 starting on n001.hpc
+[2025-10-10 19:00:44] Label: DART_MTL_TOX21_PGC_ERR_Antagonist_gbt_Layered_seed_1
+[2025-10-10 19:00:44] Job DART_MTL_TOX21_PGC_ERR_Antagonist_gbt_Layered_seed_1 starting on n001.hpc
+[2025-10-10 19:00:44] START seed_1:TOX21_PGC_ERR_Antagonist_gbt_Layered
+2025-10-10 19:00:52,835 - Using PyTorch device: cuda:0
+2025-10-10 19:00:52,836 - Selected compute device: cuda:0
