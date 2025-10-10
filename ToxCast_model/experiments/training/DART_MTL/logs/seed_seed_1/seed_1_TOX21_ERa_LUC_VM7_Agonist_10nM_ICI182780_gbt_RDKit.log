@@ -1,0 +1,6 @@
+[2025-10-11 03:00:41] Job 491293 starting on n001.hpc
+[2025-10-11 03:00:41] Label: DART_MTL_TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_RDKit_seed_1
+[2025-10-11 03:00:41] Job DART_MTL_TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_RDKit_seed_1 starting on n001.hpc
+[2025-10-11 03:00:41] START seed_1:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_RDKit
+2025-10-11 03:00:45,115 - Using PyTorch device: cuda:0
+2025-10-11 03:00:45,116 - Selected compute device: cuda:0
