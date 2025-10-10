@@ -1,0 +1,6 @@
+[2025-10-10 11:02:23] Job 490977 starting on n010.hpc
+[2025-10-10 11:02:23] Label: DART_MTL_TOX21_p53_BLA_p2_ratio_gbt_Layered_seed_1
+[2025-10-10 11:02:23] Job DART_MTL_TOX21_p53_BLA_p2_ratio_gbt_Layered_seed_1 starting on n010.hpc
+[2025-10-10 11:02:23] START seed_1:TOX21_p53_BLA_p2_ratio_gbt_Layered
+2025-10-10 11:02:27,595 - Using PyTorch device: cuda:0
+2025-10-10 11:02:27,596 - Selected compute device: cuda:0

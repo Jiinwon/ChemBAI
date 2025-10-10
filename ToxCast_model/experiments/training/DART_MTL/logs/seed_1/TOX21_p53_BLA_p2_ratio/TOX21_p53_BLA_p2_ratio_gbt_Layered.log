@@ -1,3 +1,6 @@
 [2025-10-05 19:47:46] START seed_1:TOX21_p53_BLA_p2_ratio_gbt_Layered
 2025-10-05 19:47:49,776 - Using PyTorch device: cuda:0
 2025-10-05 19:47:49,777 - Selected compute device: cuda:0
+[2025-10-10 11:02:23] START seed_1:TOX21_p53_BLA_p2_ratio_gbt_Layered
+2025-10-10 11:02:27,595 - Using PyTorch device: cuda:0
+2025-10-10 11:02:27,596 - Selected compute device: cuda:0
