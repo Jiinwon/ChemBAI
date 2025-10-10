@@ -1,0 +1,68 @@
+[2025-10-06 12:03:15] Job 488166 starting on n006.hpc
+[2025-10-06 12:03:15] Label: TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS
+[2025-10-06 12:03:15] Job TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS starting on n006.hpc
+[2025-10-06 12:03:15] START seed_0:TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS
+2025-10-06 12:03:19,613 - Using PyTorch device: cuda:0
+2025-10-06 12:03:19,613 - Selected compute device: cuda:0
+2025-10-06 12:06:26,578 - Best Model Parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 400}
+2025-10-06 12:06:26,578 - Validation F1 Score: 0.4816530020741868
+2025-10-06 12:06:26,578 - Validation Precision: 0.4504593356803954
+2025-10-06 12:06:26,578 - Validation Recall: 0.5181228607458115
+2025-10-06 12:06:26,578 - Validation Accuracy: 0.8285039969000703
+2025-10-06 12:06:26,578 - Validation AUC: 0.8249153654694243
+2025-10-06 12:06:27,517 - Holdout Validation F1 Score: 0.493368700265252
+2025-10-06 12:06:27,517 - Holdout Validation Precision: 0.4869109947643979
+2025-10-06 12:06:27,517 - Holdout Validation Recall: 0.5
+2025-10-06 12:06:27,517 - Holdout Validation Accuracy: 0.7343532684283728
+2025-10-06 12:06:27,517 - Holdout Validation AUC: 0.7309457523855635
+2025-10-06 12:06:27,634 - Test F1 Score: 0.48226950354609927
+2025-10-06 12:06:27,635 - Test Precision: 0.4594594594594595
+2025-10-06 12:06:27,635 - Test Recall: 0.5074626865671642
+2025-10-06 12:06:27,635 - Test Accuracy: 0.6774668630338734
+2025-10-06 12:06:27,635 - Test AUC: 0.713102895564021
+2025-10-06 12:06:27,828 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS/model.joblib
+[2025-10-06 12:06:28] END seed_0:TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS status=0
+[2025-10-06 12:06:28] START seed_1:TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS
+2025-10-06 12:06:31,027 - Using PyTorch device: cuda:0
+2025-10-06 12:06:31,028 - Selected compute device: cuda:0
+2025-10-06 12:09:38,288 - Best Model Parameters: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 400}
+2025-10-06 12:09:38,288 - Validation F1 Score: 0.5104561983100389
+2025-10-06 12:09:38,288 - Validation Precision: 0.4761887061666618
+2025-10-06 12:09:38,288 - Validation Recall: 0.5506537455776035
+2025-10-06 12:09:38,288 - Validation Accuracy: 0.8226790121316157
+2025-10-06 12:09:38,288 - Validation AUC: 0.8215711625588066
+2025-10-06 12:09:39,171 - Holdout Validation F1 Score: 0.4
+2025-10-06 12:09:39,171 - Holdout Validation Precision: 0.46296296296296297
+2025-10-06 12:09:39,171 - Holdout Validation Recall: 0.352112676056338
+2025-10-06 12:09:39,171 - Holdout Validation Accuracy: 0.7872340425531915
+2025-10-06 12:09:39,171 - Holdout Validation AUC: 0.7072649038100718
+2025-10-06 12:09:39,289 - Test F1 Score: 0.4904632152588556
+2025-10-06 12:09:39,289 - Test Precision: 0.45226130653266333
+2025-10-06 12:09:39,289 - Test Recall: 0.5357142857142857
+2025-10-06 12:09:39,289 - Test Accuracy: 0.7373595505617978
+2025-10-06 12:09:39,289 - Test AUC: 0.7496115633753502
+2025-10-06 12:09:39,412 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS/model.joblib
+[2025-10-06 12:09:39] END seed_1:TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS status=0
+[2025-10-06 12:09:39] START seed_2:TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS
+2025-10-06 12:09:42,060 - Using PyTorch device: cuda:0
+2025-10-06 12:09:42,061 - Selected compute device: cuda:0
+2025-10-06 12:12:50,236 - Best Model Parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-06 12:12:50,236 - Validation F1 Score: 0.5217588800577766
+2025-10-06 12:12:50,237 - Validation Precision: 0.48636360609051155
+2025-10-06 12:12:50,237 - Validation Recall: 0.5636589767351119
+2025-10-06 12:12:50,237 - Validation Accuracy: 0.8231513916767316
+2025-10-06 12:12:50,237 - Validation AUC: 0.8335222675182461
+2025-10-06 12:12:50,767 - Holdout Validation F1 Score: 0.48
+2025-10-06 12:12:50,767 - Holdout Validation Precision: 0.3930131004366812
+2025-10-06 12:12:50,767 - Holdout Validation Recall: 0.6164383561643836
+2025-10-06 12:12:50,767 - Holdout Validation Accuracy: 0.7182080924855492
+2025-10-06 12:12:50,767 - Holdout Validation AUC: 0.7562848110793317
+2025-10-06 12:12:50,845 - Test F1 Score: 0.4634920634920635
+2025-10-06 12:12:50,845 - Test Precision: 0.4147727272727273
+2025-10-06 12:12:50,845 - Test Recall: 0.5251798561151079
+2025-10-06 12:12:50,845 - Test Accuracy: 0.7578796561604585
+2025-10-06 12:12:50,845 - Test AUC: 0.7619400007721908
+2025-10-06 12:12:50,912 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS/model.joblib
+[2025-10-06 12:12:51] END seed_2:TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS status=0
+[2025-10-06 12:12:51] Job TOX21_ERb_BLA_Antagonist_ratio_rf_MACCS completed successfully
+[2025-10-06 12:12:51] Command finished with status 0

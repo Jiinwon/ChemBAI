@@ -25,3 +25,16 @@
 [2025-09-30 12:07:01] START seed_1:ATG_BRE_CIS_gbt_Pattern
 2025-09-30 12:07:03,418 - Using PyTorch device: cuda:0
 2025-09-30 12:07:03,418 - Selected compute device: cuda:0
+[2025-10-02 16:41:59] Job 484550 starting on n032.hpc
+[2025-10-02 16:41:59] Label: DART_MTL_ATG_BRE_CIS_gbt_Pattern
+[2025-10-02 16:41:59] Job DART_MTL_ATG_BRE_CIS_gbt_Pattern starting on n032.hpc
+[2025-10-02 16:41:59] START seed_0:ATG_BRE_CIS_gbt_Pattern
+2025-10-02 16:42:03,456 - Using PyTorch device: cuda:0
+2025-10-02 16:42:03,456 - Selected compute device: cuda:0
+[2025-10-02 16:56:59] Job 484611 starting on n007.hpc
+[2025-10-02 16:56:59] Label: ATG_BRE_CIS_gbt_Pattern
+[2025-10-02 16:56:59] Job ATG_BRE_CIS_gbt_Pattern starting on n007.hpc
+[2025-10-02 16:56:59] START seed_0:ATG_BRE_CIS_gbt_Pattern
+2025-10-02 16:57:04,188 - Using PyTorch device: cuda:0
+2025-10-02 16:57:04,189 - Selected compute device: cuda:0
+[2025-10-03 07:25:00] Command finished with status 0

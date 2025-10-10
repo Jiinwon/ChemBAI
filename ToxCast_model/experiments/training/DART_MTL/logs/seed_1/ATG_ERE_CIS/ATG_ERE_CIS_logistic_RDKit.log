@@ -19,3 +19,4 @@
 2025-10-01 07:19:51,468 - Test AUC: 0.6425304878048781
 2025-10-01 07:19:51,471 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_ERE_CIS_logistic_RDKit/model.joblib
 [2025-10-01 07:19:51] END seed_1:ATG_ERE_CIS_logistic_RDKit status=0
+[2025-10-03 09:20:56] SKIP seed_1:ATG_ERE_CIS_logistic_RDKit model.joblib exists

@@ -1,0 +1,21 @@
+[2025-10-04 15:31:45] START seed_1:CEETOX_H295R_PROG_gbt_Morgan
+2025-10-04 15:31:47,730 - Using PyTorch device: cuda:0
+2025-10-04 15:31:47,731 - Selected compute device: cuda:0
+2025-10-04 15:46:41,329 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+2025-10-04 15:46:41,329 - Validation F1 Score: 0.5178470090174007
+2025-10-04 15:46:41,330 - Validation Precision: 0.4808159357525881
+2025-10-04 15:46:41,330 - Validation Recall: 0.5625396825396825
+2025-10-04 15:46:41,330 - Validation Accuracy: 0.5854698672114402
+2025-10-04 15:46:41,330 - Validation AUC: 0.6058755116302286
+2025-10-04 15:46:42,068 - Holdout Validation F1 Score: 0.43902439024390244
+2025-10-04 15:46:42,068 - Holdout Validation Precision: 0.36
+2025-10-04 15:46:42,068 - Holdout Validation Recall: 0.5625
+2025-10-04 15:46:42,068 - Holdout Validation Accuracy: 0.5
+2025-10-04 15:46:42,068 - Holdout Validation AUC: 0.5479166666666666
+2025-10-04 15:46:42,083 - Test F1 Score: 0.5454545454545454
+2025-10-04 15:46:42,084 - Test Precision: 0.5
+2025-10-04 15:46:42,084 - Test Recall: 0.6
+2025-10-04 15:46:42,084 - Test Accuracy: 0.6212121212121212
+2025-10-04 15:46:42,084 - Test AUC: 0.6151219512195122
+2025-10-04 15:46:42,092 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/CEETOX_H295R_PROG_gbt_Morgan/model.joblib
+[2025-10-04 15:46:42] END seed_1:CEETOX_H295R_PROG_gbt_Morgan status=0

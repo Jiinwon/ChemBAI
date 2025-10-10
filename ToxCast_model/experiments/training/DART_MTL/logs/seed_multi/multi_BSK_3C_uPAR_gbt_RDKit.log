@@ -46,3 +46,31 @@
 [2025-10-01 18:15:54] START seed_2:BSK_3C_uPAR_gbt_RDKit
 2025-10-01 18:15:57,961 - Using PyTorch device: cuda:0
 2025-10-01 18:15:57,962 - Selected compute device: cuda:0
+[2025-10-03 17:10:09] Job 485177 starting on n006.hpc
+[2025-10-03 17:10:09] Label: BSK_3C_uPAR_gbt_RDKit
+[2025-10-03 17:10:09] Job BSK_3C_uPAR_gbt_RDKit starting on n006.hpc
+[2025-10-03 17:10:09] SKIP seed_0:BSK_3C_uPAR_gbt_RDKit model.joblib exists
+[2025-10-03 17:10:09] SKIP seed_1:BSK_3C_uPAR_gbt_RDKit model.joblib exists
+[2025-10-03 17:10:09] START seed_2:BSK_3C_uPAR_gbt_RDKit
+2025-10-03 17:10:13,340 - Using PyTorch device: cuda:0
+2025-10-03 17:10:13,341 - Selected compute device: cuda:0
+2025-10-03 20:05:53,664 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 300}
+2025-10-03 20:05:53,665 - Validation F1 Score: 0.3708867069753314
+2025-10-03 20:05:53,665 - Validation Precision: 0.4077909451410898
+2025-10-03 20:05:53,665 - Validation Recall: 0.34275473630312336
+2025-10-03 20:05:53,665 - Validation Accuracy: 0.7286277873070326
+2025-10-03 20:05:53,665 - Validation AUC: 0.6317392751510968
+2025-10-03 20:06:28,300 - Holdout Validation F1 Score: 0.4
+2025-10-03 20:06:28,300 - Holdout Validation Precision: 0.40816326530612246
+2025-10-03 20:06:28,300 - Holdout Validation Recall: 0.39215686274509803
+2025-10-03 20:06:28,300 - Holdout Validation Accuracy: 0.589041095890411
+2025-10-03 20:06:28,301 - Holdout Validation AUC: 0.5426212590299277
+2025-10-03 20:06:28,329 - Test F1 Score: 0.29545454545454547
+2025-10-03 20:06:28,329 - Test Precision: 0.3170731707317073
+2025-10-03 20:06:28,329 - Test Recall: 0.2765957446808511
+2025-10-03 20:06:28,329 - Test Accuracy: 0.5866666666666667
+2025-10-03 20:06:28,329 - Test AUC: 0.5518487915719892
+2025-10-03 20:06:28,344 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_3C_uPAR_gbt_RDKit/model.joblib
+[2025-10-03 20:06:28] END seed_2:BSK_3C_uPAR_gbt_RDKit status=0
+[2025-10-03 20:06:28] Job BSK_3C_uPAR_gbt_RDKit completed successfully
+[2025-10-03 20:06:28] Command finished with status 0

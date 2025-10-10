@@ -1,0 +1,21 @@
+[2025-10-06 15:13:57] START seed_1:TOX21_ERb_BLA_Antagonist_ratio_gbt_MACCS
+2025-10-06 15:14:00,191 - Using PyTorch device: cuda:0
+2025-10-06 15:14:00,192 - Selected compute device: cuda:0
+2025-10-06 16:14:42,152 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 5, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-06 16:14:42,152 - Validation F1 Score: 0.5043414847732769
+2025-10-06 16:14:42,152 - Validation Precision: 0.48490108996798115
+2025-10-06 16:14:42,152 - Validation Recall: 0.5263703020048197
+2025-10-06 16:14:42,152 - Validation Accuracy: 0.8264194972806453
+2025-10-06 16:14:42,152 - Validation AUC: 0.7845079806961535
+2025-10-06 16:14:50,287 - Holdout Validation F1 Score: 0.4470588235294118
+2025-10-06 16:14:50,287 - Holdout Validation Precision: 0.504424778761062
+2025-10-06 16:14:50,287 - Holdout Validation Recall: 0.4014084507042254
+2025-10-06 16:14:50,287 - Holdout Validation Accuracy: 0.8
+2025-10-06 16:14:50,287 - Holdout Validation AUC: 0.6778450454056489
+2025-10-06 16:14:50,305 - Test F1 Score: 0.4632768361581921
+2025-10-06 16:14:50,305 - Test Precision: 0.44086021505376344
+2025-10-06 16:14:50,305 - Test Recall: 0.4880952380952381
+2025-10-06 16:14:50,305 - Test Accuracy: 0.7331460674157303
+2025-10-06 16:14:50,305 - Test AUC: 0.7145428483893558
+2025-10-06 16:14:50,316 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_ERb_BLA_Antagonist_ratio_gbt_MACCS/model.joblib
+[2025-10-06 16:14:50] END seed_1:TOX21_ERb_BLA_Antagonist_ratio_gbt_MACCS status=0

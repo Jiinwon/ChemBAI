@@ -1,0 +1,68 @@
+[2025-10-04 08:09:48] Job 486074 starting on n006.hpc
+[2025-10-04 08:09:48] Label: NVS_ENZ_hVEGFR3_logistic_Morgan
+[2025-10-04 08:09:48] Job NVS_ENZ_hVEGFR3_logistic_Morgan starting on n006.hpc
+[2025-10-04 08:09:48] START seed_0:NVS_ENZ_hVEGFR3_logistic_Morgan
+2025-10-04 08:09:51,754 - Using PyTorch device: cuda:0
+2025-10-04 08:09:51,755 - Selected compute device: cuda:0
+2025-10-04 08:11:14,387 - Best Model Parameters: {'C': 50, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 08:11:14,387 - Validation F1 Score: 0.5166666666666667
+2025-10-04 08:11:14,387 - Validation Precision: 0.5033333333333334
+2025-10-04 08:11:14,387 - Validation Recall: 0.6666666666666666
+2025-10-04 08:11:14,387 - Validation Accuracy: 0.775824175824176
+2025-10-04 08:11:14,387 - Validation AUC: 0.7363636363636363
+2025-10-04 08:11:14,525 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:11:14,525 - Holdout Validation Precision: 0.0
+2025-10-04 08:11:14,525 - Holdout Validation Recall: 0.0
+2025-10-04 08:11:14,525 - Holdout Validation Accuracy: 1.0
+2025-10-04 08:11:14,525 - Holdout Validation AUC: nan
+2025-10-04 08:11:14,538 - Test F1 Score: 0.0
+2025-10-04 08:11:14,538 - Test Precision: 0.0
+2025-10-04 08:11:14,538 - Test Recall: 0.0
+2025-10-04 08:11:14,538 - Test Accuracy: 1.0
+2025-10-04 08:11:14,538 - Test AUC: nan
+2025-10-04 08:11:14,540 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/NVS_ENZ_hVEGFR3_logistic_Morgan/model.joblib
+[2025-10-04 08:11:14] END seed_0:NVS_ENZ_hVEGFR3_logistic_Morgan status=0
+[2025-10-04 08:11:14] START seed_1:NVS_ENZ_hVEGFR3_logistic_Morgan
+2025-10-04 08:11:17,794 - Using PyTorch device: cuda:0
+2025-10-04 08:11:17,795 - Selected compute device: cuda:0
+2025-10-04 08:12:42,360 - Best Model Parameters: {'C': 1, 'penalty': 'l2', 'solver': 'saga'}
+2025-10-04 08:12:42,360 - Validation F1 Score: 0.5142857142857143
+2025-10-04 08:12:42,360 - Validation Precision: 0.51
+2025-10-04 08:12:42,360 - Validation Recall: 0.6333333333333333
+2025-10-04 08:12:42,360 - Validation Accuracy: 0.7890109890109891
+2025-10-04 08:12:42,360 - Validation AUC: 0.7121212121212122
+2025-10-04 08:12:42,712 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:12:42,712 - Holdout Validation Precision: 0.0
+2025-10-04 08:12:42,712 - Holdout Validation Recall: 0.0
+2025-10-04 08:12:42,712 - Holdout Validation Accuracy: 1.0
+2025-10-04 08:12:42,712 - Holdout Validation AUC: nan
+2025-10-04 08:12:42,726 - Test F1 Score: 0.0
+2025-10-04 08:12:42,726 - Test Precision: 0.0
+2025-10-04 08:12:42,727 - Test Recall: 0.0
+2025-10-04 08:12:42,727 - Test Accuracy: 0.8333333333333334
+2025-10-04 08:12:42,727 - Test AUC: 0.6363636363636364
+2025-10-04 08:12:42,728 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/NVS_ENZ_hVEGFR3_logistic_Morgan/model.joblib
+[2025-10-04 08:12:43] END seed_1:NVS_ENZ_hVEGFR3_logistic_Morgan status=0
+[2025-10-04 08:12:43] START seed_2:NVS_ENZ_hVEGFR3_logistic_Morgan
+2025-10-04 08:12:45,435 - Using PyTorch device: cuda:0
+2025-10-04 08:12:45,436 - Selected compute device: cuda:0
+2025-10-04 08:14:04,015 - Best Model Parameters: {'C': 0.5, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 08:14:04,015 - Validation F1 Score: 0.42000000000000004
+2025-10-04 08:14:04,016 - Validation Precision: 0.36666666666666664
+2025-10-04 08:14:04,016 - Validation Recall: 0.5
+2025-10-04 08:14:04,016 - Validation Accuracy: 0.8230769230769232
+2025-10-04 08:14:04,016 - Validation AUC: 0.675
+2025-10-04 08:14:04,164 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:14:04,164 - Holdout Validation Precision: 0.0
+2025-10-04 08:14:04,164 - Holdout Validation Recall: 0.0
+2025-10-04 08:14:04,164 - Holdout Validation Accuracy: 0.6
+2025-10-04 08:14:04,164 - Holdout Validation AUC: 0.4444444444444444
+2025-10-04 08:14:04,178 - Test F1 Score: 0.4
+2025-10-04 08:14:04,178 - Test Precision: 0.25
+2025-10-04 08:14:04,178 - Test Recall: 1.0
+2025-10-04 08:14:04,178 - Test Accuracy: 0.7
+2025-10-04 08:14:04,178 - Test AUC: 0.8888888888888888
+2025-10-04 08:14:04,180 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/NVS_ENZ_hVEGFR3_logistic_Morgan/model.joblib
+[2025-10-04 08:14:04] END seed_2:NVS_ENZ_hVEGFR3_logistic_Morgan status=0
+[2025-10-04 08:14:04] Job NVS_ENZ_hVEGFR3_logistic_Morgan completed successfully
+[2025-10-04 08:14:04] Command finished with status 0

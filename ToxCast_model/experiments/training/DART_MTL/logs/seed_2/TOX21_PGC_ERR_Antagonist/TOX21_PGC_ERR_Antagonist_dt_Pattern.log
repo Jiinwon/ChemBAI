@@ -1,0 +1,21 @@
+[2025-10-05 17:59:34] START seed_2:TOX21_PGC_ERR_Antagonist_dt_Pattern
+2025-10-05 17:59:36,710 - Using PyTorch device: cuda:0
+2025-10-05 17:59:36,710 - Selected compute device: cuda:0
+2025-10-05 18:08:54,293 - Best Model Parameters: {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 4}
+2025-10-05 18:08:54,294 - Validation F1 Score: 0.377122411594308
+2025-10-05 18:08:54,294 - Validation Precision: 0.33916501298614354
+2025-10-05 18:08:54,294 - Validation Recall: 0.42556390977443603
+2025-10-05 18:08:54,294 - Validation Accuracy: 0.8414283688004229
+2025-10-05 18:08:54,294 - Validation AUC: 0.6730135940094744
+2025-10-05 18:08:56,867 - Holdout Validation F1 Score: 0.22707423580786026
+2025-10-05 18:08:56,867 - Holdout Validation Precision: 0.18840579710144928
+2025-10-05 18:08:56,867 - Holdout Validation Recall: 0.2857142857142857
+2025-10-05 18:08:56,867 - Holdout Validation Accuracy: 0.7442196531791907
+2025-10-05 18:08:56,867 - Holdout Validation AUC: 0.5606406904243842
+2025-10-05 18:08:56,894 - Test F1 Score: 0.23318385650224216
+2025-10-05 18:08:56,894 - Test Precision: 0.21311475409836064
+2025-10-05 18:08:56,894 - Test Recall: 0.25742574257425743
+2025-10-05 18:08:56,894 - Test Accuracy: 0.7550143266475645
+2025-10-05 18:08:56,894 - Test AUC: 0.5530955105560806
+2025-10-05 18:08:56,896 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_PGC_ERR_Antagonist_dt_Pattern/model.joblib
+[2025-10-05 18:08:57] END seed_2:TOX21_PGC_ERR_Antagonist_dt_Pattern status=0

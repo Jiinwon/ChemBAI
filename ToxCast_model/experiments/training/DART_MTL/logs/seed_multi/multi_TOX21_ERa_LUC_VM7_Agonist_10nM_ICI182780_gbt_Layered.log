@@ -1,0 +1,27 @@
+[2025-10-08 00:01:15] Job 489411 starting on n006.hpc
+[2025-10-08 00:01:15] Label: TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Layered
+[2025-10-08 00:01:16] Job TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Layered starting on n006.hpc
+[2025-10-08 00:01:16] START seed_0:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Layered
+2025-10-08 00:01:19,688 - Using PyTorch device: cuda:0
+2025-10-08 00:01:19,689 - Selected compute device: cuda:0
+2025-10-08 13:22:26,336 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 200}
+2025-10-08 13:22:26,336 - Validation F1 Score: 0.4782470862470863
+2025-10-08 13:22:26,337 - Validation Precision: 0.5259569377990431
+2025-10-08 13:22:26,337 - Validation Recall: 0.45714285714285713
+2025-10-08 13:22:26,337 - Validation Accuracy: 0.9877991934442228
+2025-10-08 13:22:26,337 - Validation AUC: 0.8642366489470821
+2025-10-08 13:25:09,963 - Holdout Validation F1 Score: 0.5853658536585366
+2025-10-08 13:25:09,963 - Holdout Validation Precision: 0.7058823529411765
+2025-10-08 13:25:09,963 - Holdout Validation Recall: 0.5
+2025-10-08 13:25:09,963 - Holdout Validation Accuracy: 0.9763560500695411
+2025-10-08 13:25:09,963 - Holdout Validation AUC: 0.9652877697841727
+2025-10-08 13:25:10,008 - Test F1 Score: 0.5614035087719298
+2025-10-08 13:25:10,008 - Test Precision: 0.5161290322580645
+2025-10-08 13:25:10,008 - Test Recall: 0.6153846153846154
+2025-10-08 13:25:10,008 - Test Accuracy: 0.9631811487481591
+2025-10-08 13:25:10,008 - Test AUC: 0.9647484980563081
+2025-10-08 13:25:10,030 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Layered/model.joblib
+[2025-10-08 13:25:10] END seed_0:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Layered status=0
+[2025-10-08 13:25:10] START seed_1:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Layered
+2025-10-08 13:25:13,600 - Using PyTorch device: cuda:0
+2025-10-08 13:25:13,601 - Selected compute device: cuda:0

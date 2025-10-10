@@ -43,3 +43,13 @@
 2025-09-30 08:21:22,436 - Test AUC: 0.6055469953775039
 2025-09-30 08:21:22,446 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/ATG_Ahr_CIS_gbt_RDKit/model.joblib
 [2025-09-30 08:21:22] END seed_0:ATG_Ahr_CIS_gbt_RDKit status=0
+[2025-10-02 16:39:00] START seed_0:ATG_Ahr_CIS_gbt_RDKit
+2025-10-02 16:39:04,834 - Using PyTorch device: cuda:0
+2025-10-02 16:39:04,834 - Selected compute device: cuda:0
+[2025-10-02 16:39:21] START seed_0:ATG_Ahr_CIS_gbt_RDKit
+2025-10-02 16:39:25,930 - Using PyTorch device: cuda:0
+2025-10-02 16:39:25,930 - Selected compute device: cuda:0
+[2025-10-02 16:53:59] START seed_0:ATG_Ahr_CIS_gbt_RDKit
+2025-10-02 16:54:04,262 - Using PyTorch device: cuda:0
+2025-10-02 16:54:04,263 - Selected compute device: cuda:0
+[2025-10-02 23:59:03] END seed_0:ATG_Ahr_CIS_gbt_RDKit status=0

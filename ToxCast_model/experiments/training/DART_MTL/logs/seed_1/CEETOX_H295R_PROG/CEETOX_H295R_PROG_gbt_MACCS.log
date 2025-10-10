@@ -1,0 +1,21 @@
+[2025-10-04 15:19:51] START seed_1:CEETOX_H295R_PROG_gbt_MACCS
+2025-10-04 15:19:53,764 - Using PyTorch device: cuda:0
+2025-10-04 15:19:53,764 - Selected compute device: cuda:0
+2025-10-04 15:26:42,918 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+2025-10-04 15:26:42,918 - Validation F1 Score: 0.5928787987122821
+2025-10-04 15:26:42,918 - Validation Precision: 0.569362031714973
+2025-10-04 15:26:42,918 - Validation Recall: 0.6249206349206349
+2025-10-04 15:26:42,918 - Validation Accuracy: 0.6574055158324822
+2025-10-04 15:26:42,918 - Validation AUC: 0.672314066087651
+2025-10-04 15:26:43,163 - Holdout Validation F1 Score: 0.47368421052631576
+2025-10-04 15:26:43,163 - Holdout Validation Precision: 0.4090909090909091
+2025-10-04 15:26:43,163 - Holdout Validation Recall: 0.5625
+2025-10-04 15:26:43,163 - Holdout Validation Accuracy: 0.5652173913043478
+2025-10-04 15:26:43,163 - Holdout Validation AUC: 0.646875
+2025-10-04 15:26:43,173 - Test F1 Score: 0.391304347826087
+2025-10-04 15:26:43,174 - Test Precision: 0.42857142857142855
+2025-10-04 15:26:43,174 - Test Recall: 0.36
+2025-10-04 15:26:43,174 - Test Accuracy: 0.5757575757575758
+2025-10-04 15:26:43,174 - Test AUC: 0.5809756097560976
+2025-10-04 15:26:43,178 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/CEETOX_H295R_PROG_gbt_MACCS/model.joblib
+[2025-10-04 15:26:43] END seed_1:CEETOX_H295R_PROG_gbt_MACCS status=0

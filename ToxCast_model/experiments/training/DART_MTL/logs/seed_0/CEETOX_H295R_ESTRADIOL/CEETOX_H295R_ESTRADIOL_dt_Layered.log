@@ -1,0 +1,21 @@
+[2025-10-04 10:23:07] START seed_0:CEETOX_H295R_ESTRADIOL_dt_Layered
+2025-10-04 10:23:10,672 - Using PyTorch device: cuda:0
+2025-10-04 10:23:10,673 - Selected compute device: cuda:0
+2025-10-04 10:25:11,506 - Best Model Parameters: {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 3}
+2025-10-04 10:25:11,506 - Validation F1 Score: 0.266043897622845
+2025-10-04 10:25:11,506 - Validation Precision: 0.235982905982906
+2025-10-04 10:25:11,506 - Validation Recall: 0.3111111111111111
+2025-10-04 10:25:11,506 - Validation Accuracy: 0.8132490213791026
+2025-10-04 10:25:11,506 - Validation AUC: 0.5887937595129376
+2025-10-04 10:25:11,760 - Holdout Validation F1 Score: 0.09523809523809523
+2025-10-04 10:25:11,760 - Holdout Validation Precision: 0.07692307692307693
+2025-10-04 10:25:11,760 - Holdout Validation Recall: 0.125
+2025-10-04 10:25:11,760 - Holdout Validation Accuracy: 0.7205882352941176
+2025-10-04 10:25:11,760 - Holdout Validation AUC: 0.4625
+2025-10-04 10:25:11,783 - Test F1 Score: 0.25
+2025-10-04 10:25:11,783 - Test Precision: 0.3076923076923077
+2025-10-04 10:25:11,783 - Test Recall: 0.21052631578947367
+2025-10-04 10:25:11,783 - Test Accuracy: 0.7037037037037037
+2025-10-04 10:25:11,783 - Test AUC: 0.5263157894736842
+2025-10-04 10:25:11,785 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/CEETOX_H295R_ESTRADIOL_dt_Layered/model.joblib
+[2025-10-04 10:25:12] END seed_0:CEETOX_H295R_ESTRADIOL_dt_Layered status=0

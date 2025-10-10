@@ -1,0 +1,21 @@
+[2025-10-07 23:31:55] START seed_0:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Pattern
+2025-10-07 23:31:59,662 - Using PyTorch device: cuda:0
+2025-10-07 23:31:59,663 - Selected compute device: cuda:0
+2025-10-08 10:21:22,249 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 3, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 300}
+2025-10-08 10:21:22,249 - Validation F1 Score: 0.543385196611003
+2025-10-08 10:21:22,249 - Validation Precision: 0.5544075021312873
+2025-10-08 10:21:22,249 - Validation Recall: 0.5571428571428572
+2025-10-08 10:21:22,249 - Validation Accuracy: 0.9888155685357137
+2025-10-08 10:21:22,249 - Validation AUC: 0.8682339333719262
+2025-10-08 10:22:43,488 - Holdout Validation F1 Score: 0.68
+2025-10-08 10:22:43,488 - Holdout Validation Precision: 0.6538461538461539
+2025-10-08 10:22:43,488 - Holdout Validation Recall: 0.7083333333333334
+2025-10-08 10:22:43,488 - Holdout Validation Accuracy: 0.9777468706536857
+2025-10-08 10:22:43,488 - Holdout Validation AUC: 0.9821942446043166
+2025-10-08 10:22:43,526 - Test F1 Score: 0.6071428571428571
+2025-10-08 10:22:43,526 - Test Precision: 0.5666666666666667
+2025-10-08 10:22:43,526 - Test Recall: 0.6538461538461539
+2025-10-08 10:22:43,526 - Test Accuracy: 0.96759941089838
+2025-10-08 10:22:43,526 - Test AUC: 0.9688714807397809
+2025-10-08 10:22:43,537 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Pattern/model.joblib
+[2025-10-08 10:22:43] END seed_0:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_gbt_Pattern status=0

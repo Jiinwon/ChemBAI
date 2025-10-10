@@ -1,0 +1,68 @@
+[2025-10-04 04:27:23] Job 485853 starting on n007.hpc
+[2025-10-04 04:27:23] Label: BSK_KF3CT_TIMP2_logistic_RDKit
+[2025-10-04 04:27:23] Job BSK_KF3CT_TIMP2_logistic_RDKit starting on n007.hpc
+[2025-10-04 04:27:23] START seed_0:BSK_KF3CT_TIMP2_logistic_RDKit
+2025-10-04 04:27:27,190 - Using PyTorch device: cuda:0
+2025-10-04 04:27:27,191 - Selected compute device: cuda:0
+2025-10-04 05:39:35,518 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-04 05:39:35,518 - Validation F1 Score: 0.39181827360602056
+2025-10-04 05:39:35,518 - Validation Precision: 0.36100320589565543
+2025-10-04 05:39:35,518 - Validation Recall: 0.4311224489795918
+2025-10-04 05:39:35,518 - Validation Accuracy: 0.7524829224829224
+2025-10-04 05:39:35,518 - Validation AUC: 0.6336132249219996
+2025-10-04 05:39:36,069 - Holdout Validation F1 Score: 0.4935064935064935
+2025-10-04 05:39:36,069 - Holdout Validation Precision: 0.41304347826086957
+2025-10-04 05:39:36,069 - Holdout Validation Recall: 0.6129032258064516
+2025-10-04 05:39:36,069 - Holdout Validation Accuracy: 0.7417218543046358
+2025-10-04 05:39:36,069 - Holdout Validation AUC: 0.723790322580645
+2025-10-04 05:39:36,094 - Test F1 Score: 0.19047619047619047
+2025-10-04 05:39:36,094 - Test Precision: 0.20689655172413793
+2025-10-04 05:39:36,094 - Test Recall: 0.17647058823529413
+2025-10-04 05:39:36,094 - Test Accuracy: 0.7017543859649122
+2025-10-04 05:39:36,094 - Test AUC: 0.5460498067840275
+2025-10-04 05:39:36,096 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_KF3CT_TIMP2_logistic_RDKit/model.joblib
+[2025-10-04 05:39:36] END seed_0:BSK_KF3CT_TIMP2_logistic_RDKit status=0
+[2025-10-04 05:39:36] START seed_1:BSK_KF3CT_TIMP2_logistic_RDKit
+2025-10-04 05:39:39,579 - Using PyTorch device: cuda:0
+2025-10-04 05:39:39,579 - Selected compute device: cuda:0
+2025-10-04 06:54:47,282 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'saga'}
+2025-10-04 06:54:47,282 - Validation F1 Score: 0.36394124088501434
+2025-10-04 06:54:47,282 - Validation Precision: 0.33750106772335925
+2025-10-04 06:54:47,282 - Validation Recall: 0.40106122448979586
+2025-10-04 06:54:47,282 - Validation Accuracy: 0.7449913175602345
+2025-10-04 06:54:47,282 - Validation AUC: 0.621751749348388
+2025-10-04 06:55:06,239 - Holdout Validation F1 Score: 0.10810810810810811
+2025-10-04 06:55:06,239 - Holdout Validation Precision: 0.11764705882352941
+2025-10-04 06:55:06,239 - Holdout Validation Recall: 0.1
+2025-10-04 06:55:06,239 - Holdout Validation Accuracy: 0.6915887850467289
+2025-10-04 06:55:06,239 - Holdout Validation AUC: 0.5818965517241379
+2025-10-04 06:55:06,264 - Test F1 Score: 0.3611111111111111
+2025-10-04 06:55:06,264 - Test Precision: 0.37142857142857144
+2025-10-04 06:55:06,264 - Test Recall: 0.35135135135135137
+2025-10-04 06:55:06,264 - Test Accuracy: 0.7032258064516129
+2025-10-04 06:55:06,264 - Test AUC: 0.636051305542831
+2025-10-04 06:55:06,266 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/BSK_KF3CT_TIMP2_logistic_RDKit/model.joblib
+[2025-10-04 06:55:06] END seed_1:BSK_KF3CT_TIMP2_logistic_RDKit status=0
+[2025-10-04 06:55:06] START seed_2:BSK_KF3CT_TIMP2_logistic_RDKit
+2025-10-04 06:55:08,902 - Using PyTorch device: cuda:0
+2025-10-04 06:55:08,903 - Selected compute device: cuda:0
+2025-10-04 08:09:02,137 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 08:09:02,137 - Validation F1 Score: 0.36122838215653746
+2025-10-04 08:09:02,138 - Validation Precision: 0.30578794228492245
+2025-10-04 08:09:02,138 - Validation Recall: 0.44335106382978723
+2025-10-04 08:09:02,138 - Validation Accuracy: 0.7180531732418525
+2025-10-04 08:09:02,138 - Validation AUC: 0.6277364058628356
+2025-10-04 08:09:02,590 - Holdout Validation F1 Score: 0.26666666666666666
+2025-10-04 08:09:02,590 - Holdout Validation Precision: 0.23809523809523808
+2025-10-04 08:09:02,590 - Holdout Validation Recall: 0.30303030303030304
+2025-10-04 08:09:02,591 - Holdout Validation Accuracy: 0.6232876712328768
+2025-10-04 08:09:02,591 - Holdout Validation AUC: 0.5614105658353445
+2025-10-04 08:09:02,614 - Test F1 Score: 0.3333333333333333
+2025-10-04 08:09:02,614 - Test Precision: 0.34375
+2025-10-04 08:09:02,614 - Test Recall: 0.3235294117647059
+2025-10-04 08:09:02,614 - Test Accuracy: 0.7066666666666667
+2025-10-04 08:09:02,614 - Test AUC: 0.5822768762677485
+2025-10-04 08:09:02,616 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/BSK_KF3CT_TIMP2_logistic_RDKit/model.joblib
+[2025-10-04 08:09:03] END seed_2:BSK_KF3CT_TIMP2_logistic_RDKit status=0
+[2025-10-04 08:09:03] Job BSK_KF3CT_TIMP2_logistic_RDKit completed successfully
+[2025-10-04 08:09:03] Command finished with status 0

@@ -1,3 +1,22 @@
 [2025-10-02 11:30:08] START seed_0:BSK_hDFCGF_TIMP1_gbt_RDKit
 2025-10-02 11:30:11,779 - Using PyTorch device: cuda:0
 2025-10-02 11:30:11,780 - Selected compute device: cuda:0
+2025-10-02 14:35:47,842 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 200}
+2025-10-02 14:35:47,842 - Validation F1 Score: 0.32168053937661056
+2025-10-02 14:35:47,842 - Validation Precision: 0.3824675324675325
+2025-10-02 14:35:47,842 - Validation Recall: 0.27840531561461795
+2025-10-02 14:35:47,842 - Validation Accuracy: 0.808021978021978
+2025-10-02 14:35:47,842 - Validation AUC: 0.6626756178840629
+2025-10-02 14:36:26,231 - Holdout Validation F1 Score: 0.3
+2025-10-02 14:36:26,232 - Holdout Validation Precision: 0.5454545454545454
+2025-10-02 14:36:26,232 - Holdout Validation Recall: 0.20689655172413793
+2025-10-02 14:36:26,232 - Holdout Validation Accuracy: 0.8145695364238411
+2025-10-02 14:36:26,232 - Holdout Validation AUC: 0.6762295081967212
+2025-10-02 14:36:26,261 - Test F1 Score: 0.10810810810810811
+2025-10-02 14:36:26,261 - Test Precision: 0.2222222222222222
+2025-10-02 14:36:26,261 - Test Recall: 0.07142857142857142
+2025-10-02 14:36:26,261 - Test Accuracy: 0.8070175438596491
+2025-10-02 14:36:26,261 - Test AUC: 0.5204795204795205
+2025-10-02 14:36:26,279 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_hDFCGF_TIMP1_gbt_RDKit/model.joblib
+[2025-10-02 14:36:26] END seed_0:BSK_hDFCGF_TIMP1_gbt_RDKit status=0
+[2025-10-03 19:22:26] SKIP seed_0:BSK_hDFCGF_TIMP1_gbt_RDKit model.joblib exists

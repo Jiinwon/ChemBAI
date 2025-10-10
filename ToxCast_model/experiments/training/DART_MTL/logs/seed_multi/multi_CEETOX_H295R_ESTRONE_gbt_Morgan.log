@@ -1,0 +1,68 @@
+[2025-10-04 13:12:59] Job 486670 starting on n005.hpc
+[2025-10-04 13:12:59] Label: CEETOX_H295R_ESTRONE_gbt_Morgan
+[2025-10-04 13:12:59] Job CEETOX_H295R_ESTRONE_gbt_Morgan starting on n005.hpc
+[2025-10-04 13:12:59] START seed_0:CEETOX_H295R_ESTRONE_gbt_Morgan
+2025-10-04 13:13:02,914 - Using PyTorch device: cuda:0
+2025-10-04 13:13:02,914 - Selected compute device: cuda:0
+2025-10-04 13:31:06,661 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 7, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 100}
+2025-10-04 13:31:06,661 - Validation F1 Score: 0.25255411255411253
+2025-10-04 13:31:06,661 - Validation Precision: 0.25198135198135196
+2025-10-04 13:31:06,661 - Validation Recall: 0.26666666666666666
+2025-10-04 13:31:06,661 - Validation Accuracy: 0.8157783800060223
+2025-10-04 13:31:06,661 - Validation AUC: 0.6501860307796381
+2025-10-04 13:31:08,445 - Holdout Validation F1 Score: 0.16666666666666666
+2025-10-04 13:31:08,445 - Holdout Validation Precision: 0.2222222222222222
+2025-10-04 13:31:08,445 - Holdout Validation Recall: 0.13333333333333333
+2025-10-04 13:31:08,446 - Holdout Validation Accuracy: 0.7058823529411765
+2025-10-04 13:31:08,446 - Holdout Validation AUC: 0.5723270440251572
+2025-10-04 13:31:08,462 - Test F1 Score: 0.3076923076923077
+2025-10-04 13:31:08,462 - Test Precision: 0.3333333333333333
+2025-10-04 13:31:08,462 - Test Recall: 0.2857142857142857
+2025-10-04 13:31:08,462 - Test Accuracy: 0.5555555555555556
+2025-10-04 13:31:08,462 - Test AUC: 0.5987196765498652
+2025-10-04 13:31:08,468 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/CEETOX_H295R_ESTRONE_gbt_Morgan/model.joblib
+[2025-10-04 13:31:08] END seed_0:CEETOX_H295R_ESTRONE_gbt_Morgan status=0
+[2025-10-04 13:31:08] START seed_1:CEETOX_H295R_ESTRONE_gbt_Morgan
+2025-10-04 13:31:11,658 - Using PyTorch device: cuda:0
+2025-10-04 13:31:11,659 - Selected compute device: cuda:0
+2025-10-04 13:50:06,565 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 3, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+2025-10-04 13:50:06,566 - Validation F1 Score: 0.3063748079877112
+2025-10-04 13:50:06,566 - Validation Precision: 0.273202614379085
+2025-10-04 13:50:06,566 - Validation Recall: 0.3494505494505495
+2025-10-04 13:50:06,566 - Validation Accuracy: 0.7634576098059245
+2025-10-04 13:50:06,566 - Validation AUC: 0.6642816657027184
+2025-10-04 13:50:07,465 - Holdout Validation F1 Score: 0.4
+2025-10-04 13:50:07,465 - Holdout Validation Precision: 0.29411764705882354
+2025-10-04 13:50:07,465 - Holdout Validation Recall: 0.625
+2025-10-04 13:50:07,465 - Holdout Validation Accuracy: 0.6739130434782609
+2025-10-04 13:50:07,465 - Holdout Validation AUC: 0.6546052631578947
+2025-10-04 13:50:07,481 - Test F1 Score: 0.08333333333333333
+2025-10-04 13:50:07,481 - Test Precision: 0.1
+2025-10-04 13:50:07,481 - Test Recall: 0.07142857142857142
+2025-10-04 13:50:07,481 - Test Accuracy: 0.6666666666666666
+2025-10-04 13:50:07,481 - Test AUC: 0.4697802197802198
+2025-10-04 13:50:07,487 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/CEETOX_H295R_ESTRONE_gbt_Morgan/model.joblib
+[2025-10-04 13:50:07] END seed_1:CEETOX_H295R_ESTRONE_gbt_Morgan status=0
+[2025-10-04 13:50:07] START seed_2:CEETOX_H295R_ESTRONE_gbt_Morgan
+2025-10-04 13:50:10,264 - Using PyTorch device: cuda:0
+2025-10-04 13:50:10,266 - Selected compute device: cuda:0
+2025-10-04 14:08:00,884 - Best Model Parameters: {'learning_rate': 0.05, 'max_depth': 7, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 100}
+2025-10-04 14:08:00,885 - Validation F1 Score: 0.33258810155361884
+2025-10-04 14:08:00,885 - Validation Precision: 0.3144230769230769
+2025-10-04 14:08:00,885 - Validation Recall: 0.3538461538461538
+2025-10-04 14:08:00,885 - Validation Accuracy: 0.7844257703081232
+2025-10-04 14:08:00,885 - Validation AUC: 0.6317292644757433
+2025-10-04 14:08:02,620 - Holdout Validation F1 Score: 0.27586206896551724
+2025-10-04 14:08:02,620 - Holdout Validation Precision: 0.3076923076923077
+2025-10-04 14:08:02,620 - Holdout Validation Recall: 0.25
+2025-10-04 14:08:02,620 - Holdout Validation Accuracy: 0.676923076923077
+2025-10-04 14:08:02,620 - Holdout Validation AUC: 0.5637755102040816
+2025-10-04 14:08:02,636 - Test F1 Score: 0.125
+2025-10-04 14:08:02,636 - Test Precision: 0.1111111111111111
+2025-10-04 14:08:02,637 - Test Recall: 0.14285714285714285
+2025-10-04 14:08:02,637 - Test Accuracy: 0.7971014492753623
+2025-10-04 14:08:02,637 - Test AUC: 0.5092165898617511
+2025-10-04 14:08:02,643 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/CEETOX_H295R_ESTRONE_gbt_Morgan/model.joblib
+[2025-10-04 14:08:03] END seed_2:CEETOX_H295R_ESTRONE_gbt_Morgan status=0
+[2025-10-04 14:08:03] Job CEETOX_H295R_ESTRONE_gbt_Morgan completed successfully
+[2025-10-04 14:08:03] Command finished with status 0

@@ -25,3 +25,10 @@
 [2025-09-30 15:28:21] START seed_1:ATG_BRE_CIS_gbt_Layered
 2025-09-30 15:28:25,236 - Using PyTorch device: cuda:0
 2025-09-30 15:28:25,237 - Selected compute device: cuda:0
+[2025-10-02 16:57:24] Job 484616 starting on n091.hpc
+[2025-10-02 16:57:24] Label: ATG_BRE_CIS_gbt_Layered
+[2025-10-02 16:57:24] Job ATG_BRE_CIS_gbt_Layered starting on n091.hpc
+[2025-10-02 16:57:24] START seed_0:ATG_BRE_CIS_gbt_Layered
+2025-10-02 16:57:27,608 - Using PyTorch device: cuda:0
+2025-10-02 16:57:27,609 - Selected compute device: cuda:0
+[2025-10-03 08:18:06] Command finished with status 0

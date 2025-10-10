@@ -19,3 +19,24 @@
 2025-09-30 12:10:37,396 - Test AUC: 0.5858560794044665
 2025-09-30 12:10:37,399 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_Ahr_CIS_logistic_RDKit/model.joblib
 [2025-09-30 12:10:37] END seed_1:ATG_Ahr_CIS_logistic_RDKit status=0
+[2025-10-02 19:52:56] START seed_1:ATG_Ahr_CIS_logistic_RDKit
+2025-10-02 19:53:00,071 - Using PyTorch device: cuda:0
+2025-10-02 19:53:00,071 - Selected compute device: cuda:0
+2025-10-02 22:48:55,413 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-02 22:48:55,413 - Validation F1 Score: 0.3328190129813157
+2025-10-02 22:48:55,413 - Validation Precision: 0.2684741091638774
+2025-10-02 22:48:55,413 - Validation Recall: 0.4381922675026123
+2025-10-02 22:48:55,413 - Validation Accuracy: 0.7427976000403353
+2025-10-02 22:48:55,413 - Validation AUC: 0.6566578368315955
+2025-10-02 22:48:56,198 - Holdout Validation F1 Score: 0.23728813559322035
+2025-10-02 22:48:56,198 - Holdout Validation Precision: 0.21875
+2025-10-02 22:48:56,198 - Holdout Validation Recall: 0.25925925925925924
+2025-10-02 22:48:56,198 - Holdout Validation Accuracy: 0.6564885496183206
+2025-10-02 22:48:56,198 - Holdout Validation AUC: 0.4773860398860399
+2025-10-02 22:48:56,223 - Test F1 Score: 0.3357664233576642
+2025-10-02 22:48:56,223 - Test Precision: 0.30666666666666664
+2025-10-02 22:48:56,223 - Test Recall: 0.3709677419354839
+2025-10-02 22:48:56,224 - Test Accuracy: 0.717391304347826
+2025-10-02 22:48:56,224 - Test AUC: 0.5858560794044665
+2025-10-02 22:48:56,226 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/ATG_Ahr_CIS_logistic_RDKit/model.joblib
+[2025-10-02 22:48:56] END seed_1:ATG_Ahr_CIS_logistic_RDKit status=0

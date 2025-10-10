@@ -1,0 +1,68 @@
+[2025-10-07 17:17:03] Job 488991 starting on n006.hpc
+[2025-10-07 17:17:03] Label: TOX21_PR_BLA_Antagonist_ratio_logistic_Layered
+[2025-10-07 17:17:03] Job TOX21_PR_BLA_Antagonist_ratio_logistic_Layered starting on n006.hpc
+[2025-10-07 17:17:03] START seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered
+2025-10-07 17:17:07,509 - Using PyTorch device: cuda:0
+2025-10-07 17:17:07,510 - Selected compute device: cuda:0
+2025-10-07 23:08:49,816 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'saga'}
+2025-10-07 23:08:49,816 - Validation F1 Score: 0.5520928150139003
+2025-10-07 23:08:49,816 - Validation Precision: 0.49339929233812263
+2025-10-07 23:08:49,816 - Validation Recall: 0.6272373540856031
+2025-10-07 23:08:49,816 - Validation Accuracy: 0.7783435468362061
+2025-10-07 23:08:49,816 - Validation AUC: 0.7766292160370639
+2025-10-07 23:10:08,424 - Holdout Validation F1 Score: 0.6088495575221239
+2025-10-07 23:10:08,424 - Holdout Validation Precision: 0.5602605863192183
+2025-10-07 23:10:08,424 - Holdout Validation Recall: 0.6666666666666666
+2025-10-07 23:10:08,424 - Holdout Validation Accuracy: 0.6926286509040334
+2025-10-07 23:10:08,424 - Holdout Validation AUC: 0.7678748591703242
+2025-10-07 23:10:08,457 - Test F1 Score: 0.6405451448040886
+2025-10-07 23:10:08,457 - Test Precision: 0.6103896103896104
+2025-10-07 23:10:08,458 - Test Recall: 0.6738351254480287
+2025-10-07 23:10:08,458 - Test Accuracy: 0.6892488954344624
+2025-10-07 23:10:08,458 - Test AUC: 0.7444220430107527
+2025-10-07 23:10:08,460 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_PR_BLA_Antagonist_ratio_logistic_Layered/model.joblib
+[2025-10-07 23:10:08] END seed_0:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered status=0
+[2025-10-07 23:10:08] START seed_1:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered
+2025-10-07 23:10:11,104 - Using PyTorch device: cuda:0
+2025-10-07 23:10:11,105 - Selected compute device: cuda:0
+2025-10-08 04:49:45,861 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-08 04:49:45,862 - Validation F1 Score: 0.5808156180351572
+2025-10-08 04:49:45,862 - Validation Precision: 0.5273612834719325
+2025-10-08 04:49:45,862 - Validation Recall: 0.6464980692057243
+2025-10-08 04:49:45,862 - Validation Accuracy: 0.7769440061496137
+2025-10-08 04:49:45,862 - Validation AUC: 0.7859153025293748
+2025-10-08 04:49:48,480 - Holdout Validation F1 Score: 0.5526932084309133
+2025-10-08 04:49:48,480 - Holdout Validation Precision: 0.4816326530612245
+2025-10-08 04:49:48,481 - Holdout Validation Recall: 0.6483516483516484
+2025-10-08 04:49:48,481 - Holdout Validation Accuracy: 0.7290780141843972
+2025-10-08 04:49:48,481 - Holdout Validation AUC: 0.7664362406236211
+2025-10-08 04:49:48,510 - Test F1 Score: 0.5335968379446641
+2025-10-08 04:49:48,510 - Test Precision: 0.4963235294117647
+2025-10-08 04:49:48,510 - Test Recall: 0.5769230769230769
+2025-10-08 04:49:48,510 - Test Accuracy: 0.6685393258426966
+2025-10-08 04:49:48,510 - Test AUC: 0.7299467153023638
+2025-10-08 04:49:48,513 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/TOX21_PR_BLA_Antagonist_ratio_logistic_Layered/model.joblib
+[2025-10-08 04:49:48] END seed_1:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered status=0
+[2025-10-08 04:49:48] START seed_2:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered
+2025-10-08 04:49:51,687 - Using PyTorch device: cuda:0
+2025-10-08 04:49:51,687 - Selected compute device: cuda:0
+2025-10-08 10:29:33,400 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'saga'}
+2025-10-08 10:29:33,401 - Validation F1 Score: 0.5840342672827656
+2025-10-08 10:29:33,401 - Validation Precision: 0.5270644763916918
+2025-10-08 10:29:33,401 - Validation Recall: 0.6561151079136691
+2025-10-08 10:29:33,401 - Validation Accuracy: 0.7799922919433615
+2025-10-08 10:29:33,401 - Validation AUC: 0.7958910785698317
+2025-10-08 10:31:21,253 - Holdout Validation F1 Score: 0.5636743215031316
+2025-10-08 10:31:21,253 - Holdout Validation Precision: 0.5113636363636364
+2025-10-08 10:31:21,253 - Holdout Validation Recall: 0.627906976744186
+2025-10-08 10:31:21,253 - Holdout Validation Accuracy: 0.6979768786127167
+2025-10-08 10:31:21,254 - Holdout Validation AUC: 0.7462142265126032
+2025-10-08 10:31:21,285 - Test F1 Score: 0.5748502994011976
+2025-10-08 10:31:21,285 - Test Precision: 0.5070422535211268
+2025-10-08 10:31:21,285 - Test Recall: 0.663594470046083
+2025-10-08 10:31:21,285 - Test Accuracy: 0.6948424068767909
+2025-10-08 10:31:21,285 - Test AUC: 0.7301129559194075
+2025-10-08 10:31:21,289 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_PR_BLA_Antagonist_ratio_logistic_Layered/model.joblib
+[2025-10-08 10:31:21] END seed_2:TOX21_PR_BLA_Antagonist_ratio_logistic_Layered status=0
+[2025-10-08 10:31:21] Job TOX21_PR_BLA_Antagonist_ratio_logistic_Layered completed successfully
+[2025-10-08 10:31:21] Command finished with status 0

@@ -1,0 +1,21 @@
+[2025-10-04 05:40:25] START seed_0:NVS_ENZ_hVEGFR3_dt_Morgan
+2025-10-04 05:40:28,736 - Using PyTorch device: cuda:0
+2025-10-04 05:40:28,736 - Selected compute device: cuda:0
+2025-10-04 05:41:19,590 - Best Model Parameters: {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 3}
+2025-10-04 05:41:19,590 - Validation F1 Score: 0.4133333333333333
+2025-10-04 05:41:19,590 - Validation Precision: 0.32
+2025-10-04 05:41:19,590 - Validation Recall: 0.6
+2025-10-04 05:41:19,590 - Validation Accuracy: 0.7307692307692307
+2025-10-04 05:41:19,590 - Validation AUC: 0.6772727272727271
+2025-10-04 05:41:19,741 - Holdout Validation F1 Score: 0.0
+2025-10-04 05:41:19,742 - Holdout Validation Precision: 0.0
+2025-10-04 05:41:19,742 - Holdout Validation Recall: 0.0
+2025-10-04 05:41:19,742 - Holdout Validation Accuracy: 0.75
+2025-10-04 05:41:19,742 - Holdout Validation AUC: nan
+2025-10-04 05:41:19,755 - Test F1 Score: 0.0
+2025-10-04 05:41:19,755 - Test Precision: 0.0
+2025-10-04 05:41:19,755 - Test Recall: 0.0
+2025-10-04 05:41:19,755 - Test Accuracy: 1.0
+2025-10-04 05:41:19,755 - Test AUC: nan
+2025-10-04 05:41:19,757 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/NVS_ENZ_hVEGFR3_dt_Morgan/model.joblib
+[2025-10-04 05:41:20] END seed_0:NVS_ENZ_hVEGFR3_dt_Morgan status=0

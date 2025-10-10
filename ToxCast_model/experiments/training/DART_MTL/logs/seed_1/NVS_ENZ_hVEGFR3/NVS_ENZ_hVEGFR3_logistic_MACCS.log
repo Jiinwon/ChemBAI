@@ -1,0 +1,21 @@
+[2025-10-04 08:09:26] START seed_1:NVS_ENZ_hVEGFR3_logistic_MACCS
+2025-10-04 08:09:29,235 - Using PyTorch device: cuda:0
+2025-10-04 08:09:29,236 - Selected compute device: cuda:0
+2025-10-04 08:09:44,291 - Best Model Parameters: {'C': 2, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-04 08:09:44,291 - Validation F1 Score: 0.2838095238095238
+2025-10-04 08:09:44,291 - Validation Precision: 0.2233333333333333
+2025-10-04 08:09:44,291 - Validation Recall: 0.4
+2025-10-04 08:09:44,291 - Validation Accuracy: 0.6978021978021978
+2025-10-04 08:09:44,291 - Validation AUC: 0.5924242424242425
+2025-10-04 08:09:44,549 - Holdout Validation F1 Score: 0.0
+2025-10-04 08:09:44,549 - Holdout Validation Precision: 0.0
+2025-10-04 08:09:44,549 - Holdout Validation Recall: 0.0
+2025-10-04 08:09:44,549 - Holdout Validation Accuracy: 0.8
+2025-10-04 08:09:44,550 - Holdout Validation AUC: nan
+2025-10-04 08:09:44,558 - Test F1 Score: 0.0
+2025-10-04 08:09:44,558 - Test Precision: 0.0
+2025-10-04 08:09:44,558 - Test Recall: 0.0
+2025-10-04 08:09:44,558 - Test Accuracy: 0.9166666666666666
+2025-10-04 08:09:44,558 - Test AUC: 1.0
+2025-10-04 08:09:44,559 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/NVS_ENZ_hVEGFR3_logistic_MACCS/model.joblib
+[2025-10-04 08:09:45] END seed_1:NVS_ENZ_hVEGFR3_logistic_MACCS status=0

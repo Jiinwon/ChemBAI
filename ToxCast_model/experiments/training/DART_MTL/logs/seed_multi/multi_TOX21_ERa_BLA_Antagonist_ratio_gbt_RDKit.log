@@ -1,0 +1,27 @@
+[2025-10-04 17:25:24] Job 487127 starting on n005.hpc
+[2025-10-04 17:25:24] Label: TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit
+[2025-10-04 17:25:24] Job TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit starting on n005.hpc
+[2025-10-04 17:25:24] START seed_0:TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit
+2025-10-04 17:25:28,301 - Using PyTorch device: cuda:0
+2025-10-04 17:25:28,301 - Selected compute device: cuda:0
+2025-10-05 11:02:39,791 - Best Model Parameters: {'learning_rate': 0.2, 'max_depth': 5, 'min_samples_leaf': 2, 'min_samples_split': 2, 'n_estimators': 300}
+2025-10-05 11:02:39,792 - Validation F1 Score: 0.374542888703683
+2025-10-05 11:02:39,792 - Validation Precision: 0.4021466337163684
+2025-10-05 11:02:39,792 - Validation Recall: 0.35141323792486584
+2025-10-05 11:02:39,792 - Validation Accuracy: 0.8762894227256364
+2025-10-05 11:02:39,792 - Validation AUC: 0.7392797991883079
+2025-10-05 11:06:15,391 - Holdout Validation F1 Score: 0.2549019607843137
+2025-10-05 11:06:15,391 - Holdout Validation Precision: 0.4262295081967213
+2025-10-05 11:06:15,391 - Holdout Validation Recall: 0.18181818181818182
+2025-10-05 11:06:15,391 - Holdout Validation Accuracy: 0.8090452261306532
+2025-10-05 11:06:15,391 - Holdout Validation AUC: 0.7368948050418188
+2025-10-05 11:06:15,446 - Test F1 Score: 0.2648401826484018
+2025-10-05 11:06:15,446 - Test Precision: 0.4142857142857143
+2025-10-05 11:06:15,446 - Test Recall: 0.19463087248322147
+2025-10-05 11:06:15,446 - Test Accuracy: 0.7935897435897435
+2025-10-05 11:06:15,446 - Test AUC: 0.6779906189174528
+2025-10-05 11:06:15,460 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit/model.joblib
+[2025-10-05 11:06:15] END seed_0:TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit status=0
+[2025-10-05 11:06:15] START seed_1:TOX21_ERa_BLA_Antagonist_ratio_gbt_RDKit
+2025-10-05 11:06:19,043 - Using PyTorch device: cuda:0
+2025-10-05 11:06:19,044 - Selected compute device: cuda:0

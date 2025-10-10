@@ -1,0 +1,21 @@
+[2025-10-07 19:23:35] START seed_2:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_rf_Layered
+2025-10-07 19:23:38,000 - Using PyTorch device: cuda:0
+2025-10-07 19:23:38,001 - Selected compute device: cuda:0
+2025-10-07 19:31:52,776 - Best Model Parameters: {'max_depth': None, 'min_samples_leaf': 1, 'min_samples_split': 4, 'n_estimators': 200}
+2025-10-07 19:31:52,776 - Validation F1 Score: 0.6000197205318909
+2025-10-07 19:31:52,776 - Validation Precision: 0.7049242424242423
+2025-10-07 19:31:52,776 - Validation Recall: 0.5287581699346405
+2025-10-07 19:31:52,777 - Validation Accuracy: 0.9900154877494909
+2025-10-07 19:31:52,777 - Validation AUC: 0.9034314272538311
+2025-10-07 19:31:54,819 - Holdout Validation F1 Score: 0.4375
+2025-10-07 19:31:54,819 - Holdout Validation Precision: 0.7
+2025-10-07 19:31:54,819 - Holdout Validation Recall: 0.3181818181818182
+2025-10-07 19:31:54,819 - Holdout Validation Accuracy: 0.9739884393063584
+2025-10-07 19:31:54,819 - Holdout Validation AUC: 0.8896200814111261
+2025-10-07 19:31:54,915 - Test F1 Score: 0.625
+2025-10-07 19:31:54,915 - Test Precision: 1.0
+2025-10-07 19:31:54,915 - Test Recall: 0.45454545454545453
+2025-10-07 19:31:54,915 - Test Accuracy: 0.9914040114613181
+2025-10-07 19:31:54,915 - Test AUC: 0.867606192933704
+2025-10-07 19:31:54,968 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_rf_Layered/model.joblib
+[2025-10-07 19:31:55] END seed_2:TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780_rf_Layered status=0

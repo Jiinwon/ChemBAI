@@ -1,0 +1,68 @@
+[2025-10-04 06:36:04] Job 486018 starting on n005.hpc
+[2025-10-04 06:36:04] Label: NVS_ENZ_hVEGFR3_xgb_Pattern
+[2025-10-04 06:36:04] Job NVS_ENZ_hVEGFR3_xgb_Pattern starting on n005.hpc
+[2025-10-04 06:36:04] START seed_0:NVS_ENZ_hVEGFR3_xgb_Pattern
+2025-10-04 06:36:08,020 - Using PyTorch device: cuda:0
+2025-10-04 06:36:08,020 - Selected compute device: cuda:0
+2025-10-04 07:03:17,581 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.1, 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 400, 'subsample': 1.0}
+2025-10-04 07:03:17,581 - Validation F1 Score: 0.45999999999999996
+2025-10-04 07:03:17,581 - Validation Precision: 0.4666666666666666
+2025-10-04 07:03:17,581 - Validation Recall: 0.4666666666666666
+2025-10-04 07:03:17,581 - Validation Accuracy: 0.8087912087912088
+2025-10-04 07:03:17,581 - Validation AUC: 0.6363636363636364
+2025-10-04 07:03:20,164 - Holdout Validation F1 Score: 0.0
+2025-10-04 07:03:20,164 - Holdout Validation Precision: 0.0
+2025-10-04 07:03:20,164 - Holdout Validation Recall: 0.0
+2025-10-04 07:03:20,164 - Holdout Validation Accuracy: 0.75
+2025-10-04 07:03:20,164 - Holdout Validation AUC: nan
+2025-10-04 07:03:20,891 - Test F1 Score: 0.0
+2025-10-04 07:03:20,891 - Test Precision: 0.0
+2025-10-04 07:03:20,891 - Test Recall: 0.0
+2025-10-04 07:03:20,891 - Test Accuracy: 0.875
+2025-10-04 07:03:20,891 - Test AUC: nan
+2025-10-04 07:03:20,896 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/NVS_ENZ_hVEGFR3_xgb_Pattern/model.joblib
+[2025-10-04 07:03:21] END seed_0:NVS_ENZ_hVEGFR3_xgb_Pattern status=0
+[2025-10-04 07:03:21] START seed_1:NVS_ENZ_hVEGFR3_xgb_Pattern
+2025-10-04 07:03:23,736 - Using PyTorch device: cuda:0
+2025-10-04 07:03:23,736 - Selected compute device: cuda:0
+2025-10-04 07:30:30,123 - Best Model Parameters: {'colsample_bytree': 0.8, 'learning_rate': 0.05, 'max_depth': 6, 'min_child_weight': 1, 'n_estimators': 200, 'subsample': 1.0}
+2025-10-04 07:30:30,123 - Validation F1 Score: 0.31333333333333335
+2025-10-04 07:30:30,123 - Validation Precision: 0.3333333333333333
+2025-10-04 07:30:30,123 - Validation Recall: 0.4
+2025-10-04 07:30:30,123 - Validation Accuracy: 0.7582417582417582
+2025-10-04 07:30:30,123 - Validation AUC: 0.5151515151515151
+2025-10-04 07:30:32,228 - Holdout Validation F1 Score: 0.0
+2025-10-04 07:30:32,228 - Holdout Validation Precision: 0.0
+2025-10-04 07:30:32,228 - Holdout Validation Recall: 0.0
+2025-10-04 07:30:32,228 - Holdout Validation Accuracy: 0.8
+2025-10-04 07:30:32,228 - Holdout Validation AUC: nan
+2025-10-04 07:30:33,012 - Test F1 Score: 0.0
+2025-10-04 07:30:33,012 - Test Precision: 0.0
+2025-10-04 07:30:33,012 - Test Recall: 0.0
+2025-10-04 07:30:33,012 - Test Accuracy: 0.9166666666666666
+2025-10-04 07:30:33,012 - Test AUC: 1.0
+2025-10-04 07:30:33,015 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/NVS_ENZ_hVEGFR3_xgb_Pattern/model.joblib
+[2025-10-04 07:30:33] END seed_1:NVS_ENZ_hVEGFR3_xgb_Pattern status=0
+[2025-10-04 07:30:33] START seed_2:NVS_ENZ_hVEGFR3_xgb_Pattern
+2025-10-04 07:30:36,347 - Using PyTorch device: cuda:0
+2025-10-04 07:30:36,347 - Selected compute device: cuda:0
+2025-10-04 07:57:43,916 - Best Model Parameters: {'colsample_bytree': 1.0, 'learning_rate': 0.1, 'max_depth': 3, 'min_child_weight': 1, 'n_estimators': 400, 'subsample': 0.8}
+2025-10-04 07:57:43,916 - Validation F1 Score: 0.29714285714285715
+2025-10-04 07:57:43,916 - Validation Precision: 0.24
+2025-10-04 07:57:43,916 - Validation Recall: 0.4
+2025-10-04 07:57:43,916 - Validation Accuracy: 0.7448717948717949
+2025-10-04 07:57:43,916 - Validation AUC: 0.4409090909090908
+2025-10-04 07:57:46,475 - Holdout Validation F1 Score: 0.0
+2025-10-04 07:57:46,475 - Holdout Validation Precision: 0.0
+2025-10-04 07:57:46,475 - Holdout Validation Recall: 0.0
+2025-10-04 07:57:46,475 - Holdout Validation Accuracy: 0.9
+2025-10-04 07:57:46,475 - Holdout Validation AUC: 0.5555555555555556
+2025-10-04 07:57:47,211 - Test F1 Score: 0.3333333333333333
+2025-10-04 07:57:47,211 - Test Precision: 0.2
+2025-10-04 07:57:47,211 - Test Recall: 1.0
+2025-10-04 07:57:47,211 - Test Accuracy: 0.6
+2025-10-04 07:57:47,211 - Test AUC: 1.0
+2025-10-04 07:57:47,217 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/NVS_ENZ_hVEGFR3_xgb_Pattern/model.joblib
+[2025-10-04 07:57:47] END seed_2:NVS_ENZ_hVEGFR3_xgb_Pattern status=0
+[2025-10-04 07:57:47] Job NVS_ENZ_hVEGFR3_xgb_Pattern completed successfully
+[2025-10-04 07:57:47] Command finished with status 0

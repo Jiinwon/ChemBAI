@@ -46,3 +46,31 @@
 [2025-10-01 02:14:37] START seed_2:ATG_DR5_RAR_CIS_logistic_Layered
 2025-10-01 02:14:40,895 - Using PyTorch device: cuda:0
 2025-10-01 02:14:40,896 - Selected compute device: cuda:0
+[2025-10-03 07:25:04] Job 484679 starting on n007.hpc
+[2025-10-03 07:25:04] Label: ATG_DR5_RAR_CIS_logistic_Layered
+[2025-10-03 07:25:04] Job ATG_DR5_RAR_CIS_logistic_Layered starting on n007.hpc
+[2025-10-03 07:25:04] SKIP seed_0:ATG_DR5_RAR_CIS_logistic_Layered model.joblib exists
+[2025-10-03 07:25:04] SKIP seed_1:ATG_DR5_RAR_CIS_logistic_Layered model.joblib exists
+[2025-10-03 07:25:04] START seed_2:ATG_DR5_RAR_CIS_logistic_Layered
+2025-10-03 07:25:08,495 - Using PyTorch device: cuda:0
+2025-10-03 07:25:08,496 - Selected compute device: cuda:0
+2025-10-03 10:35:53,873 - Best Model Parameters: {'C': 1, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-03 10:35:53,873 - Validation F1 Score: 0.20476998736391477
+2025-10-03 10:35:53,873 - Validation Precision: 0.17133223302157835
+2025-10-03 10:35:53,873 - Validation Recall: 0.2580018501387604
+2025-10-03 10:35:53,873 - Validation Accuracy: 0.8441285720796682
+2025-10-03 10:35:53,873 - Validation AUC: 0.564015271292202
+2025-10-03 10:39:18,631 - Holdout Validation F1 Score: 0.12903225806451613
+2025-10-03 10:39:18,631 - Holdout Validation Precision: 0.10526315789473684
+2025-10-03 10:39:18,631 - Holdout Validation Recall: 0.16666666666666666
+2025-10-03 10:39:18,631 - Holdout Validation Accuracy: 0.8193979933110368
+2025-10-03 10:39:18,631 - Holdout Validation AUC: 0.5845454545454545
+2025-10-03 10:39:18,658 - Test F1 Score: 0.1891891891891892
+2025-10-03 10:39:18,658 - Test Precision: 0.16666666666666666
+2025-10-03 10:39:18,658 - Test Recall: 0.21875
+2025-10-03 10:39:18,658 - Test Accuracy: 0.8045602605863192
+2025-10-03 10:39:18,658 - Test AUC: 0.5269318181818182
+2025-10-03 10:39:18,670 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/ATG_DR5_RAR_CIS_logistic_Layered/model.joblib
+[2025-10-03 10:39:19] END seed_2:ATG_DR5_RAR_CIS_logistic_Layered status=0
+[2025-10-03 10:39:19] Job ATG_DR5_RAR_CIS_logistic_Layered completed successfully
+[2025-10-03 10:39:19] Command finished with status 0

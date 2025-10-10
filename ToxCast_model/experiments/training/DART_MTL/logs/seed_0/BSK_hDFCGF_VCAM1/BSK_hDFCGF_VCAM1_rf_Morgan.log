@@ -1,0 +1,21 @@
+[2025-10-02 14:02:13] START seed_0:BSK_hDFCGF_VCAM1_rf_Morgan
+2025-10-02 14:02:17,431 - Using PyTorch device: cuda:0
+2025-10-02 14:02:17,432 - Selected compute device: cuda:0
+2025-10-02 14:05:16,142 - Best Model Parameters: {'max_depth': 15, 'min_samples_leaf': 1, 'min_samples_split': 2, 'n_estimators': 400}
+2025-10-02 14:05:16,142 - Validation F1 Score: 0.3827074382590546
+2025-10-02 14:05:16,142 - Validation Precision: 0.3606538776354418
+2025-10-02 14:05:16,142 - Validation Recall: 0.41002331002331005
+2025-10-02 14:05:16,142 - Validation Accuracy: 0.6677101277101277
+2025-10-02 14:05:16,143 - Validation AUC: 0.6281159129850439
+2025-10-02 14:05:16,862 - Holdout Validation F1 Score: 0.45714285714285713
+2025-10-02 14:05:16,862 - Holdout Validation Precision: 0.45714285714285713
+2025-10-02 14:05:16,862 - Holdout Validation Recall: 0.45714285714285713
+2025-10-02 14:05:16,862 - Holdout Validation Accuracy: 0.7483443708609272
+2025-10-02 14:05:16,862 - Holdout Validation AUC: 0.717487684729064
+2025-10-02 14:05:16,966 - Test F1 Score: 0.2
+2025-10-02 14:05:16,966 - Test Precision: 0.28
+2025-10-02 14:05:16,966 - Test Recall: 0.15555555555555556
+2025-10-02 14:05:16,966 - Test Accuracy: 0.672514619883041
+2025-10-02 14:05:16,966 - Test AUC: 0.5973544973544973
+2025-10-02 14:05:17,060 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/BSK_hDFCGF_VCAM1_rf_Morgan/model.joblib
+[2025-10-02 14:05:17] END seed_0:BSK_hDFCGF_VCAM1_rf_Morgan status=0

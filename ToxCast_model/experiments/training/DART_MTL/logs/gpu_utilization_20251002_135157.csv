@@ -1,0 +1,8 @@
+timestamp, index, name, utilization.gpu [%], utilization.memory [%], memory.total [MiB], memory.used [MiB], memory.free [MiB]
+2025/10/02 13:51:57.261, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB
+2025/10/02 13:51:57.291, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB
+2025/10/02 13:52:02.302, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB
+2025/10/02 13:52:07.304, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB
+2025/10/02 13:52:12.306, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB
+2025/10/02 13:52:17.318, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB
+2025/10/02 13:52:22.318, 0, NVIDIA A10, 0 %, 0 %, 23028 MiB, 1 MiB, 22625 MiB

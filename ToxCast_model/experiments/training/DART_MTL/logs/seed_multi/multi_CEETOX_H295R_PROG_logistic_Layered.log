@@ -1,0 +1,68 @@
+[2025-10-04 16:13:39] Job 486957 starting on n005.hpc
+[2025-10-04 16:13:39] Label: CEETOX_H295R_PROG_logistic_Layered
+[2025-10-04 16:13:39] Job CEETOX_H295R_PROG_logistic_Layered starting on n005.hpc
+[2025-10-04 16:13:39] START seed_0:CEETOX_H295R_PROG_logistic_Layered
+2025-10-04 16:13:43,090 - Using PyTorch device: cuda:0
+2025-10-04 16:13:43,091 - Selected compute device: cuda:0
+2025-10-04 16:29:16,034 - Best Model Parameters: {'C': 0.5, 'penalty': 'l1', 'solver': 'saga'}
+2025-10-04 16:29:16,034 - Validation F1 Score: 0.5738972504453435
+2025-10-04 16:29:16,034 - Validation Precision: 0.5680389614093729
+2025-10-04 16:29:16,034 - Validation Recall: 0.5833333333333333
+2025-10-04 16:29:16,034 - Validation Accuracy: 0.6559470039144835
+2025-10-04 16:29:16,034 - Validation AUC: 0.6708996856318286
+2025-10-04 16:29:30,044 - Holdout Validation F1 Score: 0.4375
+2025-10-04 16:29:30,044 - Holdout Validation Precision: 0.3684210526315789
+2025-10-04 16:29:30,044 - Holdout Validation Recall: 0.5384615384615384
+2025-10-04 16:29:30,044 - Holdout Validation Accuracy: 0.47058823529411764
+2025-10-04 16:29:30,044 - Holdout Validation AUC: 0.47252747252747257
+2025-10-04 16:29:30,068 - Test F1 Score: 0.36065573770491804
+2025-10-04 16:29:30,068 - Test Precision: 0.3333333333333333
+2025-10-04 16:29:30,068 - Test Recall: 0.39285714285714285
+2025-10-04 16:29:30,068 - Test Accuracy: 0.5185185185185185
+2025-10-04 16:29:30,068 - Test AUC: 0.49022911051212936
+2025-10-04 16:29:30,069 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_0/CEETOX_H295R_PROG_logistic_Layered/model.joblib
+[2025-10-04 16:29:30] END seed_0:CEETOX_H295R_PROG_logistic_Layered status=0
+[2025-10-04 16:29:30] START seed_1:CEETOX_H295R_PROG_logistic_Layered
+2025-10-04 16:29:32,708 - Using PyTorch device: cuda:0
+2025-10-04 16:29:32,709 - Selected compute device: cuda:0
+2025-10-04 16:46:49,322 - Best Model Parameters: {'C': 0.1, 'penalty': 'l1', 'solver': 'liblinear'}
+2025-10-04 16:46:49,322 - Validation F1 Score: 0.5607956677468873
+2025-10-04 16:46:49,322 - Validation Precision: 0.5081159695404636
+2025-10-04 16:46:49,322 - Validation Recall: 0.6361904761904762
+2025-10-04 16:46:49,322 - Validation Accuracy: 0.6080439223697651
+2025-10-04 16:46:49,322 - Validation AUC: 0.6367874613157632
+2025-10-04 16:46:49,590 - Holdout Validation F1 Score: 0.47368421052631576
+2025-10-04 16:46:49,591 - Holdout Validation Precision: 0.4090909090909091
+2025-10-04 16:46:49,591 - Holdout Validation Recall: 0.5625
+2025-10-04 16:46:49,591 - Holdout Validation Accuracy: 0.5652173913043478
+2025-10-04 16:46:49,591 - Holdout Validation AUC: 0.5802083333333333
+2025-10-04 16:46:49,613 - Test F1 Score: 0.49122807017543857
+2025-10-04 16:46:49,613 - Test Precision: 0.4375
+2025-10-04 16:46:49,613 - Test Recall: 0.56
+2025-10-04 16:46:49,613 - Test Accuracy: 0.5606060606060606
+2025-10-04 16:46:49,613 - Test AUC: 0.5858536585365853
+2025-10-04 16:46:49,615 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1/CEETOX_H295R_PROG_logistic_Layered/model.joblib
+[2025-10-04 16:46:50] END seed_1:CEETOX_H295R_PROG_logistic_Layered status=0
+[2025-10-04 16:46:50] START seed_2:CEETOX_H295R_PROG_logistic_Layered
+2025-10-04 16:46:52,200 - Using PyTorch device: cuda:0
+2025-10-04 16:46:52,201 - Selected compute device: cuda:0
+2025-10-04 17:04:16,400 - Best Model Parameters: {'C': 0.1, 'penalty': 'l2', 'solver': 'liblinear'}
+2025-10-04 17:04:16,400 - Validation F1 Score: 0.5185145812826026
+2025-10-04 17:04:16,400 - Validation Precision: 0.48421124511897207
+2025-10-04 17:04:16,400 - Validation Recall: 0.5627016129032258
+2025-10-04 17:04:16,400 - Validation Accuracy: 0.6231372549019607
+2025-10-04 17:04:16,400 - Validation AUC: 0.6263732501521607
+2025-10-04 17:04:16,752 - Holdout Validation F1 Score: 0.5833333333333334
+2025-10-04 17:04:16,753 - Holdout Validation Precision: 0.6176470588235294
+2025-10-04 17:04:16,753 - Holdout Validation Recall: 0.5526315789473685
+2025-10-04 17:04:16,753 - Holdout Validation Accuracy: 0.5384615384615384
+2025-10-04 17:04:16,753 - Holdout Validation AUC: 0.5058479532163743
+2025-10-04 17:04:16,777 - Test F1 Score: 0.4897959183673469
+2025-10-04 17:04:16,777 - Test Precision: 0.46153846153846156
+2025-10-04 17:04:16,777 - Test Recall: 0.5217391304347826
+2025-10-04 17:04:16,777 - Test Accuracy: 0.6376811594202898
+2025-10-04 17:04:16,777 - Test AUC: 0.6578449905482042
+2025-10-04 17:04:16,779 - Best model saved as /gpfs/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_2/CEETOX_H295R_PROG_logistic_Layered/model.joblib
+[2025-10-04 17:04:17] END seed_2:CEETOX_H295R_PROG_logistic_Layered status=0
+[2025-10-04 17:04:17] Job CEETOX_H295R_PROG_logistic_Layered completed successfully
+[2025-10-04 17:04:17] Command finished with status 0
