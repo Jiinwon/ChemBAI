@@ -8,17 +8,17 @@ from datetime import datetime
 # 0 -> only prediction
 # 1 -> only training
 OBJECTS = ["prediction", "training"]
-OBJECT = 1
+OBJECT = 0
 # model selection
 # 0 -> best F1 model (assay_name only)
 # 1 -> user-specified model and fingerprint
 MODEL_SELECTION_OPTIONS = ["best_f1", "model+mf"]
-MODEL_SELECTION = 1
+MODEL_SELECTION = 0
 # model version
 # 1 -> original ToxCast_model
 # 2 -> ToxCast_model_v.2
 # 3 -> ToxCast_model_v.3 (pre-split train/val/test data)
-VERSION = 3
+VERSION = 1
 # ----- Basic experiment info -----
 # Only change PROJECT_NAME for each run. The experiment directory must exist
 # under ``experiments/`` and contain the required inputs for the selected version.
