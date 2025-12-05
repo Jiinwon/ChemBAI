@@ -13,7 +13,7 @@ set -e
 PARTITIONS=(gpu1 gpu6 gpu2 gpu3 gpu4 gpu5)
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-CMD="cd \"$SCRIPT_DIR/..\" && PYTHONPATH=. python prediction/calc_train_doa.py"
+CMD="cd \"$SCRIPT_DIR/..\" && PYTHONPATH=. python prediction/calc_doa.py"
 
 JOBID=""
 for p in "${PARTITIONS[@]}"; do

@@ -108,7 +108,7 @@ fi
 # train_doa mode
 if [ "$step" = "train_doa" ]; then
     cd "$model_dir" || exit 1
-    PYTHONPATH=".:$base_model_dir" python prediction/calc_train_doa.py "$2"
+    PYTHONPATH=".:$base_model_dir" python prediction/calc_doa.py "$2"
     exit $?
 fi
 
