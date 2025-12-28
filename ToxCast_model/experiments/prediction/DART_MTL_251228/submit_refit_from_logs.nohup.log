@@ -1,0 +1,1923 @@
+nohup: ignoring input
+[INFO] tasks file: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/tasks_refit_missing_precomputed_fp.tsv
+[INFO] tasks count: 958
+[INFO] submitting jobs...
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=dt fp=Layered
+Submitted batch job 522308
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=dt fp=Layered
+Submitted batch job 522309
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=dt fp=Layered
+Submitted batch job 522310
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=dt fp=Pattern
+Submitted batch job 522311
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=dt fp=Pattern
+Submitted batch job 522312
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=dt fp=Pattern
+Submitted batch job 522313
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=dt fp=RDKit
+Submitted batch job 522314
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=dt fp=RDKit
+Submitted batch job 522315
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Layered
+Submitted batch job 522316
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Layered
+Submitted batch job 522317
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Layered
+Submitted batch job 522318
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=gbt fp=MACCS
+Submitted batch job 522319
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=gbt fp=MACCS
+Submitted batch job 522320
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=gbt fp=MACCS
+Submitted batch job 522321
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Morgan
+Submitted batch job 522322
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Morgan
+Submitted batch job 522323
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Morgan
+Submitted batch job 522324
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Pattern
+Submitted batch job 522325
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Pattern
+Submitted batch job 522326
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=gbt fp=Pattern
+Submitted batch job 522327
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=gbt fp=RDKit
+Submitted batch job 522328
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=gbt fp=RDKit
+Submitted batch job 522329
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=gbt fp=RDKit
+Submitted batch job 522330
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Layered
+Submitted batch job 522331
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Layered
+Submitted batch job 522332
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Layered
+Submitted batch job 522333
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=logistic fp=MACCS
+Submitted batch job 522334
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=logistic fp=MACCS
+Submitted batch job 522335
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=logistic fp=MACCS
+Submitted batch job 522336
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Morgan
+Submitted batch job 522337
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Morgan
+Submitted batch job 522338
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Morgan
+Submitted batch job 522339
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Pattern
+Submitted batch job 522340
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Pattern
+Submitted batch job 522341
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=logistic fp=Pattern
+Submitted batch job 522342
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=logistic fp=RDKit
+Submitted batch job 522343
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=logistic fp=RDKit
+Submitted batch job 522344
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=logistic fp=RDKit
+Submitted batch job 522345
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=rf fp=Layered
+Submitted batch job 522346
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=rf fp=Layered
+Submitted batch job 522347
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=rf fp=Layered
+Submitted batch job 522348
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=rf fp=MACCS
+Submitted batch job 522349
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=rf fp=MACCS
+Submitted batch job 522350
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=rf fp=MACCS
+Submitted batch job 522351
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=rf fp=Morgan
+Submitted batch job 522352
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=rf fp=Morgan
+Submitted batch job 522353
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=rf fp=Morgan
+Submitted batch job 522354
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=rf fp=Pattern
+Submitted batch job 522355
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=rf fp=Pattern
+Submitted batch job 522356
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=rf fp=Pattern
+Submitted batch job 522357
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=rf fp=RDKit
+Submitted batch job 522358
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=rf fp=RDKit
+Submitted batch job 522359
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=rf fp=RDKit
+Submitted batch job 522360
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Layered
+Submitted batch job 522361
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Layered
+Submitted batch job 522362
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Layered
+Submitted batch job 522363
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=xgb fp=MACCS
+Submitted batch job 522364
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=xgb fp=MACCS
+Submitted batch job 522365
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=xgb fp=MACCS
+Submitted batch job 522366
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Morgan
+Submitted batch job 522367
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Morgan
+Submitted batch job 522368
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Morgan
+Submitted batch job 522369
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Pattern
+Submitted batch job 522370
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Pattern
+Submitted batch job 522371
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=xgb fp=Pattern
+Submitted batch job 522372
+[SUBMIT] part=gpu1 seed=0 assay=BSK_hDFCGF_VCAM1 model=xgb fp=RDKit
+Submitted batch job 522373
+[SUBMIT] part=gpu1 seed=1 assay=BSK_hDFCGF_VCAM1 model=xgb fp=RDKit
+Submitted batch job 522374
+[SUBMIT] part=gpu1 seed=2 assay=BSK_hDFCGF_VCAM1 model=xgb fp=RDKit
+Submitted batch job 522375
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=dt fp=Layered
+Submitted batch job 522376
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=dt fp=Layered
+Submitted batch job 522377
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=dt fp=Layered
+Submitted batch job 522378
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=dt fp=MACCS
+Submitted batch job 522379
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=dt fp=MACCS
+Submitted batch job 522380
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=dt fp=MACCS
+Submitted batch job 522381
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=dt fp=Morgan
+Submitted batch job 522382
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=dt fp=Morgan
+Submitted batch job 522383
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=dt fp=Morgan
+Submitted batch job 522384
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=dt fp=Pattern
+Submitted batch job 522385
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=dt fp=Pattern
+Submitted batch job 522386
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=dt fp=Pattern
+Submitted batch job 522387
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=dt fp=RDKit
+Submitted batch job 522388
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=dt fp=RDKit
+Submitted batch job 522389
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=dt fp=RDKit
+Submitted batch job 522390
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=gbt fp=Layered
+Submitted batch job 522391
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=gbt fp=Layered
+Submitted batch job 522392
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=gbt fp=Layered
+Submitted batch job 522393
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=gbt fp=MACCS
+Submitted batch job 522394
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=gbt fp=MACCS
+Submitted batch job 522395
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=gbt fp=MACCS
+Submitted batch job 522396
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=gbt fp=Morgan
+Submitted batch job 522397
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=gbt fp=Morgan
+Submitted batch job 522398
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=gbt fp=Morgan
+Submitted batch job 522399
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=gbt fp=Pattern
+Submitted batch job 522400
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=gbt fp=Pattern
+Submitted batch job 522401
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=gbt fp=Pattern
+Submitted batch job 522402
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=gbt fp=RDKit
+Submitted batch job 522403
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=gbt fp=RDKit
+Submitted batch job 522404
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=gbt fp=RDKit
+Submitted batch job 522405
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=logistic fp=Layered
+Submitted batch job 522406
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=logistic fp=Layered
+Submitted batch job 522407
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=logistic fp=Layered
+Submitted batch job 522408
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=logistic fp=MACCS
+Submitted batch job 522409
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=logistic fp=MACCS
+Submitted batch job 522410
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=logistic fp=MACCS
+Submitted batch job 522411
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=logistic fp=Morgan
+Submitted batch job 522412
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=logistic fp=Morgan
+Submitted batch job 522413
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=logistic fp=Morgan
+Submitted batch job 522414
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=logistic fp=Pattern
+Submitted batch job 522415
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=logistic fp=Pattern
+Submitted batch job 522416
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=logistic fp=Pattern
+Submitted batch job 522417
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=logistic fp=RDKit
+Submitted batch job 522418
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=logistic fp=RDKit
+Submitted batch job 522419
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=logistic fp=RDKit
+Submitted batch job 522420
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=rf fp=Layered
+Submitted batch job 522421
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=rf fp=Layered
+Submitted batch job 522422
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=rf fp=Layered
+Submitted batch job 522423
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=rf fp=MACCS
+Submitted batch job 522424
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=rf fp=MACCS
+Submitted batch job 522425
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=rf fp=MACCS
+Submitted batch job 522426
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=rf fp=Morgan
+Submitted batch job 522427
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=rf fp=Morgan
+Submitted batch job 522428
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=rf fp=Morgan
+Submitted batch job 522429
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=rf fp=Pattern
+Submitted batch job 522430
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=rf fp=Pattern
+Submitted batch job 522431
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=rf fp=Pattern
+Submitted batch job 522432
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=rf fp=RDKit
+Submitted batch job 522433
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=rf fp=RDKit
+Submitted batch job 522434
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=rf fp=RDKit
+Submitted batch job 522435
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=xgb fp=Layered
+Submitted batch job 522436
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=xgb fp=Layered
+Submitted batch job 522437
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=xgb fp=Layered
+Submitted batch job 522438
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=xgb fp=MACCS
+Submitted batch job 522439
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=xgb fp=MACCS
+Submitted batch job 522440
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=xgb fp=MACCS
+Submitted batch job 522441
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=xgb fp=Morgan
+Submitted batch job 522442
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=xgb fp=Morgan
+Submitted batch job 522443
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=xgb fp=Morgan
+Submitted batch job 522444
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=xgb fp=Pattern
+Submitted batch job 522445
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=xgb fp=Pattern
+Submitted batch job 522446
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=xgb fp=Pattern
+Submitted batch job 522447
+[SUBMIT] part=gpu1 seed=0 assay=BSK_KF3CT_TIMP2 model=xgb fp=RDKit
+Submitted batch job 522448
+[SUBMIT] part=gpu1 seed=1 assay=BSK_KF3CT_TIMP2 model=xgb fp=RDKit
+Submitted batch job 522449
+[SUBMIT] part=gpu1 seed=2 assay=BSK_KF3CT_TIMP2 model=xgb fp=RDKit
+Submitted batch job 522450
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=dt fp=Layered
+Submitted batch job 522451
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=dt fp=Layered
+Submitted batch job 522452
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=dt fp=Layered
+Submitted batch job 522453
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=dt fp=MACCS
+Submitted batch job 522454
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=dt fp=MACCS
+Submitted batch job 522455
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=dt fp=MACCS
+Submitted batch job 522456
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=dt fp=Morgan
+Submitted batch job 522457
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=dt fp=Morgan
+Submitted batch job 522458
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=dt fp=Morgan
+Submitted batch job 522459
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=dt fp=Pattern
+Submitted batch job 522460
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=dt fp=Pattern
+Submitted batch job 522461
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=dt fp=Pattern
+Submitted batch job 522462
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=dt fp=RDKit
+Submitted batch job 522463
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=dt fp=RDKit
+Submitted batch job 522464
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=dt fp=RDKit
+Submitted batch job 522465
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Layered
+Submitted batch job 522466
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Layered
+Submitted batch job 522467
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Layered
+Submitted batch job 522468
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=gbt fp=MACCS
+Submitted batch job 522469
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=gbt fp=MACCS
+Submitted batch job 522470
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=gbt fp=MACCS
+Submitted batch job 522471
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Morgan
+Submitted batch job 522472
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Morgan
+Submitted batch job 522473
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Morgan
+Submitted batch job 522474
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Pattern
+Submitted batch job 522475
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Pattern
+Submitted batch job 522476
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=gbt fp=Pattern
+Submitted batch job 522477
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=gbt fp=RDKit
+Submitted batch job 522478
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=gbt fp=RDKit
+Submitted batch job 522479
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=gbt fp=RDKit
+Submitted batch job 522480
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Layered
+Submitted batch job 522481
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Layered
+Submitted batch job 522482
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Layered
+Submitted batch job 522483
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=logistic fp=MACCS
+Submitted batch job 522484
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=logistic fp=MACCS
+Submitted batch job 522485
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=logistic fp=MACCS
+Submitted batch job 522486
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Morgan
+Submitted batch job 522487
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Morgan
+Submitted batch job 522488
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Morgan
+Submitted batch job 522489
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Pattern
+Submitted batch job 522490
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Pattern
+Submitted batch job 522491
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=logistic fp=Pattern
+Submitted batch job 522492
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=logistic fp=RDKit
+Submitted batch job 522493
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=logistic fp=RDKit
+Submitted batch job 522494
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=logistic fp=RDKit
+Submitted batch job 522495
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=rf fp=Layered
+Submitted batch job 522496
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=rf fp=Layered
+Submitted batch job 522497
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=rf fp=Layered
+Submitted batch job 522498
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=rf fp=MACCS
+Submitted batch job 522499
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=rf fp=MACCS
+Submitted batch job 522500
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=rf fp=MACCS
+Submitted batch job 522501
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=rf fp=Morgan
+Submitted batch job 522502
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=rf fp=Morgan
+Submitted batch job 522503
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=rf fp=Morgan
+Submitted batch job 522504
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=rf fp=Pattern
+Submitted batch job 522505
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=rf fp=Pattern
+Submitted batch job 522506
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=rf fp=Pattern
+Submitted batch job 522507
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=rf fp=RDKit
+Submitted batch job 522508
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=rf fp=RDKit
+Submitted batch job 522509
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=rf fp=RDKit
+Submitted batch job 522510
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Layered
+Submitted batch job 522511
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Layered
+Submitted batch job 522512
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Layered
+Submitted batch job 522513
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=xgb fp=MACCS
+Submitted batch job 522514
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=xgb fp=MACCS
+Submitted batch job 522515
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=xgb fp=MACCS
+Submitted batch job 522516
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Morgan
+Submitted batch job 522517
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Morgan
+Submitted batch job 522518
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Morgan
+Submitted batch job 522519
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Pattern
+Submitted batch job 522520
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Pattern
+Submitted batch job 522521
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=xgb fp=Pattern
+Submitted batch job 522522
+[SUBMIT] part=gpu1 seed=0 assay=NVS_ENZ_hVEGFR3 model=xgb fp=RDKit
+Submitted batch job 522523
+[SUBMIT] part=gpu1 seed=1 assay=NVS_ENZ_hVEGFR3 model=xgb fp=RDKit
+Submitted batch job 522524
+[SUBMIT] part=gpu1 seed=2 assay=NVS_ENZ_hVEGFR3 model=xgb fp=RDKit
+Submitted batch job 522525
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=dt fp=Layered
+Submitted batch job 522526
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=dt fp=Layered
+Submitted batch job 522527
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=dt fp=Layered
+Submitted batch job 522528
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=dt fp=MACCS
+Submitted batch job 522529
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=dt fp=MACCS
+Submitted batch job 522530
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=dt fp=MACCS
+Submitted batch job 522531
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=dt fp=Morgan
+Submitted batch job 522532
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=dt fp=Morgan
+Submitted batch job 522533
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=dt fp=Morgan
+Submitted batch job 522534
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=dt fp=Pattern
+Submitted batch job 522535
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=dt fp=Pattern
+Submitted batch job 522536
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=dt fp=Pattern
+Submitted batch job 522537
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=dt fp=RDKit
+Submitted batch job 522538
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=dt fp=RDKit
+Submitted batch job 522539
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=dt fp=RDKit
+Submitted batch job 522540
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=gbt fp=Layered
+Submitted batch job 522541
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=gbt fp=Layered
+Submitted batch job 522542
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=gbt fp=Layered
+Submitted batch job 522543
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=gbt fp=MACCS
+Submitted batch job 522544
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=gbt fp=MACCS
+Submitted batch job 522545
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=gbt fp=MACCS
+Submitted batch job 522546
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=gbt fp=Morgan
+Submitted batch job 522547
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=gbt fp=Morgan
+Submitted batch job 522548
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=gbt fp=Morgan
+Submitted batch job 522549
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=gbt fp=Pattern
+Submitted batch job 522550
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=gbt fp=Pattern
+Submitted batch job 522551
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=gbt fp=Pattern
+Submitted batch job 522552
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=gbt fp=RDKit
+Submitted batch job 522553
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=gbt fp=RDKit
+Submitted batch job 522554
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=gbt fp=RDKit
+Submitted batch job 522555
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=logistic fp=Layered
+Submitted batch job 522556
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=logistic fp=Layered
+Submitted batch job 522557
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=logistic fp=Layered
+Submitted batch job 522558
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=logistic fp=MACCS
+Submitted batch job 522559
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=logistic fp=MACCS
+Submitted batch job 522560
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=logistic fp=MACCS
+Submitted batch job 522561
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=logistic fp=Morgan
+Submitted batch job 522562
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=logistic fp=Morgan
+Submitted batch job 522563
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=logistic fp=Morgan
+Submitted batch job 522564
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=logistic fp=Pattern
+Submitted batch job 522565
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=logistic fp=Pattern
+Submitted batch job 522566
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=logistic fp=Pattern
+Submitted batch job 522567
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=logistic fp=RDKit
+Submitted batch job 522568
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=logistic fp=RDKit
+Submitted batch job 522569
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=logistic fp=RDKit
+Submitted batch job 522570
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=rf fp=Layered
+Submitted batch job 522571
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=rf fp=Layered
+Submitted batch job 522572
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=rf fp=Layered
+Submitted batch job 522573
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=rf fp=MACCS
+Submitted batch job 522574
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=rf fp=MACCS
+Submitted batch job 522575
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=rf fp=MACCS
+Submitted batch job 522576
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=rf fp=Morgan
+Submitted batch job 522577
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=rf fp=Morgan
+Submitted batch job 522578
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=rf fp=Morgan
+Submitted batch job 522579
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=rf fp=Pattern
+Submitted batch job 522580
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=rf fp=Pattern
+Submitted batch job 522581
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=rf fp=Pattern
+Submitted batch job 522582
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=rf fp=RDKit
+Submitted batch job 522583
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=rf fp=RDKit
+Submitted batch job 522584
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=rf fp=RDKit
+Submitted batch job 522586
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=xgb fp=Layered
+Submitted batch job 522587
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=xgb fp=Layered
+Submitted batch job 522588
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=xgb fp=Layered
+Submitted batch job 522589
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=xgb fp=MACCS
+Submitted batch job 522590
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=xgb fp=MACCS
+Submitted batch job 522591
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=xgb fp=MACCS
+Submitted batch job 522592
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=xgb fp=Morgan
+Submitted batch job 522593
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=xgb fp=Morgan
+Submitted batch job 522594
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=xgb fp=Morgan
+Submitted batch job 522595
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=xgb fp=Pattern
+Submitted batch job 522596
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=xgb fp=Pattern
+Submitted batch job 522597
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=xgb fp=Pattern
+Submitted batch job 522598
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_OHPROG model=xgb fp=RDKit
+Submitted batch job 522599
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_OHPROG model=xgb fp=RDKit
+Submitted batch job 522600
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_OHPROG model=xgb fp=RDKit
+Submitted batch job 522601
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Layered
+Submitted batch job 522602
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Layered
+Submitted batch job 522603
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Layered
+Submitted batch job 522604
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=dt fp=MACCS
+Submitted batch job 522605
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=dt fp=MACCS
+Submitted batch job 522606
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=dt fp=MACCS
+Submitted batch job 522607
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Morgan
+Submitted batch job 522608
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Morgan
+Submitted batch job 522609
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Morgan
+Submitted batch job 522610
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Pattern
+Submitted batch job 522611
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Pattern
+Submitted batch job 522612
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=dt fp=Pattern
+Submitted batch job 522613
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=dt fp=RDKit
+Submitted batch job 522614
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=dt fp=RDKit
+Submitted batch job 522615
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=dt fp=RDKit
+Submitted batch job 522616
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Layered
+Submitted batch job 522617
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Layered
+Submitted batch job 522618
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Layered
+Submitted batch job 522619
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=MACCS
+Submitted batch job 522620
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=MACCS
+Submitted batch job 522621
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=MACCS
+Submitted batch job 522622
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Morgan
+Submitted batch job 522623
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Morgan
+Submitted batch job 522624
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Morgan
+Submitted batch job 522625
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Pattern
+Submitted batch job 522626
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Pattern
+Submitted batch job 522627
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=Pattern
+Submitted batch job 522628
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=RDKit
+Submitted batch job 522629
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=RDKit
+Submitted batch job 522630
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=gbt fp=RDKit
+Submitted batch job 522631
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Layered
+Submitted batch job 522632
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Layered
+Submitted batch job 522633
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Layered
+Submitted batch job 522634
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=MACCS
+Submitted batch job 522635
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=MACCS
+Submitted batch job 522636
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=MACCS
+Submitted batch job 522637
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Morgan
+Submitted batch job 522638
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Morgan
+Submitted batch job 522639
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Morgan
+Submitted batch job 522640
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Pattern
+Submitted batch job 522641
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Pattern
+Submitted batch job 522642
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=Pattern
+Submitted batch job 522643
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=RDKit
+Submitted batch job 522644
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=RDKit
+Submitted batch job 522645
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=logistic fp=RDKit
+Submitted batch job 522646
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Layered
+Submitted batch job 522647
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Layered
+Submitted batch job 522648
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Layered
+Submitted batch job 522649
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=rf fp=MACCS
+Submitted batch job 522650
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=rf fp=MACCS
+Submitted batch job 522651
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=rf fp=MACCS
+Submitted batch job 522652
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Morgan
+Submitted batch job 522653
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Morgan
+Submitted batch job 522654
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Morgan
+Submitted batch job 522655
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Pattern
+Submitted batch job 522656
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Pattern
+Submitted batch job 522657
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=rf fp=Pattern
+Submitted batch job 522658
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=rf fp=RDKit
+Submitted batch job 522659
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=rf fp=RDKit
+Submitted batch job 522660
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=rf fp=RDKit
+Submitted batch job 522661
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Layered
+Submitted batch job 522662
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Layered
+Submitted batch job 522663
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Layered
+Submitted batch job 522664
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=MACCS
+Submitted batch job 522665
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=MACCS
+Submitted batch job 522666
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=MACCS
+Submitted batch job 522667
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Morgan
+Submitted batch job 522668
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Morgan
+Submitted batch job 522669
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Morgan
+Submitted batch job 522670
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Pattern
+Submitted batch job 522671
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Pattern
+Submitted batch job 522672
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=Pattern
+Submitted batch job 522673
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=RDKit
+Submitted batch job 522674
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=RDKit
+Submitted batch job 522675
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRADIOL model=xgb fp=RDKit
+Submitted batch job 522676
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=dt fp=Layered
+Submitted batch job 522677
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=dt fp=Layered
+Submitted batch job 522678
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=dt fp=Layered
+Submitted batch job 522679
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=dt fp=MACCS
+Submitted batch job 522680
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=dt fp=MACCS
+Submitted batch job 522681
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=dt fp=MACCS
+Submitted batch job 522682
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=dt fp=Morgan
+Submitted batch job 522683
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=dt fp=Morgan
+Submitted batch job 522684
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=dt fp=Morgan
+Submitted batch job 522685
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=dt fp=Pattern
+Submitted batch job 522686
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=dt fp=Pattern
+Submitted batch job 522687
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=dt fp=Pattern
+Submitted batch job 522688
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=dt fp=RDKit
+Submitted batch job 522689
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=dt fp=RDKit
+Submitted batch job 522690
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=dt fp=RDKit
+Submitted batch job 522691
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=gbt fp=Layered
+Submitted batch job 522692
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=gbt fp=Layered
+Submitted batch job 522693
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=gbt fp=Layered
+Submitted batch job 522694
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=gbt fp=MACCS
+Submitted batch job 522695
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=gbt fp=MACCS
+Submitted batch job 522696
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=gbt fp=MACCS
+Submitted batch job 522697
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=gbt fp=Morgan
+Submitted batch job 522698
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=gbt fp=Morgan
+Submitted batch job 522699
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=gbt fp=Morgan
+Submitted batch job 522700
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=gbt fp=Pattern
+Submitted batch job 522701
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=gbt fp=Pattern
+Submitted batch job 522702
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=gbt fp=Pattern
+Submitted batch job 522703
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=gbt fp=RDKit
+Submitted batch job 522704
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=gbt fp=RDKit
+Submitted batch job 522705
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=gbt fp=RDKit
+Submitted batch job 522706
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=logistic fp=Layered
+Submitted batch job 522707
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=logistic fp=Layered
+Submitted batch job 522708
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=logistic fp=Layered
+Submitted batch job 522709
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=logistic fp=MACCS
+Submitted batch job 522710
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=logistic fp=MACCS
+Submitted batch job 522711
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=logistic fp=MACCS
+Submitted batch job 522712
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=logistic fp=Morgan
+Submitted batch job 522713
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=logistic fp=Morgan
+Submitted batch job 522714
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=logistic fp=Morgan
+Submitted batch job 522715
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=logistic fp=Pattern
+Submitted batch job 522716
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=logistic fp=Pattern
+Submitted batch job 522717
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=logistic fp=Pattern
+Submitted batch job 522718
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=logistic fp=RDKit
+Submitted batch job 522719
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=logistic fp=RDKit
+Submitted batch job 522720
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=logistic fp=RDKit
+Submitted batch job 522721
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=rf fp=Layered
+Submitted batch job 522722
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=rf fp=Layered
+Submitted batch job 522723
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=rf fp=Layered
+Submitted batch job 522724
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=rf fp=MACCS
+Submitted batch job 522725
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=rf fp=MACCS
+Submitted batch job 522726
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=rf fp=MACCS
+Submitted batch job 522727
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=rf fp=Morgan
+Submitted batch job 522728
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=rf fp=Morgan
+Submitted batch job 522729
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=rf fp=Morgan
+Submitted batch job 522730
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=rf fp=Pattern
+Submitted batch job 522731
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=rf fp=Pattern
+Submitted batch job 522732
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=rf fp=Pattern
+Submitted batch job 522733
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=rf fp=RDKit
+Submitted batch job 522734
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=rf fp=RDKit
+Submitted batch job 522735
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=rf fp=RDKit
+Submitted batch job 522736
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=xgb fp=Layered
+Submitted batch job 522737
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=xgb fp=Layered
+Submitted batch job 522738
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=xgb fp=Layered
+Submitted batch job 522739
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=xgb fp=MACCS
+Submitted batch job 522740
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=xgb fp=MACCS
+Submitted batch job 522741
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=xgb fp=MACCS
+Submitted batch job 522742
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=xgb fp=Morgan
+Submitted batch job 522743
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=xgb fp=Morgan
+Submitted batch job 522744
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=xgb fp=Morgan
+Submitted batch job 522745
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=xgb fp=Pattern
+Submitted batch job 522746
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=xgb fp=Pattern
+Submitted batch job 522747
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=xgb fp=Pattern
+Submitted batch job 522748
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_ESTRONE model=xgb fp=RDKit
+Submitted batch job 522749
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_ESTRONE model=xgb fp=RDKit
+Submitted batch job 522750
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_ESTRONE model=xgb fp=RDKit
+Submitted batch job 522751
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=dt fp=Layered
+Submitted batch job 522752
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=dt fp=Layered
+Submitted batch job 522753
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=dt fp=Layered
+Submitted batch job 522754
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=dt fp=MACCS
+Submitted batch job 522755
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=dt fp=MACCS
+Submitted batch job 522756
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=dt fp=MACCS
+Submitted batch job 522757
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=dt fp=Morgan
+Submitted batch job 522758
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=dt fp=Morgan
+Submitted batch job 522759
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=dt fp=Morgan
+Submitted batch job 522760
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=dt fp=Pattern
+Submitted batch job 522761
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=dt fp=Pattern
+Submitted batch job 522762
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=dt fp=Pattern
+Submitted batch job 522763
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=dt fp=RDKit
+Submitted batch job 522764
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=dt fp=RDKit
+Submitted batch job 522765
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=dt fp=RDKit
+Submitted batch job 522766
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=gbt fp=Layered
+Submitted batch job 522767
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=gbt fp=Layered
+Submitted batch job 522768
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=gbt fp=Layered
+Submitted batch job 522769
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=gbt fp=MACCS
+Submitted batch job 522770
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=gbt fp=MACCS
+Submitted batch job 522771
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=gbt fp=MACCS
+Submitted batch job 522772
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=gbt fp=Morgan
+Submitted batch job 522773
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=gbt fp=Morgan
+Submitted batch job 522774
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=gbt fp=Morgan
+Submitted batch job 522775
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=gbt fp=Pattern
+Submitted batch job 522776
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=gbt fp=Pattern
+Submitted batch job 522777
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=gbt fp=Pattern
+Submitted batch job 522778
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=gbt fp=RDKit
+Submitted batch job 522779
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=gbt fp=RDKit
+Submitted batch job 522780
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=gbt fp=RDKit
+Submitted batch job 522781
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=logistic fp=Layered
+Submitted batch job 522782
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=logistic fp=Layered
+Submitted batch job 522783
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=logistic fp=Layered
+Submitted batch job 522784
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=logistic fp=MACCS
+Submitted batch job 522785
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=logistic fp=MACCS
+Submitted batch job 522786
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=logistic fp=MACCS
+Submitted batch job 522787
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=logistic fp=Morgan
+Submitted batch job 522788
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=logistic fp=Morgan
+Submitted batch job 522789
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=logistic fp=Morgan
+Submitted batch job 522790
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=logistic fp=Pattern
+Submitted batch job 522791
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=logistic fp=Pattern
+Submitted batch job 522792
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=logistic fp=Pattern
+Submitted batch job 522793
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=logistic fp=RDKit
+Submitted batch job 522794
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=logistic fp=RDKit
+Submitted batch job 522795
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=logistic fp=RDKit
+Submitted batch job 522796
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=rf fp=Layered
+Submitted batch job 522797
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=rf fp=Layered
+Submitted batch job 522798
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=rf fp=Layered
+Submitted batch job 522799
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=rf fp=MACCS
+Submitted batch job 522800
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=rf fp=MACCS
+Submitted batch job 522801
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=rf fp=MACCS
+Submitted batch job 522802
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=rf fp=Morgan
+Submitted batch job 522803
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=rf fp=Morgan
+Submitted batch job 522804
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=rf fp=Morgan
+Submitted batch job 522805
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=rf fp=Pattern
+Submitted batch job 522806
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=rf fp=Pattern
+Submitted batch job 522807
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=rf fp=Pattern
+Submitted batch job 522808
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=rf fp=RDKit
+Submitted batch job 522809
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=rf fp=RDKit
+Submitted batch job 522810
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=rf fp=RDKit
+Submitted batch job 522811
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=xgb fp=Layered
+Submitted batch job 522812
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=xgb fp=Layered
+Submitted batch job 522813
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=xgb fp=Layered
+Submitted batch job 522814
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=xgb fp=MACCS
+Submitted batch job 522815
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=xgb fp=MACCS
+Submitted batch job 522816
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=xgb fp=MACCS
+Submitted batch job 522817
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=xgb fp=Morgan
+Submitted batch job 522818
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=xgb fp=Morgan
+Submitted batch job 522819
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=xgb fp=Morgan
+Submitted batch job 522820
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=xgb fp=Pattern
+Submitted batch job 522821
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=xgb fp=Pattern
+Submitted batch job 522822
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=xgb fp=Pattern
+Submitted batch job 522823
+[SUBMIT] part=gpu1 seed=0 assay=CEETOX_H295R_PROG model=xgb fp=RDKit
+Submitted batch job 522824
+[SUBMIT] part=gpu1 seed=1 assay=CEETOX_H295R_PROG model=xgb fp=RDKit
+Submitted batch job 522825
+[SUBMIT] part=gpu1 seed=2 assay=CEETOX_H295R_PROG model=xgb fp=RDKit
+Submitted batch job 522826
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 522827
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 522828
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 522829
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 522830
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 522831
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 522832
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 522833
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 522834
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 522835
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 522836
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 522837
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 522838
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 522839
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 522840
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 522841
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 522842
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 522843
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 522844
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 522845
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 522846
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 522847
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 522848
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 522849
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 522850
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 522851
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 522852
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 522853
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 522854
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 522855
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 522856
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 522857
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 522858
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 522859
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 522860
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 522861
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 522862
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 522863
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 522864
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 522865
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 522866
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 522867
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 522868
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 522869
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 522870
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 522871
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 522872
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 522873
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 522874
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 522875
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 522876
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 522877
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 522878
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 522879
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 522880
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 522881
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 522882
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 522883
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 522884
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 522885
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 522886
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 522887
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 522888
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 522889
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 522890
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 522891
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 522892
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 522893
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 522894
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 522895
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 522896
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 522897
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 522898
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 522899
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Layered
+Submitted batch job 522900
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Layered
+Submitted batch job 522901
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Layered
+Submitted batch job 522902
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=dt fp=MACCS
+Submitted batch job 522903
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=dt fp=MACCS
+Submitted batch job 522904
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=dt fp=MACCS
+Submitted batch job 522905
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Morgan
+Submitted batch job 522906
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Morgan
+Submitted batch job 522907
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Morgan
+Submitted batch job 522908
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Pattern
+Submitted batch job 522909
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Pattern
+Submitted batch job 522910
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=dt fp=Pattern
+Submitted batch job 522911
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=dt fp=RDKit
+Submitted batch job 522912
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=dt fp=RDKit
+Submitted batch job 522913
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=dt fp=RDKit
+Submitted batch job 522914
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Layered
+Submitted batch job 522915
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Layered
+Submitted batch job 522916
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=MACCS
+Submitted batch job 522917
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=MACCS
+Submitted batch job 522918
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=MACCS
+Submitted batch job 522919
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Morgan
+Submitted batch job 522920
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Morgan
+Submitted batch job 522921
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Morgan
+Submitted batch job 522922
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Pattern
+Submitted batch job 522923
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Pattern
+Submitted batch job 522924
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Pattern
+Submitted batch job 522925
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=RDKit
+Submitted batch job 522926
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=RDKit
+Submitted batch job 522927
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Layered
+Submitted batch job 522928
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Layered
+Submitted batch job 522929
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Layered
+Submitted batch job 522930
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=MACCS
+Submitted batch job 522931
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=MACCS
+Submitted batch job 522932
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=MACCS
+Submitted batch job 522933
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Morgan
+Submitted batch job 522934
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Morgan
+Submitted batch job 522935
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Morgan
+Submitted batch job 522936
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Pattern
+Submitted batch job 522937
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Pattern
+Submitted batch job 522938
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=Pattern
+Submitted batch job 522939
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=RDKit
+Submitted batch job 522940
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=RDKit
+Submitted batch job 522941
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=logistic fp=RDKit
+Submitted batch job 522943
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Layered
+Submitted batch job 522944
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Layered
+Submitted batch job 522945
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Layered
+Submitted batch job 522946
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=rf fp=MACCS
+Submitted batch job 522947
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=rf fp=MACCS
+Submitted batch job 522948
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=rf fp=MACCS
+Submitted batch job 522949
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Morgan
+Submitted batch job 522950
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Morgan
+Submitted batch job 522951
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Morgan
+Submitted batch job 522952
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Pattern
+Submitted batch job 522953
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Pattern
+Submitted batch job 522954
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=rf fp=Pattern
+Submitted batch job 522955
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=rf fp=RDKit
+Submitted batch job 522956
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=rf fp=RDKit
+Submitted batch job 522957
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=rf fp=RDKit
+Submitted batch job 522958
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Layered
+Submitted batch job 522959
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Layered
+Submitted batch job 522960
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Layered
+Submitted batch job 522961
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=MACCS
+Submitted batch job 522962
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=MACCS
+Submitted batch job 522963
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=MACCS
+Submitted batch job 522964
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Morgan
+Submitted batch job 522965
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Morgan
+Submitted batch job 522966
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Morgan
+Submitted batch job 522967
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Pattern
+Submitted batch job 522968
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Pattern
+Submitted batch job 522969
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=Pattern
+Submitted batch job 522970
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=RDKit
+Submitted batch job 522971
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=RDKit
+Submitted batch job 522972
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=xgb fp=RDKit
+Submitted batch job 522973
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Layered
+Submitted batch job 522974
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Layered
+Submitted batch job 522975
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Layered
+Submitted batch job 522976
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=dt fp=MACCS
+Submitted batch job 522977
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=dt fp=MACCS
+Submitted batch job 522978
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=dt fp=MACCS
+Submitted batch job 522979
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Morgan
+Submitted batch job 522980
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Morgan
+Submitted batch job 522981
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Morgan
+Submitted batch job 522982
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Pattern
+Submitted batch job 522983
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Pattern
+Submitted batch job 522984
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=dt fp=Pattern
+Submitted batch job 522985
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=dt fp=RDKit
+Submitted batch job 522986
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=dt fp=RDKit
+Submitted batch job 522987
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=dt fp=RDKit
+Submitted batch job 522988
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Layered
+Submitted batch job 522989
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Layered
+Submitted batch job 522990
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=MACCS
+Submitted batch job 522991
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=MACCS
+Submitted batch job 522992
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=MACCS
+Submitted batch job 522993
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Morgan
+Submitted batch job 522994
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Morgan
+Submitted batch job 522995
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Morgan
+Submitted batch job 522996
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Pattern
+Submitted batch job 522997
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Pattern
+Submitted batch job 522998
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Pattern
+Submitted batch job 522999
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=RDKit
+Submitted batch job 523000
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=RDKit
+Submitted batch job 523001
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Layered
+Submitted batch job 523002
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Layered
+Submitted batch job 523003
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Layered
+Submitted batch job 523004
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=MACCS
+Submitted batch job 523005
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=MACCS
+Submitted batch job 523006
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=MACCS
+Submitted batch job 523007
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Morgan
+Submitted batch job 523008
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Morgan
+Submitted batch job 523009
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Morgan
+Submitted batch job 523010
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Pattern
+Submitted batch job 523011
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Pattern
+Submitted batch job 523012
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=Pattern
+Submitted batch job 523013
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=RDKit
+Submitted batch job 523014
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=RDKit
+Submitted batch job 523015
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=logistic fp=RDKit
+Submitted batch job 523016
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Layered
+Submitted batch job 523017
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Layered
+Submitted batch job 523018
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Layered
+Submitted batch job 523019
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=rf fp=MACCS
+Submitted batch job 523020
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=rf fp=MACCS
+Submitted batch job 523021
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=rf fp=MACCS
+Submitted batch job 523022
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Morgan
+Submitted batch job 523023
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Morgan
+Submitted batch job 523024
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Morgan
+Submitted batch job 523025
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Pattern
+Submitted batch job 523026
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Pattern
+Submitted batch job 523027
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=rf fp=Pattern
+Submitted batch job 523028
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=rf fp=RDKit
+Submitted batch job 523029
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=rf fp=RDKit
+Submitted batch job 523030
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=rf fp=RDKit
+Submitted batch job 523031
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Layered
+Submitted batch job 523032
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Layered
+Submitted batch job 523033
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Layered
+Submitted batch job 523034
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=MACCS
+Submitted batch job 523035
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=MACCS
+Submitted batch job 523036
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=MACCS
+Submitted batch job 523037
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Morgan
+Submitted batch job 523038
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Morgan
+Submitted batch job 523039
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Morgan
+Submitted batch job 523040
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Pattern
+Submitted batch job 523041
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Pattern
+Submitted batch job 523042
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=Pattern
+Submitted batch job 523043
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=RDKit
+Submitted batch job 523044
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=RDKit
+Submitted batch job 523045
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PGC_ERR_Antagonist model=xgb fp=RDKit
+Submitted batch job 523046
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 523047
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 523048
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 523049
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 523050
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 523051
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 523052
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 523053
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 523054
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 523055
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 523056
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 523057
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 523058
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 523059
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 523060
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 523061
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523062
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523063
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523064
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 523065
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 523066
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 523067
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 523068
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 523069
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 523070
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 523071
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 523072
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 523073
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523074
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523075
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 523076
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 523077
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 523078
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 523079
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 523080
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 523081
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 523082
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 523083
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 523084
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 523085
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 523086
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 523087
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 523088
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 523089
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 523090
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 523091
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 523092
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 523093
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 523094
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 523095
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 523096
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 523097
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 523098
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 523099
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 523100
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 523101
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 523102
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 523103
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 523104
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 523105
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 523106
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 523107
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 523108
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 523109
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 523110
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 523111
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 523112
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 523113
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 523114
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 523115
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 523116
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 523117
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 523118
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 523119
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 523120
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 523121
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 523122
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Layered
+Submitted batch job 523123
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 523124
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 523125
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=MACCS
+Submitted batch job 523126
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 523127
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 523128
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Morgan
+Submitted batch job 523129
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 523130
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 523131
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=Pattern
+Submitted batch job 523132
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 523133
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 523134
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=dt fp=RDKit
+Submitted batch job 523135
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523136
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523137
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523138
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 523139
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 523140
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=MACCS
+Submitted batch job 523141
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 523142
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 523143
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Morgan
+Submitted batch job 523144
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 523145
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 523146
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=Pattern
+Submitted batch job 523147
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523148
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523149
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 523150
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 523151
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Layered
+Submitted batch job 523152
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 523153
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 523154
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=MACCS
+Submitted batch job 523155
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 523156
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 523157
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Morgan
+Submitted batch job 523158
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 523159
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 523160
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=Pattern
+Submitted batch job 523161
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 523162
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 523163
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=logistic fp=RDKit
+Submitted batch job 523164
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 523165
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 523166
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Layered
+Submitted batch job 523167
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 523168
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 523169
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=MACCS
+Submitted batch job 523170
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 523171
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 523172
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Morgan
+Submitted batch job 523173
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 523174
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 523175
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=Pattern
+Submitted batch job 523176
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 523177
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 523178
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=rf fp=RDKit
+Submitted batch job 523179
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 523180
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 523181
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Layered
+Submitted batch job 523182
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 523183
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 523184
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=MACCS
+Submitted batch job 523185
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 523186
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 523187
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Morgan
+Submitted batch job 523188
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 523189
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 523190
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=Pattern
+Submitted batch job 523191
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 523192
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 523193
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=xgb fp=RDKit
+Submitted batch job 523194
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Layered
+Submitted batch job 523195
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Layered
+Submitted batch job 523196
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Layered
+Submitted batch job 523197
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=MACCS
+Submitted batch job 523198
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=MACCS
+Submitted batch job 523199
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=MACCS
+Submitted batch job 523200
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Morgan
+Submitted batch job 523201
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Morgan
+Submitted batch job 523202
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Morgan
+Submitted batch job 523203
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Pattern
+Submitted batch job 523204
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Pattern
+Submitted batch job 523205
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=Pattern
+Submitted batch job 523206
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=RDKit
+Submitted batch job 523207
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=RDKit
+Submitted batch job 523208
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=dt fp=RDKit
+Submitted batch job 523209
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Layered
+Submitted batch job 523210
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Layered
+Submitted batch job 523211
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=MACCS
+Submitted batch job 523212
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=MACCS
+Submitted batch job 523213
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=MACCS
+Submitted batch job 523214
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Morgan
+Submitted batch job 523215
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Morgan
+Submitted batch job 523216
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Morgan
+Submitted batch job 523217
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Pattern
+Submitted batch job 523218
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Pattern
+Submitted batch job 523219
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Pattern
+Submitted batch job 523220
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=RDKit
+Submitted batch job 523221
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=RDKit
+Submitted batch job 523222
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Layered
+Submitted batch job 523223
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Layered
+Submitted batch job 523224
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Layered
+Submitted batch job 523225
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=MACCS
+Submitted batch job 523226
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=MACCS
+Submitted batch job 523227
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=MACCS
+Submitted batch job 523228
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Morgan
+Submitted batch job 523229
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Morgan
+Submitted batch job 523230
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Morgan
+Submitted batch job 523231
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Pattern
+Submitted batch job 523232
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Pattern
+Submitted batch job 523233
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=Pattern
+Submitted batch job 523234
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=RDKit
+Submitted batch job 523235
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=RDKit
+Submitted batch job 523236
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=logistic fp=RDKit
+Submitted batch job 523237
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Layered
+Submitted batch job 523238
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Layered
+Submitted batch job 523239
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Layered
+Submitted batch job 523240
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=MACCS
+Submitted batch job 523241
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=MACCS
+Submitted batch job 523242
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=MACCS
+Submitted batch job 523244
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Morgan
+Submitted batch job 523245
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Morgan
+Submitted batch job 523246
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Morgan
+Submitted batch job 523247
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Pattern
+Submitted batch job 523248
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Pattern
+Submitted batch job 523249
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=Pattern
+Submitted batch job 523250
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=RDKit
+Submitted batch job 523251
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=RDKit
+Submitted batch job 523252
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=rf fp=RDKit
+Submitted batch job 523253
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Layered
+Submitted batch job 523254
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Layered
+Submitted batch job 523255
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Layered
+Submitted batch job 523256
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=MACCS
+Submitted batch job 523257
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=MACCS
+Submitted batch job 523258
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=MACCS
+Submitted batch job 523259
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Morgan
+Submitted batch job 523260
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Morgan
+Submitted batch job 523261
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Morgan
+Submitted batch job 523262
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Pattern
+Submitted batch job 523263
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Pattern
+Submitted batch job 523264
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=Pattern
+Submitted batch job 523265
+[SUBMIT] part=gpu1 seed=0 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=RDKit
+Submitted batch job 523266
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=RDKit
+Submitted batch job 523267
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=xgb fp=RDKit
+Submitted batch job 523268
+[DONE] submit loop finished.
+[HINT] backup models: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/backup/seed_*/*/model.joblib
+[HINT] job logs: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/backup/_logs

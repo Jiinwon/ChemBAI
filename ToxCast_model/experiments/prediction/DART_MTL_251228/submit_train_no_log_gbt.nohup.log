@@ -1,0 +1,46 @@
+nohup: ignoring input
+[INFO] tasks file: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/tasks_train_no_log_gbt.tsv
+[INFO] tasks count: 20
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523389
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523390
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Layered
+Submitted batch job 523391
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=RDKit
+Submitted batch job 523392
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Layered
+Submitted batch job 523393
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=RDKit
+Submitted batch job 523394
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Layered
+Submitted batch job 523395
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=RDKit
+Submitted batch job 523396
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523397
+[SUBMIT] part=gpu1 seed=1 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523398
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=Layered
+Submitted batch job 523399
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523400
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=Layered
+Submitted batch job 523401
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_ERa_LUC_VM7_Agonist_10nM_ICI182780 model=gbt fp=RDKit
+Submitted batch job 523402
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=Layered
+Submitted batch job 523403
+[SUBMIT] part=gpu1 seed=2 assay=TOX21_p53_BLA_p2_ratio model=gbt fp=RDKit
+Submitted batch job 523404
+[SUBMIT] part=gpu6 seed=2 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=Layered
+Submitted batch job 523405
+[SUBMIT] part=gpu6 seed=2 assay=TOX21_PGC_ERR_Antagonist model=gbt fp=RDKit
+Submitted batch job 523422
+[SUBMIT] part=gpu6 seed=2 assay=TOX21_ERb_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523423
+[SUBMIT] part=gpu6 seed=2 assay=TOX21_PR_BLA_Antagonist_ratio model=gbt fp=RDKit
+Submitted batch job 523424
+[DONE] submit loop finished.
+[HINT] backup models: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/backup/seed_*/*/model.joblib
+[HINT] job logs: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/backup/_logs_no_log_train

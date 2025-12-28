@@ -1,0 +1,37 @@
+nohup: ignoring input
+[INFO] input_xlsx      = /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/seed1val.xlsx
+[INFO] train_seeddir   = /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/seed_1
+[INFO] backup_seeddir  = /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/training/DART_MTL/results/backup/seed_1
+[INFO] results_root    = /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results
+[INFO] fp_dir          = /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/fingerprints
+[INFO] score_xlsx      = /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/score_seed1val.xlsx
+[INFO] threshold       = 0.5
+[INFO] rebuild_fps     = False
+[INFO] fp_mem_dtype    = float32
+[OK] combo=dt_MACCS | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/dt_MACCS/seed1val_dt_MACCS.xlsx
+[OK] combo=dt_Morgan | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/dt_Morgan/seed1val_dt_Morgan.xlsx
+[OK] combo=dt_RDKit | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/dt_RDKit/seed1val_dt_RDKit.xlsx
+[OK] combo=dt_Pattern | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/dt_Pattern/seed1val_dt_Pattern.xlsx
+[OK] combo=dt_Layered | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/dt_Layered/seed1val_dt_Layered.xlsx
+[OK] combo=rf_MACCS | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/rf_MACCS/seed1val_rf_MACCS.xlsx
+[OK] combo=rf_Morgan | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/rf_Morgan/seed1val_rf_Morgan.xlsx
+[OK] combo=rf_RDKit | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/rf_RDKit/seed1val_rf_RDKit.xlsx
+[OK] combo=rf_Pattern | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/rf_Pattern/seed1val_rf_Pattern.xlsx
+[OK] combo=rf_Layered | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/rf_Layered/seed1val_rf_Layered.xlsx
+[OK] combo=xgb_MACCS | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/xgb_MACCS/seed1val_xgb_MACCS.xlsx
+[OK] combo=xgb_Morgan | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/xgb_Morgan/seed1val_xgb_Morgan.xlsx
+[OK] combo=xgb_RDKit | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/xgb_RDKit/seed1val_xgb_RDKit.xlsx
+[OK] combo=xgb_Pattern | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/xgb_Pattern/seed1val_xgb_Pattern.xlsx
+[OK] combo=xgb_Layered | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/xgb_Layered/seed1val_xgb_Layered.xlsx
+[OK] combo=gbt_MACCS | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/gbt_MACCS/seed1val_gbt_MACCS.xlsx
+[OK] combo=gbt_Morgan | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/gbt_Morgan/seed1val_gbt_Morgan.xlsx
+[OK] combo=gbt_RDKit | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/gbt_RDKit/seed1val_gbt_RDKit.xlsx
+[OK] combo=gbt_Pattern | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/gbt_Pattern/seed1val_gbt_Pattern.xlsx
+[OK] combo=gbt_Layered | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/gbt_Layered/seed1val_gbt_Layered.xlsx
+[OK] combo=logistic_MACCS | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/logistic_MACCS/seed1val_logistic_MACCS.xlsx
+[OK] combo=logistic_Morgan | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/logistic_Morgan/seed1val_logistic_Morgan.xlsx
+[OK] combo=logistic_RDKit | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/logistic_RDKit/seed1val_logistic_RDKit.xlsx
+[OK] combo=logistic_Pattern | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/logistic_Pattern/seed1val_logistic_Pattern.xlsx
+[OK] combo=logistic_Layered | missing_models=0 -> /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/results/logistic_Layered/seed1val_logistic_Layered.xlsx
+
+[SAVED] score file: /home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228/DART_MTL_seed1val/score_seed1val.xlsx
