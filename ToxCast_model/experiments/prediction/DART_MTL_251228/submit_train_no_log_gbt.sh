@@ -24,8 +24,6 @@ PARTITIONS=(gpu1 gpu6 gpu4 gpu2 gpu3 gpu5)
 
 # 대상 조합(네가 준 리스트)
 COMBOS=(
-  "TOX21_ERb_BLA_Antagonist_ratio_gbt_Layered"
-  "TOX21_PR_BLA_Antagonist_ratio_gbt_Layered"
   "TOX21_ERa_BLA_Antagonist_ratio_gbt_Pattern"
   "TOX21_p53_BLA_p2_ratio_gbt_Pattern"
   "TOX21_PGC_ERR_Antagonist_gbt_Pattern"
@@ -87,7 +85,7 @@ for seed in "${SEEDS[@]}"; do
 
     # gbt만 의도된 케이스
     [[ "${model}" == "gbt" ]] || continue
-    [[ "${fp}" == "Layered" || "${fp}" == "RDKit" ]] || continue
+    [[ "${fp}" == "Pattern" ]] || continue
 
     # FP 파일 존재 체크(없으면 학습 불가)
     if [[ ! -s "${fp_dir}/${fp}.csv" ]]; then

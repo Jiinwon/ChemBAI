@@ -1,0 +1,10 @@
+nohup: ignoring input
+[2025-12-29 00:56:02] [START] hourly loop begin (BASE_DIR=/home1/won0316/_RESEARCH/0817_Genotoxicity/1_Git_upload/ChemBAI/ToxCast_model/experiments/prediction/DART_MTL_251228)
+[2025-12-29 00:56:02] [CYCLE] start
+[2025-12-29 00:56:02] [PRED] seed=0 split=train
+[2025-12-29 00:56:03] [PRED] seed=0 split=val
+[2025-12-29 00:56:04] [PRED] seed=1 split=train
+[2025-12-29 00:56:05] [PRED] seed=1 split=val
+[2025-12-29 00:56:06] [PRED] seed=2 split=train
+[2025-12-29 00:56:07] [PRED] seed=2 split=val
+[2025-12-29 00:56:08] [WAIT] 600s

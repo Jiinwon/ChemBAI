@@ -115,7 +115,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--seed", type=int, required=True)
     ap.add_argument("--assay", type=str, required=True)
-    ap.add_argument("--fp", type=str, required=True, choices=["Layered", "RDKit"])
+    ap.add_argument("--fp", type=str, required=True, choices=["Layered", "RDKit", "Pattern"])
     ap.add_argument("--train_csv", type=str, required=True)
     ap.add_argument("--fp_dir", type=str, required=True)
     ap.add_argument("--out", type=str, required=True)
